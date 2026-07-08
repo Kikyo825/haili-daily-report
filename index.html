@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报存档</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; background:#f1f5f9; color:#1e293b; }
+.header { background:linear-gradient(135deg,#3b82f6,#6366f1,#8b5cf6); color:#fff; padding:40px 20px; text-align:center; }
+.header .tag { display:inline-block; background:rgba(255,255,255,.2); padding:4px 14px; border-radius:20px; font-size:12px; letter-spacing:2px; margin-bottom:12px; }
+.header h1 { font-size:28px; font-weight:700; }
+.header p { margin-top:8px; opacity:.8; font-size:14px; }
+.container { max-width:720px; margin:30px auto; padding:0 16px; }
+.list-item { background:#fff; border-radius:12px; padding:16px 20px; margin-bottom:12px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 1px 3px rgba(0,0,0,.06); text-decoration:none; color:#1e293b; transition:transform .15s; }
+.list-item:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.1); }
+.list-item .date { font-weight:600; font-size:16px; }
+.list-item .weekday { color:#64748b; font-size:13px; margin-left:8px; }
+.list-item .arrow { color:#94a3b8; font-size:18px; }
+</style>
+</head>
+<body>
+<div class="header">
+<div class="tag">DAILY BRIEFING ARCHIVE</div>
+<h1>海骊住居 · 行业日报</h1>
+<p>每日精选行业要闻 · 自动更新</p>
+</div>
+<div class="container" id="list">
+</div>
+<script>
+// 自动扫描目录中的所有日期文件
+const dates = [];
+const today = new Date();
+for (let i = 0; i < 365; i++) {
+  const d = new Date(today);
+  d.setDate(d.getDate() - i);
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2,'0');
+  const day = String(d.getDate()).padStart(2,'0');
+  dates.push(y+'-'+m+'-'+day);
+}
+const weekdays = ['日','一','二','三','四','五','六'];
+const container = document.getElementById('list');
+dates.forEach(dateStr => {
+  const d = new Date(dateStr);
+  const wd = weekdays[d.getDay()];
+  const link = document.createElement('a');
+  link.href = dateStr + '.html';
+  link.className = 'list-item';
+  link.innerHTML = '<div><span class="date">'+dateStr+'</span><span class="weekday">周'+wd+'</span></div><span class="arrow">›</span>';
+  container.appendChild(link);
+});
+</script>
+</body>
+</html>
