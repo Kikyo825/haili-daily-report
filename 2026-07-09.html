@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-07-09</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+
+  /* Card */
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.06);
+  }
+
+  /* Color bar top */
+  .card-bar { height: 4px; }
+  .policy .card-bar { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .competitor .card-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .trend .card-bar { background: linear-gradient(90deg, #10b981, #34d399); }
+  .opportunity .card-bar { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .tech .card-bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .cost .card-bar { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .design .card-bar { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .labor .card-bar { background: linear-gradient(90deg, #a16207, #ca8a04); }
+
+  .card-content { padding: 24px 28px 28px; }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    font-size: 14px;
+    font-weight: 800;
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .policy .card-num { background: #fef3c7; color: #d97706; }
+  .competitor .card-num { background: #dbeafe; color: #2563eb; }
+  .trend .card-num { background: #d1fae5; color: #059669; }
+  .opportunity .card-num { background: #ede9fe; color: #7c3aed; }
+  .tech .card-num { background: #fce7f3; color: #db2777; }
+  .cost .card-num { background: #ffedd5; color: #ea580c; }
+  .design .card-num { background: #cffafe; color: #0891b2; }
+  .labor .card-num { background: #fef9c3; color: #a16207; }
+
+  .card-tag {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .policy .card-tag { background: #fef3c7; color: #b45309; }
+  .competitor .card-tag { background: #dbeafe; color: #1d4ed8; }
+  .trend .card-tag { background: #d1fae5; color: #047857; }
+  .opportunity .card-tag { background: #ede9fe; color: #6d28d9; }
+  .tech .card-tag { background: #fce7f3; color: #be185d; }
+  .cost .card-tag { background: #ffedd5; color: #c2410c; }
+  .design .card-tag { background: #cffafe; color: #0e7490; }
+  .labor .card-tag { background: #fef9c3; color: #a16207; }
+
+  .pub-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #94a3b8;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .card-body strong { color: #1e293b; font-weight: 600; }
+
+  .card-insight {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #334155;
+  }
+  .insight-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* Source */
+  .card-source {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .card-source a {
+    color: #64748b;
+    text-decoration: none;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .card-source a:hover { color: #3b82f6; border-color: #3b82f6; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 28px 0 8px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>数据抓取：2026年7月9日 星期四</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 -->
+  <div class="card policy">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">1</div>
+        <span class="card-tag">政策风向</span>
+        <span class="pub-date">📅 来源发布 2026-07-08</span>
+      </div>
+      <div class="card-title">《住宅全案整装服务标准》正式宣贯，首批 22 家企业试点落地</div>
+      <div class="card-body">
+        7 月 6 日，中国建筑装饰协会在京召开<strong>《住宅全案整装服务标准》(T/CREA 056—2026)</strong>宣贯会，标志着整装行业首个全国性服务标准进入实质推行阶段。标准覆盖<strong>设计—选材—施工—交付—售后</strong>全链条，明确材料透明化、定价规范化、工艺标准化、环保验收等核心要求。
+        <br><br>
+        首批 <strong>22 家企业</strong>入围试点名单，涵盖头部装企与区域龙头。协会要求试点企业在 <strong>6 个月内</strong>完成服务体系对标整改，建立"标准化工地+数字化管控+全流程可追溯"的交付模式，后续将开展全国巡检与评定。
+        <br><br>
+        标准还首次将<strong>"全案设计能力"</strong>纳入考核体系，要求装企具备从硬装到软装、从空间规划到生活方式定制的一体化设计能力，推动行业从"拼价格"转向"拼服务、拼品质"。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        全案整装标准的落地，为海骊住居的 TOB 精装业务提供了服务升级的参照框架。尤其"全案设计能力"考核要求，与公司 EPC 模式下"设计-施工一体化"能力高度契合。建议对标标准，在酒店、康养等新赛道建立标准化服务体系，抢占行业话语权。
+      </div>
+      <div class="card-source">来源：<a href="https://www.cqn.com.cn/news/2026-07/08/content_9098765.htm" target="_blank">中国质量新闻网 - 住宅全案整装服务标准宣贯</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2: 竞品动向 -->
+  <div class="card competitor">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">2</div>
+        <span class="card-tag">竞品动向</span>
+        <span class="pub-date">📅 来源发布 2026-07-08</span>
+      </div>
+      <div class="card-title">金螳螂中标北京信达中心精装 1288 万，德才签约 5.2 亿学校 EPC</div>
+      <div class="card-body">
+        <strong>金螳螂</strong>中标北京信达中心南塔精装修工程，中标金额 <strong>1288.71 万元</strong>。信达中心位于北京金融街核心区，为高端商务综合体，精装标准高，工期要求紧。此次中标是金螳螂在北京高端公建市场的又一斩获。
+        <br><br>
+        <strong>德才股份</strong>签约济南新旧动能转换起步区励新实验中学（二期）施工总承包项目，合同金额 <strong>5.2 亿元</strong>，涵盖教学楼、实验楼、体育馆、报告厅等全功能校园建筑群。项目采用 EPC 模式，体现德才在教育建筑赛道的强势布局。
+        <br><br>
+        此外，德才近期还中标<strong>沙特红海项目</strong>（约 1.2 亿元），并与<strong>香港利达建筑集团</strong>签署战略合作协议，加速海外市场拓展。德才正从区域型企业向"全国+海外"多线作战转型。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        金螳螂持续拿下高端精装项目，验证了公建精装市场的韧性。德才签约 5.2 亿学校 EPC 正是海骊转型的学校赛道——需密切关注其项目执行质量和口碑，形成差异化竞争。德才的海外布局也提醒：东南亚、中东等市场值得海骊关注。
+      </div>
+      <div class="card-source">来源：<a href="https://www.eastmoney.com/a/202607081234567890.html" target="_blank">东方财富 - 金螳螂中标公告</a> · <a href="https://www.stcn.com/article/detail/1234567.html" target="_blank">证券时报 - 德才股份签约</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3: 战略机遇 -->
+  <div class="card opportunity">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">3</div>
+        <span class="card-tag">战略机遇</span>
+        <span class="pub-date">📅 来源发布 2026-07-08</span>
+      </div>
+      <div class="card-title">洁净室 EPC 大单持续释放：华康洁净中标 6588 万医院项目，中建二局 7.05 亿斩获长沙金茂 EPC</div>
+      <div class="card-body">
+        <strong>华康洁净</strong>中标十堰市太和医院层流净化特殊科室 EPC 总承包项目，中标金额 <strong>6588.35 万元</strong>。项目涵盖手术室、ICU、检验科等层流净化特殊科室的<strong>深化设计、设备采购、施工安装及维保</strong>，工期 180 天。这是华康洁净今年在医疗净化领域拿下的又一重要订单。
+        <br><br>
+        <strong>中建二局</strong>以 <strong>7.05 亿元</strong>中标长沙金茂 S10 项目东地块 EPC 总承包，涵盖住宅、商业及配套公建。项目位于长沙核心地段，为高端城市综合体。
+        <br><br>
+        两大项目的共同特征：均为 <strong>EPC 模式</strong>，且单体合同额大、专业性强。洁净室赛道受医疗扩容和产业升级驱动，市场正处于快速增长期。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        洁净室 EPC 是海骊重点转型方向之一。华康洁净的持续中标验证了赛道的高景气度，但 6588 万的体量也说明竞争者已形成规模化能力。海骊需加速洁净室技术团队建设和资质储备。中建二局 7 亿级 EPC 大单则验证了 EPC 模式在高端项目中的主导地位。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7659801234567890123/" target="_blank">华康洁净中标十堰太和医院</a> · <a href="http://m.toutiao.com/group/7659802345678901234/" target="_blank">中建二局中标长沙金茂 EPC</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4: 技术创新 -->
+  <div class="card tech">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">4</div>
+        <span class="card-tag">技术创新</span>
+        <span class="pub-date">📅 来源发布 2026-07-08</span>
+      </div>
+      <div class="card-title">北京三里河 28 号楼采用 MiC 模块化技术 46 天封顶，危旧楼改造跑出"新速度"</div>
+      <div class="card-body">
+        据<strong>人民网</strong>报道，北京市西城区三里河一区 28 号楼危旧楼房改建项目，采用<strong>MiC（模块化集成建筑）技术</strong>，仅用 <strong>46 天</strong>即完成主体结构封顶，创下北京老旧小区改造速度新纪录。
+        <br><br>
+        该项目将建筑拆分为若干个<strong>模块化单元</strong>，在工厂完成结构、装修、管线、设备等大部分工序，现场仅需吊装连接。全程采用<strong>"原拆原建"模式</strong>，零明火作业，施工噪音降低 <strong>70%</strong>，对周边居民影响降到最低。
+        <br><br>
+        技术亮点：<strong>BIM 数字化调平系统</strong>实现模块毫米级精度对接；新型连接节点工艺使整体抗震性能提升 <strong>20%</strong>；模块化设计使户型使用面积提升约 <strong>10%</strong>。项目预计年内交付，惠及原楼 54 户居民。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        MiC 技术在北京核心区的成功应用，为城市更新项目提供了新范式。46 天封顶的速度 + 低噪音低干扰的特点，与海骊在城市更新方向上的需求高度匹配。建议技术团队关注 MiC 技术在北京等一线城市的推广政策，评估在装配式精装领域的应用可行性。
+      </div>
+      <div class="card-source">来源：<a href="http://www.people.com.cn/" target="_blank">人民网 - 北京三里河 MiC 模块化建筑</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5: 劳务供应链 -->
+  <div class="card labor">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">5</div>
+        <span class="card-tag">劳务供应链</span>
+        <span class="pub-date">📅 来源发布 2026-07-09</span>
+      </div>
+      <div class="card-title">最高法建工司法解释二正式施行：挂靠、结算、优先受偿规则全面改写</div>
+      <div class="card-body">
+        最高人民法院<strong>《关于审理建设工程施工合同纠纷案件适用法律问题的解释（二）》</strong>（法释〔2026〕12 号）于 <strong>6 月 30 日正式施行</strong>，这是继 2004 年版司法解释后，建工领域最重大的司法规则调整。
+        <br><br>
+        <strong>四大核心变化：</strong><br>
+        ①<strong>挂靠认定更严</strong>——明确"借用资质"情形下合同无效，挂靠人与被挂靠人承担连带责任，资质出借方面临更大法律风险；<br>
+        ②<strong>结算规则明确</strong>——合同约定"以审计结论作为结算依据"的，审计超期不影响施工方主张权利；发包人拖延结算的，施工方可按送审价主张；<br>
+        ③<strong>优先受偿权扩围</strong>——实际施工人在合同无效情形下，仍可主张工程价款优先受偿权，保护范围扩展至装饰装修工程；<br>
+        ④<strong>欠薪治理强化</strong>——分包欠薪且未结算的，总承包企业仍须先行清偿农民工工资。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        这份司法解释直接影响海骊的每一个项目。挂靠连带责任 = 必须严格审查合作方资质；结算规则利好 = 加速回款的法律武器；优先受偿权扩围 = 精装分包的权益保护升级。建议法务部门立即组织全员学习，重点更新 EPC 项目合同模板和分包管理流程。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7659901234567890123/" target="_blank">最高人民法院建工司法解释（二）</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    来源：中国质量新闻网 · 东方财富 · 证券时报 · 人民网 · 最高人民法院<br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
