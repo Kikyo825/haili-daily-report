@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-07-10</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+
+  /* Card */
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.06);
+  }
+
+  /* Color bar top */
+  .card-bar { height: 4px; }
+  .policy .card-bar { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .competitor .card-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .trend .card-bar { background: linear-gradient(90deg, #10b981, #34d399); }
+  .opportunity .card-bar { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .tech .card-bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .cost .card-bar { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .design .card-bar { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .labor .card-bar { background: linear-gradient(90deg, #a16207, #ca8a04); }
+
+  .card-content { padding: 24px 28px 28px; }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    font-size: 14px;
+    font-weight: 800;
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .policy .card-num { background: #fef3c7; color: #d97706; }
+  .competitor .card-num { background: #dbeafe; color: #2563eb; }
+  .trend .card-num { background: #d1fae5; color: #059669; }
+  .opportunity .card-num { background: #ede9fe; color: #7c3aed; }
+  .tech .card-num { background: #fce7f3; color: #db2777; }
+  .cost .card-num { background: #ffedd5; color: #ea580c; }
+  .design .card-num { background: #cffafe; color: #0891b2; }
+  .labor .card-num { background: #fef9c3; color: #a16207; }
+
+  .card-tag {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .policy .card-tag { background: #fef3c7; color: #b45309; }
+  .competitor .card-tag { background: #dbeafe; color: #1d4ed8; }
+  .trend .card-tag { background: #d1fae5; color: #047857; }
+  .opportunity .card-tag { background: #ede9fe; color: #6d28d9; }
+  .tech .card-tag { background: #fce7f3; color: #be185d; }
+  .cost .card-tag { background: #ffedd5; color: #c2410c; }
+  .design .card-tag { background: #cffafe; color: #0e7490; }
+  .labor .card-tag { background: #fef9c3; color: #a16207; }
+
+  .pub-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #94a3b8;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .card-body strong { color: #1e293b; font-weight: 600; }
+
+  .card-insight {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #334155;
+  }
+  .insight-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* Source */
+  .card-source {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .card-source a {
+    color: #64748b;
+    text-decoration: none;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .card-source a:hover { color: #3b82f6; border-color: #3b82f6; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 28px 0 8px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>数据抓取：2026年7月10日 星期五</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 -->
+  <div class="card policy">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">1</div>
+        <span class="card-tag">政策风向</span>
+        <span class="pub-date">📅 来源发布 2026-07-09</span>
+      </div>
+      <div class="card-title">"装配式建造"迎来城市更新万亿级风口，"十五五"期间将大规模落地</div>
+      <div class="card-body">
+        据<strong>新华网</strong>7月9日报道，国务院5月印发的《城市更新"十五五"规划》明确提出"发展智能建造""推广装配式装修""提升装配式装修应用比例"等目标，未来5年装配式建造方式将进入加速推进的快车道。
+        <br><br>
+        <strong>城市更新市场空间巨大</strong>："十五五"期间，城镇老旧小区改造、老旧街区改造、老旧厂房改造等城市更新重点任务涉及直接投资规模巨大，将带动<strong>数十万亿元</strong>的投资和消费，为装配式建筑和装配式装修提供广阔应用场景。
+        <br><br>
+        <strong>模块化集成建筑（MiC）成为新方向</strong>：中建海龙总工程师王琼指出，装配式建筑已从"预制构件"迈入"模块化集成建筑"阶段。以北京西城区三里河一区28号楼为例，用<strong>156个混凝土模块、46天</strong>完成结构封顶，较传统方式缩短75%工期。上海徐汇区田林路65弄项目则实现结构、机电、装修的一体化集成，1044户回迁居民入住精装新房。
+        <br><br>
+        <strong>政策建议</strong>：万华生态建议将装配式装修纳入"以旧换新"补贴体系；华耐家居预判中国装配式装修市场规模过去十年每年保持快速增长，未来空间广阔。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        城市更新+装配式装修是海骊住居的重要机遇赛道。数十万亿市场规模的背后，是对短工期、低干扰、高品质装修的刚性需求。海骊在公建批量精装领域积累的能力，与装配式装修标准化、快速交付特性高度契合。建议加速布局城市更新项目，储备装配式技术团队。
+      </div>
+      <div class="card-source">来源：<a href="https://news.ifeng.com/c/8ucHfYZAq8q" target="_blank">新华网 - 装配式建造迎来城市更新万亿级风口</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2: 政策风向 -->
+  <div class="card policy">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">2</div>
+        <span class="card-tag">政策风向</span>
+        <span class="pub-date">📅 来源发布 2026-07-09</span>
+      </div>
+      <div class="card-title">人居产业聚焦存量市场五大关键词：金融支持、存量空间、绿色低碳、智慧社区、全龄友好</div>
+      <div class="card-body">
+        据<strong>新华网</strong>7月9日报道，北京国家会计学院金融研究所所长黄波涛在中国建博会（广州）论坛上表示，存量更新、品质提升、长期运营和民生改善，将成为人居产业绕不开的关键词。
+        <br><br>
+        <strong>①金融支持</strong>：2026年中央预算内投资城市更新专项资金近<strong>970亿元</strong>，支持城镇老旧小区改造、危旧房改造等。符合条件项目还可使用专项债、REITs、资产证券化等工具。
+        <br><br>
+        <strong>②存量空间</strong>：企业要带着"场景包"介入——厨卫焕新包、节能舒适包、适老化改造包、公共空间包，把产品嵌入真实生活痛点。
+        <br><br>
+        <strong>③绿色低碳</strong>：要算清准入账、节能账、生命周期账。门窗、新风、热泵、光伏等组合节能方案成主流。
+        <br><br>
+        <strong>④智慧社区</strong>：做到"四层联动"——家庭层（安防、漏气报警）、楼栋层（电梯、消防）、小区层（物业、托育）、城市层（CIM平台）。
+        <br><br>
+        <strong>⑤全龄友好</strong>：老年人需防滑、无门槛；儿童要安全材料、圆角设计；年轻家庭要灵活收纳、低维护成本。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        五大关键词直接指向海骊住居的转型方向。适老化改造（康养赛道）、节能舒适包（绿色装修）、全龄友好设计等，与公司战略高度吻合。970亿专项资金+REITs等金融工具的运用，意味着城市更新项目资金来源有保障。建议紧盯政策窗口，储备适老化、节能型精装产品包。
+      </div>
+      <div class="card-source">来源：<a href="http://www.xinhuanet.com/house/20260709/17f55a0403e04dcfb757be4ae531c245/c.html" target="_blank">新华网 - 人居产业聚焦存量市场新需求</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3: 政策风向 -->
+  <div class="card policy">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">3</div>
+        <span class="card-tag">政策风向</span>
+        <span class="pub-date">📅 来源发布 2026-07-09</span>
+      </div>
+      <div class="card-title">北京出台商业升级补贴政策：传统商业装修最高可获500万元</div>
+      <div class="card-body">
+        据<strong>北青热点</strong>7月9日报道，北京市正式发布《关于征集2026年支持商场、商街、商圈品质提升项目的通知》，为符合条件的商业企业送上"真金白银"政策大礼包。
+        <br><br>
+        <strong>三大支持方向：</strong><br>
+        ①<strong>商业企业升级改造</strong>：外立面改造、店内装修、无障碍设施及配套设施升级，补助比例不超过审定实际支出资金的<strong>10%</strong>，单个项目最高<strong>500万元</strong>；<br>
+        ②<strong>商业步行街高质量发展</strong>：更新提升型商业步行街最高奖励<strong>200万元</strong>，新增培育型商业步行街最高<strong>400万元</strong>；<br>
+        ③<strong>文商旅体展多元消费融合</strong>：融合发展商圈和商场评定达90分以上给予奖励。
+        <br><br>
+        政策采取"达标即享"原则，依据相关评价指标体系直接兑现补贴。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        北京商业装修补贴政策释放重要信号：存量商业改造将成为扩内需的重要抓手。对于专注公建精装的的海骊而言，参与商场、商街改造项目是新的业务机会。500万补贴可降低业主装修成本，提升项目启动意愿，建议关注北京核心商圈改造项目招标信息。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7660347334680756751/" target="_blank">北青热点 - 北京商场商街商圈品质提升补贴</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4: 技术创新 -->
+  <div class="card tech">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">4</div>
+        <span class="card-tag">技术创新</span>
+        <span class="pub-date">📅 来源发布 2026-07-09</span>
+      </div>
+      <div class="card-title">电泳快装龙骨技术：免焊接防腐、施工效率提升一倍以上</div>
+      <div class="card-body">
+        据<strong>搜狐家居</strong>7月9日报道，电泳快装龙骨技术正成为装配式建材领域的创新方向。该产品采用<strong>电泳整体防腐工艺</strong>与<strong>模块化卡扣结构</strong>，实现施工现场免焊接、免刷防锈，同时大幅提升施工效率。
+        <br><br>
+        <strong>技术核心：</strong><br>
+        ①<strong>电泳防腐</strong>：工厂环境下通过电泳槽浸渍，在金属表面形成纳米级致密环氧树脂涂层，优质产品可承受<strong>3000小时盐雾试验</strong>无红锈，远超传统防锈处理标准；<br>
+        ②<strong>模块化卡扣结构</strong>：预制连接件实现现场快速组装，无需专业焊接技能，节省<strong>50%以上施工时间</strong>；<br>
+        ③<strong>精准厚度控制</strong>：采用1.0mm厚度材料，拉伸后公差控制在±0.05mm范围内。
+        <br><br>
+        <strong>应用场景</strong>：工装项目、高端家装无主灯吊顶、大跨度吊顶结构、商业空间改造等。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        电泳快装龙骨的"免焊接"特性可直接提升公建精装项目的施工效率，尤其适合工期紧张的商业项目。3000小时盐雾试验的防腐标准，对沿海地区项目或潮湿环境具有重要意义。建议采购部门评估引入，优先测试高端酒店、洁净室等对品质要求高的项目场景。
+      </div>
+      <div class="card-source">来源：<a href="https://m.sohu.com/a/1047849734_122920689/" target="_blank">搜狐家居 - 电泳快装龙骨技术解析</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5: 技术创新 -->
+  <div class="card tech">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">5</div>
+        <span class="card-tag">技术创新</span>
+        <span class="pub-date">📅 来源发布 2026-07-09</span>
+      </div>
+      <div class="card-title">浙建科创园装配式干法装修实践：近零能耗+工期优化的工业化路径</div>
+      <div class="card-body">
+        据<strong>潮新闻</strong>7月9日报道，位于杭州三墩的浙江省"千项万亿"工程重大产业项目——浙建科创园历时一年零七个月正式完工，全面落实新型建筑工业化与低碳建造要求。
+        <br><br>
+        <strong>装配式工艺亮点：</strong><br>
+        ①<strong>室内外一体成型铝板</strong>：统一板材基材、氟碳喷涂色系、模数加工，实现室内外饰面自然衔接，减少工序交叉作业；<br>
+        ②<strong>干式装配式装修体系</strong>：适配近零能耗绿色建造标准，采用8mm厚<strong>WPC石晶墙板</strong>（零甲醛、防潮防霉），超高空间定制6300mm×900mm超长尺寸墙板；<br>
+        ③<strong>覆膜锌合金钢板</strong>：应用于电梯厅，抗冲击、耐用，配合标准化模数加工与无缝拼接工艺。
+        <br><br>
+        项目幕墙面积近<strong>7万平方米</strong>，涵盖复合铝板幕墙与Low-E中空钢化玻璃幕墙系统，兼顾高透光与低辐射性能，有效降低建筑运行能耗。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        浙建科创园是装配式干法装修在近零能耗公建项目中的成功案例。WPC石晶墙板、覆膜锌合金钢板等新材料的应用，兼顾环保与耐用性，对海骊的酒店、学校等高端公建项目具有参考价值。近零能耗标准已成趋势，建议技术团队建立装配式新材料库。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7660514555423932963/" target="_blank">潮新闻 - 浙建科创园装配式工艺实践</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    来源：新华网 · 北青热点 · 搜狐家居 · 潮新闻<br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
