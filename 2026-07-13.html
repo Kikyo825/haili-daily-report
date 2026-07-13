@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-07-13</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+
+  /* Card */
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.06);
+  }
+
+  /* Color bar top */
+  .card-bar { height: 4px; }
+  .policy .card-bar { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .competitor .card-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .trend .card-bar { background: linear-gradient(90deg, #10b981, #34d399); }
+  .opportunity .card-bar { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .tech .card-bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .cost .card-bar { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .design .card-bar { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .labor .card-bar { background: linear-gradient(90deg, #a16207, #ca8a04); }
+
+  .card-content { padding: 24px 28px 28px; }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    font-size: 14px;
+    font-weight: 800;
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .policy .card-num { background: #fef3c7; color: #d97706; }
+  .competitor .card-num { background: #dbeafe; color: #2563eb; }
+  .trend .card-num { background: #d1fae5; color: #059669; }
+  .opportunity .card-num { background: #ede9fe; color: #7c3aed; }
+  .tech .card-num { background: #fce7f3; color: #db2777; }
+  .cost .card-num { background: #ffedd5; color: #ea580c; }
+  .design .card-num { background: #cffafe; color: #0891b2; }
+  .labor .card-num { background: #fef9c3; color: #a16207; }
+
+  .card-tag {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .policy .card-tag { background: #fef3c7; color: #b45309; }
+  .competitor .card-tag { background: #dbeafe; color: #1d4ed8; }
+  .trend .card-tag { background: #d1fae5; color: #047857; }
+  .opportunity .card-tag { background: #ede9fe; color: #6d28d9; }
+  .tech .card-tag { background: #fce7f3; color: #be185d; }
+  .cost .card-tag { background: #ffedd5; color: #c2410c; }
+  .design .card-tag { background: #cffafe; color: #0e7490; }
+  .labor .card-tag { background: #fef9c3; color: #a16207; }
+
+  .pub-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #94a3b8;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .card-body strong { color: #1e293b; font-weight: 600; }
+
+  .card-insight {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #334155;
+  }
+  .insight-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* Source */
+  .card-source {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .card-source a {
+    color: #64748b;
+    text-decoration: none;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .card-source a:hover { color: #3b82f6; border-color: #3b82f6; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 28px 0 8px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>数据抓取：2026年7月13日 星期一</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 竞品动向 -->
+  <div class="card competitor">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">1</div>
+        <span class="card-tag">竞品动向</span>
+        <span class="pub-date">📅 来源发布 2026-07-12</span>
+      </div>
+      <div class="card-title">亚厦股份密集中标：华泰证券深圳前海总部大楼精装修、融通旅业多地改造项目</div>
+      <div class="card-body">
+        据<strong>证券之星</strong>7月12日报道，亚厦股份近期密集斩获新项目：
+        <br><br>
+        <strong>华泰联合证券深圳前海总部大楼</strong>：中标精装修样板展示服务（标段一），项目位于深圳前海核心区，为高端金融商务综合体。亚厦同时还中了标段二的精装修样板展示服务。
+        <br><br>
+        <strong>融通旅业集团多地改造项目</strong>：中标北戴河驼峰路1号、清水湾9号、三亚湾路182号改造项目设计服务，项目涵盖酒店、度假村等文旅业态。
+        <br><br>
+        <strong>风险提示</strong>：亚厦幕墙公司近期新增多条被执行人信息（累计执行标的超百万元），7月14日将有<strong>3起劳务/买卖合同纠纷诉讼</strong>开庭，需关注其经营风险。
+        <br><br>
+        <strong>资金动态</strong>：亚厦近5日融资净买入约400万元，连续多日获资金关注，显示资本市场对其基本面有一定信心。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        亚厦持续拿下金融、酒店类高端精装修项目，验证了其在公建市场的竞争力。融通旅业改造项目涉及文旅康养赛道，与海骊转型方向重叠，需重点关注。亚厦被执行人风险和诉讼问题说明行业回款压力仍在，但不影响其持续投标能力。
+      </div>
+      <div class="card-source">来源：<a href="http://news.stockstar.com/info/dstock_002375.shtml" target="_blank">证券之星 - 亚厦股份动态</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2: 战略机遇 -->
+  <div class="card opportunity">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">2</div>
+        <span class="card-tag">战略机遇</span>
+        <span class="pub-date">📅 来源发布 2026-07-13</span>
+      </div>
+      <div class="card-title">康养EPC大单密集释放：山东肥城9.85亿、柬埔寨1.8亿、河南1.8亿</div>
+      <div class="card-body">
+        据<strong>中项网</strong>7月12-13日报道，康养赛道EPC项目迎来新一轮密集释放：
+        <br><br>
+        <strong>山东肥城桃花源康养项目</strong>（第二标段）：资金<strong>9.85亿元</strong>已到位，目前处于施工准备阶段，预计2026年三季度完工。项目涵盖康复中心、医疗配套等设施。
+        <br><br>
+        <strong>河南国际康养公寓EPC总承包</strong>：资金<strong>1.8亿元</strong>正在落实，目前处于施工图设计阶段，预计2026年一季度开工、2028年一季度完工。
+        <br><br>
+        <strong>广西贵港市康养服务中心</strong>：<strong>7311万元</strong>政府投资打造区域医养新标杆，目前处于施工图设计阶段。
+        <br><br>
+        此外，华北康养东庞医院康养综合体改造项目也在推进中，涵盖设计、施工、造价咨询等全过程服务。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        康养EPC大单的密集释放，验证了"十五五"期间医疗康养设施建设的提速趋势。山东肥城9.85亿大体量项目资金已到位，意味着甲方支付能力有保障，对海骊而言是布局康养赛道的重大机遇。建议重点跟踪山东及华北区域的康养项目招标信息。
+      </div>
+      <div class="card-source">来源：<a href="https://m.ccpc360.com/nzjxm1974828.html" target="_blank">中项网 - 山东康养EPC项目</a> · <a href="https://m.ccpc360.com/nzjxm2030767.html" target="_blank">中项网 - 河南康养公寓</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3: 技术创新 -->
+  <div class="card tech">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">3</div>
+        <span class="card-tag">技术创新</span>
+        <span class="pub-date">📅 来源发布 2026-07-12</span>
+      </div>
+      <div class="card-title">中国模块化建筑海外爆单：外交部发言人"带货"，一季度出口增长45%</div>
+      <div class="card-body">
+        据<strong>人民日报</strong>、<strong>新京报</strong>7月12日报道，中国外交部发言人毛宁在海外社交平台发布视频推介中国"预制房"（模块化建筑），引发国际关注。
+        <br><br>
+        <strong>海外市场数据亮眼</strong>：海关总署数据显示，2015-2025年中国预制建筑出口额从<strong>14.72亿美元增至43.39亿美元</strong>（10年增长近2倍），2026年一季度增速达<strong>45%</strong>。产品销往150多个国家和地区。
+        <br><br>
+        <strong>应用场景覆盖广</strong>：海外需求集中在酒店、养老公寓、宿舍、办公楼、数据中心等。中集模块化已交付超1000兆瓦装机容量的模块预制数据中心项目，涵盖马来西亚、印尼、中东、意大利等。
+        <br><br>
+        <strong>技术优势显著</strong>：中建海龙智能工厂"像造汽车一样造房子"，工厂内完成90%以上工序，现场用工量减少约50%，工期缩短60%以上。深圳保障房项目实现100米高层住宅由6028个混凝土模块拼装，抗震可抵御13级强台风。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        模块化建筑"出海"爆单验证了中国智造的国际竞争力。对海骊而言，模块化精装技术是未来竞争的核心壁垒——工厂预制+现场装配模式，可大幅缩短工期、提升品质稳定性、降低现场用工成本。建议加速布局装配式精装技术储备，对标中建海龙等头部企业。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7661599397691671103/" target="_blank">人民日报 - 中国模块化建筑海外圈粉</a> · <a href="https://m.bjnews.com.cn/detail/1783862354189543.html" target="_blank">新京报 - 预制房出海</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4: 市场趋势 -->
+  <div class="card trend">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">4</div>
+        <span class="card-tag">市场趋势</span>
+        <span class="pub-date">📅 来源发布 2026-07-12</span>
+      </div>
+      <div class="card-title">2025年住宅装饰市场达2.8万亿，行业"全案化、数字化、标准化"趋势加速</div>
+      <div class="card-body">
+        据<strong>原创力文档</strong>7月12日发布的行业报告显示，2025年国内住宅装饰市场规模突破<strong>2.8万亿元</strong>，近五年行业年均复合增长率保持在<strong>6%</strong>上下。
+        <br><br>
+        <strong>三大趋势显现：</strong><br>
+        ①<strong>全案设计成主流</strong>：设计机构需具备从硬装到软装、从空间规划到生活方式定制的一体化能力，"全案设计+自有施工团队"闭环模式成为中高端市场标配；<br>
+        ②<strong>数字化管控普及</strong>：ERP系统、实时进度播报、多对一专属服务群成为优质服务团队标配，服务进程可追溯；<br>
+        ③<strong>标准化验收落地</strong>：工艺与验收标准超越行业通用水平，材料ENF级环保成主流，整体工程2年、水电防水5年质保成规范。
+        <br><br>
+        <strong>消费需求升级</strong>：精装房改造需求中，功能优化型、品质提升型需求占比提升，消费者更关注收纳动线、环保材料、智能家居集成。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        2.8万亿市场容量+6%稳定增速，说明住宅装饰仍是朝阳赛道。"全案设计"能力已从加分项变成入场券，对海骊的EPC、批量精装业务有直接参考价值。数字化管控可提升客户体验和内部效率，建议完善项目管理系统。
+      </div>
+      <div class="card-source">来源：<a href="https://sz.lieju.com/qitashangwufuwu/94064462.html" target="_blank">深圳列举网 - 装修企业选择指南</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5: 劳务供应链 -->
+  <div class="card labor">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">5</div>
+        <span class="card-tag">劳务供应链</span>
+        <span class="pub-date">📅 来源发布 2026-07-12</span>
+      </div>
+      <div class="card-title">建筑劳务市场1.5万亿：规范化与成本控制成核心竞争力</div>
+      <div class="card-body">
+        据<strong>八方资源网</strong>7月12日报道，2024年国内建筑劳务分包市场规模突破<strong>1.5万亿元</strong>，年均复合增速维持在5%以上，具备全资质、自有班组、标准化管理的专业分包商市场占比持续提升。
+        <br><br>
+        <strong>行业关键变化：</strong><br>
+        ①<strong>规范化门槛提高</strong>：劳务人员持证上岗率不低于95%，项目劳务实名制管理覆盖率100%，工资专户代发比例不低于90%；<br>
+        ②<strong>全链条服务成趋势</strong>：头部劳务企业整合设计、构件、施工、装饰全链条，总包与分包边界模糊化；<br>
+        ③<strong>工厂化转型加速</strong>：装配式施工要求工人从"泥瓦匠"升级为"产业工人"，具备BIM应用、智能设备操作能力者薪资溢价明显。
+        <br><br>
+        <strong>风险警示</strong>：行业"层层转包、无合同用工"乱象仍存，7月14日亚厦多起劳务纠纷诉讼开庭即为案例。合规用工+自有班组已成为头部企业的竞争优势。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        劳务规范化是不可逆趋势，劳务实名制+工资专户代发将成标配。对海骊而言，建立稳定自有班组或与头部劳务企业绑定，是保障项目履约和控制成本的关键。同时关注装配式施工对工人技能升级的要求，提前布局培训体系。
+      </div>
+      <div class="card-source">来源：<a href="https://mip.b2b168.com/wvs323445435.html" target="_blank">八方资源网 - 劳务分包服务商推荐</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    来源：证券之星 · 中项网 · 人民日报 · 新京报 · 八方资源网 · 深圳列举网<br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
