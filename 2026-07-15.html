@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-07-15</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+
+  /* Card */
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.06);
+  }
+
+  /* Color bar top */
+  .card-bar { height: 4px; }
+  .policy .card-bar { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .competitor .card-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .trend .card-bar { background: linear-gradient(90deg, #10b981, #34d399); }
+  .opportunity .card-bar { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .tech .card-bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .cost .card-bar { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .design .card-bar { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .labor .card-bar { background: linear-gradient(90deg, #a16207, #ca8a04); }
+
+  .card-content { padding: 24px 28px 28px; }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    font-size: 14px;
+    font-weight: 800;
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .policy .card-num { background: #fef3c7; color: #d97706; }
+  .competitor .card-num { background: #dbeafe; color: #2563eb; }
+  .trend .card-num { background: #d1fae5; color: #059669; }
+  .opportunity .card-num { background: #ede9fe; color: #7c3aed; }
+  .tech .card-num { background: #fce7f3; color: #db2777; }
+  .cost .card-num { background: #ffedd5; color: #ea580c; }
+  .design .card-num { background: #cffafe; color: #0891b2; }
+  .labor .card-num { background: #fef9c3; color: #a16207; }
+
+  .card-tag {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .policy .card-tag { background: #fef3c7; color: #b45309; }
+  .competitor .card-tag { background: #dbeafe; color: #1d4ed8; }
+  .trend .card-tag { background: #d1fae5; color: #047857; }
+  .opportunity .card-tag { background: #ede9fe; color: #6d28d9; }
+  .tech .card-tag { background: #fce7f3; color: #be185d; }
+  .cost .card-tag { background: #ffedd5; color: #c2410c; }
+  .design .card-tag { background: #cffafe; color: #0e7490; }
+  .labor .card-tag { background: #fef9c3; color: #a16207; }
+
+  .pub-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #94a3b8;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .card-body strong { color: #1e293b; font-weight: 600; }
+
+  .card-insight {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #334155;
+  }
+  .insight-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* Source */
+  .card-source {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .card-source a {
+    color: #64748b;
+    text-decoration: none;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .card-source a:hover { color: #3b82f6; border-color: #3b82f6; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 28px 0 8px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>数据抓取：2026年7月15日 星期三</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 -->
+  <div class="card policy">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">1</div>
+        <span class="card-tag">政策风向</span>
+        <span class="pub-date">📅 来源发布 2026-07-14</span>
+      </div>
+      <div class="card-title">海南全装修新规9月施行：基础装修与个性化分离，厨卫五金可延期安装</div>
+      <div class="card-body">
+        海南省正式印发修订版<strong>《海南省商品住宅全装修管理办法》</strong>，将于2026年9月1日起施行。新规核心变化：
+        <br><br>
+        <strong>①分层交付模式</strong>——开发商完成基础装修即可申请竣工验收，厨卫设施、灯具等安装类内容不再强制由开发商统一完成。购房者可选择开发商配套装修套餐或自行安排装修，配套选装产品明码标价、禁止捆绑销售。
+        <br><br>
+        <strong>②材料管控升级</strong>——装修材料必须环保防潮，进场须取样检测并全部存档；厨卫五金配件可调整为入住前安装模式，减少高温高湿高盐腐蚀损坏。
+        <br><br>
+        <strong>③验房前置</strong>——推行"工地开放日""先验房再收房"，交房前完成防水、隔声等专项检测，整改合格后才办理交付手续。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        新规将精装流程拆分为"基础装修+选配安装"两个阶段，对装修企业的服务能力提出新要求。企业需提前布局套餐化产品体系，从"一次性交付"转向"分期增值服务"，同时强化厨卫五金安装品质管控。
+      </div>
+      <div class="card-source">来源：<a href="http://hq.news.cn/20260714/7967bf38707340dbb2d37f911e96734b/c.html" target="_blank">新华网</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2: 技术创新 -->
+  <div class="card tech">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">2</div>
+        <span class="card-tag">技术创新</span>
+        <span class="pub-date">📅 来源发布 2026-07-14</span>
+      </div>
+      <div class="card-title">中国模块化建筑出海提速：深圳"巨型积木"卖向150国，两周交付海外公寓</div>
+      <div class="card-body">
+        深圳研发+河南制造的模块化建筑正在全球市场快速扩张：
+        <br><br>
+        <strong>海外订单持续增长</strong>——英国南安普顿港，中建科工63个模块出口仅用两周完成养老公寓交付，业主已续订至第五期；巴布亚新几内亚84个模块落地即成酒店，中铁系已承接5期项目。
+        <br><br>
+        <strong>国内应用提速</strong>——河南林业职业学院"科技模方"学生公寓60天建成，可容纳500人；工厂完成90%以上工序，现场施工周期缩短60%以上。
+        <br><br>
+        <strong>技术突破</strong>——采用国家专利模块节点连接技术，获CE、SGS等国际认证，稳固性达传统建筑标准；适配海外人力成本高、快速投用需求。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        模块化建筑已完成从"概念验证"到"规模出口"的跨越，90%工厂预制+现场快装模式对精装修企业启示深远：标准化、部品化是降本增效的核心路径。建议关注国内学校、医院、康养等急需投用场景的模块化装修机会。
+      </div>
+      <div class="card-source">来源：<a href="https://www.163.com/dy/article/L1Q3VM8M0550B6IS.html" target="_blank">网易订阅</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3: 技术创新 -->
+  <div class="card tech">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">3</div>
+        <span class="card-tag">技术创新</span>
+        <span class="pub-date">📅 来源发布 2026-07-14</span>
+      </div>
+      <div class="card-title">厦门装配式建筑占比达45.8%：数字化融合实现"毫米级"精度管控</div>
+      <div class="card-body">
+        厦门市装配式建筑"十四五"累计新开工面积达"十三五"时期的<strong>3倍以上</strong>，当前占比达<strong>45.8%</strong>，已从行业新尝试变为主流模式。
+        <br><br>
+        <strong>数字化深度融合</strong>——厦金大桥预制墩台实现"毫米级"吊装精度（误差±5mm），依托"数字大脑"实时纠偏；预制构件数字孪生系统打通进度、质量、安全、物料、生产、劳务六大模块。
+        <br><br>
+        <strong>BIM技术应用</strong>——结合"高精度构件匹配预制"工艺，接缝平整度压至2mm以内，6000个钢筋接头"毫厘不差"。
+        <br><br>
+        <strong>标准化推进</strong>——市住建局发布《厦门市装配式建筑新技术清单》，引导企业从"规模化普及"向"高质量规模化"升级。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        装配式建筑正从"构件级"拼接升级到"数据流级"闭环，数字化能力成为核心竞争力。精装修企业需同步提升BIM正向设计和部品模块化能力，否则将在供应链整合中失去话语权。
+      </div>
+      <div class="card-source">来源：<a href="http://xm.cnr.cn/gstjxm/20260714/t20260714_527708751.shtml" target="_blank">央广网</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4: 市场趋势 -->
+  <div class="card trend">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">4</div>
+        <span class="card-tag">市场趋势</span>
+        <span class="pub-date">📅 来源发布 2026-07-14</span>
+      </div>
+      <div class="card-title">第28届广州建博会观察：大家居行业从"单品出海"转向"空间整体解决方案"出口</div>
+      <div class="card-body">
+        第28届中国建博会（广州）闭幕，数据显示：
+        <br><br>
+        <strong>规模创新高</strong>——近<strong>2000家</strong>参展企业、来自<strong>146个国家和地区</strong>的<strong>14.4万</strong>名专业观众，海外观众同比增长<strong>33.4%</strong>。
+        <br><br>
+        <strong>竞争逻辑转变</strong>——从"品类陈列"到"生态联动"：室内空间场域打通定制、智能、卫浴、涂料等内装全链路；门窗户外场域实现门窗、庭院、阳光房一体化；材艺智造场域汇聚供应链龙头企业。
+        <br><br>
+        <strong>外销成主战场</strong>——开放厨房、移动房屋、户外泳池、艺术楼梯、适老化家居等品类独立策展，精准切中海外采购商"一站式选品"需求，从"卖产品"升级为"卖空间整体解决方案"。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        大家居行业竞争已从"市场争夺"转向"全球资源配置能力"的比拼。对精装修企业的启示：单品能力是基础，场景化解决方案能力和供应链整合能力才是未来竞争制高点。
+      </div>
+      <div class="card-source">来源：<a href="http://www.xinhuanet.com/jiaju/20260714/bb00beb98bba4ac88177e8288b1ab7a2/c.html" target="_blank">新华网</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5: 战略机遇 -->
+  <div class="card opportunity">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">5</div>
+        <span class="card-tag">战略机遇</span>
+        <span class="pub-date">📅 来源发布 2026-07-14</span>
+      </div>
+      <div class="card-title">康养EPC持续爆发：贵州百花湖旅居康养项目二次招标、安徽/贵州康养基地落地</div>
+      <div class="card-body">
+        康养赛道持续释放大体量项目：
+        <br><br>
+        <strong>贵州百花湖灵达度假村</strong>（贵阳）——旅居康养一体化建设项目EPC（二次）招标，装修部分面积约<strong>4890㎡</strong>，含综合服务中心、康养理疗中心、中医大礼堂、15个高端定制套房、25个豪华康养套房，工期180天。
+        <br><br>
+        <strong>安徽海棠小镇康养基地</strong>（宣城）——一期EPC投资<strong>6亿元</strong>，处于施工准备阶段，预计2026年一季度完工。
+        <br><br>
+        <strong>贵州安顺康养中心</strong>——投资<strong>6800万元</strong>，处于施工招标阶段，工期预计2026年三季度完工。
+        <br><br>
+        招标资质要求：建筑行业(建筑工程)设计乙级及以上+建筑装修装饰工程专业承包二级及以上。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        康养EPC项目持续放量，装修设计一体化成为标配门槛。海骊住居若要切入，需强化设计能力或与设计院组成联合体。建议重点跟进贵州、安徽等区域康养项目，设计+施工双资质布局。
+      </div>
+      <div class="card-source">来源：<a href="http://wap.huobiao.cn/detail/715ad7dbfef773f38db764632a6e1d49.html" target="_blank">火标招标网</a> · <a href="https://m.ccpc360.com/nzjxm1909173.html" target="_blank">中项网</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    来源：新华网 · 网易订阅 · 央广网 · 火标招标网 · 中项网<br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
