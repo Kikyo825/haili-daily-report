@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-07-16</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+
+  /* Card */
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.06);
+  }
+
+  /* Color bar top */
+  .card-bar { height: 4px; }
+  .policy .card-bar { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .competitor .card-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .trend .card-bar { background: linear-gradient(90deg, #10b981, #34d399); }
+  .opportunity .card-bar { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .tech .card-bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .cost .card-bar { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .design .card-bar { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .labor .card-bar { background: linear-gradient(90deg, #a16207, #ca8a04); }
+
+  .card-content { padding: 24px 28px 28px; }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    font-size: 14px;
+    font-weight: 800;
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .policy .card-num { background: #fef3c7; color: #d97706; }
+  .competitor .card-num { background: #dbeafe; color: #2563eb; }
+  .trend .card-num { background: #d1fae5; color: #059669; }
+  .opportunity .card-num { background: #ede9fe; color: #7c3aed; }
+  .tech .card-num { background: #fce7f3; color: #db2777; }
+  .cost .card-num { background: #ffedd5; color: #ea580c; }
+  .design .card-num { background: #cffafe; color: #0891b2; }
+  .labor .card-num { background: #fef9c3; color: #a16207; }
+
+  .card-tag {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .policy .card-tag { background: #fef3c7; color: #b45309; }
+  .competitor .card-tag { background: #dbeafe; color: #1d4ed8; }
+  .trend .card-tag { background: #d1fae5; color: #047857; }
+  .opportunity .card-tag { background: #ede9fe; color: #6d28d9; }
+  .tech .card-tag { background: #fce7f3; color: #be185d; }
+  .cost .card-tag { background: #ffedd5; color: #c2410c; }
+  .design .card-tag { background: #cffafe; color: #0e7490; }
+  .labor .card-tag { background: #fef9c3; color: #a16207; }
+
+  .pub-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #94a3b8;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .card-body strong { color: #1e293b; font-weight: 600; }
+
+  .card-insight {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #334155;
+  }
+  .insight-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* Source */
+  .card-source {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .card-source a {
+    color: #64748b;
+    text-decoration: none;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .card-source a:hover { color: #3b82f6; border-color: #3b82f6; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 28px 0 8px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>数据抓取：2026年7月16日 星期四</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 - 劳务开票新规 -->
+  <div class="card policy">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">1</div>
+        <span class="card-tag">政策风向</span>
+        <span class="pub-date">📅 来源发布 2026-07-16</span>
+      </div>
+      <div class="card-title">2026建筑劳务费开票新规落地：税目重构、数电票严管，违规发票进项不能抵扣</div>
+      <div class="card-body">
+        随着《增值税法》正式实施+金税四期数电票全面覆盖，2026年起建筑服务、劳务分包发票规则全面改写：<br><br>
+        <strong>①税目编码重构</strong>——2026年数电票系统取消独立"劳务"大类编码，所有工地人工费统一归入【建筑服务】大类：纯清包工/劳务分包使用编码30599（其他建筑服务），包工包料使用编码30501（工程服务），装修/修缮/安装人工使用对应明细编码。<br><br>
+        <strong>②税率规则更新</strong>——一般计税项目统一适用<strong>9%</strong>；2026年1月1日后新签甲供工程一律禁止简易计税；简易计税（3%）仅适用于纯清包工/老项目，且一经选择36个月内不得变更。<br><br>
+        <strong>③备注栏强制要求</strong>——所有建筑服务劳务费发票必须备注"项目发生地（精确到省市区）"+"项目完整名称"，缺一不可，否则无法差额预缴、无法税前扣除。<br><br>
+        <strong>④差额开票新规</strong>——简易计税项目分包扣除部分不得开具专票，只能差额开票或分双票（差额部分开3%普票）。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        新规直接影响精装修企业成本核算与供应商管理。建议立即梳理现有劳务分包合同，对照新规核查发票合规性；未来签约时需明确税率适用类型、备注要求及差额开票方式，避免进项转出风险。同时，关注供应链上游材料发票合规性，全流程财税合规将成为投标与成本管控的基础能力。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7662915344956178970/" target="_blank">税客笔记</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2: 竞品动向 -->
+  <div class="card competitor">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">2</div>
+        <span class="card-tag">竞品动向</span>
+        <span class="pub-date">📅 来源发布 2026-07-15</span>
+      </div>
+      <div class="card-title">亚厦再获装配式吊顶专利、金螳螂一周内连中8标（住宅/学校/医院/博物馆）</div>
+      <div class="card-body">
+        <strong>亚厦股份</strong>7月14日再获国家知识产权局授权"一种装配式吊顶收边平接安装装置及其安装方法"发明专利（专利号CN117627257B），这是继7月11日"暗装踢脚线"专利后的又一项装配式技术储备。公司近30天已新增3项发明专利，技术护城河持续加固。<br><br>
+        <strong>金螳螂</strong>近期市场攻势凌厉，据不完全统计一周内连中<strong>8个标的</strong>：
+        <br>• 闵行区莘庄社区住宅项目精装修工程（一/二/三标段）——候选人公示
+        <br>• 深圳博物馆"改革开放史"展览改造——中标
+        <br>• 嘉定区中心医院整体改扩建精装修工程——候选人公示
+        <br>• 北京理工大学珠海校区2026年学生宿舍更新工程（硕士/博士留学生宿舍）——候选人公示
+        <br>• 徕远广场A座酒店家具招标——中标
+        <br>• 北京朝阳站TOD项目幕墙工程（二批次）——中标
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        亚厦"专利+技术标准"路线与金螳螂"规模化中标"路线形成鲜明对比。海骊住居可借鉴亚厦思路，加强装配式技术专利申报形成差异化壁垒；同时关注金螳螂学校/医院密集中标的区域策略，评估是否需要调整自身市场布局。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7662569101629358607/" target="_blank">新浪证券</a> · <a href="https://m.bidizhaobiao.com/qyjc_31099.html" target="_blank">招标网</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3: 战略机遇 -->
+  <div class="card opportunity">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">3</div>
+        <span class="card-tag">战略机遇</span>
+        <span class="pub-date">📅 来源发布 2026-07-16</span>
+      </div>
+      <div class="card-title">武汉3亿康养EPC开标：湖北文旅+武汉设计院+中建三局联合体3.02亿夺魁</div>
+      <div class="card-body">
+        <strong>湖北康养智慧养老总部基地项目EPC</strong>正式开标，中建三局集团有限公司（联合体成员：湖北文旅建投工程有限公司、武汉时代城市建筑设计有限公司）以<strong>3.0256亿元</strong>中标，计划工期<strong>780日历天</strong>。<br><br>
+        <strong>项目规模：</strong>总用地面积21378.62㎡，总建筑面积55724.03㎡，包含康养用房（专业养护）、颐养用房（自理/半自理）、乐养用房（文娱社交）+食堂、医疗诊室、休闲广场等全套配套设施。<br><br>
+        <strong>行业趋势：</strong>近期康养EPC密集启动——鄂州市中医医院康养中心铝合金窗分包已开标（7月14日），阳新云界仙居康养旅游区（EPC 4.78亿）、扬州经开区康养服务中心（4.7亿）等项目均进入施工阶段，康养产业链进入加速落地期。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        康养EPC已形成"央企/省属国企+设计院+施工单位"联合体夺标的成熟模式。海骊住居切入康养赛道的路径建议：一是与区域设计院建立战略合作，弥补设计短板；二是关注康养项目的装饰/装修分包机会，避开与央企直接竞争头部EPC；三是提前储备适老化精装技术能力（无障碍、智能化、生命体征监测等）。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7662852422880084531/" target="_blank">中建三局</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4: 设计与管理 -->
+  <div class="card design">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">4</div>
+        <span class="card-tag">设计与管理</span>
+        <span class="pub-date">📅 来源发布 2026-07-15</span>
+      </div>
+      <div class="card-title">建筑业×木雕家居跨界整合：中天集团×明堂红木战略联盟，重构人居服务链</div>
+      <div class="card-body">
+        7月13日，中天控股集团有限公司与东阳明堂红木家俱有限公司正式签署战略合作协议，建筑业与木雕家居两大东阳特色产业开启跨界融合：<br><br>
+        <strong>合作模式：</strong>将木雕家居、全屋整装服务<strong>前置到房屋开发建造阶段</strong>，直接植入精装房、中式合院、别墅等项目样板间与施工场景，打通建筑精装与家居整装一站式配齐。<br><br>
+        <strong>四大方向：</strong>①市场联合拓展 ②行业标准共建 ③海内外项目联动 ④室内硬装与木雕家居融合定制。首批试点：低碳木屋、"宽余"系列产品、硬装软装一体化。<br><br>
+        <strong>行业逻辑：</strong>木雕家居产业此前单一套餐模式增长乏力，通过与建筑企业绑定成功切入B端大客户渠道；建筑企业获得差异化中式美学元素，告别"送家电礼包"同质化竞争。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        这一案例揭示了产业链纵向整合的新逻辑：不是"大鱼吃小鱼"，而是"互补者抱团"。海骊住居可思考自身在产业链中的独特能力是什么？是批量精装的交付效率、还是特定品类（康养/学校/酒店）的专业积累？找到差异化定位后，可主动寻找互补企业联合投标、做深服务链条。
+      </div>
+      <div class="card-source">来源：<a href="https://m.thepaper.cn/newsDetail_forward_33589688" target="_blank">澎湃新闻</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5: 成本动态 -->
+  <div class="card cost">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">5</div>
+        <span class="card-tag">成本动态</span>
+        <span class="pub-date">📅 来源发布 2026-07-15</span>
+      </div>
+      <div class="card-title">酒店/装修供应链降本逻辑：从"统购比价"到"战略协同"的范式转移</div>
+      <div class="card-body">
+        某酒店集团曾以集采优势将布草采购价压降15%，视为年度降本标杆。然而三个月后运营数据揭示真相：<strong>新布草缩水率异常、洗涤周转频次被迫提升，布草损耗率同比上升32%，综合持有成本不降反升</strong>——采购端节约被运营端损耗完全吞噬。<br><br>
+        <strong>核心洞察：</strong>"价格胜利"≠"供应链价值胜利"。传统采购中心逻辑（单点价格降幅、付款安全周期）与战略供应链逻辑（质价比、长链协同、品牌溢价）存在本质差异。<br><br>
+        <strong>数字化破壁方向：</strong>
+        <br>• 需求预测：从"拍脑袋"到"算概率"——接入历史入住率、宴会预订等多维数据构建动态模型
+        <br>• 供应商管理：从"关系型"到"数据型"——动态评分分级，数据决策替代个人判断
+        <br>• 端到端可视化：订单→排产→物流→入库全链路数据实时开放，协同决策替代反复电话催单
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        对精装修企业启示：选供应商不能只看中标价格，要评估综合持有成本（质量稳定性+交付响应+售后协同）。建议建立供应商分级评价体系，对战略级供应商寻求深度绑定（如联合研发、长期框架协议），而非简单比价博弈。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7662604089796084258/" target="_blank">钛媒体</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    来源：税客笔记 · 新浪证券 · 招标网 · 中建三局 · 澎湃新闻 · 钛媒体<br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
