@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-07-17</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+
+  /* Card */
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.06);
+  }
+
+  /* Color bar top */
+  .card-bar { height: 4px; }
+  .policy .card-bar { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .competitor .card-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .trend .card-bar { background: linear-gradient(90deg, #10b981, #34d399); }
+  .opportunity .card-bar { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .tech .card-bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .cost .card-bar { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .design .card-bar { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .labor .card-bar { background: linear-gradient(90deg, #a16207, #ca8a04); }
+
+  .card-content { padding: 24px 28px 28px; }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    font-size: 14px;
+    font-weight: 800;
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .policy .card-num { background: #fef3c7; color: #d97706; }
+  .competitor .card-num { background: #dbeafe; color: #2563eb; }
+  .trend .card-num { background: #d1fae5; color: #059669; }
+  .opportunity .card-num { background: #ede9fe; color: #7c3aed; }
+  .tech .card-num { background: #fce7f3; color: #db2777; }
+  .cost .card-num { background: #ffedd5; color: #ea580c; }
+  .design .card-num { background: #cffafe; color: #0891b2; }
+  .labor .card-num { background: #fef9c3; color: #a16207; }
+
+  .card-tag {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .policy .card-tag { background: #fef3c7; color: #b45309; }
+  .competitor .card-tag { background: #dbeafe; color: #1d4ed8; }
+  .trend .card-tag { background: #d1fae5; color: #047857; }
+  .opportunity .card-tag { background: #ede9fe; color: #6d28d9; }
+  .tech .card-tag { background: #fce7f3; color: #be185d; }
+  .cost .card-tag { background: #ffedd5; color: #c2410c; }
+  .design .card-tag { background: #cffafe; color: #0e7490; }
+  .labor .card-tag { background: #fef9c3; color: #a16207; }
+
+  .pub-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #94a3b8;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .card-body strong { color: #1e293b; font-weight: 600; }
+
+  .card-insight {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #334155;
+  }
+  .insight-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* Source */
+  .card-source {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .card-source a {
+    color: #64748b;
+    text-decoration: none;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .card-source a:hover { color: #3b82f6; border-color: #3b82f6; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 28px 0 8px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>数据抓取：2026年7月17日 星期五</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 -->
+  <div class="card policy">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">1</div>
+        <span class="card-tag">政策风向</span>
+        <span class="pub-date">📅 来源发布 2026-07-16</span>
+      </div>
+      <div class="card-title">山东发布"好房子"建设20条：增量提标、存量改造并行，装配式装修再获政策加码</div>
+      <div class="card-body">
+        山东省住房和城乡建设厅等六部门联合印发《关于实施房屋品质提升工程 加快推进"好房子"建设的通知》，围绕7个方面提出<strong>20条具体措施</strong>：
+        <br><br>
+        <strong>增量住房全面提标</strong>——新建住宅全面执行节能率83%设计标准，高品质住宅按二星级及以上绿色建筑标准设计，绿色建材应用比例不低于50%；全面推行建设条件意见书制度，将装配式内装等要求明确纳入。
+        <br><br>
+        <strong>存量住房系统改造</strong>——探索"不计容"激励政策，支持老旧小区改造和自主更新原拆原建；参照"好房子"标准完善既有住房改造技术标准体系，系统推进功能性改造和品质升级。
+        <br><br>
+        <strong>全周期品质管控</strong>——将标准体系从建设阶段向运维阶段延伸，涵盖室内装修、能耗监测、高品质供水、供热热计量改造等全过程；强化防水、隔音、空气洁净等关键环节质量管控。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        山东政策明确了"新建+存量"双轨并行的路径，装配式装修是贯穿增量提标和存量改造的共性技术要求。企业需重点关注：增量市场对绿色建材、装配式内装的集采需求，以及存量市场"好房子"标准升级带来的旧改翻新机会。
+      </div>
+      <div class="card-source">来源：<a href="https://m.sohu.com/a/1050994858_121106991/" target="_blank">搜狐</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2: 竞品动向 -->
+  <div class="card competitor">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">2</div>
+        <span class="card-tag">竞品动向</span>
+        <span class="pub-date">📅 来源发布 2026-07-16</span>
+      </div>
+      <div class="card-title">亚厦股份近期连中多标：珠海校区宿舍更新、华泰证券前海总部大楼精装修在列</div>
+      <div class="card-body">
+        亚厦股份近期中标活跃，公开可查项目包括：
+        <br><br>
+        <strong>北京理工大学珠海校区2026年学生宿舍更新工程</strong>（博士及留学生宿舍）——中标公示时间：2026-07-16，该项目为教育类批量精装修项目。
+        <br><br>
+        <strong>华泰联合证券深圳前海总部大楼精装修项目</strong>（标段一、二）——中标金额可观，工期紧、标准高，代表高端公建装修竞争态势。
+        <br><br>
+        <strong>民航科技创新示范区一期A-01地块室内精装修</strong>——大型公建项目，显示亚厦在科技园区类公装市场的持续深耕。
+        <br><br>
+        据电力招标网数据，亚厦参与招投标项目总数达<strong>1955个</strong>，在批量精装修、公建领域保持高频竞争态势。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        亚厦近期中标以教育类批量项目（珠海校区宿舍）和高端公建（华泰证券前海总部）为主，教育批量项目是海骊住居的存量优势赛道，需关注此类项目的竞争烈度；华泰证券等金融类公建项目的高标准要求，也是提升品牌溢价的窗口。
+      </div>
+      <div class="card-source">来源：<a href="https://www.dlzb.com/charts/fx-82558.html" target="_blank">电力招标网</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3: 技术创新 -->
+  <div class="card tech">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">3</div>
+        <span class="card-tag">技术创新</span>
+        <span class="pub-date">📅 来源发布 2026-07-16</span>
+      </div>
+      <div class="card-title">城市更新万亿赛道开启，华耐智装以装配式内装赋能"好房子"建设</div>
+      <div class="card-body">
+        国务院《城市更新"十五五"规划》将发展智能建造、推广装配式装修列为建筑业核心任务，城市更新带动<strong>数十万亿</strong>投资与消费，装配式内装是激活存量市场的关键抓手。
+        <br><br>
+        <strong>华耐智装装配式内装六大产品体系</strong>：整体卫浴、整体厨房、墙面系统、隔墙系统、地面系统、管线系统，覆盖住宅、保障房、医院、长租公寓、老旧小区改造等全场景。
+        <br><br>
+        <strong>标杆案例</strong>：北京延庆山澜阙府项目装配率达<strong>76%</strong>，获詹天佑奖优秀住宅小区金奖；北京清华长庚医院病房改造实现不停业施工；厨卫局改48小时焕新方案适配老旧小区"不大拆大建"需求。
+        <br><br>
+        <strong>标准优势</strong>：参编60余项国家/行业标准，拥有60余项产品技术专利，布局1.5万㎡工厂，年产能达7.5万套整体厨卫产品。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        城市更新万亿赛道已开启，装配式内装是贯穿"好房子"新建和旧改的核心技术路径。企业需构建完整的装配式内装产品体系，重点关注老旧小区改造、适老化改造等政策强驱动的细分场景，提前卡位供应链能力。
+      </div>
+      <div class="card-source">来源：<a href="https://m.sohu.com/a/1050887779_120783634/" target="_blank">搜狐</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4: 战略机遇 -->
+  <div class="card opportunity">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">4</div>
+        <span class="card-tag">战略机遇</span>
+        <span class="pub-date">📅 来源发布 2026-07-16</span>
+      </div>
+      <div class="card-title">康养EPC持续爆发：广东阳江1.04亿项目Q3开工、巨鹿康养中心进入采购阶段</div>
+      <div class="card-body">
+        康养赛道持续释放大体量项目：
+        <br><br>
+        <strong>广东阳江市康养中心建设项目EPC</strong>——投资<strong>1.04亿元</strong>，处于施工图设计阶段，预计2026年三季度正式开工，医疗基建新机遇。
+        <br><br>
+        <strong>河北巨鹿县北部新区康养中心EPC</strong>——总建筑面积约1.8万㎡（含地下5172㎡），建设康养用房149间，配套餐厅、理疗室、健康培训中心等，目前保温材料采购进入直接采购公示阶段，项目快速推进中。
+        <br><br>
+        <strong>湖南郴州市养老服务中心</strong>——投资1900万元，处于初步设计阶段，预计2026年四季度开工，住宅配套与适老化设备采购商机明确。
+        <br><br>
+        <strong>广西玉林麗枫酒店装修EPC</strong>——投资2012万元，2026年三季度开工，设备采购需求释放。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        康养EPC项目持续放量，装修设计一体化成为标配门槛。海骊住居若要切入康养赛道，需强化设计+施工双资质或与设计院组成联合体；适老化改造标准是差异化竞争点，建议重点跟进南方区域康养项目。
+      </div>
+      <div class="card-source">来源：<a href="https://m2.ccpc360.com/" target="_blank">中项网</a> · <a href="https://m.dowater.com/" target="_blank">火标网</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5: 市场趋势 -->
+  <div class="card trend">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">5</div>
+        <span class="card-tag">市场趋势</span>
+        <span class="pub-date">📅 来源发布 2026-07-16</span>
+      </div>
+      <div class="card-title">6月BHI发布：全国建材家居卖场1-6月销售额6640亿元，存量需求持续释放</div>
+      <div class="card-body">
+        商务部流通业发展司立项、中国建筑材料流通协会编制发布的全国建材家居景气指数BHI，6月份为<strong>113.34</strong>。
+        <br><br>
+        <strong>销售额数据</strong>——全国规模以上建材家居卖场6月销售额1155.41亿元；1-6月累计销售额6640.37亿元，同比下跌4.39%。
+        <br><br>
+        <strong>需求结构变化</strong>——购买力指数环比上涨15.58点，反映精准装修需求客户占比提升，具有明确翻新、整装需求的消费者决策意愿较强；"看客减少、有效需求留存"的特征凸显。
+        <br><br>
+        <strong>用工结构优化</strong>——全屋整装、旧房翻新、局部改造业务持续扩容，直接带动设计、施工、安装、售后等后端岗位用工需求持续走高，行业用工结构加速向服务型、施工端倾斜，印证存量家装市场的强劲活力。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        建材家居市场进入传统淡季，但存量更新需求保持韧性。全屋整装、旧房翻新成为主导业务模式，企业需重点布局存量市场的精准获客和服务交付能力，而非依赖增量新盘的流量入口。
+      </div>
+      <div class="card-source">来源：<a href="http://www.xinhuanet.com/house/20260716/06c44c871b4d4606bfdf602ec6468776/c.html" target="_blank">新华网</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    来源：搜狐 · 电力招标网 · 新华网 · 中项网 · 火标网<br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
