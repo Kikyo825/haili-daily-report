@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-07-21</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+
+  /* Card */
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.06);
+  }
+
+  /* Color bar top */
+  .card-bar { height: 4px; }
+  .policy .card-bar { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .competitor .card-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .trend .card-bar { background: linear-gradient(90deg, #10b981, #34d399); }
+  .opportunity .card-bar { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .tech .card-bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .cost .card-bar { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .design .card-bar { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .labor .card-bar { background: linear-gradient(90deg, #a16207, #ca8a04); }
+
+  .card-content { padding: 24px 28px 28px; }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    font-size: 14px;
+    font-weight: 800;
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .policy .card-num { background: #fef3c7; color: #d97706; }
+  .competitor .card-num { background: #dbeafe; color: #2563eb; }
+  .trend .card-num { background: #d1fae5; color: #059669; }
+  .opportunity .card-num { background: #ede9fe; color: #7c3aed; }
+  .tech .card-num { background: #fce7f3; color: #db2777; }
+  .cost .card-num { background: #ffedd5; color: #ea580c; }
+  .design .card-num { background: #cffafe; color: #0891b2; }
+  .labor .card-num { background: #fef9c3; color: #a16207; }
+
+  .card-tag {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .policy .card-tag { background: #fef3c7; color: #b45309; }
+  .competitor .card-tag { background: #dbeafe; color: #1d4ed8; }
+  .trend .card-tag { background: #d1fae5; color: #047857; }
+  .opportunity .card-tag { background: #ede9fe; color: #6d28d9; }
+  .tech .card-tag { background: #fce7f3; color: #be185d; }
+  .cost .card-tag { background: #ffedd5; color: #c2410c; }
+  .design .card-tag { background: #cffafe; color: #0e7490; }
+  .labor .card-tag { background: #fef9c3; color: #a16207; }
+
+  .pub-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #94a3b8;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .card-body strong { color: #1e293b; font-weight: 600; }
+
+  .card-insight {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #334155;
+  }
+  .insight-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* Source */
+  .card-source {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .card-source a {
+    color: #64748b;
+    text-decoration: none;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .card-source a:hover { color: #3b82f6; border-color: #3b82f6; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 28px 0 8px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>数据抓取：2026年7月21日 星期二</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 -->
+  <div class="card policy">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">1</div>
+        <span class="card-tag">政策风向</span>
+        <span class="pub-date">📅 来源发布 2026-07-21</span>
+      </div>
+      <div class="card-title">住建部《住房公积金条例》修订征求意见：自住住房装修、物业费正式纳入提取范围</div>
+      <div class="card-body">
+        7月21日，住建部发布《住房公积金管理条例（修订征求意见稿）》，全国超50座城市同步落地实施细则，公积金提取场景从6种扩容至<strong>9种</strong>。本次修订对精装修行业有两项直接影响：<br><br>
+        <strong>①自住住房装修可提取公积金</strong>——明确将自住住房装修纳入合法提取范围，提取金额不超过装修实际支出上限，全国多地已落地实施。需注意：仅限本人名下自住住宅，商铺、公寓、出租房装修不能提取，严禁虚构装修合同套取资金。<br><br>
+        <strong>②支付自住住房物业费</strong>——全新提取场景开通，进一步释放住房消费需求。<br><br>
+        <strong>便民优化：</strong>取消"一年只能提取一次"硬性限制，符合条件可按月、按季度灵活办理，审核时限压缩至<strong>3个工作日</strong>，资金快速到账。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        公积金提取用于装修，实质上为业主提供了一笔"低息装修贷"，有望刺激存量房翻新、二手房装修需求释放。对于精装修企业而言，可借势推出"公积金支付装修"服务方案，降低客户一次性付款压力，尤其利好改善型住房、老旧小区改造等存量业务。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7664595320722850344/" target="_blank">今日头条</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2: 竞品动向 -->
+  <div class="card competitor">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">2</div>
+        <span class="card-tag">竞品动向</span>
+        <span class="pub-date">📅 来源发布 2026-07-21</span>
+      </div>
+      <div class="card-title">亚厦再获装配式背景墙专利、德才获历史建筑诊断专利、金螳螂中标133万</div>
+      <div class="card-body">
+        <strong>亚厦股份</strong>7月21日再获国家知识产权局授权"一种装配式插接背景墙的施工方法"发明专利（企查查数据）。此前7月14日已获"装配式吊顶收边平接"专利，近一个月内已获<strong>3项发明专利</strong>。<br><br>
+        <strong>德才股份</strong>7月17日新增"一种历史建筑病害智能诊断方法"发明专利，继续深耕古建筑修缮细分赛道。<br><br>
+        <strong>金螳螂</strong>7月17日中标青岛城市建筑设计院有限公司采购项目，中标金额<strong>133万元</strong>。7月20日，金螳螂在投资者互动平台回应"金税四期上线对公司的影响"，表示公司已建立完善的财税合规体系。<br><br>
+        <strong>行业动态：</strong>2026中国古建筑大会暨古韵国风·传统文化产业博览会将于9月10-12日在武汉举办，金螳螂、德才股份均作为组织机构参与。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        亚厦"装配式专利矩阵"持续扩编，技术护城河不断加固。德才布局历史建筑修缮，是差异化竞争的典型案例。海骊住居可借鉴：技术专利不必追求数量，但需在1-2个细分领域形成"人无我有"的差异化壁垒（如康养适老化、洁净室等）。
+      </div>
+      <div class="card-source">来源：<a href="https://www.qcc.com/cassets/331331ab926cbcc4d089c91e9351b13b.html" target="_blank">企查查-亚厦</a> · <a href="https://www.qcc.com/cfinance/151c8cdf2b9d3591c6a79ee7d6410830.html" target="_blank">企查查-德才</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3: 战略机遇 -->
+  <div class="card opportunity">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">3</div>
+        <span class="card-tag">战略机遇</span>
+        <span class="pub-date">📅 来源发布 2026-07-21</span>
+      </div>
+      <div class="card-title">康养EPC持续爆发：日照1.65亿、亳州1.1亿，医养结合型项目成主流</div>
+      <div class="card-body">
+        7月21日，康养类EPC项目持续密集释放：<br><br>
+        <strong>日照康养职业学院5、6#大学生创业中心及食堂EPC工程</strong>——由日照城投集团与日照市规划设计研究院联合体中标，中标金额<strong>1.65亿元</strong>，工期300天。建设内容包括两栋学生宿舍、大学生创业中心及校园食堂，总建筑面积约<strong>29370㎡</strong>。<br><br>
+        <strong>亳州蒙城第二人民医院医养结合服务能力提升EPC项目</strong>——概算总投资<strong>1.1亿元</strong>，对原有外科住院楼进行改造，新增<strong>420张标准化康养床位</strong>，服务失能、半失能、慢病高龄老人，对接医保+长护险结算渠道。<br><br>
+        <strong>趋势特征：</strong>近期康养EPC呈现两大特点：①医养结合型项目占比提升（医疗+养老融合）；②EPC联合体模式成为主流（建设单位+设计院+施工单位）。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        康养EPC已从概念期进入加速落地期，亿元级项目频繁释放。建议海骊住居：一、重点跟进"医养结合"型项目的装饰分包机会；二、与区域设计院建立联合体合作关系，补齐设计短板；三、提前储备适老化精装技术能力（无障碍、防滑、静音等）。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7664680420159570458/" target="_blank">今日头条-日照</a> · <a href="http://m.toutiao.com/group/7664745617712808500/" target="_blank">今日头条-亳州</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4: 市场趋势 -->
+  <div class="card trend">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">4</div>
+        <span class="card-tag">市场趋势</span>
+        <span class="pub-date">📅 来源发布 2026-07-21</span>
+      </div>
+      <div class="card-title">2026成存量时代分水岭：二手房成交占比59%首超新房，保障房+商品房双轨制定型</div>
+      <div class="card-body">
+        7月21日，多方数据印证：<strong>2026年正式成为中国房地产进入存量时代的分水岭</strong>。<br><br>
+        <strong>二手房成交占比创新高</strong>——全国二手房成交占比已达<strong>59%</strong>，较2025年同期提升7.9个百分点，预计全年突破60%，一线城市将超过<strong>70%</strong>。<br><br>
+        <strong>住房双轨制全面定型</strong>——"市场归市场、保障归保障"双轨制2026年全面落地。国家明确未来三年建设<strong>180万套</strong>保障性住房，2026年新开工<strong>60万套</strong>，刚需需求大部分由保障房承接，商品房回归改善属性。<br><br>
+        <strong>房企转型加速</strong>——从"高杠杆高周转"转向"长期持有运营"。2026年Q1新城控股商业运营总收入达<strong>35.45亿元</strong>，头部房企已率先完成模式切换。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        存量时代意味着：客户来源从开发商大B端转向分散小B/C端，获客逻辑根本性改变。建议海骊住居：一是评估布局社区化服务网络或企业大客户翻新（如银行、医疗机构）以对冲C端获客成本；二是关注保障房批量精装项目机会。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7664703140582654516/" target="_blank">今日头条</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5: 技术创新 -->
+  <div class="card tech">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">5</div>
+        <span class="card-tag">技术创新</span>
+        <span class="pub-date">📅 来源发布 2026-07-20</span>
+      </div>
+      <div class="card-title">装配式建筑2026年政策覆盖率扩至县级，绿色建材认证成投标准入门槛</div>
+      <div class="card-body">
+        7月20日，多项行业动态揭示装配式建筑发展进入新阶段：<br><br>
+        <strong>政策覆盖扩展</strong>——装配式建筑的政策覆盖率在2026年已<strong>扩展至县级城市</strong>，不再是大型城市的"专利"。<br><br>
+        <strong>绿色建材认证成硬门槛</strong>——绿色建材认证不再是加分项，而是<strong>投标准入的硬性条件</strong>。缺乏核心技术背书的产品将迅速失去市场话语权。<br><br>
+        <strong>BIM前置深化</strong>——河北亚新美环保科技在石家庄正定产业园区推行BIM前置深化服务，将窗洞、线条、阴阳角等复杂节点提前固化，使板材损耗率从<strong>8%-12%压缩至3%以内</strong>，脚手架搭设周期减少50%。<br><br>
+        <strong>小快装配式吊顶</strong>——小快装配专注天花吊顶系统革新，将弧形等复杂造型转移至工厂生产，工地现场只需"拧螺丝"，安装时间仅占传统方式的<strong>10%</strong>。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        装配式已成不可逆趋势，且正向县域市场下沉。对于精装修企业：一、尽快完成装配式工艺体系构建，避免被政策淘汰；二、提前完成绿色建材供应商储备（石材、木作、吊顶等）；三、引入BIM深化服务能力，提升投标竞争力和项目利润率。
+      </div>
+      <div class="card-source">来源：<a href="https://m.11467.com/product/d51536173.htm" target="_blank">11467网</a> · <a href="https://m.sohu.com/a/1050489702_696292/" target="_blank">搜狐</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    来源：今日头条 · 企查查 · 11467网 · 搜狐<br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
