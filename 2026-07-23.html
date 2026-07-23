@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-07-23</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.06);
+  }
+  .card-bar { height: 4px; }
+  .policy .card-bar { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .competitor .card-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .trend .card-bar { background: linear-gradient(90deg, #10b981, #34d399); }
+  .opportunity .card-bar { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .tech .card-bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .cost .card-bar { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .design .card-bar { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .labor .card-bar { background: linear-gradient(90deg, #a16207, #ca8a04); }
+  .card-content { padding: 24px 28px 28px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    font-size: 14px;
+    font-weight: 800;
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .policy .card-num { background: #fef3c7; color: #d97706; }
+  .competitor .card-num { background: #dbeafe; color: #2563eb; }
+  .trend .card-num { background: #d1fae5; color: #059669; }
+  .opportunity .card-num { background: #ede9fe; color: #7c3aed; }
+  .tech .card-num { background: #fce7f3; color: #db2777; }
+  .cost .card-num { background: #ffedd5; color: #ea580c; }
+  .design .card-num { background: #cffafe; color: #0891b2; }
+  .labor .card-num { background: #fef9c3; color: #a16207; }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .policy .card-tag { background: #fef3c7; color: #b45309; }
+  .competitor .card-tag { background: #dbeafe; color: #1d4ed8; }
+  .trend .card-tag { background: #d1fae5; color: #047857; }
+  .opportunity .card-tag { background: #ede9fe; color: #6d28d9; }
+  .tech .card-tag { background: #fce7f3; color: #be185d; }
+  .cost .card-tag { background: #ffedd5; color: #c2410c; }
+  .design .card-tag { background: #cffafe; color: #0e7490; }
+  .labor .card-tag { background: #fef9c3; color: #a16207; }
+  .pub-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #94a3b8;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .card-body strong { color: #1e293b; font-weight: 600; }
+  .card-insight {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #334155;
+  }
+  .insight-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .card-source {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .card-source a {
+    color: #64748b;
+    text-decoration: none;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .card-source a:hover { color: #3b82f6; border-color: #3b82f6; }
+  .footer {
+    text-align: center;
+    padding: 28px 0 8px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>数据抓取：2026年7月23日 星期三</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 -->
+  <div class="card policy">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">1</div>
+        <span class="card-tag">政策风向</span>
+        <span class="pub-date">📅 来源发布 2026-07-13</span>
+      </div>
+      <div class="card-title">住房正式划入"大宗耐用消费品"，国务院批复《扩大消费"十五五"规划》</div>
+      <div class="card-body">
+        7月13日，国务院批复的《扩大消费"十五五"规划》正式对外发布。这是新中国成立以来首份国家级消费领域五年专项规划，由国家发改委、商务部统筹协调。住房消费被正式纳入<strong>"大宗耐用商品消费体系"</strong>，与汽车、家居家电并列，且排在大宗消费首位。<br><br>
+        文件第三章第八条"促进大宗耐用商品消费"中明确：更好满足住房消费需求，优化保障性住房供给，因城施策增加改善性住房供给，规范发展住房租赁市场。实施<strong>房屋品质提升工程</strong>，建设安全舒适绿色智慧的"好房子"，稳步推进城中村、危旧房和城镇老旧小区改造，支持老旧房屋<strong>适老化改造和智能化升级</strong>。<br><br>
+        核心目标：到2030年，社会消费品零售总额达到60万亿元左右。政策工具箱从"救市"转向"促销"，从"托房价"转向"促消费"。保障性、改善性、租赁市场、城市更新、好房子——这五个词成为未来五年房地产全部主线。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        住房从"支柱产业"到"大宗消费品"的定位切换，意味着行业逻辑根本转变——不再追求投资属性，而是回归居住服务。对海骊住居而言，"房屋品质提升工程""适老化改造""智能化升级"都是直接业务机会。精装修企业应重点布局旧房翻新、改善型精装、适老化改造三大赛道。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7665383297542898210/" target="_blank">头条新闻</a> · <a href="http://m.toutiao.com/group/7665055905217626630/" target="_blank">政策解读</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2: 市场趋势 -->
+  <div class="card trend">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">2</div>
+        <span class="card-tag">市场趋势</span>
+        <span class="pub-date">📅 来源发布 2026-07-22</span>
+      </div>
+      <div class="card-title">中指研究院：上半年精装修开盘量同比暴跌31.9%，精装率降至25.13%</div>
+      <div class="card-body">
+        中指研究院7月22日发布《2026上半年地产家居精装市场总结报告》。数据显示：<strong>2026年上半年全国精装修楼盘开盘数量仅301个，同比下降31.9%</strong>；精装修房源套数<strong>17.1万套</strong>，同比下降<strong>36.6%</strong>，但二季度降幅较一季度收窄7个百分点。<br><br>
+        <strong>精装率方面：</strong>全国平均精装率<strong>25.13%</strong>，同比略降1.6个百分点。一线城市精装率89.76%，二线城市30.9%，三四线城市仅10.41%。华南区域精装率最高达<strong>49.8%</strong>，华东区域26.9%。<br><br>
+        <strong>结构特征：</strong>精装开盘主要集中在<strong>5万元以上和2-3万元价格段</strong>，中档装修标准（2000-5000元/㎡）占比64.7%。保利发展精装开盘量居首（1.2万套），其次是华润置地和建发房产。新风系统、空调部品逆势增长，分别同比增长26.1%和12.9%。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        精装修市场总量持续收缩，但结构性机会明显：一、精装向一二线核心城市集中，三四线空间被压缩；二、中档装修标准（2000-5000元/㎡）占比提升，高端需求稳定；三、新风、空调等舒适系统逆势增长，精装修正从"基础交付"向"品质居住"升级。海骊住居应聚焦核心城市的改善型精装需求。
+      </div>
+      <div class="card-source">来源：<a href="https://m.weibo.cn/detail/5323520246810023" target="_blank">中指研究院</a> · <a href="http://m.toutiao.com/group/7665341211942699535/" target="_blank">和讯网/智通财经</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3: 战略机遇 -->
+  <div class="card opportunity">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">3</div>
+        <span class="card-tag">战略机遇</span>
+        <span class="pub-date">📅 来源发布 2026-07-22</span>
+      </div>
+      <div class="card-title">中铁十七局中标潍坊北辰康养社区EPC 5.56亿元，建面近12万㎡</div>
+      <div class="card-body">
+        中铁十七局集团（雄安）建设有限公司联合中铁第四勘察设计院，中标<strong>潍坊北辰康养社区项目设计施工总承包（EPC）</strong>，中标总价<strong>5.56亿元</strong>。项目位于潍坊市寒亭区，占地面积约<strong>64.15亩</strong>，规划总建筑面积约<strong>11.8万㎡</strong>。<br><br>
+        <strong>建设内容：</strong>中医诊疗康复中心1栋、失能失智照护康复中心1栋、失能特级照护公寓2栋、半失能康复康养公寓3栋、康养疗护公寓2栋、智慧健康管理中心1栋、康养融合活动中心1栋，以及配套附属设施、室外工程、<strong>智能化系统</strong>、医疗康养设备配套等。<br><br>
+        这是近期康养EPC赛道又一大单。此前7月初扬州江都康养EPC项目（4.73亿元）已引发关注。康养基建项目单体规模持续扩大，从千万级跃升至亿元级，央企密集入场。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        康养EPC项目规模越来越大，且明确要求智能化系统和医疗康养设备配套——这对精装修企业是重要信号。海骊住居可关注康养项目中的精装分包机会，重点打造适老化精装+智能化系统的集成方案，与央企形成"施工总承包+精装分包"的合作模式。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7665249069048037940/" target="_blank">头条新闻/精工见闻</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4: 技术创新 -->
+  <div class="card tech">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">4</div>
+        <span class="card-tag">技术创新</span>
+        <span class="pub-date">📅 来源发布 2026-07-22</span>
+      </div>
+      <div class="card-title">杭州地铁四期首创"无线、无焊、无尘"装配式机电施工，浙江经验向全国推广</div>
+      <div class="card-body">
+        住建部指导下的浙江省装配式绿色建造在杭州地铁四期工程中取得突破性进展。项目聚焦"工厂化预制、模块化集成、装配化施工、数字化管控"，推动轨道交通建造方式从"现场湿作业"向"工厂制造+现场装配"根本变革。<br><br>
+        <strong>核心创新：</strong>机电系统全流程装配化——对消防泵房、暖通机房、气瓶间等关键机电系统首次采用模块单元装配模式，实现<strong>"三无"施工（无线缆现场裁切、无焊接、无尘作业）</strong>。弱电线缆标准件及预制组件工厂加工、现场螺栓装配，<strong>降低成本约10%，提升效率40%</strong>。<br><br>
+        <strong>其他亮点：</strong>装配式钢结构出入口从10-15天压缩至<strong>7小时</strong>安装完成；全装配式车站装修体系实现干式作业、可逆可换；BIM"一模到底"贯通全生命周期。浙江已制定<strong>121项标准化指导文件</strong>，计划向宁波、绍兴等城市推广。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        装配式装修正从建筑领域向城市轨道交通等重大基础设施拓展。"三无"施工模式和全装配式车站装修体系对精装修企业有直接参考价值。建议海骊住居关注：一、装配式装修在地铁、商业空间的推广应用；二、BIM正向设计+工厂预制的实施路径；三、与浙江省装配式标准对接，储备相关技术能力。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7665218703050555913/" target="_blank">住建部/筑造美学</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5: 行业变革 -->
+  <div class="card labor">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">5</div>
+        <span class="card-tag">行业变革</span>
+        <span class="pub-date">📅 来源发布 2026-07-22</span>
+      </div>
+      <div class="card-title">重庆85家企业纳入"自有工人"试点，全面取消劳务分包模式</div>
+      <div class="card-body">
+        重庆市住建委公布第6批自有工人试点企业名单，共6家企业入选，截至目前重庆市已有<strong>85家企业</strong>被纳入自有工人试点企业名单。此前重庆市住建委等七部门联合印发的《重庆市培育新时代建筑企业自有工人队伍试点工作方案》明确要求：<strong>试点项目全面取消劳务分包</strong>。<br><br>
+        <strong>核心要求：</strong>总承包和专业承包企业在危大工程项目中必须采用自有工人施工，或分包给自有专业作业企业。时间表：超规模危大工程2023年12月前全部实现自有工人施工；全市所有危大工程2024年2月前全面实现；2025年底自有工人占比达40%。<br><br>
+        <strong>全国趋势：</strong>2026年专项工作明确要求建筑央企建立自有施工队伍，严控外包层级，杜绝"以包代管"。国资委46号令将违规转包、关联分包纳入终身追责清单。包工头和传统劳务公司正加速退出历史舞台。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        建筑行业用工模式正在经历根本性变革。对海骊住居的影响：一、自有工人体系建设将成为企业核心竞争力，建议提前布局产业工人培训和管理机制；二、劳务分包模式面临淘汰，需调整项目用工策略；三、装配式+自有工人的组合将大幅提升施工质量和效率，与技术创新形成协同效应。
+      </div>
+      <div class="card-source">来源：<a href="https://m.zjtcn.cn/jianshi/jskx4672867.html" target="_blank">造价通学社</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    来源：头条新闻 · 中指研究院 · 和讯网 · 住建部 · 造价通学社<br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
