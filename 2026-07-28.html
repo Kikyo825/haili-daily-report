@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-07-28</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.06);
+  }
+  .card-bar { height: 4px; }
+  .policy .card-bar { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .competitor .card-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .trend .card-bar { background: linear-gradient(90deg, #10b981, #34d399); }
+  .opportunity .card-bar { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .tech .card-bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .cost .card-bar { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .design .card-bar { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .labor .card-bar { background: linear-gradient(90deg, #a16207, #ca8a04); }
+  .card-content { padding: 24px 28px 28px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    font-size: 14px;
+    font-weight: 800;
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .policy .card-num { background: #fef3c7; color: #d97706; }
+  .competitor .card-num { background: #dbeafe; color: #2563eb; }
+  .trend .card-num { background: #d1fae5; color: #059669; }
+  .opportunity .card-num { background: #ede9fe; color: #7c3aed; }
+  .tech .card-num { background: #fce7f3; color: #db2777; }
+  .cost .card-num { background: #ffedd5; color: #ea580c; }
+  .design .card-num { background: #cffafe; color: #0891b2; }
+  .labor .card-num { background: #fef9c3; color: #a16207; }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .policy .card-tag { background: #fef3c7; color: #b45309; }
+  .competitor .card-tag { background: #dbeafe; color: #1d4ed8; }
+  .trend .card-tag { background: #d1fae5; color: #047857; }
+  .opportunity .card-tag { background: #ede9fe; color: #6d28d9; }
+  .tech .card-tag { background: #fce7f3; color: #be185d; }
+  .cost .card-tag { background: #ffedd5; color: #c2410c; }
+  .design .card-tag { background: #cffafe; color: #0e7490; }
+  .labor .card-tag { background: #fef9c3; color: #a16207; }
+  .pub-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #94a3b8;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .card-body strong { color: #1e293b; font-weight: 600; }
+  .card-insight {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #334155;
+  }
+  .insight-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .card-source {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .card-source a {
+    color: #64748b;
+    text-decoration: none;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .card-source a:hover { color: #3b82f6; border-color: #3b82f6; }
+  .footer {
+    text-align: center;
+    padding: 28px 0 8px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>数据抓取：2026年7月28日 星期一</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 竞品动向 -->
+  <div class="card competitor">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">1</div>
+        <span class="card-tag">竞品动向</span>
+        <span class="pub-date">📅 来源发布 2026-07-21</span>
+      </div>
+      <div class="card-title">亚厦股份中标盐城缙云康养共富区项目，持续布局康养EPC赛道</div>
+      <div class="card-body">
+        据企查查数据显示，浙江亚厦装饰股份有限公司（002375.SZ）于2026年7月21日<strong>中标缙云县仙都黄帝康养共富区建设项目-鼎湖共富康养服务中心建设工程设计机构选择</strong>，进一步巩固其在康养赛道的布局。<br><br>
+        <strong>近期动态一览：</strong>亚厦近期在公建领域持续发力，7月23日参与投标<strong>起步区第五组团大学城配套一期项目六标段办公楼精装修工程</strong>；7月16日参与北京理工大学珠海校区2026年学生宿舍更新工程（博士及留学生宿舍）中标公示；近期持续参与学校类项目投标，涵盖硕士生宿舍、博士及留学生宿舍等细分品类。<br><br>
+        亚厦股份作为建筑装饰行业头部企业，在EPC及装配式建筑领域形成差异化优势，已获得首批国家住宅产业化基地及装配式建筑产业基地认证。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        亚厦康养+学校双赛道持续中标，竞争格局不容忽视。建议海骊住居：一、重点关注雄安新区起步区学校配套项目机会；二、康养EPC项目需强化设计一体化能力，可借鉴亚厦模式与设计院组建联合体。
+      </div>
+      <div class="card-source">来源：<a href="https://www.qcc.com/csusong/331331ab926cbcc4d089c91e9351b13b.html" target="_blank">企查查/亚厦股份</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2: 技术创新 -->
+  <div class="card tech">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">2</div>
+        <span class="card-tag">技术创新</span>
+        <span class="pub-date">📅 来源发布 2026-07-27</span>
+      </div>
+      <div class="card-title">数字孪生预装修、AI测量机器人重塑装饰工程：技术升级企业逆势增长18.7%</div>
+      <div class="card-body">
+        行业研究表明，在"双碳"战略与数字化浪潮驱动下，装饰工程正从"面子工程"转向"里子科技"。过去五年，行业平均利润率下滑3.2个百分点，但率先完成技术升级的企业却<strong>逆势增长18.7%</strong>。<br><br>
+        <strong>三大前沿技术落地：</strong><br>
+        <strong>一、数字孪生预装修：</strong>深圳湾某顶级公寓项目引入数字孪生系统，在Revit模型中植入BIM 4D/5D数据，每块瓷砖赋予唯一二维码，提前跑"虚拟施工"，变更率下降62%。<br>
+        <strong>二、AI测量机器人：</strong>上海静安综合体项目引入AI测量机器人，通过SLAM激光+全景视觉融合算法，2.5小时完成全场扫描（2.3万㎡异形GRG吊顶），将"测量→深化→下单"周期从7天压缩到18小时。<br>
+        <strong>三、供应链数字看板：</strong>装饰项目平均涉及供应商147家，北京某总部大楼将供应链搬上"云看板"，板材到货虚假率从5%降至0.3%，补单减少41%。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        技术升级带来显著效益差距。建议海骊住居：一、优先试点AI测量机器人，提升批量项目测量效率；二、探索数字孪生系统，降低返工率（行业返工率12%-15%）；三、与核心供应商建立ERP直连，实现供应链数字化协同。
+      </div>
+      <div class="card-source">来源：<a href="https://m.book118.com/html/2026/0727/6101054124012203.shtm" target="_blank">原创力文档/装饰工程新技术</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3: 战略机遇 -->
+  <div class="card opportunity">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">3</div>
+        <span class="card-tag">战略机遇</span>
+        <span class="pub-date">📅 来源发布 2026-07-27</span>
+      </div>
+      <div class="card-title">武汉九峰山化合物半导体洁净厂房8月底交付，百级洁净度超手术室标准</div>
+      <div class="card-body">
+        位于武汉东湖高新区九峰山实验室正南侧的<strong>武汉化合物半导体孵化及加速制造基地项目</strong>建设正酣，预计2026年8月底整体交付。项目总建筑面积<strong>16.8万平方米</strong>，其中三分之二以上用于打造千级、百级超净洁净室。<br><br>
+        <strong>洁净厂房核心参数：</strong>百级洁净度——每立方英尺空间0.5微米以上灰尘颗粒不超过100颗，采用MAU+FFU+DCC三重保障系统；22℃恒温恒湿；架空地面承重1吨/㎡，形成"上送下回"气流路径；地面平整度误差控制在每米2毫米内。<br><br>
+        <strong>配套系统：</strong>超纯水制备系统（去除硫、氯、钠、钾等杂质）、大宗气体供应系统（24小时稳定高纯输送）。建设方中冶南方项目负责人表示，从开工至首批企业入驻仅14个半月。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        半导体洁净厂房建设进入加速期，九峰山8月底交付是重要节点。建议海骊住居：一、关注武汉、长三角、大湾区半导体产业基地周边城市的洁净室装修分包机会；二、"精装+洁净"细分环节可作为差异化切入点，避免与央企正面对抗总承包。
+      </div>
+      <div class="card-source">来源：<a href="https://c.m.163.com/news/a/L2RCVN0L053469LG.html" target="_blank">极目新闻/半导体厂房</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4: 技术创新 -->
+  <div class="card tech">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">4</div>
+        <span class="card-tag">技术创新</span>
+        <span class="pub-date">📅 来源发布 2026-07-27</span>
+      </div>
+      <div class="card-title">广州建筑集团举办前沿技术路演，研磨机器人、无机石等多项成果亮相</div>
+      <div class="card-body">
+        由广州建筑集团主办、科研院集团承办的<strong>新材料新设备路演推介暨考察交流活动</strong>在广州白云区建研大厦举办，汇聚全国多家建筑龙头企业、科研院所的前沿科创成果，吸引150名行业专家、企业代表到场交流。<br><br>
+        <strong>核心成果展示：</strong><br>
+        <strong>一、高品质预制无机石：</strong>广州建科院自主研发，以石材固废、再生骨料常温压制成型，拥有40余项授权专利，获评中国绿色建材三星级最高认证，填补国内高端无机人造石产业化空白。可适配幕墙干挂、公共区域地面、室内装饰台面等全场景，A1级防火、莫氏5-7级耐磨、可100%循环回收。<br>
+        <strong>二、建筑机器人：</strong>浙江建投智能建造公司展示研磨机器人、整平机器人、ALC墙板安装机器人等多品类建筑机器人产业化应用实践。<br>
+        <strong>三、AI标书自动生成：</strong>深圳特区建工展示数字化工具对标书制作效率的提升价值。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        行业头部企业正加速技术成果转化。建议海骊住居：一、关注无机石等绿色建材在公建项目的应用前景，兼具环保与成本优势；二、探索建筑机器人与传统施工的协同模式，提升交付效率。
+      </div>
+      <div class="card-source">来源：<a href="http://m.toutiao.com/group/7667180846407565876/" target="_blank">南方+/广州建筑集团</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5: 竞品动向 -->
+  <div class="card competitor">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">5</div>
+        <span class="card-tag">竞品动向</span>
+        <span class="pub-date">📅 来源发布 2026-07-16</span>
+      </div>
+      <div class="card-title">德才装饰密集中标学校类项目，曲阜师范大学、优质食品产业园精装修在列</div>
+      <div class="card-body">
+        据企查查数据，德才装饰近期在教育类公建项目持续发力：<br><br>
+        <strong>近期中标项目：</strong><br>
+        一、<strong>曲阜师范大学2026年度校园基础设施改造提升项目</strong>（2026-07-16），包含教学设施改造及配套装修；<br>
+        二、<strong>山东省口腔医院领秀城门诊部装修改造工程</strong>（2026-07-24）；<br>
+        三、<strong>优质食品产业园技术创新中心项目精装修</strong>（暂估价，2026-07-23投标）。<br><br>
+        德才装饰2025年营业收入达<strong>35.07亿元</strong>，拥有建筑装修装饰工程专业承包壹级资质，在学校类EPC项目中积累了丰富业绩。学校+康养+酒店的多赛道布局经验值得关注。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        德才深耕学校赛道的战略意图明显，连续中标体现其在该领域的竞争力。建议海骊住居：一、加强对学校类项目的投标资源投入，尤其是高校基础设施改造机会；二、借鉴德才与设计院组建联合体的模式，提升EPC接单能力。
+      </div>
+      <div class="card-source">来源：<a href="https://www.qcc.com/cindustry/151c8cdf2b9d3591c6a79ee7d6410830.html" target="_blank">企查查/德才装饰</a></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    海骊住居 · 行业日报 | 每日精选行业情报<br>
+    数据仅供参考，内容源自公开信息整理
+  </div>
+
+</div>
+</body>
+</html>
