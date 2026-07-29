@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-07-29</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.06);
+  }
+  .card-bar { height: 4px; }
+  .policy .card-bar { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .competitor .card-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .trend .card-bar { background: linear-gradient(90deg, #10b981, #34d399); }
+  .opportunity .card-bar { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .tech .card-bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .cost .card-bar { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .design .card-bar { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .labor .card-bar { background: linear-gradient(90deg, #a16207, #ca8a04); }
+  .card-content { padding: 24px 28px 28px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    font-size: 14px;
+    font-weight: 800;
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .policy .card-num { background: #fef3c7; color: #d97706; }
+  .competitor .card-num { background: #dbeafe; color: #2563eb; }
+  .trend .card-num { background: #d1fae5; color: #059669; }
+  .opportunity .card-num { background: #ede9fe; color: #7c3aed; }
+  .tech .card-num { background: #fce7f3; color: #db2777; }
+  .cost .card-num { background: #ffedd5; color: #ea580c; }
+  .design .card-num { background: #cffafe; color: #0891b2; }
+  .labor .card-num { background: #fef9c3; color: #a16207; }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .policy .card-tag { background: #fef3c7; color: #b45309; }
+  .competitor .card-tag { background: #dbeafe; color: #1d4ed8; }
+  .trend .card-tag { background: #d1fae5; color: #047857; }
+  .opportunity .card-tag { background: #ede9fe; color: #6d28d9; }
+  .tech .card-tag { background: #fce7f3; color: #be185d; }
+  .cost .card-tag { background: #ffedd5; color: #c2410c; }
+  .design .card-tag { background: #cffafe; color: #0e7490; }
+  .labor .card-tag { background: #fef9c3; color: #a16207; }
+  .pub-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #94a3b8;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body {
+    font-size: 14.5px;
+    color: #475569;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .card-body strong { color: #1e293b; font-weight: 600; }
+  .card-insight {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #334155;
+  }
+  .insight-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .card-source {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .card-source a {
+    color: #64748b;
+    text-decoration: none;
+    border-bottom: 1px dashed #cbd5e1;
+  }
+  .card-source a:hover { color: #3b82f6; border-color: #3b82f6; }
+  .footer {
+    text-align: center;
+    padding: 28px 0 8px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 2;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>数据抓取：2026年7月29日 星期三</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 -->
+  <div class="card policy">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">1</div>
+        <span class="card-tag">政策风向</span>
+        <span class="pub-date">📅 来源发布 2026-07-29</span>
+      </div>
+      <div class="card-title">北京发布街区控规改革204号文：从"好房子"向"好街区"整体跃升</div>
+      <div class="card-body">
+        北京市规划和自然资源委员会近日正式印发<strong>《北京市深化与城市更新相适应的街区控规管理改革实施意见》</strong>（京规自发〔2026〕204号），经市政府常务会议、市委深改委会议审议通过。<br><br>
+        <strong>三大核心创新：</strong><br>
+        <strong>一、规划方法论变革：</strong>总结回天、安贞等街区经验，推广<strong>"四步走、八清单"规划方法</strong>——从空间规划转向谋划策划，推动资源在时间上精准投放。<br>
+        <strong>二、制度设计：</strong>构建<strong>分层编制、分级审批、全程监管</strong>的街区控规编管体系，城市更新实施方案与规划综合实施方案"合二为一"，从"蓝图式"转向"战略传导+落地实施"。<br>
+        <strong>三、实施重点：</strong>推动形成<strong>"15分钟生活圈"空间结构</strong>，促进公共服务设施均衡布局；促进职住商服平衡，提升轨道站点周边开发强度，推动站城融合；加强历史文化资源挖掘，推动文商旅体展融合发展。<br><br>
+        下一步北京将组织制定"好街区"共同行动实施方案，选取一批示范带动效应强的存量街区先试先行。市级部门将整合政府投资、规划、土地等政策资源，形成"以公共投入带动价值提升进而带动市场积极参与"的新机制。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        街区控规改革是"好房子"政策的升级版，从单点项目转向<strong>系统性片区更新</strong>。海骊住居应重点关注：一、北京市级及区级"好街区"示范项目的精装修分包机会；二、文商旅体展融合类项目（如地铁站城融合、历史文化片区改造）的综合精装能力建设；三、配合北京"多师协同共创"机制，提前对接责任规划师、建筑师团队，构建设计-施工一体化生态。
+      </div>
+      <div class="card-source">来源：<a href="https://ihouse.ifeng.com/news/2026_07_29-57451842_0.shtml" target="_blank">凤凰房产/北京新规</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2: 竞品动向 -->
+  <div class="card competitor">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">2</div>
+        <span class="card-tag">竞品动向</span>
+        <span class="pub-date">📅 来源发布 2026-07-22</span>
+      </div>
+      <div class="card-title">金螳螂近期密集获专利授权+中标食品产业园，绿色装配式技术储备持续深化</div>
+      <div class="card-body">
+        据企查查信息（更新至7-25），金螳螂（002081.SZ）近期在<strong>技术专利</strong>与<strong>项目中标</strong>双线发力。<br><br>
+        <strong>一、4项专利集中授权（7-21至7-22）：</strong>①"基于光伏太阳能板的绿色循环水景设计结构"发明专利；②"模块化曲面吊顶结构"发明专利；③"螺旋式柜台的装配式设计结构"发明专利；④"大型玻璃墙体的装配式设计结构"发明专利。同期还获得"装配高效面层平整的大礼堂墙面造型设计结构"等实用新型专利。专利组合聚焦<strong>绿色低碳+装配式+曲面造型</strong>三大方向。<br><br>
+        <strong>二、项目中标密集：</strong>①<strong>高邮市食品产业园标准化厂房（二期）工业装修工程 EPC</strong>（7-21中标候选）；②<strong>泰山博物院建设项目室内精装工程</strong>（7-22中标候选）；③<strong>广东地理科技创新中心标识及室内装修工程</strong>（7-24中标，1378万）；④<strong>优质食品产业园技术创新中心项目精装修</strong>（7-23/24投标+中标候选）；⑤<strong>南岸新地3号楼改造工程</strong>（7-25中标候选）。<br><br>
+        此外，金螳螂7-23新签<strong>泰康之家申园十周年改造（医护楼及地下层医疗办公）设计</strong>，继续巩固康养改造赛道；金螳螂幕墙7-24获"装配式单元混用的分体式石材幕墙构造"发明专利。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        金螳螂在"绿色+装配式+公建"赛道持续布局。食品产业园类EPC、博物院类公建是值得关注的<strong>新兴细分赛道</strong>。建议海骊住居：一、研究金螳螂"光伏+水景+循环"专利背后的绿色装饰趋势，提前布局相关技术储备；二、关注食品/科技类产业园精装修项目机会（区别于传统住宅精装）；三、康养改造类项目（泰康申园模式）应作为重点开拓方向。
+      </div>
+      <div class="card-source">来源：<a href="https://www.qcc.com/cindustry/c4877d95e9a22f9b320a1934f3f576b1.html" target="_blank">企查查/金螳螂</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3: 市场趋势 -->
+  <div class="card trend">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">3</div>
+        <span class="card-tag">市场趋势</span>
+        <span class="pub-date">📅 来源发布 2026-07-29</span>
+      </div>
+      <div class="card-title">中房协研：三季度分化为主，城市更新+好房子+公积金成三大政策抓手</div>
+      <div class="card-body">
+        中房协研究中心7月29日发布《2026年第二季度房地产市场运行情况分析和第三季度行情预判》报告。<br><br>
+        <strong>一、政策环境：稳定宽松，三大新动向：</strong><br>
+        <strong>1.城市更新战略地位提升：</strong>4月28日中央政治局会议明确"努力稳定房地产市场，扎实推进城市更新"；5月22日国务院印发《城市更新"十五五"规划》——首部国家级城市更新专项规划，明确"十五五"改造<strong>城镇危旧房约50万套、新开工改造老旧小区约11.5万个、更新改造老旧街区厂区约1500个</strong>。资金保障上，<strong>2026年中央预算内投资970亿元+超长期特别国债1600亿元</strong>用于城市更新，合计2570亿元。<br>
+        <strong>2.公积金制度全面优化：</strong>6月5日住建部《住房公积金管理条例（修订征求意见稿）》，将<strong>自住住房装修、支付物业费纳入可提取住房公积金</strong>的情形，灵活就业人员可自愿缴存。<br>
+        <strong>3."好房子"建设导则密集出台：</strong>更多城市出台"好房子"建设导则，在土地出让环节嵌入品质要求，引导房企供给侧改革。<br><br>
+        <strong>二、三季度走势预判：</strong>城市更新将进入<strong>项目集中启动和资金拨付的关键期</strong>，形成实物工作量；价格端结构性修复为主，一二线核心城市保持韧性，三四线主要依赖存量收储和补贴政策。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        <strong>公积金可用于装修</strong>是重大政策利好，叠加城市更新1570亿+老旧小区11.5万个+危旧房50万套的明确目标，海骊住居应：一、跟踪各城市"好房子"建设导则落地，挖掘品质升级类项目；二、聚焦危旧房改造、老旧小区二次装修等存量市场（公积金提取政策为消费力提供支撑）；三、关注城市更新带来的<strong>公区精装、配套商业、社区服务设施</strong>等新增需求。
+      </div>
+      <div class="card-source">来源：<a href="https://house.ifeng.com/news/2026_07_29-57451825_0.shtml" target="_blank">凤凰房产/中房协研</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4: 战略机遇 -->
+  <div class="card opportunity">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">4</div>
+        <span class="card-tag">战略机遇</span>
+        <span class="pub-date">📅 来源发布 2026-07-29</span>
+      </div>
+      <div class="card-title">河北金御康养智慧康养文旅综合体（含酒店）EPC项目，1.65亿主体安装中</div>
+      <div class="card-body">
+        河北邯郸市<strong>金御康养智慧康养文旅综合体项目（含酒店）（EPC）</strong>进入主体安装阶段。项目总投资<strong>1.65亿元</strong>，非政府性投资，资金正在落实，预计2026年第四季度完工。<br><br>
+        <strong>项目特征：</strong><br>
+        <strong>一、多业态融合：</strong>项目集<strong>康养中心+酒店+文化旅游</strong>于一体，是典型的"康养+酒店+文旅"复合型综合体，与海骊住居"康养+酒店"转型方向高度匹配。<br>
+        <strong>二、园林景区+文旅双重定位：</strong>项目同时被归类为园林景区绿化、文化旅游类别，凸显生态+康养+休闲的复合属性。<br>
+        <strong>三、EPC模式：</strong>采用EPC工程总承包模式，对中标方的设计-施工一体化能力要求高。<br><br>
+        中项网信息显示，项目目前处于主体安装阶段，<strong>面向国内采购设备</strong>，预计2026年Q4完工。这意味着主体施工和精装修分包机会窗口已经打开。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        1.65亿体量的"康养+酒店+文旅"复合EPC项目，是海骊住居的精准对标赛道。建议：一、立即通过中项网对接建设单位（河北****公司），争取精装修分包或专业承包机会；二、项目位于河北邯郸，可联动京津冀既有项目资源；三、康养中心+酒店的精装设计能力是关键，建议组建"康养+酒店"专项方案组。
+      </div>
+      <div class="card-source">来源：<a href="https://m.ccpc360.com/nzjxm2198985.html" target="_blank">中项网/金御康养EPC</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5: 劳务供应链 -->
+  <div class="card labor">
+    <div class="card-bar"></div>
+    <div class="card-content">
+      <div class="card-head">
+        <div class="card-num">5</div>
+        <span class="card-tag">劳务供应链</span>
+        <span class="pub-date">📅 来源发布 2026-07-28</span>
+      </div>
+      <div class="card-title">第一财经深度调查：装修供应商深陷"工抵房"困局，亚厦股份11.38亿应收转房产</div>
+      <div class="card-body">
+        第一财经7-28发布深度调查<strong>《乙方被迫当上"房东"，房企供应商深陷"工抵房"困局》</strong>，揭示建筑装饰行业供应链的隐性风险。<br><br>
+        <strong>一、亚厦股份案例：</strong>作为长期服务房企的精装修企业，亚厦股份近年来承接大量房企工程。截至<strong>2024年末预付房屋、设备款约9.57亿元</strong>，<strong>2025年末扩大至11.38亿元</strong>，系与客户签订"以房抵工程款"协议形成，<strong>在公开披露案例中规模最为突出</strong>。<br><br>
+        <strong>二、产业链集体承压：</strong>①<strong>东方雨虹</strong>：2024年末投资性房地产达<strong>14.16亿元</strong>，主要系"抵债资产转入"；②<strong>帝欧家居</strong>：2025年4月公告接受客户以房地产资产抵偿货款，<strong>抵债房产价值2.20亿元</strong>，2024年另有约2.25亿元同类处置；③<strong>蒙娜丽莎</strong>：2025年年报显示投资性房地产增加主要系"地产业务用于抵债的房产交付转入"。<br><br>
+        <strong>三、政策监管：</strong>2026年7月13日湖南郴州出台工抵房监管政策，对网签备案、合同更名、资金监管等环节作出规范，要求"保交房"项目工抵房销售资金优先用于支付工程款、材料款以及农民工工资。
+      </div>
+      <div class="card-insight">
+        <span class="insight-label">💡</span>
+        "工抵房"是装饰行业系统性风险信号，<strong>亚厦11.38亿规模</strong>说明头部企业也难以独善其身。海骊住居应：一、<strong>严格客户资信审核</strong>，避开已爆雷或现金流恶化的大型房企；二、对<strong>存量应收账款</strong>进行全面排查，提前识别潜在工抵房风险；三、考虑引入<strong>应收账款保险</strong>或<strong>保理融资</strong>分散风险；四、关注公建/政府/央国企客户（康养、学校、酒店赛道）的支付安全性。
+      </div>
+      <div class="card-source">来源：<a href="https://www.yicai.com/news/103295180.html" target="_blank">第一财经/工抵房困局</a></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    海骊住居 · 行业日报 | 每日精选行业情报<br>
+    数据仅供参考，内容源自公开信息整理
+  </div>
+
+</div>
+</body>
+</html>
