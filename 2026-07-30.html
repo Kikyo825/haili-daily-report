@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-07-30</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-orange { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .bar-cyan { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .bar-brown { background: linear-gradient(90deg, #92400e, #b45309); }
+  .card-content { padding: 22px 24px 20px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .card-num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-yellow { background: #f59e0b; }
+  .num-blue { background: #3b82f6; }
+  .num-green { background: #10b981; }
+  .num-purple { background: #8b5cf6; }
+  .num-pink { background: #ec4899; }
+  .num-orange { background: #f97316; }
+  .num-cyan { background: #06b6d4; }
+  .num-brown { background: #92400e; }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 5px;
+    color: #fff;
+  }
+  .tag-yellow { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-pink { background: #fce7f3; color: #9d174d; }
+  .tag-orange { background: #ffedd5; color: #9a3412; }
+  .tag-cyan { background: #cffafe; color: #155e75; }
+  .tag-brown { background: #fef3c7; color: #78350f; }
+  .card-source {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-left: auto;
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.8;
+    margin-bottom: 10px;
+  }
+  .card-insight {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin: 14px 0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.7;
+  }
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #6366f1;
+    text-decoration: none;
+    margin-top: 6px;
+  }
+  .card-link:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 24px 16px;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer a { color: #6366f1; text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>2026年7月30日 星期四 ｜ 数据抓取于 09:41</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 -->
+  <div class="card">
+    <div class="card-bar bar-yellow"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="card-num num-yellow">1</div>
+        <span class="card-tag tag-yellow">政策风向</span>
+        <span class="card-source">📅 来源发布 2026-07-30</span>
+      </div>
+      <div class="card-title">住建部建市规〔2026〕2号落地：注册人员"2年限制"+频繁变更受限，资质申报全面收紧</div>
+      <div class="card-text">
+        住建部发布<strong>建市规〔2026〕2号</strong>《关于进一步加强建筑市场监管持续优化建筑市场环境的通知》后，"资质申报常见问题"已更新第32条，明确两大核心规则：①企业申请部批资质时，注册人员须在<strong>近2年内未用于其他企业申报部批资质</strong>（从申请时间逆推2年）；②<strong>1年内变更注册单位2次及以上的人员</strong>，再次申请注册时不适用告知承诺制，变更次数自2026年7月25日起计算。配合"四库一平台"社保实时核查，挂靠与人证分离的操作空间被压缩至接近零。
+      </div>
+      <div class="card-insight">
+        💡 新规从"宽进"转向"严管"，真实持证人员市场价值回归，对海骊住居而言是利好——规范市场环境有利于具备真实人才储备的企业在招投标中获得公平竞争。建议提前核查自有注册人员轨迹，确保申报窗口期人员社保连续6个月以上。
+      </div>
+      <a class="card-link" href="http://m.toutiao.com/group/7668115092957037110/" target="_blank">📎 来源：头条·住建部新规详情</a>
+    </div>
+  </div>
+
+  <!-- Card 2: 竞品动向 -->
+  <div class="card">
+    <div class="card-bar bar-blue"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="card-num num-blue">2</div>
+        <span class="card-tag tag-blue">竞品动向</span>
+        <span class="card-source">📅 来源发布 2026-07-29</span>
+      </div>
+      <div class="card-title">金螳螂Q2新签订单59.34亿元，同比增25.9%，公装占比超84%</div>
+      <div class="card-text">
+        金螳螂（002081）7月29日晚间公告，<strong>2026年Q2新签订单金额合计59.34亿元</strong>，同比增长25.9%，远超行业平均增速11.3%。结构拆分：公装<strong>50.27亿元</strong>（占比84%+）、住宅3.40亿元、设计5.67亿元。已中标未签约订单28.51亿元。截至6月30日，<strong>累计已签约未完工订单186.08亿元</strong>，其中公装158.54亿元，足以支撑未来14个月满负荷施工。设计板块5.67亿元表现亮眼，"碳中和空间解决方案"单套设计费均值突破680万元。
+      </div>
+      <div class="card-insight">
+        💡 金螳螂公装订单持续高增，EPC总承包能力优势明显，洁净工程+医疗空间成为新增长极。海骊需关注其在公建精装修领域的市占率扩张节奏，尤其在医院、学校等细分赛道的先发优势。
+      </div>
+      <a class="card-link" href="https://finance.sina.com.cn/stock/estate/integration/2026-07-29/doc-iniknvwz1516331.shtml" target="_blank">📎 来源：新浪财经·金螳螂Q2公告</a>
+    </div>
+  </div>
+
+  <!-- Card 3: 成本动态 -->
+  <div class="card">
+    <div class="card-bar bar-orange"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="card-num num-orange">3</div>
+        <span class="card-tag tag-orange">成本动态</span>
+        <span class="card-source">📅 来源发布 2026-07-30</span>
+      </div>
+      <div class="card-title">水泥上半年均价暴跌18.97%，螺纹钢窄幅盘整3390元/吨，8月预期先震荡后抬升</div>
+      <div class="card-text">
+        <strong>水泥：</strong>2026上半年全国P.O42.5散装水泥均价同比<strong>大跌18.97%</strong>，产量7.36亿吨同比下降8.0%，创近17年同期最低。传统"金四银五"旺季落空，地产新开工面积同比-23.4%持续拖累。企业亏损面接近八成，6月多省发起涨价但落地效果有限。区域分化明显：西南韧性最强，华东华中竞争白热化。<br><br>
+        <strong>钢材：</strong>7月30日螺纹钢HRB400E 20mm全国均价约<strong>3390元/吨</strong>，窄幅盘整。7月淡季弱需求+累库特征明显，华北建材库存124万吨年同比增51.89%。展望8月：中旬前延续淡季震荡，<strong>8月中旬后旺季预期计价，价格有望缓慢抬升</strong>。
+      </div>
+      <div class="card-insight">
+        💡 水泥、钢材两大主材均处于历史低位区间，对精装修施工企业短期采购成本有利。建议锁定8月旺季前的低价窗口期适量备货，同时关注水泥区域价差带来的集采优化空间。
+      </div>
+      <a class="card-link" href="http://m.toutiao.com/group/7668109885918003750/" target="_blank">📎 来源：水泥上半年复盘</a> ｜ 
+      <a class="card-link" href="http://m.toutiao.com/group/7668113490497782330/" target="_blank">📎 螺纹钢7月30日行情</a>
+    </div>
+  </div>
+
+  <!-- Card 4: 市场趋势 -->
+  <div class="card">
+    <div class="card-bar bar-green"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="card-num num-green">4</div>
+        <span class="card-tag tag-green">市场趋势</span>
+        <span class="card-source">📅 来源发布 2026-07-30</span>
+      </div>
+      <div class="card-title">中指研究院：上半年精装房"总量收缩、结构分化"，二线城市占比升至45.1%</div>
+      <div class="card-text">
+        中指研究院最新数据显示，2026上半年全国精装修市场呈<strong>"总量收缩、结构优化"</strong>特征。城市能级分布：二线城市占比<strong>45.1%</strong>（同比+5.1pct），一线32.4%（+4.5pct），三四线降至22.5%。装修标准以中档为主（2000-5000元/㎡），占比<strong>64.7%</strong>（+3.8pct）。部品配套结构性变化：七大部品中配套量最高的建材部品同比下降36.6%，但<strong>新风系统同比增26.1%、空调增12.9%</strong>，洗碗机、智能系统等配套率大幅提升10个百分点以上。精装开盘量最多城市：深圳1.9万套、成都、北京次之。
+      </div>
+      <div class="card-insight">
+        💡 精装房向高能级城市集中+舒适系统配套率提升，意味着精装修供应商需调整城市布局策略。海骊在二线城市公建项目上的布局可借势，同时新风/智能系统的集成能力将成为差异化竞争点。
+      </div>
+      <a class="card-link" href="https://m.sohu.com/a/1056494984_115635/" target="_blank">📎 来源：搜狐·精装房市场扫描</a>
+    </div>
+  </div>
+
+  <!-- Card 5: 战略机遇 -->
+  <div class="card">
+    <div class="card-bar bar-purple"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="card-num num-purple">5</div>
+        <span class="card-tag tag-purple">战略机遇</span>
+        <span class="card-source">📅 来源发布 2026-07-29</span>
+      </div>
+      <div class="card-title">中国建筑签署科威特224亿污水处理EPC+OM大单，海外公建订单持续放量</div>
+      <div class="card-text">
+        中国建筑（601668）7月29日公告，近日与科威特公共工程部签署<strong>北卡巴德污水处理厂及配套项目合同</strong>，合同金额约<strong>9.9985亿科威特第纳尔（折合人民币约224亿元）</strong>，约占公司2025年度营收的1.1%。项目采用<strong>EPC+OM模式</strong>（设计、采购、施工及运营维护一体化），含设计施工和安装调试5年+维保运营5年，建设内容包括一座污水处理厂、3座泵站及相关输送管线。这一超级大单再次印证央企在海外公建领域的强大拿单能力。
+      </div>
+      <div class="card-insight">
+        💡 EPC+OM模式正成为海外公建主流交付方式，对海骊转型EPC具有标杆参考价值。国内公建精装修赛道同样受益于"设计-建造-运维"一体化趋势，建议关注中建系海外项目对国内供应链的溢出效应。
+      </div>
+      <a class="card-link" href="https://m.weibo.cn/detail/5326104656349562" target="_blank">📎 来源：微博·中国建筑公告</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>📊 来源汇总</div>
+    <div>
+      <a href="http://m.toutiao.com/group/7668115092957037110/" target="_blank">住建部新规</a> · 
+      <a href="https://finance.sina.com.cn/stock/estate/integration/2026-07-29/doc-iniknvwz1516331.shtml" target="_blank">新浪财经</a> · 
+      <a href="http://m.toutiao.com/group/7668109885918003750/" target="_blank">水泥复盘</a> · 
+      <a href="https://m.sohu.com/a/1056494984_115635/" target="_blank">精装房市场</a> · 
+      <a href="https://m.weibo.cn/detail/5326104656349562" target="_blank">中国建筑公告</a>
+    </div>
+    <div style="margin-top: 10px;">数据由 AI 自动抓取整理，仅供参考</div>
+  </div>
+
+</div>
+</body>
+</html>
