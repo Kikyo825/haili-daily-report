@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-07-31</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-orange { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .bar-cyan { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .bar-brown { background: linear-gradient(90deg, #92400e, #b45309); }
+  .card-content { padding: 22px 24px 20px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .card-header .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-yellow { background: #f59e0b; }
+  .num-blue { background: #3b82f6; }
+  .num-green { background: #10b981; }
+  .num-purple { background: #8b5cf6; }
+  .num-pink { background: #ec4899; }
+  .num-orange { background: #f97316; }
+  .num-cyan { background: #06b6d4; }
+  .num-brown { background: #92400e; }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tag-yellow { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-pink { background: #fce7f3; color: #9d174d; }
+  .tag-orange { background: #ffedd5; color: #9a3412; }
+  .tag-cyan { background: #cffafe; color: #155e75; }
+  .tag-brown { background: #fef3c7; color: #78350f; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    white-space: nowrap;
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  .card-body strong { color: #1e293b; }
+  .insight-box {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 14px;
+    border-left: 3px solid #e2e8f0;
+  }
+  .insight-box p {
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+  .footer {
+    margin-top: 32px;
+    padding: 24px;
+    text-align: center;
+  }
+  .footer .sources {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .footer .sources h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #94a3b8;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  .footer .sources ul {
+    list-style: none;
+    text-align: left;
+  }
+  .footer .sources li {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+    padding-left: 12px;
+    position: relative;
+  }
+  .footer .sources li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: #cbd5e1;
+  }
+  .footer .disclaimer {
+    font-size: 11px;
+    color: #cbd5e1;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">DAILY INDUSTRY BRIEF</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>2026年7月31日 · 周五</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 -->
+  <div class="card">
+    <div class="card-bar bar-yellow"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-yellow">1</div>
+          <span class="tag tag-yellow">政策风向</span>
+        </div>
+        <span class="card-date">📅 2026-07-30</span>
+      </div>
+      <div class="card-title">中央政治局半年内再提"稳定房地产市场"，供给侧主动收缩+存量转型成新思路</div>
+      <div class="card-body">
+        <p>7月30日召开的中共中央政治局会议再次强调<strong>"稳定房地产市场"</strong>，这是继今年4月中央政治局会议提出"努力稳定房地产市场"后，<strong>高层半年内第二次聚焦"稳楼市"</strong>。</p>
+        <p>会议指出，房地产行业链条长、带动性强，楼市深度调整会通过上下游影响就业乃至宏观经济。当前市场<strong>"筑底"与"分化"并存</strong>：上半年全国二手房网签面积同比增长10.2%，新建商品房销售面积同比降11.6%。<strong>3月以来一线城市新房、二手房价格环比已连续4个月上涨</strong>。</p>
+        <p>值得关注的是调控思路的深层转变：<strong>今年以来房地产新开工和批售规模仅为销售规模的一半左右</strong>，各地从"一味增加供地"转向"控增量+强配套"。二手房交易量占比已历史性突破50%，中国楼市正全面步入<strong>存量时代</strong>。城市更新中的城中村、危旧房、老旧小区改造将成为稳投资的重要力量。</p>
+        <div class="insight-box">
+          <p>💡 <strong>海骊启示：</strong>中央连续定调"稳楼市"+供给侧主动收缩，存量时代逻辑确立。精装修作为提升住宅品质的核心抓手，将在"好房子"政策导向下持续受益。海骊住居应关注各地城市更新、老旧小区改造释放的批量精装需求，同时把握公建领域（学校、酒店、康养设施）的政策性投资机遇。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2: 竞品动向 -->
+  <div class="card">
+    <div class="card-bar bar-blue"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-blue">2</div>
+          <span class="tag tag-blue">竞品动向</span>
+        </div>
+        <span class="card-date">📅 2026-07-31</span>
+      </div>
+      <div class="card-title">亚厦股份Q2新签订单22.12亿元，公装占比近79%；德才股份Q2新签20.25亿元增89%</div>
+      <div class="card-body">
+        <p><strong>亚厦股份（002375）</strong>7月31日披露2026年第二季度经营简报：当季<strong>新签订单总额22.12亿元</strong>，其中装饰施工业务19.57亿元；公共建筑装饰新签订单<strong>17.44亿元</strong>，住宅装修2.13亿元。截至期末，<strong>累计已签约未完工订单106.42亿元</strong>，已中标尚未签约订单12.01亿元。</p>
+        <p><strong>德才股份（605287）</strong>此前披露Q2新签项目136个，<strong>新签项目金额20.25亿元</strong>，同比增长<strong>89.44%</strong>，新签项目数量同比增长147.27%。其中，控股子公司签约济南励新实验中学建设项目施工总承包合同，金额达<strong>5.2亿元</strong>。同时，德才与香港利达建筑集团签署战略合作框架协议，拓展海外市场。</p>
+        <p>两大竞品公装业务占比均维持高位，亚厦股份公装占比达<strong>78.8%</strong>，且均在加速布局学校、康养等新兴赛道。亚厦通过装配式+EPC模式形成差异化竞争力，德才则通过联合体模式切入大型EPC项目。</p>
+        <div class="insight-box">
+          <p>💡 <strong>海骊启示：</strong>竞品Q2订单普遍高增，公装占比持续提升，学校EPC成为新增长极。海骊住居应加速EPC能力建设，重点跟踪学校、康养等大型公建项目的联合体投标机会，同时关注亚厦在装配式+智能化方向的布局对精装公建市场的冲击。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3: 战略机遇 -->
+  <div class="card">
+    <div class="card-bar bar-purple"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-purple">3</div>
+          <span class="tag tag-purple">战略机遇</span>
+        </div>
+        <span class="card-date">📅 2026-07-30</span>
+      </div>
+      <div class="card-title">青岛发布26项"好房子·好设计"成果，康养地产单独设题+可变户型成主流</div>
+      <div class="card-body">
+        <p>2026山东宜居博览会暨中国"好房子"新场景发展论坛期间，青岛市集中发布<strong>26项"好房子·好设计"活动成果</strong>，覆盖七大方向：普通商品房7个、保障性住房3个、新一代住宅5个、<strong>康养地产3个</strong>、既有住房更新改造3个、"6633"体系设计实施路径3个。</p>
+        <p>成果呈现四大趋势：一是设计思路从"设计住房"升级为<strong>"设计生活"</strong>，共享菜园、邻里庭院、健康人居系统等成为标配；二是紧扣"中国康湾"战略，设立<strong>康养地产专题</strong>，形成18项模块化康养建筑空间设计方案，兼顾新建与存量适老化改造；三是<strong>"可生长的房子"</strong>成为主流，通过结构与内部分区分离、复合功能模块化、双钥匙户型等实现空间灵活拆分组合；四是挖掘本土特质，破解"千城一面"。</p>
+        <p>这些设计方向与海骊住居转型的<strong>康养、学校、酒店</strong>等新兴赛道高度契合。</p>
+        <div class="insight-box">
+          <p>💡 <strong>海骊启示：</strong>康养地产从概念走向系统化设计落地，模块化康养空间方案为精装修企业提供明确的产品化方向。海骊可主动对接青岛"中国康湾"项目群，将精装能力与模块化康养空间设计结合，形成"精装+康养"差异化解决方案。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 4: 技术创新 -->
+  <div class="card">
+    <div class="card-bar bar-pink"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-pink">4</div>
+          <span class="tag tag-pink">技术创新</span>
+        </div>
+        <span class="card-date">📅 2026-07-30</span>
+      </div>
+      <div class="card-title">深汕"预制房"批量出海，2026年Q1中国预制建筑出口增速达45%</div>
+      <div class="card-body">
+        <p>据深圳特区报报道，位于深汕特别合作区的中建绿色产业园已实现<strong>模块化建筑自主量产并批量发往全球多国</strong>。该智能工厂建筑面积约3.4万平方米，自主研发了<strong>国内智能化程度最高的模块柔性生产线</strong>。</p>
+        <p>工厂内200米永久化钢模块生产线设置<strong>28个独立工位</strong>，配备10台智能焊接机器人、40多套专用智能设备，从型材切割到整体打磨总装全程自动流转。临建类钢模块角柱生产已实现<strong>全流程无人化，3分30秒下线一套成品</strong>。上半年已包船发运三批次，出口澳大利亚、巴布亚新几内亚、乌干达、缅甸等国。</p>
+        <p>海关总署数据显示，2015年至2025年中国预制建筑出口额从14.72亿美元增至约<strong>43.39亿美元</strong>，10年增长近两倍。<strong>2026年一季度出口额增速达45%</strong>。</p>
+        <div class="insight-box">
+          <p>💡 <strong>海骊启示：</strong>模块化+装配式建筑正从国内政策驱动走向全球市场驱动，出口增速45%验证了行业前景。海骊住居可关注模块化精装部品在海内外公建项目中的应用机会，尤其是在海外酒店、营地等标准化精装场景中，探索与模块化建筑企业的供应链合作。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 5: 劳务供应链 -->
+  <div class="card">
+    <div class="card-bar bar-brown"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-brown">5</div>
+          <span class="tag tag-brown">劳务供应链</span>
+        </div>
+        <span class="card-date">📅 2026-07-30</span>
+      </div>
+      <div class="card-title">最高法案例库收录精装工程"层层转包"欠薪案，劳务合规管理再敲警钟</div>
+      <div class="card-body">
+        <p>近日，厦门海沧法院一篇案例<strong>入选最高人民法院多元解纷案例库</strong>。该案涉及某商品房项目<strong>精装工程分包中"层层转包"导致的农民工讨薪纠纷</strong>：建设工程公司将泥水工程交由周某承包，周某再转包给辛某，辛某招聘的向某被拖欠劳务报酬。</p>
+        <p>法院依托<strong>辖区治理欠薪工作机制</strong>，与劳动监察、住建、派出所等多部门联动：核实实名制管理情况、排查农民工工资支付台账，最终促成建设工程公司一次性支付12500元、实际施工人分期支付22000元的和解方案。</p>
+        <p>该案例入库释放明确信号：<strong>精装工程中的违法分包、层层转包行为将被重点监管</strong>，总包方对劳务报酬支付承担连带责任。对于以精装修为主营业务的建筑装饰企业，劳务合规管理已成为不可回避的刚性要求。</p>
+        <div class="insight-box">
+          <p>💡 <strong>海骊启示：</strong>最高法案例入库意味着"层层转包"欠薪问题将受到更严厉的司法关注。海骊住居作为TOB精装修企业，应全面排查项目分包链条的合规性，确保实名制管理到位、工资支付台账完善，避免法律与声誉风险。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="sources">
+      <h3>📚 来源汇总</h3>
+      <ul>
+        <li>中新社：中国楼市继续"稳"字当头（2026-07-30）</li>
+        <li>东方财富/证券之星：亚厦股份2026年Q2经营情况简报（2026-07-31）</li>
+        <li>人民财讯/数据宝：德才股份Q2新签项目20.25亿元（2026-07-21）</li>
+        <li>新黄河：青岛发布26项"好房子·好设计"成果（2026-07-30）</li>
+        <li>深圳特区报/深汕发布：深汕造"预制房"开启批量出海（2026-07-30）</li>
+        <li>厦门海沧法院/光明网：精装工程"层层转包"欠薪案入选最高法案例库（2026-07-30）</li>
+      </ul>
+    </div>
+    <p class="disclaimer">数据由 AI 自动抓取整理，仅供参考</p>
+  </div>
+</div>
+</body>
+</html>
