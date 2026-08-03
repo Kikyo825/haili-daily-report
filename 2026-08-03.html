@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-03</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-orange { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .bar-cyan { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .bar-brown { background: linear-gradient(90deg, #92400e, #b45309); }
+  .card-content { padding: 22px 24px 20px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .card-header .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .num-yellow { background: #f59e0b; }
+  .num-blue { background: #3b82f6; }
+  .num-green { background: #10b981; }
+  .num-purple { background: #8b5cf6; }
+  .num-pink { background: #ec4899; }
+  .num-orange { background: #f97316; }
+  .num-cyan { background: #06b6d4; }
+  .num-brown { background: #92400e; }
+  .card-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .tag-yellow { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-pink { background: #fce7f3; color: #9d174d; }
+  .tag-orange { background: #ffedd5; color: #9a3412; }
+  .tag-cyan { background: #cffafe; color: #155e75; }
+  .tag-brown { background: #fef3c7; color: #78350f; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    white-space: nowrap;
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body { font-size: 14.5px; line-height: 1.8; color: #334155; }
+  .card-body p { margin-bottom: 10px; }
+  .card-body strong { color: #0f172a; font-weight: 600; }
+  .insight-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-top: 14px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #475569;
+    border-left: 3px solid #e2e8f0;
+  }
+  .source-link {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .source-link a {
+    color: #6366f1;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .footer {
+    margin-top: 32px;
+    padding: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+  .footer .source-list {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    text-align: left;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+  .footer .source-list h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 10px;
+  }
+  .footer .source-list .source-item {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 4px;
+    line-height: 1.6;
+  }
+  .footer .source-list .source-item a {
+    color: #6366f1;
+    text-decoration: none;
+  }
+  .footer .disclaimer {
+    margin-top: 12px;
+    font-size: 11px;
+    color: #cbd5e1;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY INDUSTRY BRIEF</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>2026年8月3日 星期一 ｜ 数据抓取于 09:54</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 -->
+  <div class="card">
+    <div class="card-bar bar-yellow"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-yellow">1</div>
+          <span class="card-tag tag-yellow">政策风向</span>
+        </div>
+        <span class="card-date">📅 来源发布 2026-08-03</span>
+      </div>
+      <h3>国务院审议通过公积金条例修改草案：装修、物业费正式纳入提取范围</h3>
+      <div class="card-body">
+        <p>近日，国务院常务会议审议通过<strong>《国务院关于修改〈住房公积金管理条例〉的决定(草案)》</strong>，明确拓宽公积金提取和使用范围，扩大制度覆盖面。这是公积金制度从单一"购房融资工具"向覆盖房屋<strong>"购、租、修、养"全生命周期</strong>综合性保障平台的标志性转变。</p>
+        <p>中指研究院数据显示，今年上半年全国各地累计出台房地产相关政策<strong>超560条</strong>，其中涉及住房公积金的政策<strong>超300条</strong>，超130地扩大提取范围，涵盖支付物业费、住房装修、购房税费、购买车位、城市更新等方向。深圳公积金新政4月实施后，贷款客户占比达<strong>20%</strong>，笔均金额达<strong>155万元</strong>，同比涨幅21%。珠海、广州等城市近期也密集落地装修提取、城市更新提取等新场景。</p>
+        <p>上海易居研究院副院长严跃进表示，当前行业从增量转向存量，住房消费涌现新模式，今年政策端全面提速的核心驱动力在于内需提振。</p>
+        <div class="insight-box">💡 公积金可用于装修和物业费提取，将直接释放存量住宅的翻新改造消费需求。海骊住居可关注各地公积金装修提取细则落地节奏，针对老旧小区二次装修、适老化改造等场景，设计适配公积金支付的标准化精装产品包，抢占存量市场增量入口。</div>
+      </div>
+      <div class="source-link">📎 来源：<a href="http://m.toutiao.com/group/7669610221559480851/" target="_blank">证券时报·多地拓宽公积金使用范围</a>（2026-08-03）</div>
+    </div>
+  </div>
+
+  <!-- Card 2: 竞品动向 -->
+  <div class="card">
+    <div class="card-bar bar-blue"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-blue">2</div>
+          <span class="card-tag tag-blue">竞品动向</span>
+        </div>
+        <span class="card-date">📅 来源发布 2026-08-03</span>
+      </div>
+      <h3>金螳螂7月密集中标：滨州2.32亿人才社区+越南2.53亿酒店+宝安文化艺术中心</h3>
+      <div class="card-body">
+        <p>据企查查信息（更新至8月3日），金螳螂（002081.SZ）近期在公建精装修领域密集拿单：<strong>中标滨州人才社区室内精装修项目，金额约2.32亿元</strong>，占营收1.34%；<strong>孙公司中标越南酒店装修项目，金额约2.53亿元</strong>，东南亚业务布局持续深化。此外，金螳螂还中标<strong>矾山片区文化旅游综合体启动区一期研学中心施工总承包</strong>，并入围中国绿发2026年第9批集中采购招标项目。</p>
+        <p>技术储备方面，金螳螂<strong>7月31日公开发明专利"一种挂接式消音装饰层吊顶结构"</strong>，8月1日再获4项实用新型专利授权（可调式洞石干挂结构、分体式灯罩日光照明装置、模块化窑壁砖安装结构、分体式悬挑石膏造型安装结构），持续强化装配式+静音装饰技术储备。</p>
+        <p>资本市场方面，金螳螂上周涨5.07%。但伦交所最新ESG评级显示其获<strong>C-级</strong>，在建筑行业20家公司中排名靠后（环境评分15.90，行业倒数第一），ESG治理值得关注。</p>
+        <div class="insight-box">💡 金螳螂公装订单持续高增+海外布局加速，人才社区和文旅综合体成为新增长极。海骊需重点关注其在公建精装领域的市占率扩张，尤其学校EPC、酒店精装等细分赛道。同时金螳螂ESG评级偏低，海骊可在ESG合规方面形成差异化竞争优势。</div>
+      </div>
+      <div class="source-link">📎 来源：<a href="https://www.qcc.com/crun/c4877d95e9a22f9b320a1934f3f576b1.html" target="_blank">企查查·金螳螂经营信息</a>（2026-08-03）/ <a href="http://news.stockstar.com/info/dstock_002081_p1.shtml" target="_blank">证券之星</a>（2026-08-02）</div>
+    </div>
+  </div>
+
+  <!-- Card 3: 市场趋势 -->
+  <div class="card">
+    <div class="card-bar bar-green"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-green">3</div>
+          <span class="card-tag tag-green">市场趋势</span>
+        </div>
+        <span class="card-date">📅 来源发布 2026-08-03</span>
+      </div>
+      <h3>上半年精装房开盘量降36.6%！地产配套企业加速出海，工程集采渠道继续失血</h3>
+      <div class="card-body">
+        <p>据中指研究院最新数据，<strong>2026上半年全国精装修楼盘开盘301个，同比下降31.9%；精装房源套数17.1万套，同比下降36.6%</strong>。平均精装率25.13%，一线城市89.76%、二线30.9%、三四线仅10.41%。七大部品中建材部品配套量同比降36.6%，但<strong>新风系统同比增26.1%、空调增12.9%</strong>，舒适系统配套率逆势上升。</p>
+        <p>奥维云网另一口径数据显示，上半年精装新房开盘16.13万套，同比降25.5%，精装渗透率36.8%。国家统计局数据显示，<strong>1-6月新建商品房销售面积同比降11.6%</strong>，房地产开发投资降18.0%，房屋竣工面积降23.7%——新开工和竣工双降，意味着2027年新房家装需求将继续收缩。</p>
+        <p>与此同时，地产配套企业加速出海。据行业分析，2026上半年房地产业增加值占GDP比重降至<strong>5.9%</strong>，建筑业降至5.2%，两大行业合计占比从高峰期15%以上回落至11.1%。国内工程集采渠道"继续失血"，<strong>存量翻新+局改+舒适系统升级</strong>成为行业主战场。</p>
+        <div class="insight-box">💡 精装房总量持续收缩但舒适系统配套率逆势上升，验证了"品质升级"的结构性机会。海骊住居应加速从"新房精装依赖"转向"公建精装+存量翻新"双轮驱动，同时强化新风、智能系统等舒适系统集成能力，在二线城市公建项目上形成差异化竞争力。</div>
+      </div>
+      <div class="source-link">📎 来源：<a href="http://m.toutiao.com/group/7669485597441950258/" target="_blank">头条·上半年精装房减少36.6%</a>（2026-08-03）/ <a href="http://m.toutiao.com/group/7669611100106670619/" target="_blank">头条·地产配套企业为什么要出海</a>（2026-08-03）</div>
+    </div>
+  </div>
+
+  <!-- Card 4: 战略机遇 -->
+  <div class="card">
+    <div class="card-bar bar-purple"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-purple">4</div>
+          <span class="card-tag tag-purple">战略机遇</span>
+        </div>
+        <span class="card-date">📅 来源发布 2026-08-03</span>
+      </div>
+      <h3>汝州三高新校区4.58亿EPC招标+临沂职业技术学院2.4亿EPC，学校赛道密集放量</h3>
+      <div class="card-body">
+        <p>学校建设EPC项目近日密集发布：<strong>汝州市第三高级中学新校区建设项目EPC招标</strong>，预算金额<strong>4.58亿元</strong>，占地面积约474亩，总建筑面积约16万平方米，包含学院综合楼、3栋教学综合楼、8栋学生宿舍楼、餐厅及风雨操场等，计划工期720日历天，开标时间8月26日。</p>
+        <p>同期，<strong>临沂市河东区职业技术学院项目EPC总承包</strong>发布资格预审公告，投资约<strong>2.4亿元</strong>，占地约67亩，建设内容含综合楼、学生公寓、教师公寓、风雨操场及无人机实训基地等，工期365天。此外，河北石家庄二中弘德学校施工项目中标金额<strong>2.87亿元</strong>，河北师范大学学生公寓建设项目EPC中标金额<strong>2.83亿元</strong>，学校赛道持续放量。</p>
+        <p>从全国范围看，7月河北省1亿元以上中标项目中，教育类公建项目占据相当比例，学校精装修作为EPC项目中的专业分包环节，市场窗口正在打开。</p>
+        <div class="insight-box">💡 学校EPC项目密集放量，精装修分包机会窗口已打开。海骊住居应重点关注：一、通过中项网等平台跟踪4.58亿汝州三高、2.4亿临沂职院等项目的精装修分包招标；二、组建"学校精装"专项方案组，针对教室、宿舍、食堂、图书馆等不同功能空间形成标准化精装产品。</div>
+      </div>
+      <div class="source-link">📎 来源：<a href="http://m.toutiao.com/group/7669429666779890211/" target="_blank">头条·汝州三高新校区EPC招标</a>（2026-08-03）/ <a href="http://m.toutiao.com/group/7669266296420205091/" target="_blank">临沂日报·河东区职业技术学院EPC</a>（2026-08-02）</div>
+    </div>
+  </div>
+
+  <!-- Card 5: 技术创新 -->
+  <div class="card">
+    <div class="card-bar bar-pink"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-pink">5</div>
+          <span class="card-tag tag-pink">技术创新</span>
+        </div>
+        <span class="card-date">📅 来源发布 2026-08-02</span>
+      </div>
+      <h3>合一住工全场景装配式装修展厅落成，"3+N"体系适配住宅/酒店/康养/学校多业态</h3>
+      <div class="card-body">
+        <p>6月29日，<strong>合一住工装配式装修多场景展厅在北京正式亮相</strong>，来自国家级建材科研、建筑标准、地产供应链等领域的专家齐聚现场。合一住工创始人马刚深耕建材行业26年，历时6年建成此次全场景体验展厅，集中呈现了<strong>"3+N"装配式装修体系</strong>，适配住宅、酒店、公寓、医养、康养、学校等多业态场景。</p>
+        <p>中国建设科技集团副总建筑师刘东卫指出，装配式装修的价值在于<strong>系统性解决传统装修质量通病</strong>。国家建筑装配式内装产业基地主任陈龙指出，<strong>城市更新已进入万亿级市场窗口期，装配式内装将成为存量改造的核心技术路径</strong>。2025年实施的《住宅项目规范》14条强制性规范，特别是建筑隔声条款的落地，使装配式装修从"可选项"变为"必选项"。</p>
+        <p>目前合一住工已拥有<strong>40项专利（含2项发明专利）</strong>，技术体系聚焦隔声、渗漏、反味等直接影响居住体验的核心痛点。与会专家一致认为，装配式装修因其快速、低扰、适配性强的特点，已成为存量改造的核心技术路径。</p>
+        <div class="insight-box">💡 装配式装修从"可选项"变为"必选项"，对海骊住居的精装公建业务具有重大参考价值。建议关注装配式内装在学校、酒店、康养等快速交付场景中的应用，探索与合一住工等装配式技术企业的供应链合作，提升精装工程的工业化水平和交付效率。</div>
+      </div>
+      <div class="source-link">📎 来源：<a href="http://m.163.com/dy/article/L3AOPJEC05375OHJ.html" target="_blank">网易·合一住工全场景装配式装修展厅落成</a>（2026-08-02）</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="source-list">
+      <h4>📚 来源汇总</h4>
+      <div class="source-item">① 证券时报：多地拓宽公积金使用范围（2026-08-03）<a href="http://m.toutiao.com/group/7669610221559480851/">链接</a></div>
+      <div class="source-item">② 企查查/证券之星：金螳螂近期中标与专利动态（2026-08-03）<a href="https://www.qcc.com/crun/c4877d95e9a22f9b320a1934f3f576b1.html">链接</a></div>
+      <div class="source-item">③ 中指研究院/头条：上半年精装房开盘量降36.6%（2026-08-03）<a href="http://m.toutiao.com/group/7669485597441950258/">链接</a></div>
+      <div class="source-item">④ 头条/临沂日报：汝州三高+临沂职院EPC招标（2026-08-03）<a href="http://m.toutiao.com/group/7669429666779890211/">链接</a></div>
+      <div class="source-item">⑤ 网易：合一住工装配式装修展厅落成（2026-08-02）<a href="http://m.163.com/dy/article/L3AOPJEC05375OHJ.html">链接</a></div>
+    </div>
+    <div>海骊住居 · 行业日报 | 每日精选行业情报</div>
+    <div class="disclaimer">数据由 AI 自动抓取整理，仅供参考</div>
+  </div>
+
+</div>
+</body>
+</html>
