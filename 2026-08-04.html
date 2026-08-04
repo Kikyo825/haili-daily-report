@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-04</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-orange { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .bar-cyan { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .bar-brown { background: linear-gradient(90deg, #92400e, #b45309); }
+  .card-content { padding: 22px 24px 20px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .card-header .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .num-yellow { background: #f59e0b; }
+  .num-blue { background: #3b82f6; }
+  .num-green { background: #10b981; }
+  .num-purple { background: #8b5cf6; }
+  .num-pink { background: #ec4899; }
+  .num-orange { background: #f97316; }
+  .num-cyan { background: #06b6d4; }
+  .num-brown { background: #92400e; }
+  .card-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .tag-yellow { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-pink { background: #fce7f3; color: #9d174d; }
+  .tag-orange { background: #ffedd5; color: #9a3412; }
+  .tag-cyan { background: #cffafe; color: #155e75; }
+  .tag-brown { background: #fef3c7; color: #78350f; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    white-space: nowrap;
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body { font-size: 14.5px; line-height: 1.8; color: #334155; }
+  .card-body p { margin-bottom: 10px; }
+  .card-body strong { color: #0f172a; font-weight: 600; }
+  .insight-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-top: 14px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: #475569;
+    border-left: 3px solid #e2e8f0;
+  }
+  .source-link {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .source-link a {
+    color: #6366f1;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .footer {
+    margin-top: 32px;
+    padding: 24px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+  .footer .source-list {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    text-align: left;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+  .footer .source-list h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 10px;
+  }
+  .footer .source-list .source-item {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 4px;
+    line-height: 1.6;
+  }
+  .footer .source-list .source-item a {
+    color: #6366f1;
+    text-decoration: none;
+  }
+  .footer .disclaimer {
+    margin-top: 12px;
+    font-size: 11px;
+    color: #cbd5e1;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY INDUSTRY BRIEF</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>2026年8月4日 星期二 ｜ 数据抓取于 09:50</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 -->
+  <div class="card">
+    <div class="card-bar bar-yellow"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-yellow">1</div>
+          <span class="card-tag tag-yellow">政策风向</span>
+        </div>
+        <span class="card-date">📅 来源发布 2026-08-04</span>
+      </div>
+      <h3>山东发布《房屋品质提升工程20条》+多地国补+公积金+贷款贴息组合拳鼓励旧房焕新</h3>
+      <div class="card-body">
+        <p>据第一财经报道，<strong>山东省正式发布《房屋品质提升工程20条》</strong>，从设计、建材、施工到运维全链条提出量化标准，成为全国首个省级房屋品质系统性提升方案。同期，珠海落地<strong>公积金装修提取新政</strong>，叠加多地"国补+公积金+贷款贴息"组合政策，形成覆盖旧房翻新的<strong>全链条金融支持体系</strong>。</p>
+        <p>政策端发力方向明确：从此前单纯刺激购房需求，转向<strong>"购、租、修、养"全生命周期</strong>住房消费支持。山东方案重点强调住宅全装修交付、隔声性能提升、适老化改造等维度，为精装修企业参与品质提升工程提供了政策抓手。多地公积金装修提取政策落地后，存量住宅翻新消费释放节奏明显加快。</p>
+        <div class="insight-box">💡 山东20条是全国首个省级房屋品质系统方案，预计其他省份将快速跟进。海骊应第一时间研读山东标准文本，针对隔声、全装修、适老化等量化指标，输出合规产品方案，抢占政策窗口期。</div>
+      </div>
+      <div class="source-link">📎 来源：<a href="https://www.yicai.com/news/102830591.html" target="_blank">第一财经·多地组合拳鼓励旧房焕新</a>（2026-08-04）</div>
+    </div>
+  </div>
+
+  <!-- Card 2: 政策风向 -->
+  <div class="card">
+    <div class="card-bar bar-yellow"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-yellow">2</div>
+          <span class="card-tag tag-yellow">政策风向</span>
+        </div>
+        <span class="card-date">📅 来源发布 2026-08-03</span>
+      </div>
+      <h3>国内首部《住宅全案整装服务标准》确立22家试点单位，推行固定总价+资金存管</h3>
+      <div class="card-body">
+        <p>据第一财经报道，中国建筑装饰协会正式发布国内首部<strong>《住宅全案整装服务标准》</strong>，确立<strong>22家试点企业</strong>，覆盖家装、公装、定制家居等领域。标准核心制度包括：推行<strong>固定总价合同</strong>（杜绝增项）、<strong>资金存管</strong>（按工程进度拨付）、<strong>全案设计一体化</strong>（设计+施工+主材+软装统一交付）。</p>
+        <p>标准明确了"全案整装"的定义边界：区别于传统"半包""全包"，要求从方案设计到竣工验收实行<strong>全流程闭环管理</strong>，消费者享受"一个合同、一个责任主体、一次性验收"的服务体验。试点企业名单中，头部家装品牌和区域龙头占据主力，公装转型企业亦有入选。</p>
+        <div class="insight-box">💡 "固定总价+资金存管"制度对精装修行业影响深远——这正是TOB精装项目常见的合同与支付模式。海骊住居可参考该标准体系，在公建精装项目中推行固定总价+里程碑付款模式，提升客户信任度，形成品牌差异化优势。</div>
+      </div>
+      <div class="source-link">📎 来源：<a href="https://www.yicai.com/news/102830365.html" target="_blank">第一财经·首部住宅全案整装服务标准发布</a>（2026-08-03）</div>
+    </div>
+  </div>
+
+  <!-- Card 3: 竞品动向 -->
+  <div class="card">
+    <div class="card-bar bar-blue"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-blue">3</div>
+          <span class="card-tag tag-blue">竞品动向</span>
+        </div>
+        <span class="card-date">📅 来源发布 2026-08-03</span>
+      </div>
+      <h3>金螳螂中标中国绿发第9批集采+发布2项装配式新专利，模块化钢架+竹木饰面双技术布局</h3>
+      <div class="card-body">
+        <p>据企查查最新信息，<strong>金螳螂8月3日中标中国绿发2026年第9批集中采购招标项目</strong>，继此前中标滨州人才社区、越南酒店等项目后持续扩大集采合作版图。同日，金螳螂<strong>公开发明专利2项</strong>：①<strong>"一种模块化钢架装配式安装结构"</strong>——采用预制钢骨架+快装连接件，实现墙面/吊顶模块化快速安装；②<strong>"一种竹木饰面装配式装饰板"</strong>——以竹木纤维复合材料替代传统木饰面，兼顾环保与装配效率。</p>
+        <p>资本市场方面，金螳螂8月1日股价涨<strong>3.22%</strong>至3.85元，融资余额达<strong>3.75亿元</strong>，处于近一年80%分位水平，市场对其下半年订单回暖预期较强。此外，<strong>德才装饰</strong>近期中标青岛灵山湾壹号改建项目和济南励新中学5.2亿EPC项目，竞品在学校赛道持续发力。</p>
+        <div class="insight-box">💡 金螳螂装配式专利聚焦"模块化钢架+竹木饰面"，与海骊精装交付场景高度相关。建议专利团队跟踪分析其技术方案，在学校/酒店等快交付场景中形成差异化技术储备。同时关注德才装饰在学校赛道的订单扩张。</div>
+      </div>
+      <div class="source-link">📎 来源：<a href="https://www.qcc.com/" target="_blank">企查查·金螳螂中标与专利动态</a>（2026-08-03/04）</div>
+    </div>
+  </div>
+
+  <!-- Card 4: 成本动态 -->
+  <div class="card">
+    <div class="card-bar bar-orange"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-orange">4</div>
+          <span class="card-tag tag-orange">成本动态</span>
+        </div>
+        <span class="card-date">📅 来源发布 2026-08-03</span>
+      </div>
+      <h3>螺纹钢均价3216元/吨跌18元，期螺首次跌破3000大关至2976元/吨</h3>
+      <div class="card-body">
+        <p>据我的钢铁网8月3日数据，全国<strong>螺纹钢均价跌至3216元/吨</strong>，较前一交易日下跌18元/吨；<strong>永钢下调螺纹钢出厂价100元/吨</strong>。期货端更为剧烈——<strong>期螺主力合约首次跌破3000元/吨关口，收于2976元/吨</strong>，创2020年以来新低。</p>
+        <p>钢铁价格持续走弱的核心驱动因素：①地产新开工面积同比降23.7%，下游需求持续萎缩；②钢厂产能利用率维持高位，供需矛盾加剧；③市场对下半年基建刺激预期减弱，悲观情绪蔓延。但分析机构指出，<strong>当前钢价已接近钢厂成本线</strong>，部分短流程钢厂开始亏损减产，三季度末可能出现阶段性反弹。</p>
+        <div class="insight-box">💡 钢材价格处于近年低位，精装修项目中的钢结构、轻钢龙骨等成本压力显著降低。海骊可考虑在在建项目中锁定当前低价钢材，或与供应商签订季度锁价协议，有效控制装配式装修和钢结构项目的材料成本。</div>
+      </div>
+      <div class="source-link">📎 来源：<a href="https://www.mysteel.com/" target="_blank">我的钢铁网·螺纹钢价格行情</a>（2026-08-03）</div>
+    </div>
+  </div>
+
+  <!-- Card 5: 设计与管理 -->
+  <div class="card">
+    <div class="card-bar bar-cyan"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-cyan">5</div>
+          <span class="card-tag tag-cyan">设计与管理</span>
+        </div>
+        <span class="card-date">📅 来源发布 2026-08-03</span>
+      </div>
+      <h3>杭州西湖区依托浙建集团下沉7家社区门店，老旧住宅装修改造一站式服务投诉降40%</h3>
+      <div class="card-body">
+        <p>据浙江日报报道，杭州市西湖区创新推出<strong>"国企进社区"模式</strong>，依托浙建集团在辖区内开设<strong>7家社区服务门店</strong>，为居民提供老旧住宅装修改造<strong>一站式服务</strong>——从设计方案、材料选择到施工交付、售后维保全链条覆盖。截至8月初，该模式已服务超<strong>2000户</strong>居民，装修投诉量同比下降<strong>40%</strong>。</p>
+        <p>社区门店模式的核心优势在于：①<strong>就近服务</strong>——居民可实地查看材料样板和工艺工法；②<strong>国企背书</strong>——浙建集团品牌信任度高，解决居民对"装修跑路"的担忧；③<strong>集中施工</strong>——同小区批量施工降低物流和管理成本，工期缩短20%-30%。该模式已被浙江省住建厅列为"旧改+装修"融合示范点，计划年内向全省推广。</p>
+        <div class="insight-box">💡 "国企进社区"模式为存量住宅翻新提供了可复制的服务范式。海骊住居可借鉴该模式，与地方城投/建工集团合作，在重点城市设立社区服务站点，以"国企品质+海骊精装"的组合拳切入存量翻新市场，尤其适合公建精装转民装的服务延伸。</div>
+      </div>
+      <div class="source-link">📎 来源：<a href="https://zjnews.zjol.com.cn/" target="_blank">浙江日报·浙建集团下沉社区旧房改造服务</a>（2026-08-03）</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="source-list">
+      <h4>📚 来源汇总</h4>
+      <div class="source-item">① 第一财经：山东《房屋品质提升工程20条》+多地旧房焕新组合拳（2026-08-04）<a href="https://www.yicai.com/news/102830591.html">链接</a></div>
+      <div class="source-item">② 第一财经：首部《住宅全案整装服务标准》确立22家试点单位（2026-08-03）<a href="https://www.yicai.com/news/102830365.html">链接</a></div>
+      <div class="source-item">③ 企查查：金螳螂中标中国绿发集采+装配式新专利（2026-08-03/04）<a href="https://www.qcc.com/">链接</a></div>
+      <div class="source-item">④ 我的钢铁网：螺纹钢均价3216元/吨，期螺首破3000（2026-08-03）<a href="https://www.mysteel.com/">链接</a></div>
+      <div class="source-item">⑤ 浙江日报：浙建集团下沉社区旧房改造服务，投诉降40%（2026-08-03）<a href="https://zjnews.zjol.com.cn/">链接</a></div>
+    </div>
+    <div>海骊住居 · 行业日报 | 每日精选行业情报</div>
+    <div class="disclaimer">数据由 AI 自动抓取整理，仅供参考</div>
+  </div>
+
+</div>
+</body>
+</html>
