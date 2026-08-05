@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-05</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-orange { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .bar-cyan { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .bar-brown { background: linear-gradient(90deg, #92400e, #b45309); }
+  .card-content { padding: 22px 24px 20px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .card-header .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .num-yellow { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+  .num-blue { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+  .num-green { background: linear-gradient(135deg, #10b981, #34d399); }
+  .num-purple { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+  .num-pink { background: linear-gradient(135deg, #ec4899, #f472b6); }
+  .card-label {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 5px;
+    letter-spacing: 0.5px;
+  }
+  .label-yellow { background: #fef3c7; color: #92400e; }
+  .label-blue { background: #dbeafe; color: #1e40af; }
+  .label-green { background: #d1fae5; color: #065f46; }
+  .label-purple { background: #ede9fe; color: #5b21b6; }
+  .label-pink { background: #fce7f3; color: #9d174d; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    white-space: nowrap;
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .card-body {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+  .card-body strong { color: #1e293b; }
+  .card-insight {
+    background: #fefce8;
+    border-left: 3px solid #fbbf24;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #713f12;
+    line-height: 1.6;
+    margin-bottom: 14px;
+  }
+  .card-source {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .card-source a {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .card-source a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 24px 20px;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer .brand {
+    font-weight: 600;
+    color: #6366f1;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-tag">HAILI RESIDENCE · DAILY BRIEF</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <div class="dot"></div>
+      <span>2026年8月5日 星期三</span>
+    </div>
+  </div>
+
+  <!-- Card 1: 政策风向 -->
+  <div class="card">
+    <div class="card-bar bar-yellow"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-yellow">1</div>
+          <span class="card-label label-yellow">政策风向</span>
+        </div>
+        <span class="card-date">📅 2026-08-05</span>
+      </div>
+      <div class="card-title">十五五碳达峰方案落地：新建建筑100%强制执行绿建标准，装配率36%写入招标硬门槛</div>
+      <div class="card-body">
+        住建部"十五五"建筑节能与绿色低碳行动方案正式印发，<strong>新建建筑100%强制执行绿色建筑标准</strong>，装配式建筑装配率不低于36%并纳入招标硬门槛。存量建筑节能改造纳入城市更新考核，目标覆盖不少于40亿平方米。同时，绿色建材应用比例在35个试点城市要求达到40%-60%，约2万家中小建材企业面临加速淘汰，装配式装修、光伏建筑一体化、智能建造三大赛道迎来上市潮。
+      </div>
+      <div class="card-insight">💡 海骊精装交付已满足装配率≥30%，但距离36%硬门槛仍需提升机电装配式比例。绿色建材白名单管控趋严，供应链需提前锁定头部供应商。</div>
+      <div class="card-source">📎 来源：<a href="http://m.toutiao.com/group/7670066393638765098/" target="_blank">今日头条 · 住建部十五五建筑节能行动方案</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2: 竞品动向 -->
+  <div class="card">
+    <div class="card-bar bar-blue"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-blue">2</div>
+          <span class="card-label label-blue">竞品动向</span>
+        </div>
+        <span class="card-date">📅 2026-08-05</span>
+      </div>
+      <div class="card-title">德才装饰发布2026年股权激励计划草案，加速人才绑定与新赛道布局</div>
+      <div class="card-body">
+        德才股份发布<strong>2026年股票期权与限制性股票激励计划草案</strong>，面向子公司福建奇想无限的核心团队，8月20日召开临时股东大会审议。结合Q2新签20.25亿（同比+89%）及8月4日涨停（+10.01%至37.80元），德才正通过股权激励锁定人才、加速公建+EPC赛道扩张。金螳螂8月4日同步收获"模块化钢架安装结构"发明专利+竹木饰面装配式安装组件实用新型专利授权，技术储备持续加码。
+      </div>
+      <div class="card-insight">💡 德才股权激励+涨停释放强扩张信号，EPC和公建赛道的人才争夺加剧。海骊需关注核心项目经理和技术骨干的保留机制。</div>
+      <div class="card-source">📎 来源：<a href="http://finance.sina.cn/2026-08-05/detail-inimevaz4981867.d.html" target="_blank">新浪财经</a> / <a href="https://www.qcc.com/" target="_blank">企查查</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3: 技术创新 -->
+  <div class="card">
+    <div class="card-bar bar-pink"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-pink">3</div>
+          <span class="card-label label-pink">技术创新</span>
+        </div>
+        <span class="card-date">📅 2026-08-05</span>
+      </div>
+      <div class="card-title">人民日报深度报道中国"预制房"全球爆单：智能产线日产50个模块，精度1-2mm</div>
+      <div class="card-body">
+        人民日报头版深度报道中国建筑模块化出海：<strong>中建科工</strong>建成全国首条钢结构模块化智能产线，日产50个模块（北美10倍），精度1-2mm，成本降10%以上；<strong>中建海龙</strong>全球首条混凝土MiC柔性智能产线，每20分钟产1个模块，70%工序前移到工厂，工期缩短60%以上。出口额十年增长近两倍，2026年Q1增速45%，迪拜获首张MiC原则性预审批许可。同日，<strong>中建深装</strong>模块化商铺落地成都SKP，95%工序工厂完成、1天搭建。
+      </div>
+      <div class="card-insight">💡 模块化从住宅向商业/公建场景加速渗透。中建深装"模块化商铺1天搭建"模式对精装公建项目有直接参考价值，可对接考察。</div>
+      <div class="card-source">📎 来源：<a href="http://www.xinhuanet.com/fortune/20260805/905e318c71cb479d9df9cdc96fe12b1b/c.html" target="_blank">新华网</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4: 战略机遇 -->
+  <div class="card">
+    <div class="card-bar bar-purple"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-purple">4</div>
+          <span class="card-label label-purple">战略机遇</span>
+        </div>
+        <span class="card-date">📅 2026-08-05</span>
+      </div>
+      <div class="card-title">医养+校园EPC项目密集落地：磁县中医院1.19亿、合肥29所学校消防改造启动</div>
+      <div class="card-body">
+        新赛道EPC项目密集释放：<strong>磁县中医院医养服务中心</strong>EPC项目中标公示，石家庄建工集团以1.19亿元中标；<strong>合肥29所学校校园消防改造</strong>EPC工程总承包启动招标；西安<strong>湾流康养中心提升改造工程</strong>EPC项目同步公示。医养和校园改造类EPC项目呈现"设计-施工一体化"采购趋势，对精装企业的设计+施工综合能力提出更高要求。
+      </div>
+      <div class="card-insight">💡 医养+校园EPC赛道持续放量，海骊在康养和学校精装领域已有积累，建议重点关注此类"小而精"EPC标的的投标机会。</div>
+      <div class="card-source">📎 来源：<a href="https://www.ggjd.gov.cn/" target="_blank">全国公共资源交易平台</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5: 洁净室赛道 -->
+  <div class="card">
+    <div class="card-bar bar-cyan"></div>
+    <div class="card-content">
+      <div class="card-header">
+        <div class="left">
+          <div class="card-num num-cyan">5</div>
+          <span class="card-label" style="background:#cffafe;color:#155e75;">洁净室赛道</span>
+        </div>
+        <span class="card-date">📅 2026-08-04</span>
+      </div>
+      <div class="card-title">华康洁净预中标鹰潭市人民医院病房改造，AI算力基建驱动洁净室"量价齐升"</div>
+      <div class="card-body">
+        <strong>华康洁净</strong>预中标鹰潭市人民医院病房改造项目，投标报价1.47亿元。此前7月华康洁净已收到19.56亿元中标通知书。行业层面，AI算力基建爆发推动洁净室工程<strong>"量价齐升"</strong>——高端电子洁净室需求激增，单项目金额持续攀升。洁净室赛道从医疗延伸至半导体、新能源电池、数据中心等多领域，成为装修企业转型的高附加值方向。
+      </div>
+      <div class="card-insight">💡 洁净室赛道正从医疗向AI算力、半导体等高景气领域扩展。海骊可评估是否通过合作或资质获取切入这一高毛利赛道。</div>
+      <div class="card-source">📎 来源：<a href="https://www.ggjd.gov.cn/" target="_blank">全国公共资源交易平台</a> / <a href="https://www.qcc.com/" target="_blank">企查查</a></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>信息来源：住建部、新浪财经、新华网、全国公共资源交易平台、企查查</div>
+    <div><span class="brand">海骊住居</span> · 行业日报 | 2026-08-05</div>
+    <div>每日精选 · 为战略决策提供行业情报</div>
+  </div>
+
+</div>
+</body>
+</html>
