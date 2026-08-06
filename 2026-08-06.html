@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-06</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-orange { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .bar-cyan { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .bar-brown { background: linear-gradient(90deg, #92400e, #b45309); }
+  .card-content { padding: 22px 24px 20px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-yellow { background: #f59e0b; }
+  .num-blue { background: #3b82f6; }
+  .num-green { background: #10b981; }
+  .num-purple { background: #8b5cf6; }
+  .num-pink { background: #ec4899; }
+  .num-orange { background: #f97316; }
+  .num-cyan { background: #06b6d4; }
+  .num-brown { background: #92400e; }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .tag-yellow { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-pink { background: #fce7f3; color: #9d174d; }
+  .tag-orange { background: #ffedd5; color: #9a3412; }
+  .tag-cyan { background: #cffafe; color: #155e75; }
+  .tag-brown { background: #fef3c7; color: #78350f; }
+  .card-source {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-left: auto;
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-body p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  .card-body strong { color: #1e293b; font-weight: 600; }
+  .insight-box {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #64748b;
+  }
+  .source-link {
+    margin-top: 12px;
+    font-size: 11px;
+    color: #94a3b8;
+    word-break: break-all;
+  }
+  .source-link a { color: #6366f1; text-decoration: none; }
+  .source-link a:hover { text-decoration: underline; }
+  .footer {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .footer h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 12px;
+  }
+  .footer ul { list-style: none; }
+  .footer ul li {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+    padding-left: 12px;
+    position: relative;
+  }
+  .footer ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #cbd5e1;
+  }
+  .footer .disclaimer {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid #f1f5f9;
+    font-size: 11px;
+    color: #cbd5e1;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="header-tag">DAILY BRIEFING</div>
+  <h1>海骊住居 · 行业日报</h1>
+  <div class="date-row">
+    <span class="dot"></span>
+    <span>2026年8月6日 星期四 ｜ 数据抓取 2026-08-06 09:49</span>
+  </div>
+</div>
+
+<!-- Card 1 -->
+<div class="card">
+  <div class="card-bar bar-yellow"></div>
+  <div class="card-content">
+    <div class="card-header">
+      <div class="card-num num-yellow">1</div>
+      <span class="card-tag tag-yellow">政策风向</span>
+      <span class="card-source">📅 来源发布 2026-08-06</span>
+    </div>
+    <h3>超长期特别国债支持加装电梯落地：4层补25万、7层以上补30万，先建后补</h3>
+    <div class="card-body">
+      <p>按照国家2026年大规模设备更新政策部署，老旧小区加装电梯正式纳入<strong>超长期特别国债支持项目</strong>，实行分档定额补助：4-6层楼栋单台国债补助<strong>25万元</strong>，7层及以上楼栋单台补助<strong>30万元</strong>。地方财政还将叠加配套补贴，部分地区可提取公积金和住宅维修资金。</p>
+      <p>政策明确要求<strong>先建后补</strong>，项目竣工验收合格后补贴拨付到施工对公账户。申报门槛包括：合法产权4层及以上原始无电梯住宅、2026年1月1日后完成施工备案、双三分之二业主参与表决且双四分之三同意。政策优先倾斜<strong>平层入户方案</strong>。</p>
+      <p>值得注意的是，政策严禁"零元装电梯"虚假宣传——国债仅为大额补助，居民仍需自筹部分费用；同时国债有年度指标，额度用完即止。</p>
+      <div class="insight-box">💡 加装电梯涉及外立面改造、管线迁移、室内装修恢复等环节，对精装修企业是切入存量市场的机会窗口。海骊可关注与电梯厂商、社区服务商的联合投标模式，重点对接地方住建部门的年度指标发放节奏。</div>
+    </div>
+    <div class="source-link">来源：<a href="http://m.toutiao.com/group/7670710368829964844/" target="_blank">市井杂谈 / 今日头条</a></div>
+  </div>
+</div>
+
+<!-- Card 2 -->
+<div class="card">
+  <div class="card-bar bar-blue"></div>
+  <div class="card-content">
+    <div class="card-header">
+      <div class="card-num num-blue">2</div>
+      <span class="card-tag tag-blue">竞品动向</span>
+      <span class="card-source">📅 来源发布 2026-08-05</span>
+    </div>
+    <h3>金螳螂中标景德镇地下会所装修+上海浦东422套安置房转保租房装修项目</h3>
+    <div class="card-body">
+      <p>企查查数据显示，<strong>金螳螂</strong>8月5日新增中标：<strong>景德镇市滨江新城昌南玉境城市森林花园住宅项目</strong>地下会所装饰装修工程。同时，金螳螂还中标了<strong>上海浦东新区422套安置房转保租房代理经租装修项目</strong>，切入保障性租赁住房赛道。</p>
+      <p>回顾近期动态：金螳螂7月底至8月初密集中标，覆盖中国绿发第9批集采、宝安文化艺术中心博物馆布展、矾山研学中心施工总承包等项目，赛道横跨<strong>住宅精装、文化公建、城市更新</strong>。同时发布了"模块化钢架安装结构"发明专利和"竹木饰面可调节装配式安装组件"实用新型专利。</p>
+      <p>股价方面，金螳螂8月5日涨1.53%，成交额<strong>4.01亿元</strong>，总市值105.68亿元。公司明确将<strong>城市更新</strong>作为未来长期战略重点，业务覆盖老旧小区改造、公共场馆翻新、历史街区保护、豪华酒店升级等。</p>
+      <div class="insight-box">💡 金螳螂在安置房转保租房装修领域的布局值得关注——这类项目标准化程度高、批量交付特征明显，与海骊的精装批量施工能力高度契合，需警惕竞品在此细分赛道的先发优势。</div>
+    </div>
+    <div class="source-link">来源：<a href="https://www.qcc.com/cindustry/c4877d95e9a22f9b320a1934f3f576b1.html" target="_blank">企查查</a> ｜ <a href="https://m.bidizhaobiao.com/qyjc_31099.html" target="_blank">中国招标与采购网</a></div>
+  </div>
+</div>
+
+<!-- Card 3 -->
+<div class="card">
+  <div class="card-bar bar-purple"></div>
+  <div class="card-content">
+    <div class="card-header">
+      <div class="card-num num-purple">3</div>
+      <span class="card-tag tag-purple">战略机遇</span>
+      <span class="card-source">📅 来源发布 2026-08-06</span>
+    </div>
+    <h3>深圳第39高级中学EPC招标估价4.21亿，公办高中批量建设潮持续</h3>
+    <div class="card-body">
+      <p>深圳市南山区建筑工务署发布<strong>深圳第三十九高级中学项目EPC（设计总包+施工总包）</strong>招标计划，计划招标时间2026年9月3日至11月2日，招标估价<strong>42,087.78万元</strong>。项目规划建设48班/2400学位寄宿制高中，新建总建筑面积<strong>67,808平方米</strong>，含地下室及地上建筑的土建、装饰和安装工程。</p>
+      <p>深圳公办高中建设正在加速：目前编号至第48所高中处于不同阶段，其中第35高中（益新中学）2026年建成、第36高中（深理工附中）明年迁入永久校区、第41高中已进入设计招标。受人口增量全国第一驱动，深圳正开启<strong>"疯狂建公办高中"模式</strong>。</p>
+      <div class="insight-box">💡 学校EPC项目含大量精装修工程量（教室、实验室、宿舍、食堂、公共区域），是海骊转型EPC赛道的核心目标市场之一。建议重点跟踪深圳建筑工务署教育工程管理中心的后续招标动态。</div>
+    </div>
+    <div class="source-link">来源：<a href="http://m.toutiao.com/group/7670607674920174115/" target="_blank">教育深度说 / 今日头条</a></div>
+  </div>
+</div>
+
+<!-- Card 4 -->
+<div class="card">
+  <div class="card-bar bar-cyan"></div>
+  <div class="card-content">
+    <div class="card-header">
+      <div class="card-num num-cyan">4</div>
+      <span class="card-tag tag-cyan">设计与管理</span>
+      <span class="card-source">📅 来源发布 2026-08-05</span>
+    </div>
+    <h3>北京天坛近零碳商用建筑改造标杆完工：BIM全生命周期+光伏年发电20万度</h3>
+    <div class="card-body">
+      <p>位于北京东城区天坛地区的法华南里1号楼、10号楼城市更新改造项目全面完工，正式定名<strong>"住总城更大厦"</strong>，成为<strong>北京市首个近零碳商用建筑改造标杆</strong>。项目由北京住总集团打造，总体更新面积约<strong>1万平方米</strong>。</p>
+      <p>改造技术亮点：对标超低能耗建筑、近零碳建筑、碳中和金级建筑三项标准，通过<strong>加厚保温层、节能门窗、无热桥设计</strong>降低基础能耗；引入<strong>光伏建筑一体化（BIPV）</strong>和微电网自控技术，搭建"源-网-荷-储"一体化能源系统，屋顶光伏年发电量达<strong>20万千瓦时</strong>。</p>
+      <p>项目自主开发了<strong>"全景式双碳智慧能源综合管理平台"</strong>，集成灯光、空调、消防等子系统，<strong>BIM数字模型贯穿设计、施工、运维全生命周期</strong>。经测算，改造后年节省费用约<strong>61万元</strong>，年减碳量约<strong>500吨</strong>。项目已获评"2026中国城市更新优秀项目"。</p>
+      <div class="insight-box">💡 近零碳改造代表了城市更新的高阶方向，BIM+智慧能源平台的全生命周期管理模式值得借鉴。海骊在公建精装修领域可关注与光伏、暖通、智能化厂商的协同，打造"精装+绿建"一体化解决方案。</div>
+    </div>
+    <div class="source-link">来源：<a href="https://m.bjnews.com.cn/detail/1785911378129190.html" target="_blank">新京报</a></div>
+  </div>
+</div>
+
+<!-- Card 5 -->
+<div class="card">
+  <div class="card-bar bar-green"></div>
+  <div class="card-content">
+    <div class="card-header">
+      <div class="card-num num-green">5</div>
+      <span class="card-tag tag-green">市场趋势</span>
+      <span class="card-source">📅 来源发布 2026-08-05</span>
+    </div>
+    <h3>大同证券行业周报：建筑装饰政策利好频出，板块逆势跑赢大盘</h3>
+    <div class="card-body">
+      <p>大同证券发布建筑装饰行业周报（2026.7.27-8.2），指出本周行业整体呈现<strong>"政策利好频出、指数跑赢大盘、细分赛道活跃"</strong>格局。涨幅前五个股中，汉嘉数智周涨<strong>35.01%</strong>、甘咨询涨27.93%、华图山鼎涨26.20%、华建集团涨23.98%、蕾奥规划涨19.75%。</p>
+      <p>行业重点动态：邵永高铁跨沪昆高速特大桥转体梁成功完成高空转体；潍宿高铁至青岛连接线隧道工程全线贯通。公司层面，<strong>德才股份</strong>为子公司奇想无限提供不超过5000万元连带责任担保（火山引擎合作）；<strong>华建集团</strong>上半年新签合同28.04亿元同比下降21.65%。</p>
+      <p>报告特别关注到<strong>山水比德</strong>终止部分募投项目，将剩余募集资金永久补充流动资金——反映房地产行业深度调整下，原重资产购置方案已丧失市场基础，租赁模式更具成本优势。</p>
+      <div class="insight-box">💡 建筑装饰板块政策面持续向好，城市更新、智能建造、绿色低碳为主要受益方向。但行业内部分化加剧——规划设计类企业新签合同普遍下滑，具备施工交付能力的企业相对抗跌，海骊应坚持"设计+施工"一体化路线不动摇。</div>
+    </div>
+    <div class="source-link">来源：<a href="http://m.microbell.com/wap_detail.aspx?id=145950faa782bdf98d0ba41f06c3ed3d" target="_blank">大同证券 / 迈博汇金</a></div>
+  </div>
+</div>
+
+<div class="footer">
+  <h4>📋 来源汇总</h4>
+  <ul>
+    <li>今日头条 - 超长期特别国债加装电梯政策解读（2026-08-06）</li>
+    <li>企查查 / 中国招标与采购网 - 金螳螂中标公示（2026-08-05）</li>
+    <li>今日头条 / 教育深度说 - 深圳第三十九高级中学EPC招标（2026-08-06）</li>
+    <li>新京报 - 天坛近零碳商用建筑改造标杆（2026-08-05）</li>
+    <li>大同证券 / 迈博汇金 - 建筑装饰行业周报（2026-08-05）</li>
+  </ul>
+  <div class="disclaimer">数据由 AI 自动抓取整理，仅供参考</div>
+</div>
+
+</div>
+</body>
+</html>
