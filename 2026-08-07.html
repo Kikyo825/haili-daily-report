@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-07</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-orange { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .bar-cyan { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .bar-brown { background: linear-gradient(90deg, #92400e, #b45309); }
+  .card-content { padding: 22px 24px 20px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-yellow { background: #f59e0b; }
+  .num-blue { background: #3b82f6; }
+  .num-green { background: #10b981; }
+  .num-purple { background: #8b5cf6; }
+  .num-pink { background: #ec4899; }
+  .num-orange { background: #f97316; }
+  .num-cyan { background: #06b6d4; }
+  .num-brown { background: #92400e; }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .tag-yellow { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-pink { background: #fce7f3; color: #9d174d; }
+  .tag-orange { background: #ffedd5; color: #9a3412; }
+  .tag-cyan { background: #cffafe; color: #155e75; }
+  .tag-brown { background: #fef3c7; color: #78350f; }
+  .card-source {
+    font-size: 11px;
+    color: #94a3b8;
+    margin-left: auto;
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-body p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  .card-body strong { color: #1e293b; font-weight: 600; }
+  .insight-box {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #64748b;
+  }
+  .source-link {
+    margin-top: 12px;
+    font-size: 11px;
+    color: #94a3b8;
+    word-break: break-all;
+  }
+  .source-link a { color: #6366f1; text-decoration: none; }
+  .source-link a:hover { text-decoration: underline; }
+  .footer {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .footer h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 12px;
+  }
+  .footer ul { list-style: none; }
+  .footer ul li {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+    padding-left: 12px;
+    position: relative;
+  }
+  .footer ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #cbd5e1;
+  }
+  .footer .disclaimer {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid #f1f5f9;
+    font-size: 11px;
+    color: #cbd5e1;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="header-tag">DAILY BRIEFING</div>
+  <h1>海骊住居 · 行业日报</h1>
+  <div class="date-row">
+    <span class="dot"></span>
+    <span>2026年8月7日 星期五 ｜ 数据抓取 2026-08-07 09:50</span>
+  </div>
+</div>
+
+<!-- Card 1 -->
+<div class="card">
+  <div class="card-bar bar-yellow"></div>
+  <div class="card-content">
+    <div class="card-header">
+      <div class="card-num num-yellow">1</div>
+      <span class="card-tag tag-yellow">政策风向</span>
+      <span class="card-source">📅 来源发布 2026-08-06</span>
+    </div>
+    <h3>广东装配式建筑评价新标8月20日实施，海南同步修订装配率计算规则</h3>
+    <div class="card-body">
+      <p>广东省正式发布<strong>《装配式建筑评价标准》DB44/T 2861-2026</strong>，将于<strong>2026年8月20日</strong>起正式实施，替代旧版标准。新标准在装配率计算方式、构件类型认定、装修一体化评分等方面做出重要调整，进一步提升了<strong>全装修积分权重</strong>，对精装修企业参与装配式项目评价产生直接影响。</p>
+      <p>与此同时，海南省住建厅发布了<strong>装配式建筑装配率计算规则2026修订版</strong>，优化了主体结构、围护墙和内隔墙、装修一体化等五大类指标的核算方法，明确<strong>标准化设计、工厂化生产、装配化施工</strong>的考核导向。</p>
+      <p>两省同步修订释放了明确信号：<strong>装配式建筑评价体系正在从"重结构"向"重装修一体化"倾斜</strong>，精装修在装配率中的占比持续提升。</p>
+      <div class="insight-box">💡 广东和海南的新标准均提高了装修一体化的评价权重，这对海骊的装配化精装能力是利好。建议技术团队尽快研读DB44/T 2861-2026全文，梳理积分项变化，提前布局华南市场装配式精装项目投标策略。</div>
+    </div>
+    <div class="source-link">来源：<a href="https://www.gd.gov.cn/" target="_blank">广东省住建厅</a> ｜ <a href="https://hainan.gov.cn/" target="_blank">海南省住建厅</a></div>
+  </div>
+</div>
+
+<!-- Card 2 -->
+<div class="card">
+  <div class="card-bar bar-blue"></div>
+  <div class="card-content">
+    <div class="card-header">
+      <div class="card-num num-blue">2</div>
+      <span class="card-tag tag-blue">竞品动向</span>
+      <span class="card-source">📅 来源发布 2026-08-06 ~ 08-07</span>
+    </div>
+    <h3>德才装饰一周内密集中标3个项目+获授新专利，青岛羽毛球基地精装修+紫荆文化总部精装修</h3>
+    <div class="card-body">
+      <p><strong>德才装饰</strong>近一周中标节奏明显加快：8月6日中标候选公示<strong>中国羽毛球协会青岛训练比赛基地精装修工程</strong>和<strong>紫荆文化总部大厦精装修工程</strong>，同时中标<strong>曲阜师范大学校园改造</strong>项目。三天三个标，覆盖<strong>体育场馆、文化总部、教育改造</strong>三大细分赛道。</p>
+      <p>专利方面，德才装饰8月7日获授<strong>"建筑施工用贴墙砖设备"实用新型专利</strong>，聚焦施工工具自动化，体现其在施工工艺创新上的持续投入。</p>
+      <p>值得关注的是，青岛羽毛球基地项目与8月5日德才为子公司奇想无限提供5000万元担保（火山引擎合作）形成联动——德才正加速<strong>数字化+精装修</strong>双轮驱动布局。</p>
+      <div class="insight-box">💡 德才装饰在体育场馆精装修和文化总部项目上的密集中标，说明其公建精装赛道竞争力持续增强。青岛羽毛球基地项目与海骊在体育公建领域存在直接竞争，需重点跟踪项目规模和中标金额。</div>
+    </div>
+    <div class="source-link">来源：<a href="https://www.qcc.com/" target="_blank">企查查</a> ｜ <a href="https://www.bidcenter.com.cn/" target="_blank">中国招标网</a></div>
+  </div>
+</div>
+
+<!-- Card 3 -->
+<div class="card">
+  <div class="card-bar bar-purple"></div>
+  <div class="card-content">
+    <div class="card-header">
+      <div class="card-num num-purple">3</div>
+      <span class="card-tag tag-purple">战略机遇</span>
+      <span class="card-source">📅 来源发布 2026-08-06</span>
+    </div>
+    <h3>西安瞳北高中EPC总投资3.61亿建72班公办高中 + 扬州古韵里康养EPC 4.73亿</h3>
+    <div class="card-body">
+      <p>西安东部启动区发布<strong>瞳北高级中学EPC总承包</strong>招标公告，项目总投资<strong>3.61亿元</strong>，规划建设<strong>72班公办高中</strong>，新建总建筑面积约<strong>8.6万平方米</strong>，招标范围涵盖设计、采购、施工全过程。项目要求投标人具备建筑工程施工总承包一级及以上资质。</p>
+      <p>同期，扬州市发布<strong>古韵里康养服务中心EPC总承包</strong>招标公告，招标估价<strong>4.73亿元</strong>，建设内容包括康养服务中心、配套医疗设施及适老化精装交付空间，是扬州打造长三角康养目的地的标杆项目。</p>
+      <p>两个项目分别代表<strong>学校赛道</strong>和<strong>康养赛道</strong>的大额EPC订单释放，均为海骊正在转型的重点方向。</p>
+      <div class="insight-box">💡 学校EPC项目含教室、实验室、宿舍、食堂等大批量精装工程量；康养项目则涉及适老化精装、医疗功能空间装修——两个赛道都与海骊转型方向高度匹配。建议立即启动两个项目的投标资格自查和联合体组建工作。</div>
+    </div>
+    <div class="source-link">来源：<a href="https://www.ggzy.gov.cn/" target="_blank">全国公共资源交易平台</a> ｜ <a href="https://www.bidcenter.com.cn/" target="_blank">中国招标网</a></div>
+  </div>
+</div>
+
+<!-- Card 4 -->
+<div class="card">
+  <div class="card-bar bar-green"></div>
+  <div class="card-content">
+    <div class="card-header">
+      <div class="card-num num-green">4</div>
+      <span class="card-tag tag-green">市场趋势</span>
+      <span class="card-source">📅 来源发布 2026-08-06</span>
+    </div>
+    <h3>伟星新材上半年净利3.9亿同比增43.9%，建材龙头企业业绩强劲反弹</h3>
+    <div class="card-body">
+      <p>伟星新材（002372.SZ）披露2026年半年报：上半年实现营业收入<strong>29.8亿元</strong>，同比增长12.6%；归母净利润<strong>3.9亿元</strong>，同比增长<strong>43.9%</strong>。利润增速远超营收增速，反映产品结构优化和成本管控成效显著。</p>
+      <p>公司核心业务为PPR管道（家装给水管），受益于<strong>存量房翻新需求释放</strong>和<strong>家装零售渠道下沉</strong>战略，零售端占比持续提升。同时，工程端业务在市政管网更新改造领域获得增量订单。</p>
+      <p>伟星新材的业绩表现与行业内"住宅全案整装标准"推进形成呼应——<strong>建材品牌直接对接装企</strong>的趋势加速，上游材料商正在重塑供应链格局。</p>
+      <div class="insight-box">💡 伟星新材利润高增反映了建材端"品牌集中度提升+零售渠道深耕"趋势。海骊在集采合作中可关注与伟星等头部建材品牌的战略合作深化，同时警惕建材品牌绕过中间环节直接对接终端装企的趋势。</div>
+    </div>
+    <div class="source-link">来源：<a href="https://www.cninfo.com.cn/" target="_blank">巨潮资讯网</a> ｜ <a href="https://finance.eastmoney.com/" target="_blank">东方财富</a></div>
+  </div>
+</div>
+
+<!-- Card 5 -->
+<div class="card">
+  <div class="card-bar bar-cyan"></div>
+  <div class="card-content">
+    <div class="card-header">
+      <div class="card-num num-cyan">5</div>
+      <span class="card-tag tag-cyan">洁净工程</span>
+      <span class="card-source">📅 来源发布 2026-08-06</span>
+    </div>
+    <h3>江苏容导半导体新址竣工：无锡高新区总投资5.2亿，4万平方米洁净室</h3>
+    <div class="card-body">
+      <p><strong>江苏容导半导体</strong>位于无锡高新区的新总部及生产基地正式竣工，项目总投资<strong>5.2亿元</strong>，占地约<strong>4万平方米</strong>，按<strong>千级/万级洁净室标准</strong>建设，涵盖半导体设备零部件精密加工、洁净组装及检测实验室等功能区。</p>
+      <p>该项目是无锡高新区2026年半导体产业链补链强链的重点工程，投产后预计年产半导体核心零部件<strong>50万件</strong>，年产值超<strong>10亿元</strong>。洁净室建设涉及<strong>暖通净化、防静电地坪、气路管路、洁净装修</strong>等系统工程。</p>
+      <p>无锡集成电路产业规模已突破<strong>2000亿元</strong>，是国内半导体产业高地，洁净室工程需求持续旺盛。</p>
+      <div class="insight-box">💡 洁净室工程是海骊新赛道之一，半导体领域对洁净装修的精度要求极高（粉尘控制、防静电、气密性）。无锡作为半导体产业高地，后续仍有大量洁净室新建和改造需求，建议关注无锡高新区、新吴区的后续项目动态。</div>
+    </div>
+    <div class="source-link">来源：<a href="https://www.wuxi.gov.cn/" target="_blank">无锡高新区管委会</a> ｜ <a href="https://www.thepaper.cn/" target="_blank">澎湃新闻</a></div>
+  </div>
+</div>
+
+<div class="footer">
+  <h4>📋 来源汇总</h4>
+  <ul>
+    <li>广东省住建厅 / 海南省住建厅 - 装配式建筑评价标准及装配率计算规则修订（2026-08-06）</li>
+    <li>企查查 / 中国招标网 - 德才装饰中标公示及专利授权（2026-08-06 ~ 08-07）</li>
+    <li>全国公共资源交易平台 / 中国招标网 - 西安瞳北高中EPC及扬州古韵里康养EPC招标（2026-08-06）</li>
+    <li>巨潮资讯网 / 东方财富 - 伟星新材2026年半年报（2026-08-06）</li>
+    <li>无锡高新区管委会 / 澎湃新闻 - 江苏容导半导体新址竣工（2026-08-06）</li>
+  </ul>
+  <div class="disclaimer">数据由 AI 自动抓取整理，仅供参考</div>
+</div>
+
+</div>
+</body>
+</html>
