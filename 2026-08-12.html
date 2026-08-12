@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-12</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.06), 0 12px 28px rgba(0,0,0,0.06);
+  }
+  .card-bar { height: 4px; }
+  .policy .card-bar { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .competitor .card-bar { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .trend .card-bar { background: linear-gradient(90deg, #10b981, #34d399); }
+  .opportunity .card-bar { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .tech .card-bar { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .cost .card-bar { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .design .card-bar { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .labor .card-bar { background: linear-gradient(90deg, #a16207, #ca8a04); }
+  .card-content { padding: 24px 28px 28px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    font-size: 14px;
+    font-weight: 800;
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .policy .card-num { background: #fef3c7; color: #d97706; }
+  .competitor .card-num { background: #dbeafe; color: #2563eb; }
+  .trend .card-num { background: #d1fae5; color: #059669; }
+  .opportunity .card-num { background: #ede9fe; color: #7c3aed; }
+  .tech .card-num { background: #fce7f3; color: #db2777; }
+  .cost .card-num { background: #ffedd5; color: #ea580c; }
+  .design .card-num { background: #cffafe; color: #0891b2; }
+  .labor .card-num { background: #fef9c3; color: #a16207; }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .policy .card-tag { background: #fef3c7; color: #b45309; }
+  .competitor .card-tag { background: #dbeafe; color: #1d4ed8; }
+  .trend .card-tag { background: #d1fae5; color: #047857; }
+  .opportunity .card-tag { background: #ede9fe; color: #6d28d9; }
+  .tech .card-tag { background: #fce7f3; color: #be185d; }
+  .cost .card-tag { background: #ffedd5; color: #c2410c; }
+  .design .card-tag { background: #cffafe; color: #0e7490; }
+  .labor .card-tag { background: #fef9c3; color: #a16207; }
+  .pub-date {
+    margin-left: auto;
+    font-size: 12px;
+    color: #94a3b8;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 3px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .card-body p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  .card-body strong { color: #1e293b; }
+  .insight-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-top: 16px;
+    border: 1px solid #e2e8f0;
+  }
+  .insight-box p {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #64748b;
+    margin: 0;
+  }
+  .source-link {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 12px;
+    color: #6366f1;
+    text-decoration: none;
+    background: #eef2ff;
+    padding: 4px 12px;
+    border-radius: 6px;
+  }
+  .source-link:hover { background: #e0e7ff; }
+  .footer {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-top: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  }
+  .footer h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 12px;
+  }
+  .footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer ul li {
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 2;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .footer ul li:last-child { border-bottom: none; }
+  .footer ul li a { color: #6366f1; text-decoration: none; }
+  .footer .disclaimer {
+    font-size: 11px;
+    color: #cbd5e1;
+    margin-top: 16px;
+    text-align: center;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="header-tag">DAILY BRIEFING</div>
+  <h1>海骊住居 · 行业日报</h1>
+  <div class="date-row">
+    <span class="dot"></span>
+    <span>2026年8月12日 星期三 ｜ 数据抓取截至 09:50</span>
+  </div>
+</div>
+
+<!-- Card 1: 政策风向 -->
+<div class="card policy">
+  <div class="card-bar"></div>
+  <div class="card-content">
+    <div class="card-head">
+      <div class="card-num">01</div>
+      <span class="card-tag">政策风向</span>
+      <span class="pub-date">📅 来源发布 2026-08-12</span>
+    </div>
+    <div class="card-title">住建部加强建筑市场监管：推"AI+招投标监管"，加快智慧化转型</div>
+    <div class="card-body">
+      <p>住房城乡建设部近日发布通知，要求进一步加强建筑市场监管，持续优化建筑市场环境。通知明确提出<strong>推动"人工智能+招投标监管"</strong>，积极利用大数据、人工智能等数字化技术，建立覆盖招投标全过程的分析预警模型，强化数据自动分析和比对能力，提升围标串标等违法线索发现能力。</p>
+      <p>通知还要求<strong>加快智慧化监管转型</strong>，通过监管系统中的数据比对对交易项目、各方主体行为进行深度分析，实现信息化预警，有效识别转包、违法分包、挂靠资质等违法行为。同时推动全国建筑市场监管公共服务平台与省级平台互联互通，与工程审批、质量安全、建筑工人管理等平台实现信息共享。</p>
+      <p>各级住建部门被要求完善工作机制，创新监管方式，严格依法依规查处建筑市场违法违规行为，涉嫌违纪违法的及时移送纪检监察和司法机关处理。</p>
+      <div class="insight-box">
+        <p>💡 这是住建部首次系统性提出"AI+招投标监管"的顶层设计，将深刻改变建筑市场竞争格局。海骊住居作为精装修总包企业，需关注AI围标串标检测模型的应用，确保投标合规性；同时可利用智慧化监管平台提升自身项目管理透明度。</p>
+      </div>
+      <a class="source-link" href="https://gmteight.com/flash/detail/1490269" target="_blank">来源：环球幕墙&门窗博览会</a>
+    </div>
+  </div>
+</div>
+
+<!-- Card 2: 竞品动向 -->
+<div class="card competitor">
+  <div class="card-bar"></div>
+  <div class="card-content">
+    <div class="card-head">
+      <div class="card-num">02</div>
+      <span class="card-tag">竞品动向</span>
+      <span class="pub-date">📅 来源发布 2026-08-11</span>
+    </div>
+    <div class="card-title">金螳螂中标深圳宝安博物馆布展EPC，Q2新签59亿公装占85%</div>
+    <div class="card-body">
+      <p>8月12日，金螳螂（002081.SZ）<strong>定标结果公示：中标深圳宝安公共文化艺术中心（博物馆、艺术馆、美术馆）项目博物馆布展陈列工程总承包</strong>。这是金螳螂在文化公建领域的又一重大中标。</p>
+      <p>经营数据方面，金螳螂二季度<strong>新签订单合计59.34亿元</strong>，其中公装项目50.27亿元（<strong>占比84.7%</strong>），住宅项目3.40亿元，设计项目5.67亿元。截至二季度末，已中标未签约订单28.51亿元，<strong>累计已签约未完工订单186.08亿元</strong>，业务储备充足。</p>
+      <p>8月11日，金螳螂股价跌1.00%，成交额2.41亿元，总市值105.42亿元。公司将城市更新作为未来战略重点，业务覆盖老旧小区改造、公共场馆翻新、历史街区保护、豪华酒店升级等细分领域。</p>
+      <div class="insight-box">
+        <p>💡 金螳螂在文化公建EPC领域持续发力，公装占比高达85%，说明公建精装修市场需求依然活跃。海骊住居在转型EPC、学校、酒店等新赛道时，可直接面对金螳螂的竞争，需在差异化能力和区域优势上形成壁垒。</p>
+      </div>
+      <a class="source-link" href="https://www.qcc.com/cfinance/c4877d95e9a22f9b320a1934f3f576b1.html" target="_blank">来源：企查查</a>
+      <a class="source-link" href="https://cj.sina.cn/article/norm_detail?froms=ttmp&url=https%3A%2F%2Ffinance.sina.com.cn%2Fstock%2Faiassist%2Fggsp%2F2026-08-11%2Fdoc-inimxrnp4272441.shtml" target="_blank">来源：新浪财经</a>
+    </div>
+  </div>
+</div>
+
+<!-- Card 3: 市场趋势 -->
+<div class="card trend">
+  <div class="card-bar"></div>
+  <div class="card-content">
+    <div class="card-head">
+      <div class="card-num">03</div>
+      <span class="card-tag">市场趋势</span>
+      <span class="pub-date">📅 来源发布 2026-08-11</span>
+    </div>
+    <div class="card-title">中指研究院：上半年精装修房源17.1万套降36.6%，Q2降幅收窄</div>
+    <div class="card-body">
+      <p>中指研究院最新数据显示，<strong>2026年上半年全国精装修楼盘开盘数量为301个，同比下降31.9%</strong>；精装修房源套数为<strong>17.1万套，同比下降36.6%</strong>，但二季度降幅略有收窄。</p>
+      <p>平均精装率为<strong>25.13%</strong>，同比略降。分城市看，一线城市精装率最高达<strong>89.76%</strong>，二线城市为30.9%，三四线城市仅10.41%。从大区分布看，<strong>华南区域平均精装率接近5成（49.8%）</strong>，华东区域为26.9%。</p>
+      <p>精装修房源主要集中在二线城市，占比45.1%，一线城市占比32.4%（同比提升4.5个百分点），三四线城市占比22.5%。七大件配置中，建材组件套数最高（375.5万套），同比下降36.6%。除舒适系统仅微降1.9%外，其余组件均同比下降超过30%。</p>
+      <div class="insight-box">
+        <p>💡 精装修市场总量持续收缩，但Q2降幅收窄释放触底信号。一线城市精装率近90%已趋饱和，增量机会在二三线城市。海骊住居应关注精装率结构变化，重点布局精装率仍有提升空间的二线城市及公建项目。</p>
+      </div>
+      <a class="source-link" href="https://m.weibo.cn/detail/5330721728106946" target="_blank">来源：中指研究院（微博）</a>
+      <a class="source-link" href="https://gmteight.com/flash/detail/1485100" target="_blank">来源：智通财经</a>
+    </div>
+  </div>
+</div>
+
+<!-- Card 4: 战略机遇 -->
+<div class="card opportunity">
+  <div class="card-bar"></div>
+  <div class="card-content">
+    <div class="card-head">
+      <div class="card-num">04</div>
+      <span class="card-tag">战略机遇</span>
+      <span class="pub-date">📅 来源发布 2026-08-11</span>
+    </div>
+    <div class="card-title">广州建筑150个模块化建筑模块出口澳大利亚，智能建造产业链"打包出海"</div>
+    <div class="card-body">
+      <p>8月11日，广州建筑集团旗下广州建筑产业研究院集团、广州建筑科技工业有限公司与澳大利亚合作企业正式签署三方战略合作协议，<strong>150个建筑模块订单正式落地</strong>，产品将运往澳大利亚覆盖悉尼、西澳、南澳、墨尔本等多个区域。</p>
+      <p>广州建筑依托<strong>柔性智能钢结构模块生产线</strong>，加工精度可控制在<strong>2毫米以内</strong>。从设计研发、智能制造到施工安装形成全产业链优势，已布局<strong>6家核心企业、7个生产基地、18条生产线</strong>，产品覆盖混凝土模块化、钢结构模块化、智能装备及装配式装修。</p>
+      <p>广州建筑集团总经理曹京源表示，此次出海实现了<strong>整个产业链条的捆绑式出海</strong>，将建筑业上中下游产品一起带出去。除澳大利亚外，加拿大认证也即将取得。新华社报道称，广州海关辖区上半年预制结构出口<strong>19.4亿元，同比增长21.2%</strong>，产品覆盖190多个国家和地区。</p>
+      <div class="insight-box">
+        <p>💡 模块化建筑出海是建筑业转型重要方向，"全产业链打包出海"模式值得海骊住居关注。海骊在EPC和装配式领域有积累，可探索与模块化厂商协同，参与海外精装修配套市场。佛山、广州地区超300家预制建筑出口商已形成产业集群效应。</p>
+      </div>
+      <a class="source-link" href="http://m.toutiao.com/group/7672739302379373097/" target="_blank">来源：广州日报</a>
+      <a class="source-link" href="http://chinaview.cn/20260811/254ba81553be4846ad9a9a536081b3ed/c.html" target="_blank">来源：新华社</a>
+    </div>
+  </div>
+</div>
+
+<!-- Card 5: 技术创新 -->
+<div class="card tech">
+  <div class="card-bar"></div>
+  <div class="card-content">
+    <div class="card-head">
+      <div class="card-num">05</div>
+      <span class="card-tag">技术创新</span>
+      <span class="pub-date">📅 来源发布 2026-08-11</span>
+    </div>
+    <div class="card-title">四川发布智能建造产业链方案(2026-2030)：三步走建15个省级试点城市</div>
+    <div class="card-body">
+      <p>四川省住房和城乡建设厅近日印发《四川省智能建造产业链建设工作方案(2026—2030)》，为未来5年智能建造产业链制定路线图。方案提出分三步走：<strong>2026年搭建产业链框架</strong>，明确链主企业培育对象；<strong>2027-2028年试点示范</strong>，推广BIM、建筑机器人等技术；<strong>2029-2030年全面推广</strong>，省级试点城市增至15个，试点项目新增500个。</p>
+      <p>方案明确<strong>五大重点任务</strong>：优化区域布局、培育企业主体、强化科技创新、健全培育保障体系、产业激励支撑。重点支持链主企业通过兼并重组、战略合作整合资源，探索建立<strong>阶梯式激励体系</strong>（上规、上榜、上云、上市）。聚焦AI、云计算、大数据、物联网、数字孪生等技术，采用"揭榜挂帅"、定向委托、联合攻关等方式开展技术攻关。</p>
+      <p>到2030年末，目标实现<strong>安全可靠BIM技术普及率达35%</strong>，省级以上重点实验室、工程中心等创新平台累计建成<strong>25个以上</strong>。同时落实四川省绿色建材产业链资金奖补，搭建智能建造供需对接平台。</p>
+      <div class="insight-box">
+        <p>💡 四川是西部建筑大省，智能建造产业链方案的出台将催生大量试点项目和技术需求。海骊住居可关注四川市场的公建EPC机会，特别是涉及BIM技术应用、装配式装修的智慧建造试点项目，提前布局区域合作。</p>
+      </div>
+      <a class="source-link" href="http://m.toutiao.com/group/7672725092559782406/" target="_blank">来源：川观新闻</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <h3>📋 来源汇总</h3>
+  <ul>
+    <li>① 环球幕墙&门窗博览会 · gmteight.com</li>
+    <li>② 企查查 · qcc.com / 新浪财经 · finance.sina.com.cn</li>
+    <li>③ 中指研究院（微博） · m.weibo.cn / 智通财经 · gmteight.com</li>
+    <li>④ 广州日报 · m.toutiao.com / 新华社 · chinaview.cn</li>
+    <li>⑤ 川观新闻 · m.toutiao.com</li>
+  </ul>
+  <p class="disclaimer">数据由 AI 自动抓取整理，仅供参考<br>海骊住居 · 行业日报 | 2026-08-12</p>
+</div>
+
+</div>
+</body>
+</html>
