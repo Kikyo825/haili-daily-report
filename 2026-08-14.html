@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-14</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-teal { background: linear-gradient(90deg, #14b8a6, #5eead4); }
+  .card-body { padding: 22px 24px 24px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .card-num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-yellow { background: #f59e0b; }
+  .num-blue { background: #3b82f6; }
+  .num-green { background: #10b981; }
+  .num-pink { background: #ec4899; }
+  .num-teal { background: #14b8a6; }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .tag-yellow { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-pink { background: #fce7f3; color: #9d174d; }
+  .tag-teal { background: #ccfbf1; color: #115e59; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  .insight-box {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    border-left: 3px solid #cbd5e1;
+  }
+  .insight-box p {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #64748b;
+  }
+  .source-link {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .source-link a {
+    color: #6366f1;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .source-link a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 28px 20px;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer strong { color: #64748b; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>2026年8月14日 星期五 ｜ 数据抓取截至 09:50</span>
+    </div>
+  </div>
+
+  <!-- Card 1 -->
+  <div class="card">
+    <div class="card-bar bar-yellow"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-yellow">1</div>
+        <span class="card-tag tag-yellow">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-08-14</span>
+      </div>
+      <h3>住建部"好房子"建设指南再次征求意见：防水隔音标准全面升级</h3>
+      <p class="card-text">住建部近日对《"好房子"建设指南》完成修订后再次向社会公开征求意见。修订版指南分为<strong>安全耐久、舒适健康、绿色低碳、智慧便捷、适老适幼</strong>五大部分，系统定义了新时代"好房子"的核心内涵，覆盖住房规划、设计、施工、运维全流程。</p>
+      <p class="card-text">此次修订重点聚焦群众居住痛点，从<strong>场地结构安全、室内健康环境、节能降碳技术、智慧社区与智慧家居</strong>等维度细化技术要求，并针对性解决<strong>渗漏、隔音差、异味堵塞、高能耗</strong>等长期困扰居民的四大顽疾。指南同步推行<strong>管线分离</strong>与<strong>可变空间</strong>设计理念，鼓励全龄友好设计。</p>
+      <div class="insight-box">
+        <p>💡 "好房子"指南对精装修标准提出更高要求：防水工程需从"合格"升级为"零渗漏"，隔音标准全面提升将推动精装隔音材料和工艺的迭代。海骊在批量精装交付和康养、酒店等转型赛道中，可提前对标"好房子"标准，将防渗漏、隔音、管线分离等能力作为产品竞争力的核心支撑。</p>
+      </div>
+      <div class="source-link">来源：住建部 / GMT8 Press <a href="https://gmt8press.com/flash/detail/1474904" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <div class="card-bar bar-blue"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-blue">2</div>
+        <span class="card-tag tag-blue">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-08-13</span>
+      </div>
+      <h3>金螳螂2连板后澄清洁净室概念：业务占比低，新中标沈阳7652万精装修</h3>
+      <p class="card-text">金螳螂（002081）在8月12—13日连续两个交易日涨停后，于8月13日发布<strong>股票交易异常波动公告</strong>。公司明确表示：市场近期将其归类为"半导体洁净室"概念，但经核实，公司<strong>洁净类装修业务占营收及净利润比例较低</strong>，对整体业绩贡献有限。金螳螂强调，公司系为相关厂房提供<strong>配套装修、机电及净化系统安装</strong>等工程服务，本身不从事半导体芯片设计、制造、封测等核心产业。</p>
+      <p class="card-text">同日公告显示，金螳螂中标<strong>沈阳金廊22-1项目3#楼精装修工程</strong>，金额<strong>7652万元</strong>。此外，公司8月14日获授权<strong>实用新型专利"水波纹青瓷安装组件及青瓷装配系统"</strong>，体现其在装配式装饰技术方面的持续研发。Q2经营简报显示，公司二季度<strong>新签单59亿元</strong>，公装业务贡献超八成。</p>
+      <div class="insight-box">
+        <p>💡 金螳螂虽然澄清洁净室占比低，但7652万精装修中标和59亿Q2新签仍显示其传统公装主业实力不减。市场对其"洁净室概念"的追捧，折射出投资者对建筑装饰企业转型新赛道的高度预期，海骊在战略层面需关注这种"预期差"带来的估值影响。</p>
+      </div>
+      <div class="source-link">来源：证券时报 / 企查查 <a href="http://m.toutiao.com/group/7673470963912114751/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <div class="card-bar bar-green"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-green">3</div>
+        <span class="card-tag tag-green">市场趋势</span>
+        <span class="card-date">📅 来源发布 2026-08-13</span>
+      </div>
+      <h3>2026上半年建筑业运行报告：行业存量出清加速，从业人员锐减550万</h3>
+      <p class="card-text">《混凝土》杂志发布2026上半年全国建筑业运行分析报告，核心指标全面下滑：<strong>省外完成产值和新开工面积均降26.0%</strong>，施工面积降21.0%，竣工产值降15.0%，新签合同额降14.0%，总产值降12.7%。企业签订合同总额<strong>49.5万亿元</strong>。</p>
+      <p class="card-text">值得关注的关键数据：全国建筑企业<strong>152,419家，同比减少1,539家</strong>（-1.0%），这是近年来<strong>首次出现企业数量绝对减少</strong>，标志着行业从"增量扩张"转向"存量出清"。上半年平均从业人数<strong>3,676万人，同比减少约550万人（-13.0%）</strong>，为近年最大半年度用工降幅，反映出机械化、智能化替代加速的趋势。上半年建筑业<strong>劳动生产率约32.5万元/人</strong>，较上年同期的32.3万元/人略有提升。</p>
+      <div class="insight-box">
+        <p>💡 建筑业正经历深度调整期，精装修市场需求端持续收缩，但"存量出清"意味着竞争格局在重塑——活下来的企业有望获取更大市场份额。海骊应加速新赛道转型，同时推进"智能化+装配式"降低对人力的依赖，在行业"瘦身"中保持竞争优势。</p>
+      </div>
+      <div class="source-link">来源：混凝土杂志 / 今日头条 <a href="http://m.toutiao.com/group/7673329326334558772/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card">
+    <div class="card-bar bar-pink"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-pink">4</div>
+        <span class="card-tag tag-pink">技术创新</span>
+        <span class="card-date">📅 来源发布 2026-08-13</span>
+      </div>
+      <h3>华南首条CMC智能生产线下线：2小时造一间房，精装完成度极高</h3>
+      <p class="card-text">2026年8月，华南地区首条<strong>CMC（组合模块化建造）智能生产线</strong>在广州南沙正式投产，产品首次下线。该生产线实现"<strong>两小时生产一间房、十二分钟一面墙</strong>"的制造效率，产品将率先应用于深圳一个"原拆原建"城市更新项目。</p>
+      <p class="card-text">CMC的核心创新在于将<strong>"结构-保温-管线-内装"四大系统</strong>在工厂内一次性集成到单个模块中。与传统装配式"预制墙板、现场拼装"不同，CMC模块出厂时已完成绝大部分机电和装修工序——模块运到现场仅需<strong>吊装就位、螺栓连接、管线对接</strong>，一套房的主体结构和精装完成度即达到相当高水平。每块模块出厂附带<strong>完整BIM数字档案和质检数据</strong>，实现全流程可追溯。现场用工结构也发生根本转变——"不需要大量钢筋工和木工，需要的是懂模块吊装、管线对接和数字化验收的技术工人"。</p>
+      <div class="insight-box">
+        <p>💡 CMC模式将精装修施工的相当部分从"现场"转移到"工厂"，对海骊而言，这意味着精装能力可以嵌入模块化产品体系，与CMC类企业协同参与"好房子"和城市更新市场。"结构-保温-管线-内装"一体化集成方向，与海骊EPC转型战略高度契合。</p>
+      </div>
+      <div class="source-link">来源：今日头条 / 风潮物联 <a href="http://m.toutiao.com/group/7673450495213601332/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="card">
+    <div class="card-bar bar-teal"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-teal">5</div>
+        <span class="card-tag tag-teal">设计与管理</span>
+        <span class="card-date">📅 来源发布 2026-08-13</span>
+      </div>
+      <h3>商业空间装修一体化成主流：EPC全链路交付占比超40%，工期缩短25%</h3>
+      <p class="card-text">据中国建筑装饰协会及第一太平戴维斯《2026年零售商业趋势报告》，中国商业空间装修市场规模已达<strong>1.2万亿元</strong>，正从"增量扩张"转向"存量精耕"。设计装修一体化（即EPC全链路交付）模式占比从2019年的23%升至2025年的<strong>36.5%</strong>，一体化服务项目在商业空间装修市场占比已<strong>超40%</strong>，年复合增长率<strong>7.5%</strong>。</p>
+      <p class="card-text">一体化模式的核心优势：消除设计与施工信息断层，实现<strong>"预算即决算"</strong>（成本偏差可控制在±3%以内）；设计、采购、施工并行推进，<strong>项目工期缩短19%—25%</strong>。商务部数据显示，2023年商业综合体改造投资超4200亿元，其中<strong>72%的项目选择一体化服务</strong>。行业正从"可选"走向"标配"，对精装修企业的"设计-采购-施工"全链条整合能力提出更高要求。</p>
+      <div class="insight-box">
+        <p>💡 一体化模式对精装修企业的能力要求更高，但也意味着市场机会向具备"设计-采购-施工"全链条能力的EPC总包方倾斜。海骊住居可强化自身一体化交付能力，在商业空间、酒店、学校等转型赛道中，以全流程管控能力获取竞争优势。</p>
+      </div>
+      <div class="source-link">来源：今日头条 / abnSpace技良行 <a href="http://m.toutiao.com/group/7671569746713707035/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong>来源汇总</strong><br>
+    住建部 · GMT8 Press · 证券时报 · 企查查 · 混凝土杂志 · 今日头条 · abnSpace技良行<br><br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
