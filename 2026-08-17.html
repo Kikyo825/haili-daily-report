@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-17</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-orange { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .bar-teal { background: linear-gradient(90deg, #14b8a6, #5eead4); }
+  .bar-redbrown { background: linear-gradient(90deg, #a0522d, #cd853f); }
+  .card-body { padding: 22px 24px 24px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .card-num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-yellow { background: #f59e0b; }
+  .num-blue { background: #3b82f6; }
+  .num-green { background: #10b981; }
+  .num-purple { background: #8b5cf6; }
+  .num-pink { background: #ec4899; }
+  .num-orange { background: #f97316; }
+  .num-teal { background: #14b8a6; }
+  .num-redbrown { background: #a0522d; }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .tag-yellow { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-pink { background: #fce7f3; color: #9d174d; }
+  .tag-orange { background: #ffedd5; color: #9a3412; }
+  .tag-teal { background: #ccfbf1; color: #115e59; }
+  .tag-redbrown { background: #fde8d8; color: #7c2d12; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  .insight-box {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    border-left: 3px solid #cbd5e1;
+  }
+  .insight-box p {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #64748b;
+  }
+  .source-link {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .source-link a {
+    color: #6366f1;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .source-link a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 28px 20px;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer strong { color: #64748b; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>2026年8月17日 星期一 ｜ 数据抓取截至 09:50</span>
+    </div>
+  </div>
+
+  <!-- Card 1 -->
+  <div class="card">
+    <div class="card-bar bar-blue"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-blue">1</div>
+        <span class="card-tag tag-blue">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-08-17</span>
+      </div>
+      <h3>金螳螂4连板！洁净室+海外业务双概念驱动，公司紧急澄清占比仍低</h3>
+      <p class="card-text">8月17日早盘，金螳螂（002081）9:39再度封涨停，实现<strong>4连板</strong>，成交额<strong>16.26亿元</strong>，换手率<strong>10.71%</strong>。本轮行情始于8月12日，市场围绕<strong>洁净室+海外业务</strong>两大题材持续炒作。</p>
+      <p class="card-text">金螳螂此前公告澄清：截至2025年末，境外业务收入占比仅<strong>8.66%</strong>；洁净类装修业务占公司营收及净利润比例<strong>仍然较低</strong>，对整体业绩贡献有限。但公司已明确将半导体洁净室列为<strong>战略新赛道</strong>，具备电子半导体、新能源、大健康实验室等高附加值领域系统集成能力，海外已形成以东南亚为中心、辐射中亚中东非洲的布局。二季度经营简报显示，新签订单<strong>59.34亿元</strong>，累计已签约未完工订单<strong>186.08亿元</strong>。</p>
+      <div class="insight-box">
+        <p>💡 金螳螂连续涨停反映资本市场对"精装+洁净室+出海"转型逻辑的强烈预期，但公司自身提示概念与业绩之间存在"温差"。对海骊而言，洁净室赛道虽热但专业壁垒高，短期更现实的路径是关注"洁净厂房配套精装"及与专业洁净企业的协同机会，同时跟踪金螳螂海外布局对东南亚精装市场的带动效应。</p>
+      </div>
+      <div class="source-link">来源：金融界 / 新苏商 <a href="https://24h.jrj.com.cn/2026/08/17094258134736.shtml" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <div class="card-bar bar-purple"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-purple">2</div>
+        <span class="card-tag tag-purple">战略机遇</span>
+        <span class="card-date">📅 来源发布 2026-08-16</span>
+      </div>
+      <h3>郑州14.72亿国际化康复护理医院EPC招标，康养赛道再添大型项目</h3>
+      <p class="card-text">郑州航空港国际（欧洲）康复护理医院EPC总承包项目近日发布招标公告。项目位于中原医学科学城片区，用地面积约<strong>70亩</strong>，规划床位<strong>700张</strong>，总建筑面积<strong>13.4万㎡</strong>（地上8.39万㎡、地下5.01万㎡），总投资<strong>14.72亿元</strong>，预计工期<strong>640日历天</strong>。</p>
+      <p class="card-text">建设内容包括门诊综合楼（含医技科室）、急诊科、康复楼、办公后勤配套及地下车库等。建设主体郑州航空港区慧港健康科技有限公司还同步布局了中德双元制应用护理学院（总投资<strong>8.46亿元</strong>）和中德联合国际康复中心（总投资<strong>9.59亿元</strong>，1500床位），两大项目均已完成EPC招标，预计2027年竣工。中原医学科学城已入驻生物医药企业<strong>300余家</strong>。</p>
+      <div class="insight-box">
+        <p>💡 康养医疗EPC项目单体投资大、精装标准高、机电系统复杂，是海骊转型康养赛道的优质目标类型。该片区"两校两院一中心"集群开发模式意味着后续精装需求将持续释放。建议关注中原医学科学城后续分包及精装修专项招标机会，提前对接EPC总包方。</p>
+      </div>
+      <div class="source-link">来源：今日头条 <a href="http://m.toutiao.com/group/7673834519702585883/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <div class="card-bar bar-orange"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-orange">3</div>
+        <span class="card-tag tag-orange">成本动态</span>
+        <span class="card-date">📅 来源发布 2026-08-16</span>
+      </div>
+      <h3>8月装修建材迎降价潮：瓷砖卫浴木地板全线下调，全屋采购省数千元</h3>
+      <p class="card-text">8月装修建材市场持续降价，<strong>瓷砖、木地板、卫浴洁具、乳胶漆</strong>等品类价格走低，全屋装修采购可节省<strong>数千元</strong>，商家推出批量采购折扣。国家统计局数据同步显示，8月上旬流通领域<strong>31种重要生产资料价格下降</strong>，涉及钢铁、水泥、玻璃等主要建材，成本端持续利好装修施工方。</p>
+      <p class="card-text">与此同时，高端进口家具市场表现惨淡，国际品牌正加速布局中国市场寻求新增长点。而在标准端，8月照明行业密集推进多项标准制修订，以标准质量双轮驱动促进产业升级；新版《木家具通用技术条件》（GB/T 3324-2026）将甲醛释放量限值从E1级收严至<strong>E0.5级（≤0.05mg/m³）</strong>，对精装修交付的材料选型提出更高要求。</p>
+      <div class="insight-box">
+        <p>💡 建材降价窗口有利于精装修项目锁定材料成本、提升毛利空间，建议批量精装及EPC项目趁势推进集中采购和长期锁价。但需注意环保标准持续收严趋势，选材时应提前按E0.5级等新标执行，避免交付验收风险。低价材料不等于低标准，品质门槛只会越来越高。</p>
+      </div>
+      <div class="source-link">来源：省时快装网 / 国家统计局 <a href="https://www.sskz.com.cn/yantai/list-id-I92745102MSE9A.html" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card">
+    <div class="card-bar bar-pink"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-pink">4</div>
+        <span class="card-tag tag-pink">技术创新</span>
+        <span class="card-date">📅 来源发布 2026-08-17</span>
+      </div>
+      <h3>杭萧钢构上半年新签43.32亿，装配式钢结构现金流大幅转正</h3>
+      <p class="card-text">杭萧钢构（600477）8月16日发布2026年半年报：上半年营收<strong>29.72亿元</strong>，归母净利润<strong>8166万元</strong>；经营活动现金流净额<strong>6675万元</strong>，同比实现<strong>转正</strong>。上半年新增签约合同总额<strong>43.32亿元</strong>，其中钢结构主业新签<strong>43.13亿元</strong>，已中标未签约订单约<strong>5.34亿元</strong>。</p>
+      <p class="card-text">订单结构覆盖<strong>锂电产业园、智能制造厂房、轨道交通配套、城市公共建筑</strong>等优质领域，重点项目包括常熟重机、深圳档案中心、尚太锂电、上海宝山高铁站等。公司坚持国内提质、海外拓市双轮驱动，持续拓展"一带一路"沿线市场，海外项目盈利表现优异，有效对冲国内行业调整。公司拟每10股派现<strong>0.19元</strong>，分红金额占上半年归母净利润<strong>54.88%</strong>。</p>
+      <div class="insight-box">
+        <p>💡 装配式钢结构龙头订单向新能源厂房、公建等优质赛道集中，印证"钢结构+EPC"在工业和公共建筑领域的渗透率持续提升。海骊在EPC转型中可关注与钢结构企业的联合体模式，尤其在新能源厂房、高铁站房等"钢结构+精装"复合项目中形成协同，借助钢结构企业的总包资质切入更大项目。</p>
+      </div>
+      <div class="source-link">来源：中国财富网 / 同花顺 <a href="http://m.toutiao.com/group/7674790724742758964/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="card">
+    <div class="card-bar bar-redbrown"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-redbrown">5</div>
+        <span class="card-tag tag-redbrown">劳务供应链</span>
+        <span class="card-date">📅 来源发布 2026-08-16</span>
+      </div>
+      <h3>最高法更新用工纠纷案由规定：超龄务工、工地讨薪维权通道明确</h3>
+      <p class="card-text">最高人民法院新版《民事案件案由规定》（法〔2025〕226号）已于2026年1月1日起施行，对用工类案件划分全新标准。<strong>新增"超龄劳动者用工纠纷"</strong>案由，60岁以上持续接受单位管理的务工群体维权不再一律按劳务关系处理；<strong>新增"新就业形态用工纠纷"</strong>二级案由，下设合同纠纷、社保纠纷、职业伤害保障纠纷三个三级案由。</p>
+      <p class="card-text">新规明确：工地跟随包工头干活被欠薪，适用<strong>"承包人、被挂靠人用工主体责任纠纷"</strong>，归入劳动争议须先仲裁。法院判断劳动关系不再仅以合同名称定性，而是审查实际管理从属关系——长期考勤、遵守制度的，即便签"劳务合同"仍可能认定劳动关系。新规对建筑装饰行业大量使用超龄工人、劳务分包、灵活用工的模式影响深远。</p>
+      <div class="insight-box">
+        <p>💡 建筑装饰行业是超龄用工和劳务分包的密集领域，新规意味着"以劳务合同规避劳动关系"的操作空间被大幅压缩。海骊及合作供应商需重新审视劳务用工合规：超龄工人应缴纳工伤保障、劳务分包合同需明确用工主体责任、考勤记录等管理证据需规范留存，避免被认定事实劳动关系而引发连带赔偿风险。</p>
+      </div>
+      <div class="source-link">来源：今日头条 / 最高人民法院 <a href="http://m.toutiao.com/group/7674453745073439255/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong>来源汇总</strong><br>
+    金融界 · 新苏商 · 今日头条 · 省时快装网 · 国家统计局 · 中国财富网 · 最高人民法院<br><br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
