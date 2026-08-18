@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-18</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-orange { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .bar-teal { background: linear-gradient(90deg, #14b8a6, #5eead4); }
+  .bar-redbrown { background: linear-gradient(90deg, #a0522d, #cd853f); }
+  .card-body { padding: 22px 24px 24px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .card-num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-yellow { background: #f59e0b; }
+  .num-blue { background: #3b82f6; }
+  .num-green { background: #10b981; }
+  .num-purple { background: #8b5cf6; }
+  .num-pink { background: #ec4899; }
+  .num-orange { background: #f97316; }
+  .num-teal { background: #14b8a6; }
+  .num-redbrown { background: #a0522d; }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .tag-yellow { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-pink { background: #fce7f3; color: #9d174d; }
+  .tag-orange { background: #ffedd5; color: #9a3412; }
+  .tag-teal { background: #ccfbf1; color: #115e59; }
+  .tag-redbrown { background: #fde8d8; color: #7c2d12; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  .insight-box {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    border-left: 3px solid #cbd5e1;
+  }
+  .insight-box p {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #64748b;
+  }
+  .source-link {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .source-link a {
+    color: #6366f1;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .source-link a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 28px 20px;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer strong { color: #64748b; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>2026年8月18日 星期二 ｜ 数据抓取截至 09:50</span>
+    </div>
+  </div>
+
+  <!-- Card 1 -->
+  <div class="card">
+    <div class="card-bar bar-yellow"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-yellow">1</div>
+        <span class="card-tag tag-yellow">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-08-17</span>
+      </div>
+      <h3>全国超60城松绑公积金装修提取，"购房钱包"加速变"安居钱包"</h3>
+      <p class="card-text">2026年以来，全国已有<strong>超180地</strong>优化公积金提取政策，其中<strong>超130地</strong>扩大提取使用范围，装修提取正从个别城市试点变为全国"标配"。7月31日国务院常务会议审议通过《住房公积金管理条例》修改决定草案，明确提出"拓宽提取和使用范围"。</p>
+      <p class="card-text">各地装修提取标准密集落地：<strong>北京</strong>按装修增值税发票金额50%提取，单套最高<strong>25万元</strong>（10年间隔）；<strong>南宁</strong>按1500元/㎡核定、最高20万元；<strong>厦门</strong>1800元/㎡；<strong>桂林</strong>1000元/㎡、最高15万元；<strong>新乡</strong>新政允许缴存人及配偶、父母、子女共同提取，累计不超过建筑面积×<strong>1000元/㎡</strong>，同时公积金贷款最高额度上浮10%。物业费、适老适幼改造、车位购置等场景也在多地纳入提取范围。</p>
+      <div class="insight-box">
+        <p>💡 公积金装修提取的松绑直接释放存量房翻新和二次装修需求，对TOB批量精装而言，更重要的信号是政策正将"住房装修"纳入大宗消费鼓励范畴。海骊在城市更新、旧改、保障房精装等赛道可关注与各地公积金提取政策的衔接，尤其是适老化改造、绿色建筑精装等可叠加贷款额度上浮的细分方向，提前布局政策红利项目。</p>
+      </div>
+      <div class="source-link">来源：搜狐 / 新乡市住建局 / 中指研究院 <a href="https://m.sohu.com/a/1063987287_121106991/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <div class="card-bar bar-blue"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-blue">2</div>
+        <span class="card-tag tag-blue">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-08-18</span>
+      </div>
+      <h3>金螳螂5连板后盘中剧烈震荡：涨停打开成交22.8亿，换手超14%</h3>
+      <p class="card-text">8月18日早盘，金螳螂（002081）以高开1.37%开盘后快速拉升触及涨停价<strong>6.40元</strong>，但9:43涨停板被巨额抛单打开，盘中报<strong>6.36元</strong>，涨幅9.28%，短短十余分钟成交额已达<strong>22.80亿元</strong>，换手率<strong>14.15%</strong>，主力净流出约2.37亿元。此前金螳螂已连续4个交易日涨停，累计涨幅超<strong>31%</strong>，总市值一度突破160亿元。</p>
+      <p class="card-text">本轮行情核心驱动仍是<strong>洁净室+海外业务</strong>双概念。财联社竞价报道将金螳螂列为"洁净室概念股"龙头标的。但公司此前多次澄清：境外业务收入占比仅<strong>8.66%</strong>，洁净类装修业务占营收及净利润比例仍然较低。企查查信息显示，公司近期新中标越南酒店装修及澳门综合度假村酒店室内装修项目合计约<strong>5.47亿元</strong>，2025年营收173.06亿元，新签订单59.34亿元，累计未完工订单186.08亿元。</p>
+      <div class="insight-box">
+        <p>💡 5连板后放量开板意味着资金分歧加剧，短期题材炒作接近高潮。对海骊而言，需关注两点：一是金螳螂股价异动背后反映的资本对"装饰企业转型洁净室/出海"逻辑的认可，海骊在洁净室配套精装和海外公建市场可提前卡位；二是涨停打开后的回调风险可能带动整个装饰板块情绪波动，需关注同业估值锚变化。</p>
+      </div>
+      <div class="source-link">来源：东方财富 / 财联社 <a href="https://finance.eastmoney.com/a/202608183844211094.html" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <div class="card-bar bar-purple"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-purple">3</div>
+        <span class="card-tag tag-purple">战略机遇</span>
+        <span class="card-date">📅 来源发布 2026-08-18</span>
+      </div>
+      <h3>浦东建设子公司中标14.96亿重大工程，涵盖学校、社区中心、卫生中心改扩建</h3>
+      <p class="card-text">浦东建设（600284）8月18日公告，公司下属子公司上海市浦东新区建设（集团）有限公司、上海浦东路桥（集团）有限公司、上海南汇建设（集团）有限公司及上海浦东建筑设计研究院有限公司，近期中标多项重大项目，合计中标金额<strong>14.96亿元</strong>。</p>
+      <p class="card-text">项目类型涵盖<strong>河道水利工程、社区文体中心新建、学校教学楼新建、卫生服务中心改扩建</strong>等公建民生领域。这是浦东建设继上月中标13.81亿元项目后的又一大额中标，显示上海浦东区域公建市场持续放量。</p>
+      <div class="insight-box">
+        <p>💡 公建EPC和民生类工程正在成为建筑装饰企业对冲地产下行的核心增量。学校、社区中心、卫生服务中心等项目单体投资适中、精装需求明确、政府信用强，与海骊转型公建、学校赛道的战略高度契合。建议重点跟踪上海及长三角区域类似公建项目的精装修专项分包机会，借助EPC总包方资质提前介入设计阶段。</p>
+      </div>
+      <div class="source-link">来源：证券时报 / e公司 <a href="https://www.egsea.com/quotation/stock-info/sh688779.html" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card">
+    <div class="card-bar bar-teal"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-teal">4</div>
+        <span class="card-tag tag-teal">设计与管理</span>
+        <span class="card-date">📅 来源发布 2026-08-17</span>
+      </div>
+      <h3>德才股份AI子公司奇想无限上半年新签9.74亿，Q2环比暴增85%</h3>
+      <p class="card-text">德才股份（605287）控股子公司<strong>福建奇想无限</strong>上半年新签合同约<strong>9.74亿元</strong>，其中二季度环比增长<strong>85%</strong>。奇想无限成立于2025年12月，专注AIGC领域智能体一站式解决方案，已完成"技术工具+内容创作+IP运营"全链路布局，自研AI内容生产工具链将传统动画11个环节压缩至5步，实现<strong>成本降60%、周期缩50%-70%</strong>。</p>
+      <p class="card-text">在装饰主业方面，德才股份2026年二季度新签项目<strong>136个</strong>，金额<strong>20.25亿元</strong>，同比增长<strong>89.44%</strong>；控股子公司中建联合中标济南励新实验中学建设项目，签约合同价<strong>5.2亿元</strong>。公司已形成"BIM+VR+AR"全数字化设计模式，参股青岛虚拟现实研究院，AI与建筑装饰的跨界融合正在加速。</p>
+      <div class="insight-box">
+        <p>💡 德才股份的转型路径值得关注：传统装饰企业通过控股AI子公司切入AIGC赛道，同时用BIM+VR+AR反哺设计端，形成"科技+装饰"双轮驱动。对海骊的启示是，数字化设计能力和AI工具链的应用正在从"加分项"变为"竞争力门槛"，尤其是在EPC项目投标中，BIM正向设计、VR方案呈现、AI辅助报价等能力可显著提升中标率和项目利润。</p>
+      </div>
+      <div class="source-link">来源：新浪财经 / 企查查 <a href="https://cj.sina.cn/article/norm_detail?froms=ttmp&url=https%3A%2F%2Ffinance.sina.com.cn%2Fstock%2Faiassist%2Fggsp%2F2026-08-17%2Fdoc-ininreap6979118.shtml" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5 -->
+  <div class="card">
+    <div class="card-bar bar-green"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-green">5</div>
+        <span class="card-tag tag-green">市场趋势</span>
+        <span class="card-date">📅 来源发布 2026-08-17</span>
+      </div>
+      <h3>江山欧派上半年营收腰斩、亏损超9000万，木门行业深度承压</h3>
+      <p class="card-text">江山欧派（603208）8月16日发布2026年半年报：合并营业收入<strong>4.36亿元</strong>，同比下降<strong>49.79%</strong>；利润总额<strong>-9900万元</strong>，同比下降679.55%；归母净利润<strong>-9251.42万元</strong>，同比下降1017.11%；扣非净利润<strong>-1.10亿元</strong>；经营活动现金流净额<strong>-1.25亿元</strong>。公司同步公告计提大额资产减值准备。</p>
+      <p class="card-text">公司解释业绩下滑主要受<strong>行业市场整体下行、需求萎缩</strong>影响，同时主动收缩直营欠款业务、提高款清业务占比，部分产品售价策略性调整导致毛利率同比下降。木门行业作为建材装饰的重要细分，内需主要依赖存量更新和增量置业，与房地产行业高度关联。同日爱丽家居也预告上半年归母净利润亏损3450万至4050万元，PVC弹性地板业务承压。</p>
+      <div class="insight-box">
+        <p>💡 木门、地板等精装核心部品龙头企业业绩暴雷，印证地产下行对建材供应链的冲击仍在深化。对海骊而言，一方面需警惕上游供应商经营风险，加强供应商资质审查和备选库建设，避免因供应商倒闭导致工期延误；另一方面，建材行业产能出清将带来议价空间，是优化集采成本、锁定优质供应商的窗口期。同时，江山欧派"收缩欠款业务"的策略也提醒精装企业严控应收账款风险。</p>
+      </div>
+      <div class="source-link">来源：新浪财经 / 上市公司公告 <a href="http://m.toutiao.com/group/7674870036733657642/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong>来源汇总</strong><br>
+    搜狐 · 新乡市住建局 · 中指研究院 · 东方财富 · 财联社 · 证券时报 · e公司 · 新浪财经 · 企查查 · 上市公司公告<br><br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
