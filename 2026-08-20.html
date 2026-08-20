@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-20</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-orange { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .bar-teal { background: linear-gradient(90deg, #14b8a6, #5eead4); }
+  .bar-redbrown { background: linear-gradient(90deg, #a0522d, #cd853f); }
+  .card-body { padding: 22px 24px 24px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .card-num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-yellow { background: #f59e0b; }
+  .num-blue { background: #3b82f6; }
+  .num-green { background: #10b981; }
+  .num-purple { background: #8b5cf6; }
+  .num-pink { background: #ec4899; }
+  .num-orange { background: #f97316; }
+  .num-teal { background: #14b8a6; }
+  .num-redbrown { background: #a0522d; }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    color: #fff;
+  }
+  .tag-yellow { background: #f59e0b; }
+  .tag-blue { background: #3b82f6; }
+  .tag-green { background: #10b981; }
+  .tag-purple { background: #8b5cf6; }
+  .tag-pink { background: #ec4899; }
+  .tag-orange { background: #f97316; }
+  .tag-teal { background: #14b8a6; }
+  .tag-redbrown { background: #a0522d; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  .card-text strong { color: #1e293b; font-weight: 600; }
+  .insight-box {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 14px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #64748b;
+    border-left: 3px solid #cbd5e1;
+  }
+  .source-link {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid #f1f5f9;
+    font-size: 12px;
+    color: #94a3b8;
+    word-break: break-all;
+  }
+  .source-link a {
+    color: #6366f1;
+    text-decoration: none;
+  }
+  .source-link a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 24px 0 8px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+  @media (max-width: 480px) {
+    body { padding: 20px 12px; }
+    .header { padding: 28px 22px; }
+    .header h1 { font-size: 24px; }
+    .card-body { padding: 18px 18px 20px; }
+    .card-title { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <span class="header-tag">DAILY BRIEFING</span>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>2026年8月20日 星期四 · 抓取时间 09:50</span>
+    </div>
+  </div>
+
+  <!-- 卡片1：政策风向 -->
+  <div class="card">
+    <div class="card-bar bar-yellow"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-yellow">1</div>
+        <div class="card-meta">
+          <span class="card-tag tag-yellow">政策风向</span>
+          <span class="card-date">📅 来源发布 2026-08-19</span>
+        </div>
+      </div>
+      <h3 class="card-title">央视披露城市更新"十五五"投资规模：未来五年至少15万亿，2000年前小区全部纳入</h3>
+      <p class="card-text">央视《新闻联播》披露，国务院今年5月印发的《城市更新"十五五"规划》提出目标：到2030年全国新开工改造城镇老旧小区<strong>11.5万个</strong>、城中村约<strong>4000个</strong>、老旧街区厂区约1500个，完成城市地下管网改造<strong>36.5万公里</strong>。未来五年城市更新至少可完成投资<strong>15万亿元</strong>，其中仅地下管网更新就可拉动投资约<strong>5万亿元</strong>。住建部明确，<strong>2000年以前建成的城市小区全部纳入更新范围</strong>。</p>
+      <div class="insight-box">
+        💡 15万亿城市更新市场为建筑装饰行业打开巨大存量改造空间，老旧小区翻新、地下管网、外立面改造等将持续释放公装与精装订单。建议重点跟踪各地城市更新项目落地节奏，尤其是一二线城市核心区旧改和街区更新标段。
+      </div>
+      <div class="source-link">来源：凤凰网财经 · <a href="https://finance.ifeng.com/c/8vilWxzryFZ">https://finance.ifeng.com/c/8vilWxzryFZ</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片2：竞品动向 -->
+  <div class="card">
+    <div class="card-bar bar-blue"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-blue">2</div>
+        <div class="card-meta">
+          <span class="card-tag tag-blue">竞品动向</span>
+          <span class="card-date">📅 来源发布 2026-08-19</span>
+        </div>
+      </div>
+      <h3 class="card-title">金螳螂5连板后跌停：紧急澄清商业航天/洁净室概念，相关营收占比不足1%</h3>
+      <p class="card-text">8月12日至18日，金螳螂（002081）股价5个交易日累计涨幅达<strong>57.93%</strong>，市场将其归入"商业航天""数据中心""半导体洁净室"热门概念。8月18日晚公司发布异动公告澄清：<strong>不从事</strong>火箭卫星研制、数据中心算力运营、半导体芯片研发制造等核心业务，仅承接少量配套办公楼、公寓、机电施工及半导体厂房装修净化工程，相关配套项目营收占比<strong>不足1%</strong>。8月19日早盘股价封死跌停，报5.64元/股，市值150亿元。公司2025年营收同比下降5.58%，归母净利润下降18.42%；2026年Q1营收同比下降14.09%，<strong>经营基本面尚未实质性改善</strong>。</p>
+      <div class="insight-box">
+        💡 竞品股价短期被概念炒作但基本面承压，说明传统装饰企业转型叙事受资本关注但实际贡献有限。海骊在洁净室、EPC等新赛道布局应注重订单落地与营收占比的实质性提升，避免概念化。
+      </div>
+      <div class="source-link">来源：21世纪经济报道/信网 · <a href="http://m.toutiao.com/group/7675585014251209262/">http://m.toutiao.com/group/7675585014251209262/</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片3：战略机遇 -->
+  <div class="card">
+    <div class="card-bar bar-purple"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-purple">3</div>
+        <div class="card-meta">
+          <span class="card-tag tag-purple">战略机遇</span>
+          <span class="card-date">📅 来源发布 2026-08-20</span>
+        </div>
+      </div>
+      <h3 class="card-title">甘肃通渭4亿EPC高端温泉康养基地招标，按五星级标准打造疗愈综合体</h3>
+      <p class="card-text">甘肃定西市通渭县温泉核心区，中科康旅通渭基地项目一期工程总承包正式招标。项目总占地<strong>108.07亩</strong>，分两期建设，总建筑面积约7.24万㎡；本次招标一期占地21.49亩、建筑面积3.4万㎡，合同金额约<strong>4亿元</strong>，计划工期<strong>360天</strong>，涵盖全项目勘察设计、一期建筑施工及配套采购。项目按<strong>五星级标准</strong>打造高端会员制疗愈康养综合体，为甘肃2026年文旅康养领域投资规模最大的EPC标杆项目，资金全部企业自筹。</p>
+      <div class="insight-box">
+        💡 该项目直接对标海骊康养+EPC转型方向，西北温泉康养主题综合体具备差异化定位。建议关注招标文件获取及投标窗口，此类企业自筹资金项目付款条件相对可控。
+      </div>
+      <div class="source-link">来源：今日头条 · <a href="http://m.toutiao.com/group/7675897925692326452/">http://m.toutiao.com/group/7675897925692326452/</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片4：技术创新 -->
+  <div class="card">
+    <div class="card-bar bar-pink"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-pink">4</div>
+        <div class="card-meta">
+          <span class="card-tag tag-pink">技术创新</span>
+          <span class="card-date">📅 来源发布 2026-08-19</span>
+        </div>
+      </div>
+      <h3 class="card-title">央视聚焦深圳模块化建筑：16层楼120天拼装完成，装配式占比达64%</h3>
+      <p class="card-text">央视报道深圳模块化建筑（MIC）加速落地。一栋16层建筑由<strong>298个模块</strong>拼接，从首次吊装到具备交付条件仅需<strong>120天</strong>，较传统工期缩短60%，平均两天拼出一层；福田安居景馨苑项目30层近百米高楼从首件模块吊装到精装封顶仅<strong>148天</strong>，800多个模块提供696套保障房。模块在工厂完成结构、墙面、地板、水电、装修全部工序，现场仅需拧螺丝、接管线。深圳市装配式建筑规模已突破<strong>1.5亿㎡</strong>，2026年新开工项目装配式占比达<strong>64.03%</strong>。中建海龙已建成全球首条混凝土模块化集成建筑柔性智能制造生产线。</p>
+      <div class="insight-box">
+        💡 模块化建筑将装修工序前置到工厂，现场工期大幅缩短、质量精度达毫米级，对传统精装施工模式形成颠覆。海骊可关注MIC模块内装集成技术，在保障房、酒店、学校等标准化程度高的项目中探索应用。
+      </div>
+      <div class="source-link">来源：央视新闻 · <a href="https://content-static.cctvnews.cctv.com/snow-book/index.html?item_id=7831993195986895746">https://content-static.cctvnews.cctv.com/snow-book/index.html?item_id=7831993195986895746</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片5：劳务供应链 -->
+  <div class="card">
+    <div class="card-bar bar-redbrown"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-redbrown">5</div>
+        <div class="card-meta">
+          <span class="card-tag tag-redbrown">劳务供应链</span>
+          <span class="card-date">📅 来源发布 2026-08-19</span>
+        </div>
+      </div>
+      <h3 class="card-title">建筑一线技工平均年龄超43岁，装配式技术工人缺口持续扩大</h3>
+      <p class="card-text">据人社部门紧缺职业目录及各地人力资源市场监测，当前建筑一线技术工人平均年龄已超过<strong>43岁</strong>，30岁以下青年从业者占比很低，人员年龄断层明显。瓦工、水电安装、装配式构件施工等实操岗位缺口突出，成熟技工项目旺季日薪可达<strong>300-400元</strong>。<strong>装配式建筑技术工人</strong>被列为重点紧缺岗位，传统装修工人向装配式技能转型尚需系统培训。与此同时，房地产产业链就业吸附能力下降，新动能制造业用人偏精偏少，"无就业繁荣"现象引发关注——2026年上半年规上工业用工人数不增反降。</p>
+      <div class="insight-box">
+        💡 劳务用工老龄化与装配式技能短缺并存，海骊应提前布局产业工人技能培训体系，建立装配式装修自有工人梯队，同时通过工业化建造减少对传统手艺工人的依赖，对冲用工成本上升风险。
+      </div>
+      <div class="source-link">来源：今日头条/人社部监测数据 · <a href="http://m.toutiao.com/group/7675595646611391028/">http://m.toutiao.com/group/7675595646611391028/</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>📌 今日来源：凤凰网财经 · 21世纪经济报道 · 央视新闻 · 今日头条 · 人社部监测</p>
+    <p style="margin-top:6px;">数据由 AI 自动抓取整理，仅供参考</p>
+  </div>
+
+</div>
+</body>
+</html>
