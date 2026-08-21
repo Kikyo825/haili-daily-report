@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-21</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-orange { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .bar-teal { background: linear-gradient(90deg, #14b8a6, #5eead4); }
+  .bar-redbrown { background: linear-gradient(90deg, #a0522d, #cd853f); }
+  .card-body { padding: 22px 24px 24px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .card-num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-yellow { background: #f59e0b; }
+  .num-blue { background: #3b82f6; }
+  .num-green { background: #10b981; }
+  .num-purple { background: #8b5cf6; }
+  .num-pink { background: #ec4899; }
+  .num-orange { background: #f97316; }
+  .num-teal { background: #14b8a6; }
+  .num-redbrown { background: #a0522d; }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .tag-yellow { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-pink { background: #fce7f3; color: #9d174d; }
+  .tag-orange { background: #ffedd5; color: #9a3412; }
+  .tag-teal { background: #ccfbf1; color: #115e59; }
+  .tag-redbrown { background: #fde8d8; color: #7c2d12; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  .card-text strong { color: #1e293b; font-weight: 600; }
+  .insight-box {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    border-left: 3px solid #cbd5e1;
+  }
+  .insight-box p {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #64748b;
+  }
+  .source-link {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .source-link a {
+    color: #6366f1;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .source-link a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 28px 20px;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer strong { color: #64748b; }
+  @media (max-width: 480px) {
+    body { padding: 20px 12px; }
+    .header { padding: 28px 22px; }
+    .header h1 { font-size: 24px; }
+    .card-body { padding: 18px 18px 20px; }
+    .card h3 { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>2026年8月21日 星期五 ｜ 数据抓取截至 09:50</span>
+    </div>
+  </div>
+
+  <!-- Card 1：政策风向 -->
+  <div class="card">
+    <div class="card-bar bar-yellow"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-yellow">1</div>
+        <span class="card-tag tag-yellow">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-08-21</span>
+      </div>
+      <h3>上半年绿色建材营收同比增超10%，政府采购已覆盖101城3800亿</h3>
+      <p class="card-text">据《人民日报》8月21日报道，市场监管总局数据显示，截至2026年6月底，全国绿色建材认证获证企业达<strong>5725家</strong>，有效证书<strong>11094张</strong>，带动全国绿色建材营收近<strong>1300亿元</strong>、同比增长超过<strong>10%</strong>，预计2026年底全国绿色建材营收规模突破<strong>3000亿元</strong>。</p>
+      <p class="card-text">市场监管总局联合住建部、工信部，已将建筑门窗、预拌混凝土、石材等<strong>6大类72种产品</strong>纳入绿色建材认证范畴，实施全生命周期质量管控。在政府采购端，"政府采购支持绿色建材促进建筑品质提升政策"已覆盖<strong>101个城市</strong>，落地<strong>1080个</strong>政府采购工程项目，绿色建材采购总额达<strong>3800亿元</strong>。经测算，绿色建材认证产品每年可实现减碳超<strong>3000万吨</strong>。</p>
+      <div class="insight-box">
+        <p>💡 绿色建材从"鼓励选用"加速进入"政府采购强制优先"阶段，101城3800亿的采购盘子意味着政府投资类公建、保障房、学校医院项目对绿色建材认证的门槛将持续抬高。海骊在EPC和公建项目投标中应提前梳理供应链绿色认证资质，将获证建材比例作为方案加分项；批量精装项目也可借绿色建材认证打造差异化产品力，顺应"好房子"国标对绿色低碳的硬要求。</p>
+      </div>
+      <div class="source-link">来源：人民网－人民日报 <a href="http://jx.people.com.cn/n2/2026/0821/c186330-41673699.html" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2：竞品动向 -->
+  <div class="card">
+    <div class="card-bar bar-blue"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-blue">2</div>
+        <span class="card-tag tag-blue">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-08-20</span>
+      </div>
+      <h3>上市装企Q2新签对比：金螳螂59.34亿领跑，亚厦22.12亿，行业分层加剧</h3>
+      <p class="card-text">据大材研究统计，2026年第二季度主要上市装饰企业新签订单呈现显著分化。<strong>金螳螂</strong>二季度新签<strong>59.34亿元</strong>（公装50.27亿、住宅3.4亿、设计5.67亿），截至6月底累计已签约未完工订单<strong>186.08亿元</strong>；<strong>亚厦股份</strong>新签<strong>22.12亿元</strong>（装饰施工19.57亿、设计0.11亿、装饰制品2.44亿），在手订单<strong>106.42亿元</strong>。</p>
+      <p class="card-text">而<strong>宝鹰股份</strong>Q2新签仅<strong>3804.83万元</strong>，<strong>建艺装饰</strong>仅<strong>84.08万元</strong>，广田集团6.32亿，郑中设计装修装饰业务9.17亿。头部企业公装占比超8成，甲方以政府、国企为主，毛利率偏低且应收账款回款承压；中小装企则面临订单枯竭。分析指出，部分企业正通过城市更新、医疗文旅、教育等抗周期赛道率先破局。</p>
+      <div class="insight-box">
+        <p>💡 行业"头部通吃、尾部出清"的分化格局进一步固化，金螳螂单季59亿、在手186亿的体量仍是公装领域绝对龙头，但其8成订单来自政府国企也意味着回款和毛利压力。海骊应关注两点：一是金螳螂、亚厦在医疗文旅教育等新赛道的订单结构变化，作为转型方向的验证参照；二是中小装企加速退出可能释放分包和供应链合作机会，可择优整合区域施工资源。</p>
+      </div>
+      <div class="source-link">来源：大材研究 / 今日头条 <a href="http://m.toutiao.com/group/7675956412220015158/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3：战略机遇 -->
+  <div class="card">
+    <div class="card-bar bar-purple"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-purple">3</div>
+        <span class="card-tag tag-purple">战略机遇</span>
+        <span class="card-date">📅 来源发布 2026-08-21</span>
+      </div>
+      <h3>中国计量大学学生宿舍EPC项目推进，总投资约3.15亿元</h3>
+      <p class="card-text">据中项网项目信息，浙江中国计量大学学生宿舍工程（EPC）项目正推进中，项目总投资约<strong>3.15亿元</strong>，为政府投资类住宅项目，目前进展阶段为<strong>主体安装</strong>。项目位于浙江省杭州市，采用设计-采购-施工总承包模式建设学生宿舍及配套设施。</p>
+      <p class="card-text">同期教育基建领域还有多个项目释放：湖南湘潭体艺馆项目（2770万元，5718㎡）进入初步设计阶段；吉林大学中日联谊医院病房改造（2亿元）已开工；湖南娄底市妇幼保健院病房改造（1346万元）计划三季度开工。教育、医疗类公建EPC项目持续释放，为精装修企业提供稳定订单来源。</p>
+      <div class="insight-box">
+        <p>💡 高校宿舍EPC是海骊学校赛道的优质目标类型——投资规模适中、精装修占比高、政府资金付款有保障、标准化程度高可复制。中国计量大学项目虽已进入主体安装阶段，但精装修分包和机电安装仍有切入窗口。建议华东区域团队重点跟踪浙江高校新校区建设及老校区改造EPC项目，提前与总包方建立联系，同时关注吉林大学、娄底妇幼等医疗改造项目的精装修专项机会。</p>
+      </div>
+      <div class="source-link">来源：中项网 <a href="https://m.ccpc360.com/tags/2026niankangyangjijianxiangmudongtai.html" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4：技术创新 -->
+  <div class="card">
+    <div class="card-bar bar-pink"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-pink">4</div>
+        <span class="card-tag tag-pink">技术创新</span>
+        <span class="card-date">📅 来源发布 2026-08-20</span>
+      </div>
+      <h3>佛山泛家居产业加速"智造"转型：全屋智能+装配式装修+AIGC设计协同</h3>
+      <p class="card-text">8月20日，2026"领航佛商"智能家居产业协同创新专场在佛山举行。数据显示，中国智能家居市场规模2025年已突破<strong>1万亿元</strong>，正从单品智能走向全屋互联、从远程控制走向场景联动和主动服务，<strong>家庭垂域大模型</strong>正在让设备从"帮你"向"懂你"升级。</p>
+      <p class="card-text">恒洁卫浴等龙头企业已掌握国家专利超<strong>3000项</strong>，以数智化工厂重构传统卫浴生产逻辑；行业还出现AIGC设计方案48小时内可施工化、低VOC水性漆（VOC降低60-90%）、无胶安装、ENF级板材等环保工艺成为默认配置。论坛指出，佛山泛家居正从"设备优势"向"场景优势"再向"服务优势"跃升，装配式装修与适老化改造、产业出海成为跨界协同重点方向。</p>
+      <div class="insight-box">
+        <p>💡 智能家居与装配式装修的融合正在重塑精装交付标准——未来批量精装的卖点不再是用材品牌，而是"全屋智能场景+装配式快装+环保健康"的系统解决方案。海骊可关注与佛山头部家居企业的供应链合作，将全屋智能前装方案嵌入批量精装和酒店EPC项目；同时AIGC设计48小时可施工化的能力，对提升方案效率、降低返工率有直接参考价值，建议评估引入设计端AI工具。</p>
+      </div>
+      <div class="source-link">来源：南方+客户端 / 今日头条 <a href="http://m.toutiao.com/group/7676120598967304744/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5：劳务供应链 -->
+  <div class="card">
+    <div class="card-bar bar-redbrown"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-redbrown">5</div>
+        <span class="card-tag tag-redbrown">劳务供应链</span>
+        <span class="card-date">📅 来源发布 2026-08-20</span>
+      </div>
+      <h3>65岁装修工讨薪胜诉：人民日报刊文聚焦超龄劳动者维权，装饰公司被判付4.2万</h3>
+      <p class="card-text">据《人民日报》8月20日报道，65岁的黄先生2019年年满60周岁后受某装饰公司雇用，在多个装修项目从事维修工作，双方签订临时用工协议书，约定报酬<strong>233元/天</strong>。2024年6月起公司开始拖欠报酬，黄先生多次讨要被推诿。经武汉江岸区综治中心引导对接法官、整理证据快速立案，法院最终判决装饰公司支付黄先生<strong>42066元</strong>。</p>
+      <p class="card-text">报道指出，超龄劳动者用工纠纷的难点在于法律关系认定——是劳务关系还是劳动关系、该找人社局还是法院。江岸区综治中心通过"常驻+轮驻+随驻"机制，由法院、司法局、人社局常驻，总工会和行业协会轮驻，打通维权"最初一公里"。这是继最高法新版《民事案件案由规定》新增"超龄劳动者用工纠纷"案由后，又一标志性的公开判例。</p>
+      <div class="insight-box">
+<p>💡 人民日报刊文+法院判决组合信号明确：超龄装修工人讨薪不再"有理说不清"，装饰公司即使签"临时用工协议"也不能逃避报酬支付责任。结合此前最高法新规，海骊及合作劳务供应商需立即排查：超龄工人是否签署规范劳务协议、报酬结算是否留痕、工伤保障是否覆盖。建议将超龄用工合规纳入供应商考核红线，避免因班组拖欠报酬而引发总包连带责任和舆情风险。</p>
+      </div>
+      <div class="source-link">来源：人民日报 / 红星新闻 <a href="http://m.toutiao.com/group/7675963844426826275/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong>来源汇总</strong><br>
+    人民网－人民日报 · 大材研究 · 中项网 · 南方+客户端 · 红星新闻<br><br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
