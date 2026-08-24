@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-24</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  }
+  .card-bar { height: 4px; }
+  .bar-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .bar-blue { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .bar-green { background: linear-gradient(90deg, #10b981, #34d399); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .bar-pink { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .bar-orange { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .bar-teal { background: linear-gradient(90deg, #14b8a6, #5eead4); }
+  .bar-redbrown { background: linear-gradient(90deg, #a0522d, #cd853f); }
+  .card-body { padding: 22px 24px 24px; }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-yellow { background: #f59e0b; }
+  .num-blue { background: #3b82f6; }
+  .num-green { background: #10b981; }
+  .num-purple { background: #8b5cf6; }
+  .num-pink { background: #ec4899; }
+  .num-orange { background: #f97316; }
+  .num-teal { background: #14b8a6; }
+  .num-redbrown { background: #a0522d; }
+  .card-tag {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .tag-yellow { background: #fef3c7; color: #92400e; }
+  .tag-blue { background: #dbeafe; color: #1e40af; }
+  .tag-green { background: #d1fae5; color: #065f46; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+  .tag-pink { background: #fce7f3; color: #9d174d; }
+  .tag-orange { background: #ffedd5; color: #9a3412; }
+  .tag-teal { background: #ccfbf1; color: #115e59; }
+  .tag-redbrown { background: #fde8d8; color: #7c2d12; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  .card-text strong { color: #1e293b; font-weight: 600; }
+  .insight-box {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 12px;
+    border-left: 3px solid #cbd5e1;
+  }
+  .insight-box p {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #64748b;
+  }
+  .source-link {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .source-link a {
+    color: #6366f1;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .source-link a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center;
+    padding: 28px 20px;
+    color: #94a3b8;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .footer strong { color: #64748b; }
+  @media (max-width: 480px) {
+    body { padding: 20px 12px; }
+    .header { padding: 28px 22px; }
+    .header h1 { font-size: 24px; }
+    .card-body { padding: 18px 18px 20px; }
+    .card h3 { font-size: 16px; }
+    .card-date { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>2026年8月24日 星期一 ｜ 数据抓取截至 09:50</span>
+    </div>
+  </div>
+
+  <!-- Card 1：政策风向 -->
+  <div class="card">
+    <div class="card-bar bar-yellow"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-yellow">1</div>
+        <span class="card-tag tag-yellow">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-08-24</span>
+      </div>
+      <h3>上海"沪八条"落地：外环外二套首付降至15%，同步发布城市更新"十五五"规划</h3>
+      <p class="card-text">据环球网8月24日报道，8月20日上海市住建管理委、市房管局等六部门联合发布房地产新政（"沪八条"），自8月21日起施行。核心措施包括：购买外环外住房的二套房商业贷款<strong>最低首付比例降至15%</strong>；购买外环外新房后出售二手房，符合条件可获<strong>最高8万元</strong>贷款补贴；公积金支付首付款范围由预售商品住房扩大至<strong>现房</strong>，并将契税及配套车位、储藏室支出纳入住房消费支出总额。</p>
+      <p class="card-text">同日，《上海市城市更新和住房发展"十五五"规划》正式印发，提出加快构建房地产发展新模式，鼓励金融机构强化城市更新项目信贷支持、创新金融产品，推动房地产融资协调机制"白名单"项目扩围增效；同时深化住房公积金制度改革，推进长三角住房公积金一体化合作。此外，国务院修订的《住房公积金管理条例》将于<strong>9月20日起施行</strong>，新增装修自住住房提取等9类情形，截至目前全国已有超<strong>20个城市</strong>出台公积金装修提取细则。</p>
+      <div class="insight-box">
+        <p>💡 上海作为楼市风向标城市，首付15%+购房补贴+公积金扩围的组合拳，叠加城市更新"十五五"规划同步落地，信号意义强烈。对海骊而言有两层影响：一是一线城市改善型住房需求释放可能带动高端精装和存量房翻新业务；二是城市更新融资白名单扩围意味着上海老旧小区改造、公共建筑更新项目资金到位率将提升，建议华东区域重点跟踪上海城市更新项目清单，尤其是2000年前小区的综合整治和适老化改造机会。公积金装修提取全国铺开则将持续释放C端翻新需求。</p>
+      </div>
+      <div class="source-link">来源：环球网 <a href="http://m.toutiao.com/group/7677398478204453382/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 2：竞品动向 -->
+  <div class="card">
+    <div class="card-bar bar-blue"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-blue">2</div>
+        <span class="card-tag tag-blue">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-08-22</span>
+      </div>
+      <h3>金螳螂连中两单：十堰人民医院改造+深圳Club Med酒店，医院/酒店赛道持续发力</h3>
+      <p class="card-text">据企查查及证券之星最新公告，金螳螂近期连续中标多个项目。8月22日，金螳螂成为<strong>十堰市人民医院老旧病房更新改造项目施工总承包</strong>中标候选人；8月21日，中标<strong>深圳市大鹏下沙滨海生态旅游度假区中信城开金沙湾06-09地块Club Med Joyview酒店</strong>室内施工图深化及后场精装区域方案和施工图深化设计；同期还中标<strong>淮安涟水国际机场T2航站楼室内装修工程一标段</strong>。</p>
+      <p class="card-text">这是金螳螂8月18日发布股票交易异常波动公告、澄清无商业航天及数据中心核心业务（相关营收占比不足1%）后的新一轮订单落地。从订单结构看，医院改造、高端度假酒店、机场公建成为金螳螂当前主攻方向，此前8月20日还中标杭州临安电缆产业化项目酒店样板间装修工程。二级市场方面，金螳螂8月21日主力资金净卖出2.27亿元，装修装饰板块当日跌0.71%。</p>
+      <div class="insight-box">
+        <p>💡 金螳螂在概念炒作退潮后迅速以真实订单证明基本面，医院改造和高端酒店双赛道布局值得高度关注。十堰人民医院老旧病房改造是典型的医疗存量更新项目，与海骊关注的康养/医疗赛道高度重合；Club Med Joyview则是高端度假酒店设计+施工一体化项目，印证了酒店赛道的回暖趋势。建议海骊在医疗改造和度假酒店两个赛道加强情报跟踪，分析金螳螂的报价策略和方案特点，寻找差异化竞争机会——尤其是在金螳螂未必覆盖的二线城市医疗改造和中端酒店连锁项目中。</p>
+      </div>
+      <div class="source-link">来源：企查查 / 证券之星 <a href="https://www.qcc.com/cfengxian/c4877d95e9a22f9b320a1934f3f576b1.html" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 3：战略机遇 -->
+  <div class="card">
+    <div class="card-bar bar-purple"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-purple">3</div>
+        <span class="card-tag tag-purple">战略机遇</span>
+        <span class="card-date">📅 来源发布 2026-08-22</span>
+      </div>
+      <h3>上海09401地块九年一贯制学校及高中推进：总投资超104亿，2026年底建成投用</h3>
+      <p class="card-text">据中项网8月22日项目信息，上海09401地块<strong>九年一贯制学校及高级中学项目</strong>正在推进，总投资超<strong>104亿元</strong>，目前进展阶段为主体安装，计划<strong>2026年底建成投用</strong>。项目位于上海，属于教育科研领域拟在建项目，资金性质及设备采购以国内为主。</p>
+      <p class="card-text">同期教育及公建EPC项目密集释放：安徽黄山呈坎双贤里<strong>康养酒店EPC项目</strong>（7000万元，三季度开工）、江苏盐城<strong>黄海金陵大酒店装修</strong>（15亿元，主体安装阶段）、杨浦区115街坊R-06地块<strong>新建养老院精装修工程</strong>（8月22日变更公告）、新乐市祥和养老院康养中心建设项目等。上海超大额学校项目虽以总包形式推进，精装修、机电安装、智能化等专项分包仍有大量机会。</p>
+      <div class="insight-box">
+        <p>💡 104亿级教育综合体项目是近年来上海教育基建罕见的大体量项目，年底建成投用意味着精装修施工窗口集中在Q3-Q4。虽然总包大概率由中建系等央企承接，但室内精装修、装配式隔墙、集成卫生间等专项分包值得海骊上海团队重点跟进。结合此前中国计量大学3.15亿EPC宿舍项目，教育赛道正从高校向K12延伸，建议梳理上海及长三角2026-2027年待建学校清单，提前与总包方建立分包合作关系。康养酒店EPC和养老院精装修则与海骊康养转型方向直接吻合。</p>
+      </div>
+      <div class="source-link">来源：中项网 <a href="https://m.ccpc360.com/tags/shanghaizaijianjiudianxiangmu.html" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 4：技术创新 -->
+  <div class="card">
+    <div class="card-bar bar-pink"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-pink">4</div>
+        <span class="card-tag tag-pink">技术创新</span>
+        <span class="card-date">📅 来源发布 2026-08-23</span>
+      </div>
+      <h3>海南金牌港装配式建筑产能占全省一半以上，"工厂造房"模式加速成熟</h3>
+      <p class="card-text">据中国新闻网8月23日报道，参加2026年"侨海逐梦"华裔大学生研习活动的学生22日走进海南自贸港重点园区——临高金牌港开发区，近距离了解装配式建筑产业。龙庆东南（海南）绿色建筑有限公司生产车间内，多条装配式构件生产线正在运转，梁、柱、板、墙等构件在工厂预制后运到施工现场"像搭积木一样"吊装拼接。</p>
+      <p class="card-text">作为海南自贸港13个重点园区之一，金牌港开发区锚定新型装配式建筑、海洋装备制造、粮油加工物流三大主导产业。其中，<strong>新型装配式建筑产能已占海南省一半以上</strong>，装配式混凝土结构和钢结构产能均居全省首位。自2020年海南省明确将装配式建筑部品部件新增产能统筹布局于临高金牌港以来，园区已形成东港新型建筑、西港海洋装备制造、东海岸粮油加工物流的发展格局。海南高温多雨的气候条件和自贸港建设需求，使装配式建筑成为绿色建造的必然选择。</p>
+      <div class="insight-box">
+        <p>💡 海南以省级统筹方式将装配式建筑产能集中布局，一个园区产能占全省一半以上，这种"产业集群+政策强制"模式正在各省复制。对海骊的启示：一是装配式构件产能的区域集中度提升，意味着在海南等强制装配式比例较高的区域做项目，应优先与本地龙头构件厂建立战略合作，降低物流成本和交付风险；二是"像造汽车一样造房子"的工业化趋势不可逆转，精装修企业需提前布局装配式装修（SI体系、管线分离、集成厨卫）能力，否则将在政府投资类项目中被技术门槛挡在门外。可关注海南自贸港文旅、酒店、保障房项目中的装配式装修机会。</p>
+      </div>
+      <div class="source-link">来源：中国新闻网 <a href="http://m.chinanews.com/wap/detail/chs/zw/10682579.shtml" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <!-- Card 5：劳务供应链 -->
+  <div class="card">
+    <div class="card-bar bar-redbrown"></div>
+    <div class="card-body">
+      <div class="card-header">
+        <div class="card-num num-redbrown">5</div>
+        <span class="card-tag tag-redbrown">劳务供应链</span>
+        <span class="card-date">📅 来源发布 2026-08-24</span>
+      </div>
+      <h3>2025年建筑业从业人员减少762万，城市更新+新能源基建成人才转移主方向</h3>
+      <p class="card-text">据行业分析文章8月24日梳理，到2025年建筑业从业人员已减少<strong>762万人</strong>，行业彻底告别高速扩张阶段。房企新开工面积持续降低，设计院裁员、施工单位压缩成本，过去依靠大规模房建项目稳收入稳就业的模式已经结束。文章指出，工程人转型主要有三条路径：城市更新、新能源基建、灵活技术用工。</p>
+      <p class="card-text">城市更新方向上，国务院《城市更新"十五五"规划》明确发展智慧建造、培育现代化建筑产业链，住建部要求房龄25年以上小区每5年体检一次，催生了房屋体检员、管网检测员、结构安全评估师、BIM建模员等"城市医生"和"数字管家"新职业，教育部2026年专门新增<strong>城市更新设计技术职业本科专业</strong>。新能源基建方向，2026年地方专项债4.4万亿、超长期特别国债1.3万亿，"沙戈荒"基地技术蓝领岗位占比超七成，持证运维人员月薪1.5-2万。灵活用工方面，BIM建模、造价算量、技术咨询等通过项目制外包、特聘顾问模式实现跨企业服务。</p>
+      <div class="insight-box">
+        <p>💡 762万从业人员流出是建筑业供给侧重构的标志性数据，对装饰行业影响深远：一是传统劳务班组老龄化和熟练工短缺将进一步加剧，海骊需提前建立核心班组的长期绑定机制，避免旺季用工荒；二是城市更新催生的"房屋体检员""BIM建模员"等新职业，与老旧小区改造、历史建筑修缮等业务直接相关，可考虑引进或培养复合型人才；三是灵活技术用工模式成熟，BIM深化、造价算量等岗位可探索项目制外包降低固定人力成本。新能源基建虽非装饰主业，但其光伏/储能电站的综合楼、运维中心等建筑装饰需求可作为差异化补充。</p>
+      </div>
+      <div class="source-link">来源：今日头条·睡前说几句 <a href="http://m.toutiao.com/group/7677252145963434525/" target="_blank">查看详情</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong>来源汇总</strong><br>
+    环球网 · 企查查/证券之星 · 中项网 · 中国新闻网 · 今日头条<br><br>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
