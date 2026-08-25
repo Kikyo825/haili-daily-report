@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-25</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.1);
+  }
+  .card-bar {
+    height: 4px;
+    width: 100%;
+  }
+  .card-bar-policy { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .card-bar-compete { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .card-bar-trend { background: linear-gradient(90deg, #10b981, #34d399); }
+  .card-bar-oppo { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .card-bar-tech { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .card-bar-cost { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .card-bar-design { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .card-bar-labor { background: linear-gradient(90deg, #b45309, #d97706); }
+  .card-body { padding: 22px 24px 20px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-policy { background: #f59e0b; }
+  .num-compete { background: #3b82f6; }
+  .num-trend { background: #10b981; }
+  .num-oppo { background: #8b5cf6; }
+  .num-tech { background: #ec4899; }
+  .num-cost { background: #f97316; }
+  .num-design { background: #06b6d4; }
+  .num-labor { background: #b45309; }
+  .card-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tag-policy { background: #fef3c7; color: #92400e; }
+  .tag-compete { background: #dbeafe; color: #1e40af; }
+  .tag-trend { background: #d1fae5; color: #065f46; }
+  .tag-oppo { background: #ede9fe; color: #5b21b6; }
+  .tag-tech { background: #fce7f3; color: #9d174d; }
+  .tag-cost { background: #ffedd5; color: #9a3412; }
+  .tag-design { background: #cffafe; color: #155e75; }
+  .tag-labor { background: #fef3c7; color: #78350f; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 10px;
+  }
+  .card-text strong { color: #0f172a; font-weight: 700; }
+  .insight {
+    background: #f8fafc;
+    border-left: 3px solid #94a3b8;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin: 14px 0 10px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #475569;
+  }
+  .source {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+    word-break: break-all;
+  }
+  .source a { color: #64748b; text-decoration: none; }
+  .source a:hover { color: #3b82f6; }
+  .footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+  .footer .sources-list {
+    margin-bottom: 10px;
+    font-size: 11.5px;
+    color: #cbd5e1;
+  }
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .header { padding: 28px 22px; border-radius: 16px; }
+    .header h1 { font-size: 22px; }
+    .card-body { padding: 18px 18px 16px; }
+    .card-title { font-size: 16px; }
+    .card-text { font-size: 14px; }
+    .card-date { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>抓取日期：2026年8月25日 星期二</span>
+    </div>
+  </div>
+
+  <!-- 1. 政策风向 -->
+  <div class="card">
+    <div class="card-bar card-bar-policy"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-policy">1</span>
+        <span class="card-tag tag-policy">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-08-25</span>
+      </div>
+      <div class="card-title">国管公积金新政落地：首套最高可贷340万，装修提取额度最高25万</div>
+      <div class="card-text">
+        中央国家机关住房资金管理中心近日发布通知，优化住房公积金政策。夫妻双方均为缴存人的家庭，购买首套房最高贷款额度为<strong>240万元</strong>，购买绿色建筑可上浮40万元，二孩及以上家庭再上浮40万元，叠加后首套最高可贷<strong>340万元</strong>。二套房最高200万元。
+      </div>
+      <div class="card-text">
+        在提取方面，居民家庭可凭具备建筑装修装饰工程专业承包资质企业开具的房屋装修装饰增值税发票，申请提取公积金用于自住住房装修，提取额度不超过发票金额的<strong>50%</strong>，且最高不超过<strong>25万元</strong>。同一住房再次申请装修提取须距上次满<strong>10年</strong>。同时开展存量房"带押过户"公积金贷款业务。
+      </div>
+      <div class="insight">
+        💡 国管公积金率先明确装修提取细则，"凭专包资质发票+50%比例+25万封顶"的模式有望成为各地参照标杆。对TOB精装企业而言，资质门槛意味着正规装企将直接受益于公积金装修消费释放，建议提前梳理装修装饰专业承包资质及开票能力，对接公积金提取配套服务。
+      </div>
+      <div class="source">来源：央视新闻 / 七里河发布 · <a href="http://m.toutiao.com/group/7677774331090371135/">http://m.toutiao.com/group/7677774331090371135/</a></div>
+    </div>
+  </div>
+
+  <!-- 2. 竞品动向 -->
+  <div class="card">
+    <div class="card-bar card-bar-compete"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-compete">2</span>
+        <span class="card-tag tag-compete">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-08-24</span>
+      </div>
+      <div class="card-title">德才股份中标招商银行总部大厦T4精装修，亚厦新签2112万化工采购项目</div>
+      <div class="card-text">
+        据企查查8月24日更新，<strong>德才股份（605287）</strong>新增中标候选：<strong>招商银行总部大厦项目T4栋精装修工程</strong>中标结果公示。该项目位于深圳，是招商银行全球总部的重要组成部分，属于超高层地标级金融办公精装项目。此外，德才近期还中标了青岛云南路8号裙房装修EPC项目，并参与扬州亚太置业酒店办公及公寓精装修EPC资格预审。
+      </div>
+      <div class="card-text">
+        <strong>亚厦股份（002375）</strong>则于8月24日中标<strong>中国化学工程第十一建设有限公司</strong>采购项目，中标金额<strong>2112万元</strong>。这是亚厦在工业化工领域装饰配套的又一次落地，其Q2新签订单方面为22.12亿元。
+      </div>
+      <div class="insight">
+        💡 德才拿下招行总部大厦精装大单，标志其在超高层金融办公赛道持续突破；亚厦则在化工工业装饰配套上稳步拓展。两家竞品均在传统住宅精装之外开辟新增长曲线，海骊在公建/金融办公领域可重点关注总部经济类项目机会。
+      </div>
+      <div class="source">来源：企查查 · <a href="https://www.qcc.com/cfinance/151c8cdf2b9d3591c6a79ee7d6410830.html">德才股份信息页</a> / <a href="https://www.qcc.com/creport/331331ab926cbcc4d089c91e9351b13b.html">亚厦股份企业发展</a></div>
+    </div>
+  </div>
+
+  <!-- 3. 战略机遇 -->
+  <div class="card">
+    <div class="card-bar card-bar-oppo"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-oppo">3</span>
+        <span class="card-tag tag-oppo">战略机遇</span>
+        <span class="card-date">📅 来源发布 2026-08-25</span>
+      </div>
+      <div class="card-title">临沂沂河大酒店EPC定标：天元路桥1.5亿中标，建面5.2万㎡工期365天</div>
+      <div class="card-text">
+        山东临沂沂河新区<strong>沂河大酒店EPC总承包项目</strong>已完成定标，由<strong>天元路桥集团有限公司</strong>中标，中标金额约<strong>1.5亿元</strong>。项目业主为临沂沂河文旅投资发展有限公司，资金全部为企业自筹。
+      </div>
+      <div class="card-text">
+        项目位于沂河路与滨河东路交汇处东北，建筑面积<strong>5.2万平方米</strong>，总工期<strong>365个日历天</strong>，要求一次验收合格。招标范围涵盖建筑主体、外立面装饰、机电安装、室外景观配套及缺陷责任期保修等EPC全周期服务。外立面须按滨河区域高端城市建筑风貌打造。
+      </div>
+      <div class="insight">
+        💡 该项目是文旅酒店赛道EPC模式的典型案例——企业自筹、全链条打包、一年交付。海骊正在转型酒店EPC，可关注山东及周边区域文旅投平台发起的类似项目，重点在"外立面装饰+机电+景观"一体化交付能力上构建竞争优势。
+      </div>
+      <div class="source">来源：每天十分钟畅晓天下事 / 今日头条 · <a href="http://m.toutiao.com/group/7677691462376489481/">http://m.toutiao.com/group/7677691462376489481/</a></div>
+    </div>
+  </div>
+
+  <!-- 4. 技术创新 -->
+  <div class="card">
+    <div class="card-bar card-bar-tech"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-tech">4</span>
+        <span class="card-tag tag-tech">技术创新</span>
+        <span class="card-date">📅 来源发布 2026-08-25</span>
+      </div>
+      <div class="card-title">广田集团获"模块化墙板安装装置"专利：真空吸附无夹持，防刮边提质量</div>
+      <div class="card-text">
+        据国家知识产权局信息，深圳<strong>广田集团</strong>申请的"一种用于装饰工程的模块化墙板安装装置"实用新型专利于8月21日获得授权（公告号CN224664079U）。该装置通过移动底座、调节组件和真空吸附模块的组合，实现模块化墙板的<strong>无夹持高效辅助安装</strong>。
+      </div>
+      <div class="card-text">
+        传统墙板安装依赖机械夹持，容易刮伤已安装墙板的边侧。该专利采用<strong>真空吸附</strong>方式固定墙板，配合调节基板和支撑滑杆精准定位，适用于平整表面墙板的快速安装，有效提升安装质量和成品保护水平。
+      </div>
+      <div class="insight">
+        💡 装配式装修的竞争正从"部品生产"延伸到"现场安装工装"环节。广田在模块化墙板安装装置上的专利布局，说明施工端的工艺装备创新已成为装配式交付效率的关键变量。海骊在装配式工法研发中，可同步关注安装辅助工具的专利保护与应用。
+      </div>
+      <div class="source">来源：新浪财经 / 国家知识产权局 · <a href="http://m.toutiao.com/group/7677778871919313471/">http://m.toutiao.com/group/7677778871919313471/</a></div>
+    </div>
+  </div>
+
+  <!-- 5. 市场趋势 -->
+  <div class="card">
+    <div class="card-bar card-bar-trend"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-trend">5</span>
+        <span class="card-tag tag-trend">市场趋势</span>
+        <span class="card-date">📅 来源发布 2026-08-24</span>
+      </div>
+      <div class="card-title">华耐家居贾锋：装配式装修从政策驱动迈入市场主动选择新周期</div>
+      <div class="card-text">
+        8月22日，在"2026第十六届中国房地产品牌发展大会"上，<strong>华耐家居集团董事长贾锋</strong>表示，当前装配式装修已从政策驱动阶段迈入<strong>市场主动选择的全新发展周期</strong>。随着市场需求增速放缓，单一依靠规模扩张的模式难以为继，深耕产品质量与服务品质成为行业破局共识。
+      </div>
+      <div class="card-text">
+        贾锋介绍，华耐智装面向<strong>酒店、写字楼、住宅</strong>等各类项目提供专业化装配式整体解决方案，以工厂化生产替代现场手工加工作业，可有效提升工程品质、加快交付效率，并降低二次装修噪音与环境污染。同时，华耐覆盖全国14个省份，提供房屋生命周期全链条服务，包括入住后维保和存量空间局改焕新。
+      </div>
+      <div class="insight">
+        💡 "市场主动选择"标志着装配式装修进入性价比验证阶段——开发商和业主不再因政策要求而采用，而是因交付效率和品质可控而主动选择。对海骊的启示：装配式能力的竞争核心正在从"有没有"转向"好不好用、省不省钱"，同时存量房维保和局改焕新是值得布局的长尾服务市场。
+      </div>
+      <div class="source">来源：中国房地产报 / 今日头条 · <a href="http://m.toutiao.com/group/7677512144895607342/">http://m.toutiao.com/group/7677512144895607342/</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="sources-list">
+      信息来源：央视新闻 · 企查查 · 中国房地产报 · 新浪财经 · 今日头条
+    </div>
+    数据由 AI 自动抓取整理，仅供参考<br>
+    海骊住居 · 行业日报 © 2026
+  </div>
+
+</div>
+</body>
+</html>
