@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-08-28</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.1);
+  }
+  .card-bar { height: 4px; width: 100%; }
+  .card-bar-policy { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .card-bar-compete { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .card-bar-trend { background: linear-gradient(90deg, #10b981, #34d399); }
+  .card-bar-oppo { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .card-bar-tech { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .card-bar-cost { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .card-bar-design { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .card-bar-labor { background: linear-gradient(90deg, #b45309, #d97706); }
+  .card-body { padding: 22px 24px 20px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-policy { background: #f59e0b; }
+  .num-compete { background: #3b82f6; }
+  .num-trend { background: #10b981; }
+  .num-oppo { background: #8b5cf6; }
+  .num-tech { background: #ec4899; }
+  .num-cost { background: #f97316; }
+  .num-design { background: #06b6d4; }
+  .num-labor { background: #b45309; }
+  .card-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tag-policy { background: #fef3c7; color: #92400e; }
+  .tag-compete { background: #dbeafe; color: #1e40af; }
+  .tag-trend { background: #d1fae5; color: #065f46; }
+  .tag-oppo { background: #ede9fe; color: #5b21b6; }
+  .tag-tech { background: #fce7f3; color: #9d174d; }
+  .tag-cost { background: #ffedd5; color: #9a3412; }
+  .tag-design { background: #cffafe; color: #155e75; }
+  .tag-labor { background: #fef3c7; color: #78350f; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 10px;
+  }
+  .card-text strong { color: #0f172a; font-weight: 700; }
+  .insight {
+    background: #f8fafc;
+    border-left: 3px solid #94a3b8;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin: 14px 0 10px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #475569;
+  }
+  .source {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+    word-break: break-all;
+  }
+  .source a { color: #64748b; text-decoration: none; }
+  .source a:hover { color: #3b82f6; }
+  .footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+  .footer .sources-list {
+    margin-bottom: 10px;
+    font-size: 11.5px;
+    color: #cbd5e1;
+  }
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .header { padding: 28px 22px; border-radius: 16px; }
+    .header h1 { font-size: 22px; }
+    .card-body { padding: 18px 18px 16px; }
+    .card-title { font-size: 16px; }
+    .card-text { font-size: 14px; }
+    .card-date { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>抓取日期：2026-08-28 星期五</span>
+    </div>
+  </div>
+
+  <!-- 卡片1：竞品-亚厦股份中报 -->
+  <div class="card">
+    <div class="card-bar card-bar-compete"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-compete">1</span>
+        <span class="card-tag tag-compete">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-08-27</span>
+      </div>
+      <div class="card-title">亚厦股份2026中报：营收41.26亿降15.55%，扣非净利1.51亿逆势增31.81%</div>
+      <div class="card-text">
+        亚厦股份（002375.SZ）8月27日披露2026年半年报。报告期内实现<strong>营业总收入41.26亿元</strong>，同比下降15.55%；<strong>归母净利润1.54亿元</strong>，同比微增0.36%；<strong>扣非归母净利润1.51亿元，同比大增31.81%</strong>。第二季度单季主营收入24.94亿元，同比下降约19%，但单季净利润同比增长1.87%，利润端改善趋势明确。
+      </div>
+      <div class="card-text">
+        资产负债率60.18%，较上季度微增1.27个百分点；毛利率15.94%，同比略降0.24个百分点；经营活动现金净流入-6.02亿元。值得关注的是，董事会审议通过增加经营范围议案，<strong>拟新增"技术服务、技术开发、技术咨询、技术转让、技术推广"</strong>，相关事项将于9月15日临时股东会审议，显示公司正加速向技术驱动型企业转型。亚厦以EPC及装配式为特色业务体系，2025年上半年新签订单49.14亿元，在手订单约110亿元。
+      </div>
+      <div class="insight">
+        💡 亚厦营收双降但扣非净利逆势增超三成，说明业务结构优化和成本管控初见成效。新增技术服务类经营范围，与其装配式、智能建造战略方向一致，后续可关注其技术变现与EPC订单转化进展。
+      </div>
+      <div class="source">来源：证券之星、ZAKER新闻 <a href="http://m.toutiao.com/group/7678877321012593215/">链接</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片2：趋势-郑中设计中报 -->
+  <div class="card">
+    <div class="card-bar card-bar-trend"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-trend">2</span>
+        <span class="card-tag tag-trend">市场趋势</span>
+        <span class="card-date">📅 来源发布 2026-08-27</span>
+      </div>
+      <div class="card-title">郑中设计中报：营收增41.73%，软装收入激增138.72%，主动收缩工程聚焦设计</div>
+      <div class="card-text">
+        郑中设计（002811.SZ）发布2026年半年报，上半年实现<strong>营业收入8.96亿元，同比增长41.73%</strong>；归母净利润1.08亿元，同比增长14.40%；扣非净利润1.04亿元，同比增长24.36%。<strong>综合毛利率38.78%</strong>，较上年同期提升2.74个百分点，盈利质量显著优于行业平均水平。
+      </div>
+      <div class="card-text">
+        业务结构出现重大变化：<strong>设计业务收入4.97亿元</strong>（+17.40%），占比55.49%，仍是核心支柱；<strong>软装业务收入3.40亿元，同比激增138.72%</strong>，占比从22.49%跃升至37.88%，成为最大增量；而装饰工程业务收入4229万元，同比下降24.66%，占比收缩至4.72%。公司主动收缩重资产工程业务，聚焦高毛利设计主业，并拓展新能源、科技、金融、学校等多类型客户，已在新加坡、日本、英国、迪拜、澳大利亚设立全资子公司推进国际化。报告期设计及软装新签订单合计<strong>13.67亿元，同比增长21.69%</strong>，累计已签约未完工订单43.01亿元。
+      </div>
+      <div class="insight">
+        💡 郑中设计"轻资产、重设计、软装高增"的路径验证了装饰行业设计驱动模式的韧性。在工程端普遍承压的背景下，高毛利设计+软装一体化交付能力，正在成为穿越周期的关键差异化优势。
+      </div>
+      <div class="source">来源：证券之星 <a href="https://stock.stockstar.com/RB2026082700041773.shtml">链接</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片3：政策-合肥危房自主更新 -->
+  <div class="card">
+    <div class="card-bar card-bar-policy"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-policy">3</span>
+        <span class="card-tag tag-policy">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-08-28</span>
+      </div>
+      <div class="card-title">合肥首个"公房+私房"多产权危房自主更新项目竣工，政府补60%+业主筹40%</div>
+      <div class="card-text">
+        据人民网8月28日报道，合肥市庐阳区安徽省电影公司小区4号楼危房维修（翻建）项目于8月19日正式竣工交付，这是<strong>合肥市首个"公房+私房"多产权危房自主更新、原拆原建示范项目</strong>。该楼始建于1958年，原建筑面积1132.7平方米，共3层19套间，其中7套个人房产、12套单位公房，被鉴定为D级危房。
+      </div>
+      <div class="card-text">
+        项目历经<strong>3年6轮协商</strong>，最终达成"谁受益、谁出资"共识。资金方面，政府补贴占60%、业主自筹占40%。合肥在省内率先完成"人大决定+政府办法+部门规章"的危房解危政策体系：D级危房按市、区财政和产权人3:3:4比例分摊，市/区财政分别按每平方米不超过1500元上限补助；资金纳入专用账户由代建单位与施工单位共管，按进度拨付。目前宣城首批7个试点中6个已竣工，合肥、淮北等地多个项目同步推进。
+      </div>
+      <div class="insight">
+        💡 "公房+私房"混合产权的自主更新模式，为城市存量危房改造提供了可复制路径。政府补贴+居民自筹+多方议事协商的机制，有望在更多老城更新场景中推广，对装饰企业切入城市更新赛道具有政策参考价值。
+      </div>
+      <div class="source">来源：人民网-安徽频道/安徽日报 <a href="http://ah.people.com.cn/n2/2026/0828/c358428-41679965.html">链接</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片4：机遇-盐城EPC招标 -->
+  <div class="card">
+    <div class="card-bar card-bar-oppo"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-oppo">4</span>
+        <span class="card-tag tag-oppo">战略机遇</span>
+        <span class="card-date">📅 来源发布 2026-08-27</span>
+      </div>
+      <div class="card-title">盐城腾飞路北78亩地块EPC总承包招标，合同估算价约5.99亿元，工期600天</div>
+      <div class="card-text">
+        全国公共资源交易平台8月27日发布公告，盐城市都南置业有限公司对<strong>腾飞路北、小马沟东路东78亩地块项目EPC工程总承包</strong>进行公开招标。项目位于盐城市盐都区，占地约52427平方米，<strong>规划总建筑面积约96861平方米</strong>，其中地下建筑面积约31129平方米，商业建筑面积约11862平方米，最大单体建筑面积约6737平方米，最高15层、约58米。
+      </div>
+      <div class="card-text">
+        项目主要新建<strong>高品质住宅、地下车库、商业街区、配套用房</strong>等，并同步实施绿化、道路、电气照明、给排水等附属设施。<strong>合同估算价约59893.60万元（约5.99亿元）</strong>，总工期600日历天，建设资金为自筹100%。同日，武汉蔡甸区也发布了汉津阳光城三期售楼部精装修项目设计施工总承包（EPC）招标公告，招标人是武汉市蔡甸城投锦轩置业有限公司。
+      </div>
+      <div class="insight">
+        💡 盐城近6亿元住宅+商业EPC项目体量大、业态复合，适合具备EPC总承包能力的装饰企业跟进。武汉售楼处精装修EPC则体现了城投平台对设计施工一体化交付的持续需求，可关注投标窗口。
+      </div>
+      <div class="source">来源：全国公共资源交易平台 <a href="https://www.ggzy.gov.cn/information/deal/html/a/320000/0101/20260827/00325eae6ed5c4cd46d3b7d76898e4cc1f84.html">链接</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片5：竞品-德才股份新签增长 -->
+  <div class="card">
+    <div class="card-bar card-bar-compete"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-compete">5</span>
+        <span class="card-tag tag-compete">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-08-28</span>
+      </div>
+      <div class="card-title">德才股份上半年新签32.06亿同比增34%，子公司中标青岛新都心项目3.36亿</div>
+      <div class="card-text">
+        据企查查最新数据，德才股份（605287.SH）<strong>2026年上半年累计新签项目总金额达32.06亿元，同比增长约34%</strong>，在行业整体下行背景下保持较快扩张势头。此前公司披露二季度单季新签项目136个、金额20.25亿元，同比分别增长147.27%和89.44%。
+      </div>
+      <div class="card-text">
+        控股子公司青岛中建联合集团有限公司近期新增中标：<strong>青岛青铁广誉置业新都心片区SF0903-50地块项目2标段，中标金额3.36亿元</strong>（8月26日合同验收公告）。此外，中建联合还预中标青岛市黄岛区税务局西海岸路137号办公用房安全设施及中央空调维修改造项目，并参与市南区历史城区更新项目投标。公司海外业务也取得突破，此前中标沙特红海项目土建工程1.2亿元；AI业务板块子公司德芯智算与奇想无限上半年新签合同约9.74亿元，二季度环比增长85%。
+      </div>
+      <div class="insight">
+        💡 德才股份34%的新签增速在行业中表现突出，青岛属地深耕+EPC总承包+海外/AI多线布局的策略值得关注。其历史城区更新、公共建筑改造等业务方向，与海骊在公建、城市更新赛道的拓展存在直接竞争。
+      </div>
+      <div class="source">来源：企查查、e公司 <a href="https://m.qcc.com/firm/151c8cdf2b9d3591c6a79ee7d6410830.html">链接</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="sources-list">
+      来源汇总：证券之星 · ZAKER新闻 · 人民网 · 全国公共资源交易平台 · 企查查 · e公司
+    </div>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
