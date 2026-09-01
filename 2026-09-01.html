@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-09-01</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.1);
+  }
+  .card-bar { height: 4px; width: 100%; }
+  .card-bar-policy { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .card-bar-compete { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .card-bar-trend { background: linear-gradient(90deg, #10b981, #34d399); }
+  .card-bar-oppo { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .card-bar-tech { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .card-bar-cost { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .card-bar-design { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .card-bar-labor { background: linear-gradient(90deg, #b45309, #d97706); }
+  .card-body { padding: 22px 24px 20px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-policy { background: #f59e0b; }
+  .num-compete { background: #3b82f6; }
+  .num-trend { background: #10b981; }
+  .num-oppo { background: #8b5cf6; }
+  .num-tech { background: #ec4899; }
+  .num-cost { background: #f97316; }
+  .num-design { background: #06b6d4; }
+  .num-labor { background: #b45309; }
+  .card-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tag-policy { background: #fef3c7; color: #92400e; }
+  .tag-compete { background: #dbeafe; color: #1e40af; }
+  .tag-trend { background: #d1fae5; color: #065f46; }
+  .tag-oppo { background: #ede9fe; color: #5b21b6; }
+  .tag-tech { background: #fce7f3; color: #9d174d; }
+  .tag-cost { background: #ffedd5; color: #9a3412; }
+  .tag-design { background: #cffafe; color: #155e75; }
+  .tag-labor { background: #fef3c7; color: #78350f; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 10px;
+  }
+  .card-text strong { color: #0f172a; font-weight: 700; }
+  .insight {
+    background: #f8fafc;
+    border-left: 3px solid #94a3b8;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin: 14px 0 10px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #475569;
+  }
+  .source {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+    word-break: break-all;
+  }
+  .source a { color: #64748b; text-decoration: none; }
+  .source a:hover { color: #3b82f6; }
+  .footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+  .footer .sources-list {
+    margin-bottom: 10px;
+    font-size: 11.5px;
+    color: #cbd5e1;
+  }
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .header { padding: 28px 22px; border-radius: 16px; }
+    .header h1 { font-size: 22px; }
+    .card-body { padding: 18px 18px 16px; }
+    .card-title { font-size: 16px; }
+    .card-text { font-size: 14px; }
+    .card-date { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>抓取日期：2026-09-01 星期二</span>
+    </div>
+  </div>
+
+  <!-- 卡片1：政策-828现房销售新政 -->
+  <div class="card">
+    <div class="card-bar card-bar-policy"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-policy">1</span>
+        <span class="card-tag tag-policy">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-08-31</span>
+      </div>
+      <div class="card-title">"828新政"落地：五部委八份文件推现房销售全国制度化，家居消费时滞从"年"缩至"季度"</div>
+      <div class="card-text">
+        2026年8月28日，<strong>五大部委同一天密集落地八份文件，现房销售从地方试点走向全国制度化</strong>，预售制、高杠杆、快周转旧模式加速拆除，现房销售、资金封闭管理、信贷重构新框架同步搭建，业内称为"828新政"。对家居装饰行业而言，这是一次从需求释放节奏到产业运行逻辑的系统性重塑：购房人"所见即所得"、网签后快速收房，<strong>家具家电消费与销售的时滞有望从以"年"为单位缩短到以"季度"为单位</strong>。
+      </div>
+      <div class="card-text">
+        政策背后是行业数据的深刻变化：<strong>2026年上半年全国精装修房源开盘仅17.1万套，同比下降36.6%</strong>，新房精装配套率从高峰期近40%下滑至30%以下；与此同时，<strong>2026年全国二手房成交占比首次超过50%</strong>，中国建筑装饰协会预测<strong>存量房翻新市场规模有望突破2.5万亿元</strong>，8-12万元家装升级预算占比攀升至48.4%，存量焕新成为持续、滚动、抗周期的基本盘。
+      </div>
+      <div class="insight">
+        💡 现房销售制度化短期将进一步压缩开发商精装B端盘子，但中长期把"交房即装修"的确定性需求还给市场。对海骊而言，依赖新房批量精装的增长逻辑必须加速切换：一方面绑定现房/国央企开发商做高品质交付样板，另一方面把产能向存量翻新、酒店/公寓/养老机构的"不停业改造"和城投旧改平台倾斜，用装配式快装承接确定性订单。
+      </div>
+      <div class="source">来源：证券之星·财经频道（"828"新政家居行业分析） <a href="http://finance.stockstar.com/IG2026083100007320.shtml">链接</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片2：竞品-德才股份中报 -->
+  <div class="card">
+    <div class="card-bar card-bar-compete"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-compete">2</span>
+        <span class="card-tag tag-compete">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-08-31</span>
+      </div>
+      <div class="card-title">德才股份2026中报：营收12.86亿微增2.62%，净利4422万降6.12%，经营现金流骤降67.63%</div>
+      <div class="card-text">
+        德才股份（605287.SH）8月29日发布2026年中报：<strong>营业总收入12.86亿元，同比微增2.62%；归母净利润4422.07万元，同比下降6.12%</strong>；经营活动现金净流入4872.28万元，<strong>同比大幅下降67.63%</strong>（减少约1.02亿元）。公司最新资产负债率84.46%，毛利率9.64%，ROE 2.78%，存货周转率12.66次、同比下降54.86%。
+      </div>
+      <div class="card-text">
+        呈现典型的"<strong>增收不增利、订单增而现金紧</strong>"特征：此前公司披露上半年新签合同32.06亿元、同比增长34%，并连续中标济南励新实验中学（5.2亿元）、青岛新都心（3.36亿元）等学校/公建大单，但利润端与现金流端并未同步改善，反映装饰公建赛道<strong>毛利承压、回款周期拉长、垫资压力加大</strong>的行业共性。对照亚厦股份中报（营收降15.55%、扣非净利逆势增31.81%），龙头间"以利润换规模"与"收缩提质"两条路径分化明显。
+      </div>
+      <div class="insight">
+        💡 竞品中报印证：公建装饰行业订单增长已不能自动转化为利润和现金流，规模扩张的资金代价越来越高。海骊在抢EPC、学校、康养新赛道订单时，应把现金流和回款条款放在比合同额更优先的位置——优选财政/国央企业主、严控垫资比例、强化过程结算，避免"中标越多、资金越紧"。
+      </div>
+      <div class="source">来源：界面新闻（有连云/资本邦） <a href="https://www.jiemian.com/article/15033733.html">链接</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片3：趋势-新华网装配式内装 -->
+  <div class="card">
+    <div class="card-bar card-bar-trend"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-trend">3</span>
+        <span class="card-tag tag-trend">市场趋势</span>
+        <span class="card-date">📅 来源发布 2026-09-01</span>
+      </div>
+      <div class="card-title">新华网定调装配式内装："十五五"驶入快车道，当前渗透率仅20%-30%，公建场景率先验证</div>
+      <div class="card-text">
+        新华网9月1日推出产业对话，聚焦"以装配式内装赋能'好房子'建设"。报道指出，国务院今年5月印发的《城市更新"十五五"规划》明确<strong>"发展智能建造""推广装配式装修""提升装配式装修应用比例"</strong>，政策信号密集释放，未来五年装配式建造方式将驶入加速推进快车道。住建部2025年底《关于提升住房品质的意见》也明确推广集成厨卫、架空地面、装配式隔墙。
+      </div>
+      <div class="card-text">
+        行业现状与空间：<strong>当前国内装配式内装渗透率约20%-30%</strong>，相较传统装修超3万亿元规模及城市更新数万亿级潜在市场，扩容空间可观。市场落地方面，装配式内装已在<strong>酒店、医院、学校等公建场景完成市场化验证</strong>——住宅项目架空地面施工从4个月压缩至2个月，酒店改造可"分层改造、不停业施工"，整体卫浴实现一天装好一个卫生间。行业同时提示，标准模数不统一、C端认知不足仍是主要门槛，ISO 2848等国际标准修编正在推进。
+      </div>
+      <div class="insight">
+        💡 央媒集中定调叠加"十五五"规划背书，装配式装修正从"可选项"变为政策鼓励的"主选项"，且最先放量的正是海骊主攻的酒店、医院、学校、保障房等公建场景。建议把装配式内装作为EPC转型的技术底座重点投入：沉淀整体卫浴/集成厨卫/架空地面成套体系与标准模数能力，在公建项目中做出"短工期、可运维"的差异化标杆。
+      </div>
+      <div class="source">来源：新华网 <a href="http://www.xinhuanet.com/house/20260901/7f4f87117cd64456bbcfbce729c89b23/c.html">链接</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片4：机遇-康养酒店招标 -->
+  <div class="card">
+    <div class="card-bar card-bar-oppo"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-oppo">4</span>
+        <span class="card-tag tag-oppo">战略机遇</span>
+        <span class="card-date">📅 来源发布 2026-08-31</span>
+      </div>
+      <div class="card-title">康养+酒店赛道招标密集放量：湄潭3亿森林康养酒店启动招标，重庆开州2.3万㎡康养酒店精装设计发包</div>
+      <div class="card-text">
+        康养与酒店结合的旅居民生项目近期密集进入招标窗口：<strong>贵州湄潭龙泉省级森林公园康养中心项目启动招标，总投资约3亿元，将建五星级森林酒店</strong>，集森林康养、度假住宿于一体；<strong>重庆开州区满月镇旅居民宿及酒店改造项目一期（康养酒店部分）室内精装修设计发布招标计划</strong>，酒店地上总建筑面积约23060㎡（1号楼11307㎡、2号楼11753㎡），设计费合同预估约430万元，拟2026年9月公开招标。
+      </div>
+      <div class="card-text">
+        同期<strong>贵州铜仁武陵峰康养公寓中心项目</strong>商机持续释放，花间堂度假酒店等品牌扩张项目也在各地推进招投标。这类项目普遍呈现"<strong>文旅/森林资源+康养功能+酒店/民宿载体+精装修/EPC一体化发包</strong>"特征，与海骊EPC、康养、酒店三大转型方向高度重合，且多分布在县域及文旅资源区，央企龙头关注度相对低、属地化装饰企业有切入空间。
+      </div>
+      <div class="insight">
+        💡 康养酒店、旅居民宿正成为县域文旅投资的主力业态，设计与精装往往一体化或先行发包，是海嶊"设计+EPC+精装"能力打包输出的理想标的。建议建立康养酒店类项目招投标台账，重点盯防森林公园/度假区/民宿集群的设计、精装及EPC标，提前介入方案阶段以提高中标率。
+      </div>
+      <div class="source">来源：今日头条（湄潭康养中心）、乙方宝招标网（重庆开州康养酒店精装设计）、中项网（铜仁武陵峰康养公寓） <a href="http://m.toutiao.com/group/7680215696222978601/">链接1</a> <a href="https://www.yfbzb.com/inviteBid/detail/20260901_626979064.html">链接2</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片5：技术-河北建工装配式装修获奖 -->
+  <div class="card">
+    <div class="card-bar card-bar-tech"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-tech">5</span>
+        <span class="card-tag tag-tech">技术创新</span>
+        <span class="card-date">📅 来源发布 2026-08-31</span>
+      </div>
+      <div class="card-title">河北建工京宁医养结合体装配式装修获省级绿色建造创新奖：工期缩短10%、节约20天，精度提升50%</div>
+      <div class="card-text">
+        据光明网8月31日报道，河北省建筑业协会公布科学技术奖名单，<strong>河北建工集团四建一分公司京宁医养结合体项目斩获"绿色建造和智能建造创新奖"</strong>，项目绿色、装配化建造技术今年5月经河北省住建厅验收达到国内领先水平。该项目是集医疗、康养功能于一体的重点民生工程，<strong>总建筑面积5.6万平方米</strong>，装修涵盖室内装饰与外立面幕墙。
+      </div>
+      <div class="card-text">
+        项目创新推行<strong>内外装一体化绿色装配建造模式</strong>，融合装配化施工与BIM数字化工艺：累计使用装饰板2500块，依托标准化设计、工厂化预制、干式化施工；创新研发<strong>承插式十字龙骨与U形滑道组合构造体系</strong>，大幅减少现场钻孔，实现管线保护率100%，装饰板拼装平整度毫米级把控、<strong>安装精度较传统工艺提升50%</strong>；幕墙采用工厂预制、现场干式装配+专利连接装置。最终实现"无湿作业、无零散加工、无动火作业"，<strong>整体工期缩短10%、累计节约工期20天</strong>，并通过管线分离、无损拆除、可逆安装实现"像拆装积木一样更换墙面"。该模式可广泛适用于医院、养老机构、办公楼、商业综合体等公共建筑。
+      </div>
+      <div class="insight">
+        💡 这是装配式装修在医养公建项目上"可量化收益"的标杆样本——工期省10%、精度提升50%、管线零破坏、后期可逆维护，恰好命中康养/医院业主对工期、环保、运维的核心诉求。海骊可对标其"内外装一体化+BIM+干法装配"技术路线，在自有医养、酒店项目中沉淀类似专利工法与工期/精度数据，作为投标技术标和EPC报价的硬支撑。
+      </div>
+      <div class="source">来源：光明网（地方频道） <a href="http://difang.gmw.cn/2026-08/31/content_38975461.htm">链接</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="sources-list">
+      来源汇总：证券之星 · 界面新闻 · 新华网 · 今日头条 · 乙方宝招标网 · 中项网 · 光明网
+    </div>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
