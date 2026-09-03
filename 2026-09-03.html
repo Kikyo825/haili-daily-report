@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-09-03</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.1);
+  }
+  .card-bar { height: 4px; width: 100%; }
+  .card-bar-policy { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .card-bar-compete { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .card-bar-trend { background: linear-gradient(90deg, #10b981, #34d399); }
+  .card-bar-oppo { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .card-bar-tech { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .card-bar-cost { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .card-bar-design { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .card-bar-labor { background: linear-gradient(90deg, #b45309, #d97706); }
+  .card-body { padding: 22px 24px 20px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-policy { background: #f59e0b; }
+  .num-compete { background: #3b82f6; }
+  .num-trend { background: #10b981; }
+  .num-oppo { background: #8b5cf6; }
+  .num-tech { background: #ec4899; }
+  .num-cost { background: #f97316; }
+  .num-design { background: #06b6d4; }
+  .num-labor { background: #b45309; }
+  .card-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tag-policy { background: #fef3c7; color: #92400e; }
+  .tag-compete { background: #dbeafe; color: #1e40af; }
+  .tag-trend { background: #d1fae5; color: #065f46; }
+  .tag-oppo { background: #ede9fe; color: #5b21b6; }
+  .tag-tech { background: #fce7f3; color: #9d174d; }
+  .tag-cost { background: #ffedd5; color: #9a3412; }
+  .tag-design { background: #cffafe; color: #155e75; }
+  .tag-labor { background: #fef3c7; color: #78350f; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 10px;
+  }
+  .card-text strong { color: #0f172a; font-weight: 700; }
+  .insight {
+    background: #f8fafc;
+    border-left: 3px solid #94a3b8;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin: 14px 0 10px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #475569;
+  }
+  .source {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+    word-break: break-all;
+  }
+  .source a { color: #64748b; text-decoration: none; }
+  .source a:hover { color: #3b82f6; }
+  .footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+  .footer .sources-list {
+    margin-bottom: 10px;
+    font-size: 11.5px;
+    color: #cbd5e1;
+  }
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .header { padding: 28px 22px; border-radius: 16px; }
+    .header h1 { font-size: 22px; }
+    .card-body { padding: 18px 18px 16px; }
+    .card-title { font-size: 16px; }
+    .card-text { font-size: 14px; }
+    .card-date { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>抓取日期：2026-09-03 星期四</span>
+    </div>
+  </div>
+
+  <!-- 卡片1：政策-好房子经验全国推广 -->
+  <div class="card">
+    <div class="card-bar card-bar-policy"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-policy">1</span>
+        <span class="card-tag tag-policy">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-09-03</span>
+      </div>
+      <div class="card-title">住建部发布"好房子"建设经验第二批清单：江苏3项经验全国推广，装配化装修列入32项重点推广新技术</div>
+      <div class="card-text">
+        住建部近日发布《"好房子"建设经验做法（第二批）》，要求各地结合实际学习参考，<strong>江苏三项经验做法获全国推广</strong>。一是启动住宅工程品质提升行动，健全质量责任、质量控制、质量监管、质量支撑四大体系，重点推进工程质量常见问题、外墙保温工程质量检测市场等专项治理；二是推广住宅工程<strong>"透明工厂"</strong>，以住宅工程质量信息公示为基础，线上线下结合公开质量信息，实现建设过程透明化、质量责任可追溯、交付标准可视化；三是完善物业和运营服务标准，并<strong>修订住宅商品房买卖合同示范文本，重点完善改善型住宅品质保障、保修维护、个性化住宅装修服务</strong>等约定。
+      </div>
+      <div class="card-text">
+        技术供给侧同步加码：江苏分2批发布重点推广应用的"好房子"新技术<strong>32项</strong>，涵盖围护结构、热泵空调、智能智慧、给水排水、<strong>装配化装修</strong>、全龄友好等8个方面，并组建省级住宅品质提升工程技术创新中心加速成果转化。另据新华社"一线探新"报道，山东已形成覆盖住宅全生命周期的"好房子"支撑体系，<strong>5项经验入选住建部可复制推广清单、数量全国第一</strong>。
+      </div>
+      <div class="insight">
+        💡 两个信号与精装直接相关：装配化装修被住建部明列为"好房子"重点推广技术，政策红利从倡导走向目录化推广；"个性化住宅装修服务"写入购房合同示范文本，意味着定制精装、后周期增值装修的需求被制度性确认。海骊可：①把"透明工厂、质量信息公示、交付标准可视化"包装成对开发商的投标卖点与对C端的信任工具；②主动对接地方"好房子"技术推广目录申报，争取装配式内装工法与体系入选；③围绕改善型住宅打磨"个性化精装菜单"产品，承接合同示范文本落地后的定制化装修增量。
+      </div>
+      <div class="source">来源：人民网江苏频道（据南京晨报） <a href="http://js.people.com.cn/n2/2026/0903/c360302-41685146.html">链接</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片2：竞品-金螳螂/亚厦新动向 -->
+  <div class="card">
+    <div class="card-bar card-bar-compete"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-compete">2</span>
+        <span class="card-tag tag-compete">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-09-02</span>
+      </div>
+      <div class="card-title">金螳螂9月初连下两城并获装配式外墙专利，亚厦同获彩釉玻璃穹顶专利：龙头公建拿单与技术筑壁同步推进</div>
+      <div class="card-text">
+        据企查查招投标动态，金螳螂<strong>9月1日新中标中国二十二冶集团住宅产业化公司"唐山国家建筑科技示范基地"精装修设计服务</strong>项目；8月31日进入<strong>广西酒店集团有限公司集采库供应商入库成交候选人</strong>名单，持续卡位科技示范基地与酒店集采两大公建赛道。技术端，公司9月1日获国家知识产权局授权实用新型专利<strong>"高稳定性外墙装配式陶土饰面板用连接组件及干挂系统"</strong>（CN224705409U），以可调连接组件替代传统背面胶条固定，解决胶条风化及风压、地震作用下饰面板松动脱落风险。
+      </div>
+      <div class="card-text">
+        亚厦股份同日获授权<strong>"一种彩釉玻璃透光穹顶安装装置"</strong>专利（CN224705373U），可便捷调节彩釉玻璃高度、提升穹顶安装平整度，其在异形幕墙与装配化吊顶领域的专利矩阵持续扩容。资本面看，金螳螂9月2日收跌6.15%报5.34元、主力资金净卖出1.52亿元；其中报营收<strong>80.91亿元同比下降15.08%</strong>、归母净利3.08亿元降14.05%，但二季度新签订单59.34亿元、累计已签约未完工订单186.08亿元，<strong>境外合同产值同比增长约41%</strong>。
+      </div>
+      <div class="insight">
+        💡 龙头呈现"业绩承压、订单向公建集中、专利密集筑壁"三个特征：收入利润双降下仍在科技示范基地、酒店集团集采等高质量公建项目上持续中标，并把装配式外墙、异形穹顶等专项技术做成专利壁垒。海骊在公建投标中将频繁与金螳螂同台，需警惕技术分差距——建议系统梳理装配式内外装、幕墙节点等可专利化工法，加快自有知识产权储备；同时关注其境外产值+41%的信号，海外精装（尤其中资酒店、央企海外项目）可作为中长期赛道研究。
+      </div>
+      <div class="source">来源：企查查·苏州金螳螂企业发展报告 <a href="https://www.qcc.com/creport/c4877d95e9a22f9b320a1934f3f576b1.html">链接</a> ；新浪财经（金螳螂/亚厦专利授权） <a href="http://m.toutiao.com/group/7680749872198287924/">链接</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片3：成本-化工建材涨价潮 -->
+  <div class="card">
+    <div class="card-bar card-bar-cost"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-cost">3</span>
+        <span class="card-tag tag-cost">成本动态</span>
+        <span class="card-date">📅 来源发布 2026-09-02</span>
+      </div>
+      <div class="card-title">9月起化工建材全域涨价：树脂/涂料/防水全线调价，改性沥青7天暴涨11.76%，精装上游成本承压</div>
+      <div class="card-text">
+        据浙江省贸促会信息服务部监测，<strong>2026年9月起全球化工建材领域迎来新一轮大范围、多品类涨价潮</strong>：湛新树脂（苏州）9月1日起户内及耐候树脂全系上调<strong>500元/吨</strong>；衡水新光对建筑涂料、防水系列产品阶梯式涨价；巴斯夫北美己内酰胺、尼龙6上调约1197元/吨，欧洲NPG涨250欧元/吨；宣伟（Sherwin-Williams）9月1日起涂料商店集团全系产品涨价<strong>8%</strong>；万华化学同步上调苯乙烯（+200元/吨）、丙烯酸丁酯（+400元/吨）等基础化工品出厂价；电子基材CCL/PP涨幅达20%-25%。
+      </div>
+      <div class="card-text">
+        防水链条价格信号尤为密集：同花顺iFinD数据显示，<strong>改性沥青现货9月2日报5700元/吨，单周上涨11.76%、月累计涨15.15%</strong>，施工旺季需求回升叠加原料成本支撑。行业层面，2026上半年防水板块营收199.4亿元、同比增长1.47%，是消费建材中稀缺的正增长赛道，毛利率同比提升2.31个百分点；东方雨虹上半年营收148.67亿元、同比增长9.57%，头部企业3月以来涨价函（涨幅5%-10%）持续落地，"反内卷"提价共识下成本正向工程端传导。
+      </div>
+      <div class="insight">
+        💡 涂料、防水、树脂、胶粘剂、沥青等精装上游材料9月集体进入涨价通道，且防水龙头借行业出清形成了较强的顺价能力，Q4投标与结算压力将直接上升。建议：①在建项目尽快锁定涂料、防水、树脂类材料采购价，复盘合同中的材料调价条款并及时发起签证；②新报价预留材料涨价系数，避免低价中标后毛利被侵蚀；③借鉴东方雨虹"低位沥青冬储摊薄成本"的做法，集采部门研究大宗材料战略锁价与冬储窗口，把成本波动管理前置到投标阶段。
+      </div>
+      <div class="source">来源：浙江省国际贸易促进委员会（据涂料采购网等） <a href="https://www.ccpitzj.gov.cn/col/col1229557691/art/2026/art_d50dad1a4fe844c085fe56e21ce06814.html">链接</a> ；同花顺期货通 <a href="https://goodsfu.10jqka.com.cn/20260902/c679534403.shtml">链接</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片4：机遇-SK海力士大连二厂重启 -->
+  <div class="card">
+    <div class="card-bar card-bar-oppo"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-oppo">4</span>
+        <span class="card-tag tag-oppo">战略机遇</span>
+        <span class="card-date">📅 来源发布 2026-09-02</span>
+      </div>
+      <div class="card-title">SK海力士重启大连NAND二厂：停工4年后复工，月投片5万片、2027上半年量产，洁净厂房建设窗口开启</div>
+      <div class="card-text">
+        据36氪报道，2026年8月，大连金州新区停工四年的SK海力士NAND闪存生产基地<strong>2号工厂正式重启建设</strong>，塔吊重新进场。新产线规划<strong>月投片5万片成熟制程晶圆，预计2027年上半年量产</strong>；投产后大连基地整体产能将增长约50%——一厂现有月产能约10万片，两厂合计达15万片，接近SK海力士全球NAND产能的一半。值得注意的是，大连目前是SK海力士<strong>海外唯一的NAND前道制造基地（占比100%）</strong>。
+      </div>
+      <div class="card-text">
+        项目工期卡得极紧：韩媒披露美国对华设备许可仅覆盖至<strong>2026年底</strong>，公司需在年内完成设备搬入，最快11月生产设备进场，堪称与许可截止日赛跑。2026年大连市政府工作报告已将<strong>"重点推进SK海力士三期等项目建设"</strong>明确写入。参考一厂建设规格（厂区内含1.5万平方米无尘室），二厂复工将带动大面积洁净厂房机电安装、洁净室围护及配套辅助用房装修需求集中释放。
+      </div>
+      <div class="insight">
+        💡 洁净室是海骊重点转型赛道之一，外资晶圆厂在华扩产/复产带来确定性的洁净厂房建设与改造窗口，且"设备年底前进场"意味着2026Q4即可能启动工程发包，节奏快、门槛高。此类项目主体多由大型机电总包与洁净工程专业商承揽，装饰企业现实切入点是洁净室彩钢板围护、隔墙吊顶、配套办公及辅助用房装修等专业分包。建议立即安排华东/东北区域跟踪大连金普新区及周边半导体园区的洁净厂房总包与分包招标信息，提前对接洁净工程总包资源库，卡位分包短名单。
+      </div>
+      <div class="source">来源：36氪 <a href="https://36kr.com/p/3965750685113860">链接</a></div>
+    </div>
+  </div>
+
+  <!-- 卡片5：技术-CMC智能造房工厂 -->
+  <div class="card">
+    <div class="card-bar card-bar-tech"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-tech">5</span>
+        <span class="card-tag tag-tech">技术创新</span>
+        <span class="card-date">📅 来源发布 2026-09-02</span>
+      </div>
+      <div class="card-title">"像造汽车一样造房子"：山东CMC智能造房工厂18层高层118天封顶，工期缩短50%、现场人工减少70%</div>
+      <div class="card-text">
+        据新华社"一线探新"调研，在济南章丘中建绿色建筑产业园——<strong>山东首座CMC智能造房工厂</strong>，一面墙板从流水线下线仅需12分钟，一间模块化房屋从生产到下线不过2小时，<strong>约80%的工作在工厂完成</strong>。产线自动化比例达80%、良品率提升5倍，全流程设置超百项质检环节。落地数据显示：模块化建造使<strong>整体工期缩短50%、建筑垃圾减少80%、现场人工减少70%</strong>，较大事故发生率从源头降低42.5%。
+      </div>
+      <div class="card-text">
+        示范项目已跑通：济南槐荫区中建·大学里13号楼——<strong>山东首个CMC高层住宅示范项目（18层）已封顶，118天建成、工期缩短一半、现场人工节省70%</strong>；模块水电管线全部外置，后期维修不用开墙破洞，封顶后内部空间还可按需定制。资本侧同样火热：建筑智能建造方案商<strong>大界机器人完成过亿元B轮融资</strong>（BAI资本、C资本领投），其ROBIM工业软件打通BIM数据与机器人生产，已服务近百家建筑工厂；贯通AI设计与机器人建造的<strong>一造科技获千万美元级天使轮</strong>，覆盖15种多材料智能建造工艺。
+      </div>
+      <div class="insight">
+        💡 模块化智造正在把"现场湿作业+人天堆叠"的传统建造逻辑改写为"工厂预制+现场总装"，对装饰行业的报价模型、穿插组织和产业工人结构都是深层冲击。海骊可分三步应对：①在酒店、学校、保障房等标准化程度高的业态，试点模块化客房、整体卫浴等装配式部品与批量精装的融合；②关注大界机器人、一造科技这类"建筑工业软件+机器人工厂"供应链，评估合作或外采预制能力，工厂预制占比未来可能成为EPC投标的硬指标；③针对"主体118天封顶"的极速工期，提前重构与总包的装饰穿插施工协同流程，否则现场精装工期将被严重压缩。
+      </div>
+      <div class="source">来源：网易·新华社"一线探新" <a href="https://www.163.com/dy/article/L5R09QN805501EMW.html">链接</a> ；36氪（大界机器人/一造科技融资） <a href="https://letschuhai.com/jianzhuzhinengjianzaofangantigongshangdajiejiqirenwanchengguoyiyuanblunrongzibaizibenlingtou">链接</a></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="sources-list">
+      来源汇总：人民网江苏频道 · 企查查 · 新浪财经 · 浙江省贸促会 · 同花顺期货通 · 36氪 · 网易/新华社"一线探新"
+    </div>
+    数据由 AI 自动抓取整理，仅供参考
+  </div>
+
+</div>
+</body>
+</html>
