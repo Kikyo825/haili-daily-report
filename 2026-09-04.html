@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-09-04</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.1);
+  }
+  .card-bar { height: 4px; width: 100%; }
+  .card-bar-policy { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .card-bar-compete { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .card-bar-trend { background: linear-gradient(90deg, #10b981, #34d399); }
+  .card-bar-oppo { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .card-bar-tech { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .card-bar-cost { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .card-bar-design { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .card-bar-labor { background: linear-gradient(90deg, #b45309, #d97706); }
+  .card-body { padding: 22px 24px 20px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-policy { background: #f59e0b; }
+  .num-compete { background: #3b82f6; }
+  .num-trend { background: #10b981; }
+  .num-oppo { background: #8b5cf6; }
+  .num-tech { background: #ec4899; }
+  .num-cost { background: #f97316; }
+  .num-design { background: #06b6d4; }
+  .num-labor { background: #b45309; }
+  .card-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tag-policy { background: #fef3c7; color: #92400e; }
+  .tag-compete { background: #dbeafe; color: #1e40af; }
+  .tag-trend { background: #d1fae5; color: #065f46; }
+  .tag-oppo { background: #ede9fe; color: #5b21b6; }
+  .tag-tech { background: #fce7f3; color: #9d174d; }
+  .tag-cost { background: #ffedd5; color: #9a3412; }
+  .tag-design { background: #cffafe; color: #155e75; }
+  .tag-labor { background: #fef3c7; color: #78350f; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 10px;
+  }
+  .card-text strong { color: #0f172a; font-weight: 700; }
+  .insight {
+    background: #f8fafc;
+    border-left: 3px solid #94a3b8;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin: 14px 0 10px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #475569;
+  }
+  .source {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+    word-break: break-all;
+  }
+  .source a { color: #64748b; text-decoration: none; }
+  .source a:hover { color: #3b82f6; }
+  .footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+  .footer .sources-list {
+    margin-bottom: 10px;
+    font-size: 11.5px;
+    color: #cbd5e1;
+  }
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .header { padding: 28px 22px; border-radius: 16px; }
+    .header h1 { font-size: 22px; }
+    .card-body { padding: 18px 18px 16px; }
+    .card-title { font-size: 16px; }
+    .card-text { font-size: 14px; }
+    .card-date { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>抓取日期：2026-09-04 星期五</span>
+    </div>
+  </div>
+
+  <!-- 卡片1：政策-公积金装修提取 -->
+  <div class="card">
+    <div class="card-bar card-bar-policy"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-policy">1</span>
+        <span class="card-tag tag-policy">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-09-03</span>
+      </div>
+      <div class="card-title">公积金"装修提取"9月20日全国落地：提取情形6种扩至9种，北京按发票额50%提、每套上限25万</div>
+      <div class="card-text">《国务院关于修改〈住房公积金管理条例〉的决定》（国务院令第844号）将于<strong>2026年9月20日起正式施行</strong>，提取情形由原有6种扩展至9种，<strong>新增"装修自住住房""支付自住住房物业费"两类提取场景</strong>，并取消租房提取"房租超过家庭工资收入规定比例"的门槛限制；贷款审查时限由15日缩短为10日，同时明确个体工商户、灵活就业人员可自愿缴存。</div>
+      <div class="card-text">地方配套已密集落地：<strong>北京明确自住住房装修可按装修增值税发票金额的50%申请提取，每套住房上限25万元、同一房产两次提取间隔10年</strong>（8月8日起施行）；威海支持提取支付维修资金、契税、物业费、取暖费；汉中将装修、车位、物业费、契税全部纳入提取范围；淮北装修提取每户累计上限20万元；南宁、通辽、玉溪、珠海、哈尔滨等多地新政于8月起陆续实施。据2025年公积金年报，33个主要城市缴存余额高达<strong>6.18万亿元</strong>，其中20城提取人数占比不足一半，大量资金处于沉睡状态。</div>
+      <div class="insight">💡 公积金从"购房贷款"单一功能贯通到"租房—购房—修房—养房"全链条，是存量翻新消费的一次政策性资金开闸：装修首次拥有了类"专项补贴"的支付渠道，将直接降低C端旧改、局改的决策门槛，与"好房子"、城市更新政策形成接力。海骊在批量精装主业之外，可提前布局存量翻新赛道的合规能力——装修业务需做到合同、发票、付款凭证齐全规范（公积金提取须凭正规票据），并研究与住房公积金中心、家装平台的合作接口，把"可提公积金"变成C端及适老化改造业务的获客卖点。</div>
+      <div class="source">来源：财联社/证券时报（<a href="https://www.cls.cn/subject/8211">cls.cn/subject/8211</a>）；住房和城乡建设部官网（mohurd.gov.cn）；国务院令第844号</div>
+    </div>
+  </div>
+
+  <!-- 卡片2：竞品-深圳前海自贸时代中心酒店精装定标 -->
+  <div class="card">
+    <div class="card-bar card-bar-compete"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-compete">2</span>
+        <span class="card-tag tag-compete">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-09-03</span>
+      </div>
+      <div class="card-title">深圳前海自贸时代中心T1栋酒店精装定标：广东省建装、中建四局装广分获两标段，德才、金螳螂、中建深装等15家竞标</div>
+      <div class="card-text">据比地招标网、招标网9月3日公示，<strong>深圳前海蛇口自贸时代中心项目T1栋酒店精装修工程</strong>两个标段定标结果出炉：建设单位为深圳市前海蛇口和胜实业有限公司，<strong>一标段由广东省建筑装饰工程有限公司中标</strong>（项目经理洪志城，一级建造师），<strong>二标段由中建四局建筑装饰广东有限公司中标</strong>。该项目吸引15家单位投标，<strong>德才装饰、金螳螂、中建深圳装饰、中建海外装饰、深圳晶宫装饰</strong>等头部与区域强企均参与竞标，深圳核心区高端酒店精装市场竞争白热化。</div>
+      <div class="card-text">竞品同期动态：德才股份9月4日新获<strong>"面向历史建筑墙体修缮的构件数据智能管理方法"发明专利</strong>及"吊杆悬挂砖墙扣件装置"实用新型专利，并参与山东黄金冶炼深圳分公司办公区装饰装修及智能化系统安装工程资审；亚厦股份9月3日就<strong>金华信息经济产业园（二期）酒店精装工程厨房油烟智控系统采购安装</strong>公开招标，其酒店精装项目已进入专业分包采购阶段。</div>
+      <div class="insight">💡 一线城市地标酒店精装标段已成"地方国企装饰平台+央企装饰区域公司"的囊中物，全国性上市装企虽频繁投标却难虎口夺食——高星酒店精装的属地化资源、本地履约口碑权重在上升。海骊酒店赛道拓展宜避开一线城市红海，聚焦二三线及下沉市场的酒店新建与改造项目；同时关注亚厦这类"酒店精装总包后专业分包采购"带来的油烟智控、智能化系统等配套机会，建立与头部装企总包的分包合作通道，借船出海。</div>
+      <div class="source">来源：比地招标网（<a href="https://m.bidizhaobiao.com/info-822381286.html">bidizhaobiao.com</a>）；企查查招投标动态；电力招标网</div>
+    </div>
+  </div>
+
+  <!-- 卡片3：机遇-医养+职教EPC招标 -->
+  <div class="card">
+    <div class="card-bar card-bar-oppo"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-oppo">3</span>
+        <span class="card-tag tag-oppo">战略机遇</span>
+        <span class="card-date">📅 来源发布 2026-09-04</span>
+      </div>
+      <div class="card-title">公建EPC招标持续放量：黄冈7589万全民健康管理中心EPC招标，河南豫东南职教园区精装9月10日开标</div>
+      <div class="card-text">医养赛道：<strong>湖北黄冈市全民健康管理中心项目工程总承包（EPC）招标公告近日发布，合同估算价7589.24万元</strong>，业主为湖北信安健康管理有限公司，落地黄冈市中医医院新院区，拟对1-3号楼<strong>12880.91㎡实施改造</strong>，涵盖室内装修及给排水、消防、供配电、照明、安防、暖通、电梯、无障碍及体检医养设备建设，定位集基础体检、高端健康管理、中医特色康养于一体的医养康养综合体。</div>
+      <div class="card-text">教育赛道：<strong>河南豫东南高新区全民健身、产城融合及职教园区EPC项目S8/S9/T3/H3精装修工程</strong>9月2日发布补遗，开标时间延至<strong>9月10日上午9:00</strong>；同期重庆职教中心新校建设EPC装饰装修项目（资金5886万元、预计三季度开工）推进报批，江西高安市第十三小学EPC（总建面1.23万㎡、合同造价4691.8万元，含室内精装修）、武汉理工大学南湖工科综合实训中心（二期）室内精装修等学校类精装项目密集定标/招标。康养设计端，浙江湖州吴兴康养中心提升改造工程方案及初步设计（发包估价约85万元）9月1日发布竞包公告。</div>
+      <div class="insight">💡 医养与职教是当前财政资金确定性最强、且与海骊转型方向（康养/EPC/学校）完全重合的两条赛道：医院健康管理中心类项目普遍"改造+室内精装+医养设备"一体化发包，单体规模适中（数千万级）、属地竞争为主，适合装饰企业以EPC或专业分包身份切入；职教园区精装则随EPC大标段打包放出。建议华中区域团队重点跟踪黄冈项目开标节点，河南团队盯紧9月10日豫东南职教园精装截标，并系统梳理本地中医院、职校、实训中心的改造发包计划，提前嵌入设计与适老化/装配式内装方案。</div>
+      <div class="source">来源：搜狐·基建招标信息（<a href="https://m.sohu.com/a/1071414061_122543043/">sohu.com/a/1071414061</a>）；采招网；中项网；医疗招标采购网</div>
+    </div>
+  </div>
+
+  <!-- 卡片4：趋势-建陶/家装出清 -->
+  <div class="card">
+    <div class="card-bar card-bar-trend"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-trend">4</span>
+        <span class="card-tag tag-trend">市场趋势</span>
+        <span class="card-date">📅 来源发布 2026-09-03</span>
+      </div>
+      <div class="card-title">产业链出清加速：1-7月精装房源19.8万套同比降33.8%，爱空间广州关店、建陶开窑率最低仅三成</div>
+      <div class="card-text">据中陶网9月3日报道，2026年1-7月全国房屋新开工面积2.67亿㎡、<strong>同比下降24.0%</strong>；重点监测城市<strong>精装修楼盘开盘346个、同比降30.1%，精装房源19.8万套、同比大降33.8%</strong>，家居七大部品配套规模同比降33.3%。消费端同步收缩：7月建筑及装潢材料类零售额94亿元、<strong>同比下降14.2%</strong>，1-7月累计690亿元、同比降9.5%。</div>
+      <div class="card-text">家装与建陶企业风险集中暴露：<strong>爱空间北京子公司被曝资金周转困难、欠薪及供应链款项滞后，8月31日广州子公司公告关闭门店</strong>；西安积木家、上海沪尚茗居等区域装企相继传出逾期交付、供应商欠款。建陶端，广东产区整体开窑率不足五成、部分细分产区仅约40%，湖北产区约39%，行业市场规模从近5000亿元缩水至不足1800亿元，有判断称未来三年或淘汰50%从业者。</div>
+      <div class="insight">💡 这组数据是"828新政"现房销售改革冲击的延续：新房精装基本盘仍在下探，而风险正沿"开发商—装企—建材供应商"链条传导，知名互联网家装爆雷意味着应收账款风险已从地产端蔓延至家装端。海骊需两手应对：①客户与供应链风控升级，对民营装企、中小建材商的敞口收紧，优选国央企业主与头部供应商，合同中强化预付款、进度款节点保障；②顺势吸纳出清红利——爆雷装企释放的产业工人、设计师与存量客户是低成本整合机会，装配式内装"工厂交付、不依赖现场散工"的模式在劳务动荡期更具韧性。</div>
+      <div class="source">来源：中陶网/搜狐（<a href="https://m.sohu.com/a/1071442762_120719878/">sohu.com/a/1071442762</a>）；数据源自国家统计局、奥维云网精装监测</div>
+    </div>
+  </div>
+
+  <!-- 卡片5：成本-涂料采购成本指数 -->
+  <div class="card">
+    <div class="card-bar card-bar-cost"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-cost">5</span>
+        <span class="card-tag tag-cost">成本动态</span>
+        <span class="card-date">📅 来源发布 2026-09-03</span>
+      </div>
+      <div class="card-title">8月涂料成本指数环比再涨2个百分点：钛白粉单月暴跌9.91%，丙烯酸丁酯大涨11.7%、NPG涨15.6%</div>
+      <div class="card-text">据慧聪涂料网/买化塑研究院监测，<strong>2026年8月涂料采购成本指数为87%，环比上涨2个百分点、同比上涨13个百分点</strong>；粉末涂料采购成本指数86%，环比涨1个百分点。原料市场两极分化：<strong>金红石型钛白粉8月均价14530元/吨，环比暴跌9.91%</strong>（单月跌近1600元/吨），上游钛精矿跌7.26%；而有机化工链全线飘红——<strong>丙烯酸丁酯环比大涨11.70%、MMA涨10.63%</strong>，新戊二醇（NPG）涨15.63%、异丁醛涨19.17%，TDI涨5.94%，环氧树脂E-51/E-12涨幅均超1.8%。</div>
+      <div class="card-text">成本压力呈结构性分布：<strong>依赖钛白粉的建筑涂料成本压力暂时缓解</strong>，而依赖树脂、溶剂、TDI的<strong>工业防护涂料、防水涂料、胶粘剂成本严峻承压</strong>。报道同时提示，"金九银十"旺季临近但终端地产资金链紧张未改善，涂料成品提价落地难度大，上游涨价向成品传导阻力较大，企业成本转嫁能力有限，盈利修复仍存压力。</div>
+      <div class="insight">💡 与前期防水/树脂涨价函信号相互印证，精装上游成本正进入"有机原料涨、无机原料跌"的分化阶段：内墙乳胶漆等建筑涂料采购或迎短暂议价窗口，可逢低锁价；而防水、胶粘剂、地坪/防腐涂料报价预计继续上行，且厂家提价受阻不代表工程端价格不涨——成本会通过缩减返利、收紧账期等隐性方式传导。建议招采部门分类施策：钛白粉系涂料趁低位集中锁价，树脂系防水/胶粘材料提前备货并在Q4投标报价中预留系数，同时密切关注"厂家提价落地难"带来的中小涂料商信用风险。</div>
+      <div class="source">来源：慧聪涂料网/慧正资讯·买化塑研究院（<a href="https://c.m.163.com/news/a/L5TH7H780514CNIT.html">163.com/news/a/L5TH7H780514CNIT</a>）</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="sources-list">
+      本期来源：财联社/证券时报 · 住建部官网 · 比地招标网 · 企查查 · 中项网 · 采招网 · 中陶网 · 慧聪涂料网
+    </div>
+    <div>海骊住居 · 行业日报 | 每个工作日 09:10 自动推送</div>
+    <div>数据由 AI 自动抓取整理，仅供参考</div>
+  </div>
+
+</div>
+</body>
+</html>
