@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-09-07</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.1);
+  }
+  .card-bar { height: 4px; width: 100%; }
+  .card-bar-policy { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .card-bar-compete { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .card-bar-trend { background: linear-gradient(90deg, #10b981, #34d399); }
+  .card-bar-oppo { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .card-bar-tech { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .card-bar-cost { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .card-bar-design { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .card-bar-labor { background: linear-gradient(90deg, #b45309, #d97706); }
+  .card-body { padding: 22px 24px 20px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-policy { background: #f59e0b; }
+  .num-compete { background: #3b82f6; }
+  .num-trend { background: #10b981; }
+  .num-oppo { background: #8b5cf6; }
+  .num-tech { background: #ec4899; }
+  .num-cost { background: #f97316; }
+  .num-design { background: #06b6d4; }
+  .num-labor { background: #b45309; }
+  .card-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tag-policy { background: #fef3c7; color: #92400e; }
+  .tag-compete { background: #dbeafe; color: #1e40af; }
+  .tag-trend { background: #d1fae5; color: #065f46; }
+  .tag-oppo { background: #ede9fe; color: #5b21b6; }
+  .tag-tech { background: #fce7f3; color: #9d174d; }
+  .tag-cost { background: #ffedd5; color: #9a3412; }
+  .tag-design { background: #cffafe; color: #155e75; }
+  .tag-labor { background: #fef3c7; color: #78350f; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 10px;
+  }
+  .card-text strong { color: #0f172a; font-weight: 700; }
+  .insight {
+    background: #f8fafc;
+    border-left: 3px solid #94a3b8;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin: 14px 0 10px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #475569;
+  }
+  .source {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+    word-break: break-all;
+  }
+  .source a { color: #64748b; text-decoration: none; }
+  .source a:hover { color: #3b82f6; }
+  .footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+  .footer .sources-list {
+    margin-bottom: 10px;
+    font-size: 11.5px;
+    color: #cbd5e1;
+  }
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .header { padding: 28px 22px; border-radius: 16px; }
+    .header h1 { font-size: 22px; }
+    .card-body { padding: 18px 18px 16px; }
+    .card-title { font-size: 16px; }
+    .card-text { font-size: 14px; }
+    .card-date { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>抓取日期：2026-09-07 星期一</span>
+    </div>
+  </div>
+
+  <!-- 卡片1：政策-天津配售型保障房导则全国推广 -->
+  <div class="card">
+    <div class="card-bar card-bar-policy"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-policy">1</span>
+        <span class="card-tag tag-policy">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-09-07</span>
+      </div>
+      <div class="card-title">配售型保障房建设导则全国推广：天津经验入选住建部"好房子"第二批清单，全装修+装配式+BIM成标配</div>
+      <div class="card-text">住建部办公厅近日印发《"好房子"建设经验做法（第二批）的通知》，<strong>天津市住建委编制的《天津市配售型保障性住房建设导则（试行）》入选并在全国范围推广</strong>。导则遵循"保基本""以人为本""高水平设计"三大原则，从总则、基本规定、规划与配套设施、住房设计、建筑设备、专项设计、<strong>装修装饰七大板块</strong>，明确配售型保障房的选址规划、套型设计、全龄友好、绿色低碳、智能化、<strong>全装修</strong>等建设指标，为项目建设提供技术支撑。</div>
+      <div class="card-text">落地项目同步见效：河北区志成路配售型保障性住房项目盘活老旧厂区闲置土地，<strong>两期合计616套房源已进入全面施工阶段</strong>；项目实行<strong>土建装修一体化、全装修交付，全面执行绿色建筑、装配式建筑标准，推广BIM技术应用</strong>，兼顾成本管控与居住品质；户型设置75㎡、89㎡、100㎡三个标准面积段，全面对标商品住宅。</div>
+      <div class="insight">💡 保障房正成为批量精装的确定性增量市场，且建设标准向商品房看齐——"土建装修一体化+全装修+装配式+BIM"正从加分项变为硬标配。海骊批量精装主业可重点对接配售型保障房、保租房的集采与代建渠道，把装配式内装、BIM协同设计、全龄友好部品打包成保障房专属产品线；同时关注天津导则带来的省市跟进效应，提前对接各地住建部门与城投平台，卡位新一轮保障房开工潮。</div>
+      <div class="source">来源：新华网天津（<a href="http://www.tj.xinhuanet.com/20260907/4327811bbae448e1ba1118264add8750/c.html">tj.xinhuanet.com</a>）；北方网（<a href="http://news.enorth.com.cn/system/2026/09/06/059733801.shtml">news.enorth.com.cn</a>）</div>
+    </div>
+  </div>
+
+  <!-- 卡片2：竞品-金螳螂/德才/广田 -->
+  <div class="card">
+    <div class="card-bar card-bar-compete"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-compete">2</span>
+        <span class="card-tag tag-compete">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-09-07</span>
+      </div>
+      <div class="card-title">金螳螂在手订单逼近200亿、境外产值+41%；德才入围深铁幕墙标段，广田1.11亿中标办公装修EPC</div>
+      <div class="card-text"><strong>金螳螂（002081）</strong>：企查查动态显示，8月公司及下属子公司陆续中标多个工程、合计约<strong>5.16亿元</strong>；二季度新签订单59.34亿元，累计已签约未完工订单约<strong>186亿元、在手订单逼近200亿</strong>；境外合同产值同比增长约<strong>41%</strong>，越南富国国际机场约4亿元大单落地。9月4-5日，公司进入<strong>香港中文大学（深圳）医学院项目装修装饰和机电安装工程Ⅱ标</strong>开标/评标名单，并新公开"半球形GRG穹顶幕墙稳固装配结构"发明专利。</div>
+      <div class="card-text"><strong>德才股份（605287）</strong>：9月4日进入<strong>深铁公明车辆段综合开发项目深铁阅洺境花园幕墙工程一标</strong>定标候选，并参与山东黄金冶炼深圳贵金属精炼项目办公区装饰装修及智能化系统安装工程投标；同期入围2026山东民营企业200强。<strong>深圳广田（特区建工旗下）</strong>：9月5日中标<strong>翡翠岛广场办公区域装修工程设计施工总承包，金额约1.11亿元</strong>；其二季度新签6.32亿元、累计已签约未完工订单22.33亿元。</div>
+      <div class="insight">💡 竞品三个动向值得警惕：①金螳螂靠近200亿在手订单+海外高增长稳住基本盘，医学院、机场航站楼等公建"装修+机电安装"打包项目持续拿单；②幕墙工程正成为装饰企业切入地铁车辆段上盖开发的新入口，"幕墙+装饰"一体化投标趋势明显；③深圳国资系项目向自有装饰平台集中，亿元级办公装修以EPC模式发包。海骊公建投标需补强机电安装协同与幕墙专业能力，并关注高校医学院/医院类"装修+机电"大包机会。</div>
+      <div class="source">来源：企查查·苏州金螳螂企业发展报告（<a href="https://www.qcc.com/creport/c4877d95e9a22f9b320a1934f3f576b1.html">qcc.com</a>）；东方财富财富号（<a href="https://caifuhao.eastmoney.com/news/20260906163152728246180">caifuhao.eastmoney.com</a>）；企查查·德才股份/深圳广田行业信息</div>
+    </div>
+  </div>
+
+  <!-- 卡片3：趋势-4万亿存量市场 -->
+  <div class="card">
+    <div class="card-bar card-bar-trend"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-trend">3</span>
+        <span class="card-tag tag-trend">市场趋势</span>
+        <span class="card-date">📅 来源发布 2026-09-07</span>
+      </div>
+      <div class="card-title">4万亿家装市场"换道"：存量房装修首超新房，局改微装需求暴涨、存量翻新赛道增长56%</div>
+      <div class="card-text">行业数据显示，<strong>2025年中国家装市场规模稳定在4万亿级别，整装赛道突破1.6万亿</strong>。真正的拐点发生在2024年：<strong>存量房装修777.5万套，首次超过新房装修的723.2万套</strong>，仅存量翻新市场规模已达1.5万亿。细分需求全面爆发——2025年家装<strong>局改需求环比上涨27%、微装需求上涨29%，存量翻新细分赛道整体暴涨56%</strong>。</div>
+      <div class="card-text">政策端持续加码：住建部数据显示，<strong>2025年全国计划改造老旧小区超5万个，中央财政补贴同比增长22%</strong>；全国约<strong>4.1亿套城镇存量房</strong>已集中进入翻新周期，其中房龄15年以上、急需改造的老住宅占比高达38%。同期智能家居市场规模突破1.2万亿元，与翻新需求形成共振。</div>
+      <div class="insight">💡 行业不是萎缩而是"换赛道"：新房批量精装基本盘下探，但4.1亿套存量房、每年5万个老旧小区改造构成1.5万亿翻新蓝海，且9月20日落地的公积金"装修提取"（前期日报已覆盖）正为C端翻新提供资金杠杆。海骊可把装配式内装"快装、少湿作业、局部可更换"的优势对接到局改、旧改、适老化改造产品线，主动对接城投旧改平台、物业与家装平台，把B端批量交付能力延伸到存量翻新市场。</div>
+      <div class="source">来源：今日头条·泛家居行业观察（<a href="http://m.toutiao.com/group/7682578424455528999/">m.toutiao.com</a>，数据引自2025家装消费趋势洞察、住建部公开数据）</div>
+    </div>
+  </div>
+
+  <!-- 卡片4：机遇-易卜半导体临港洁净厂房 -->
+  <div class="card">
+    <div class="card-bar card-bar-oppo"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-oppo">4</span>
+        <span class="card-tag tag-oppo">战略机遇</span>
+        <span class="card-date">📅 来源发布 2026-09-07</span>
+      </div>
+      <div class="card-title">易卜半导体临港先进封装基地启动：2.6万㎡百级/千级洁净厂房三个多月建成，设备进场</div>
+      <div class="card-text">9月3日，<strong>易卜半导体临港基地启动暨首台设备进场仪式</strong>在闵行开发区临港园区举行。该基地是易卜半导体核心规模化量产基地，聚焦<strong>2.5D/3D高算力、xPO产品先进封装</strong>的研发与规模化制造，总建筑面积6.5万平方米，其中<strong>百级、千级洁净厂房达2.6万平方米</strong>，并配套Bumping凸块、WLCSP晶圆级封装及CP/FT晶圆测试等完整能力。</div>
+      <div class="card-text">项目刷新建设速度：落地主体易启芯程半导体2025年12月注册，<strong>2026年4月底启动洁净室装修，仅用三个多月即建成</strong>，成为临港"企业投资项目承诺制改革"的又一案例。产业链分析提示，封测产能放量后，<strong>洁净室运维、特种气体与化学品供应、封测设备维保、精密零部件加工</strong>等配套需求将陆续释放，需求重心从"建厂房的土建"切换为"开产线的运营"；工厂从设备进场到量产爬坡通常有6-18个月窗口，是配套企业切入供应链的最佳时机。</div>
+      <div class="insight">💡 先进封装扩产是当前洁净厂房建设最活跃的细分方向，且"承诺制改革"下洁净室装修工期被压缩至3-4个月，对快速交付、标准化洁净围护与机电安装能力要求极高。海骊洁净室赛道可重点跟踪临港、合肥、无锡等半导体园区的封装/测试厂房项目，以"洁净室围护+彩钢板隔墙吊顶+辅助用房装修"专业分包切入；同时盯紧量产前6-18个月的运维配套窗口，在项目设备进场前就进入总包供应商名录。</div>
+      <div class="source">来源：今日头条·临港产经（<a href="http://m.toutiao.com/group/7682433880938349090/">m.toutiao.com</a>，据腾讯新闻、上海市集成电路行业协会）</div>
+    </div>
+  </div>
+
+  <!-- 卡片5：设计与管理-AI家装 -->
+  <div class="card">
+    <div class="card-bar card-bar-design"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-design">5</span>
+        <span class="card-tag tag-design">设计与管理</span>
+        <span class="card-date">📅 来源发布 2026-09-06</span>
+      </div>
+      <div class="card-title">AI在家居家装五大场景规模化落地：从营销设计到生产决策，AI从"概念验证"走向商业变现</div>
+      <div class="card-text">据大材研究近期观察，2025年以来AI工具在家居家装行业应用爆发，<strong>进入2026年，拥抱AI已从"追潮流"变为经营必选项，陆续有企业完成商业变现</strong>。目前已形成五类常见落地场景：<strong>①营销获客</strong>（AI内容生成、虚拟展厅）；<strong>②设计</strong>（AI快速生成适配客户需求的方案、提升设计效率）；<strong>③生产</strong>（智能家居主动感知、自动调节温湿度亮度、学习用户习惯、健康监测）；<strong>④决策</strong>（AI装修报价、施工现场检查、资源优化）；<strong>⑤全链条协同</strong>，贯穿设计、研发、生产、营销到施工、交付。</div>
+      <div class="card-text">分析认为，AI的价值不仅在于生成设计方案，更在于<strong>指导生产、优化施工、匹配采购、控制预算</strong>；但要让AI形成看得见的竞争力，企业还需在数据沉淀、场景深耕和组织能力上持续投入。</div>
+      <div class="insight">💡 AI对装饰企业最先见效的三个切口：投标方案快速生成与效果图迭代、AI辅助报价与工程量核对控成本、工地AI安全质量巡检（与服贸会展出的AI安监技术呼应）。海骊可在EPC投标团队先行试点AI设计工具、缩短方案周期，在项目管理中引入AI进度与成本分析，把"AI辅助交付"打造成效率差异化优势；同时尽早建立企业自己的项目数据库，避免AI工具"用而不深"。</div>
+      <div class="source">来源：东方财富财富号·大材研究（<a href="https://caifuhao.eastmoney.com/news/20260906211031797878660">caifuhao.eastmoney.com</a>）</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="sources-list">来源汇总：新华网天津 · 北方网 · 企查查 · 东方财富财富号 · 今日头条（临港产经/泛家居观察）</div>
+    <div>海骊住居 · 行业日报 ｜ 数据由 AI 自动抓取整理，仅供参考</div>
+  </div>
+
+</div>
+</body>
+</html>
