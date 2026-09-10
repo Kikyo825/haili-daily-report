@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-09-10</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.1);
+  }
+  .card-bar { height: 4px; width: 100%; }
+  .card-bar-policy { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .card-bar-compete { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .card-bar-trend { background: linear-gradient(90deg, #10b981, #34d399); }
+  .card-bar-oppo { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .card-bar-tech { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .card-bar-cost { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .card-bar-design { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .card-bar-labor { background: linear-gradient(90deg, #b45309, #d97706); }
+  .card-body { padding: 22px 24px 20px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-policy { background: #f59e0b; }
+  .num-compete { background: #3b82f6; }
+  .num-trend { background: #10b981; }
+  .num-oppo { background: #8b5cf6; }
+  .num-tech { background: #ec4899; }
+  .num-cost { background: #f97316; }
+  .num-design { background: #06b6d4; }
+  .num-labor { background: #b45309; }
+  .card-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tag-policy { background: #fef3c7; color: #92400e; }
+  .tag-compete { background: #dbeafe; color: #1e40af; }
+  .tag-trend { background: #d1fae5; color: #065f46; }
+  .tag-oppo { background: #ede9fe; color: #5b21b6; }
+  .tag-tech { background: #fce7f3; color: #9d174d; }
+  .tag-cost { background: #ffedd5; color: #9a3412; }
+  .tag-design { background: #cffafe; color: #155e75; }
+  .tag-labor { background: #fef3c7; color: #78350f; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 10px;
+  }
+  .card-text strong { color: #0f172a; font-weight: 700; }
+  .insight {
+    background: #f8fafc;
+    border-left: 3px solid #94a3b8;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin: 14px 0 10px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #475569;
+  }
+  .source {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+    word-break: break-all;
+  }
+  .source a { color: #64748b; text-decoration: none; }
+  .source a:hover { color: #3b82f6; }
+  .footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+  .footer .sources-list {
+    margin-bottom: 10px;
+    font-size: 11.5px;
+    color: #cbd5e1;
+  }
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .header { padding: 28px 22px; border-radius: 16px; }
+    .header h1 { font-size: 22px; }
+    .card-body { padding: 18px 18px 16px; }
+    .card-title { font-size: 16px; }
+    .card-text { font-size: 14px; }
+    .card-date { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>抓取日期：2026-09-10 星期四</span>
+    </div>
+  </div>
+
+  <!-- 卡片1：政策-装配式装修指导意见 -->
+  <div class="card">
+    <div class="card-bar card-bar-policy"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-policy">1</span>
+        <span class="card-tag tag-policy">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-09-09</span>
+      </div>
+      <div class="card-title">住建部首提装配式装修国家级路线图：2030年应用比例显著提高，保租房/人才公寓全面采用、学校医院宾馆养老院鼓励采用</div>
+      <div class="card-text">住房城乡建设部标准定额司9月8日印发<strong>《关于促进装配式装修发展的指导意见（征求意见稿）》</strong>（建司局函标〔2026〕166号），并于9月9日公开征求意见，<strong>意见反馈截止9月15日</strong>。意见提出，坚持政府引导、市场主导、创新驱动、标准引领、因地制宜、示范推广，<strong>到2030年装配式装修应用比例显著提高</strong>，形成完善的标准体系、技术体系、产业体系、监管体系和人才体系，更好满足"好房子"建设要求。</div>
+      <div class="card-text">意见明确<strong>加强政府投资项目应用</strong>：各地政府投资的保障性租赁住房、人才公寓、宿舍等租赁型房屋<strong>全面采用</strong>装配式装修方式；<strong>鼓励学校、医院、办公楼、宾馆、养老院</strong>等公共建筑采用装配式装修。地方已先行探路：湖北设区城市中心城区新建房屋100%实施装配式建筑；广州出台装配式装修技术指引；宁波鄞州区对2010年前建成城镇住宅采用装配式装修按造价<strong>25%补贴、单户最高补3万元</strong>；重庆重点在学校、医院、人才公寓等公建率先推广。市场端，国内装配式装修规模已从2018年的<strong>175亿元</strong>增至2022年的<strong>3440亿元</strong>，预计2025年达<strong>6390亿元</strong>。</div>
+      <div class="insight">💡 这是装配式装修首个国家级专项指导意见，且直接点名学校、医院、宾馆、养老院、人才公寓——几乎覆盖海骊EPC转型的全部目标赛道。干法施工、管线分离、集成厨卫将从政府投资项目的"可选项"变为"标配项"。建议：①立即研读征求意见稿，争取在9月15日前通过行业协会反馈意见、参与标准话语权；②加快装配式部品供应链与装配班组能力建设，在公建EPC投标中把"装配式装修应用方案"做成固定技术亮点；③旧改、适老化改造是干法快装的天然场景，可结合城市更新专项资金提前卡位存量市场。</div>
+      <div class="source">来源：住房城乡建设部官网《关于公开征求〈关于促进装配式装修发展的指导意见（征求意见稿）〉意见的通知》（<a href="https://www.mohurd.gov.cn/gongkai/zc/wjk/art/2026/art_46be7ccdd84942dfa1373f97cf8c4bd1.html">mohurd.gov.cn</a>）；金融界《住建部：到2030年装配式装修应用比例显著提高》（<a href="http://m.toutiao.com/group/7683377511270482478/">m.toutiao.com</a>）；筑安《装修这件事，可能要变天了》政策解读（<a href="http://m.toutiao.com/group/7683494897512481314/">m.toutiao.com</a>）</div>
+    </div>
+  </div>
+
+  <!-- 卡片2：竞品-金螳螂股价异动+亚厦康养设计 -->
+  <div class="card">
+    <div class="card-bar card-bar-compete"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-compete">2</span>
+        <span class="card-tag tag-compete">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-09-09</span>
+      </div>
+      <div class="card-title">金螳螂5日暴涨57.9%后9日大跌6.83%领跌板块、主力净流出2.48亿；亚厦列中医院康养项目设计第一候选人、拟新增技术服务经营范围</div>
+      <div class="card-text"><strong>金螳螂（002081）</strong>：8月下旬以来受"商业航天/数据中心/半导体洁净室"概念炒作，股价<strong>五个交易日累计涨幅达57.93%</strong>；公司此前已澄清不从事火箭研制、卫星制造、数据中心算力运营、半导体芯片设计制造及材料研发生产等核心产业，所承接相关项目施工范围仅为办公楼、餐厅等配套工程，且<strong>洁净类装修业务占营收及净利润比例较低</strong>。9月9日装修装饰板块下跌1.43%，金螳螂<strong>大跌6.83%报5.18元领跌</strong>，主力资金净流出约<strong>2.48亿元</strong>、成交额超15亿元，题材炒作资金明显退潮。基本面上，公司上半年营收80.91亿元（-15.08%）、归母净利3.08亿元（-14.05%），累计已签约未完工订单<strong>186.08亿元</strong>，境外合同产值同比增长约41%。</div>
+      <div class="card-text"><strong>亚厦股份（002375）</strong>：中标候选人公示显示，亚厦装饰位列<strong>"中医院西南地块康养项目装修方案及施工图设计服务"第一中标候选人</strong>（持建筑装饰工程设计专项甲级），在康养设计前端再落一子；公司同时拟新增技术服务、技术开发相关经营范围，议案已提交股东会审议；9月8日还入围徐州庆云桥地铁商务区商业精装修项目评标、参与南京市第二十七高级中学改造投标，其中报扣非净利润同比增长31.81%。</div>
+      <div class="insight">💡 龙头股价靠题材暴涨后快速回吐，说明装饰板块估值仍缺基本面支撑、行业磨底未结束；但亚厦卡位康养设计前端、金螳螂靠海外+城市更新托底订单，共同指向竞争焦点从住宅精装转向公建、康养与存量更新。海骊需重点防范在康养、学校、地铁商业类项目中与亚厦（设计施工一体化）正面遭遇，投标前提前研判其报价与方案策略；同时专注自身EPC订单质量与交付，不被竞品股价短期噪音干扰判断。</div>
+      <div class="source">来源：证券时报·金螳螂行情数据（<a href="https://www.stcn.com/quotes/index/sz002081.html">stcn.com</a>）；证券之星《装修装饰板块9月9日跌1.43%，金螳螂领跌》；新浪财经·翠鸟资本《金螳螂营收净利润双降，行业磨底期谁能独善其身》（<a href="https://finance.sina.com.cn/wm/2026-09-09/doc-inirfums3607190.shtml">finance.sina.com.cn</a>）；招标网《中医院西南地块康养项目装修方案及施工图设计服务中标候选人公示》（<a href="https://zb.zhaobiao.cn/succeed_v_695e945ae5314b9eeac8911b3db6cc0d.html">zhaobiao.cn</a>）；企查查·浙江亚厦装饰经营信息（<a href="https://www.qcc.com/creport/331331ab926cbcc4d089c91e9351b13b.html">qcc.com</a>）</div>
+    </div>
+  </div>
+
+  <!-- 卡片3：趋势-装配式建筑规模化 -->
+  <div class="card">
+    <div class="card-bar card-bar-trend"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-trend">3</span>
+        <span class="card-tag tag-trend">市场趋势</span>
+        <span class="card-date">📅 来源发布 2026-09-10</span>
+      </div>
+      <div class="card-title">装配式建筑走出试点迈向规模化：2026年市场规模将达1.47万亿、渗透率超35%，MiC"搭乐高"建房工期最多缩短75%</div>
+      <div class="card-text">中国证券报9月10日报道，深圳光明区某项目采用<strong>"传统现浇+MiC拼装"组合模式</strong>：地下室及地上1-3层现浇、4层以上采用中建海龙自主研发的智能建造MiC（模块化集成建筑）技术，<strong>标准层每层布设49个超大模块、合计使用693个模块</strong>，模块在工厂完成结构、机电、内装、外饰90%以上工序后运抵现场吊装拼接，<strong>建造工期缩短约75%</strong>，现场建筑废弃物减少75%、材料损耗降低25%、碳排放减少30%。北京亦多点开花：通州中建·运河玖院第四代住宅、朝阳港一期、怀柔科学城雁栖小镇B区洋房与酒店累计应用约1.4万立方米预制构件，金隅"Geam"体系实现"不出筋、密拼接、全预制"。</div>
+      <div class="card-text">行业机构ConsTrack360数据显示，<strong>2025年中国装配式建筑市场规模约1.34万亿元，预计2026年增长9.4%至1.47万亿元，渗透率有望提升至35%以上</strong>；中投产业研究院认为装配式装修将成为产业链增长最快的细分赛道。政策与现房销售改革双轮驱动：8月住建部等三部门推行现房销售，倒逼房企压缩工期，而装配式工期可缩短30%-80%，开发商采用动力显著增强；央企成为主推力量，6月广州发布国内首个市级《模块化建筑技术体系指南》，镁基窗墙一体化幕墙已在哈工大深圳重点实验室超大型公建首次规模化应用。</div>
+      <div class="insight">💡 装配式正从"结构预制"走向"结构+装修+机电"全链条工业化，保障房、公寓、酒店等标准化程度高的业态推进最快——恰是海骊批量精装与酒店赛道的交汇处。MiC把装修工序前置到工厂，现场湿作业与传统班组需求下降，竞争关键转为部品供应链整合、BIM深化设计与吊装协同能力。建议：①关注中建海龙、金隅、中建四局等央企模块厂的外采与专业分包合作机会；②在酒店、公寓、学校宿舍等标准化项目中试点MiC或装配式装修，以工期优势竞标现房销售与城市更新项目；③提前储备干法装配施工班组，应对用工结构变化。</div>
+      <div class="source">来源：中国财富网/中国证券报《用搭乐高积木的方式盖房子 装配式建筑迎来发展机遇期》（<a href="http://m.toutiao.com/group/7683717258955047458/">m.toutiao.com</a>）；搜狐·行业新网《MiC模块化集成建筑与镁基幕墙双技术落地，装配式建造开启城市更新万亿风口》（<a href="https://m.sohu.com/a/1073949563_122917591/">sohu.com</a>）</div>
+    </div>
+  </div>
+
+  <!-- 卡片4：设计与管理-北京智能建造报告 -->
+  <div class="card">
+    <div class="card-bar card-bar-design"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-design">4</span>
+        <span class="card-tag tag-design">设计与管理</span>
+        <span class="card-date">📅 来源发布 2026-09-10</span>
+      </div>
+      <div class="card-title">服贸会发布《北京智能建造应用发展报告2026》：三批74项试点工程落地，重点推广"EPC+智能建造"新型交付模式</div>
+      <div class="card-text">9月9日至13日服贸会在北京首钢园举办，北京市智能建造创新发展暨建设科技领域示范场景发布论坛上，<strong>《北京市智能建造应用发展报告（2026）》</strong>正式发布，并同步发布首批<strong>20个智能建造创新应用场景</strong>。作为全国智能建造首批试点城市，北京2023-2025年已累计公布三批共<strong>74项试点工程</strong>，覆盖城市更新、住宅建设、医疗卫生、科技创新、公共服务等多类项目，BIM已成为全行业普及应用的基础性核心技术。</div>
+      <div class="card-text">报告披露应用结构：<strong>智能施工应用占比最高达71.56%</strong>，智能设计43.12%、智能设备装备41.28%、智慧运维35.78%、智能勘察32.11%；建筑机器人（26.61%）、建筑产业互联网平台（25.69%）、智能生产（21.1%）成熟度相对较低。面向"十五五"，报告提出沿"单点突破—集成应用—自主可控"路径演进：BIM与数字孪生构建全生命周期底座，建筑行业大模型在智能设计、施工优化、造价预测领域形成"通用大模型+行业小模型"协同范式，测量、喷涂、砌筑、焊接、抹灰、巡检等机器人人机协同成新常态；管理变革上明确<strong>推广"EPC+智能建造""全过程工程咨询+智能建造"新型交付模式</strong>，并探索设立智能建造监管沙盒、推动京津冀标准互认与场景共享。</div>
+      <div class="insight">💡 报告把"EPC+智能建造"列为重点推广的交付模式，与海骊EPC转型直接同频——未来公建项目招标中，BIM应用、智慧工地、机器人施工很可能从加分项变为资格门槛。建议：①在EPC项目中标配BIM正向设计与智慧工地系统，沉淀可展示的数字化交付案例；②优先引入喷涂、抹灰、巡检等成熟度较高的建筑机器人租赁/合作，既缓解技工短缺又形成投标差异化；③北京74项试点工程参建单位名单是优质合作伙伴与竞对情报库，建议安排专项跟踪研究。</div>
+      <div class="source">来源：北京商报《服贸观澜｜数字化助力建筑业转型升级 北京加快推进智能建造》（<a href="http://m.toutiao.com/group/7683722283331944998/">m.toutiao.com</a>）</div>
+    </div>
+  </div>
+
+  <!-- 卡片5：劳务供应链-云顶大会 -->
+  <div class="card">
+    <div class="card-bar card-bar-labor"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-labor">5</span>
+        <span class="card-tag tag-labor">劳务供应链</span>
+        <span class="card-date">📅 来源发布 2026-09-09</span>
+      </div>
+      <div class="card-title">2026建筑供应链云顶大会深圳举行：发布行业首份供应链价值报告与两款AI产品，60家采购单位现场抛出超百亿元采购需求</div>
+      <div class="card-text">9月8日，<strong>中国建筑供应链2026云顶大会暨建筑工业化现代产业链共链行动大会</strong>在深圳国际会展中心举行，由中国施工企业管理协会指导、中国建筑集团主办、云筑承办，吸引政府部门、行业协会及企业代表近2000人参会。大会发布<strong>《2026建筑供应链价值报告——从联接到价值》</strong>，提出把真实业务数据沉淀为信用、再把信用转化为新机会的路径；云筑同步推出两大AI产品——<strong>"数字合规官1.0"</strong>聚焦采购合规风控、<strong>"智能物资卫士1.0"</strong>聚焦现场物资管控，为建筑供应链装上"智慧大脑"。</div>
+      <div class="card-text">大会同期举办数智劳务与产业工人发展研讨会，<strong>"云筑劳务"星级认证、平台化用工配置</strong>等实践成果引发关注，与会各方围绕AI时代建筑用工变革展开交流；海外闭门会则聚焦供应链国际化与工程物资出海。供需对接方面，超<strong>800家</strong>采方、供方及生态企业参会，<strong>60家采购单位现场发布超百亿元采购需求</strong>，企业对接超千次；云顶大会连续三届已累计促成千亿级供需对接，有效降低企业间交易成本。</div>
+      <div class="insight">💡 中建系正通过云筑平台把供应链"数据→信用→订单"全面打通，并以AI切入采购合规与物资管控——未来进入央企总包供应链体系，平台入驻、数据化履约、星级认证将成为隐形门槛。建议：①尽早完成云筑等主流建筑产业互联网平台的供应商入驻与信用积累，争取进入央企采购短名单；②关注"云筑劳务"星级认证与平台化用工，借平台缓解技工短缺、规范分包结算；③评估引入AI物资管控与采购合规工具，降低现场材料损耗与采购合规风险。</div>
+      <div class="source">来源：深圳晚报/读特《2026云顶大会落地深圳，建筑产业数字化盛会助力粤港澳大湾区智能建造与供应链升级》（<a href="http://m.toutiao.com/group/7683467757022741018/">m.toutiao.com</a>）</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="sources-list">
+      今日来源：住房城乡建设部 · 中国建设报 · 金融界 · 中国证券报/中国财富网 · 北京商报 · 深圳晚报 · 证券时报 · 证券之星 · 新浪财经 · 招标网 · 企查查
+    </div>
+    <div>海骊住居 · 行业日报 | 每个工作日早间推送</div>
+    <div>数据由 AI 自动抓取整理，仅供参考</div>
+  </div>
+
+</div>
+</body>
+</html>
