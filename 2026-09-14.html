@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-09-14</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.1);
+  }
+  .card-bar { height: 4px; width: 100%; }
+  .card-bar-policy { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .card-bar-compete { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .card-bar-trend { background: linear-gradient(90deg, #10b981, #34d399); }
+  .card-bar-oppo { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .card-bar-tech { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .card-bar-cost { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .card-bar-design { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .card-bar-labor { background: linear-gradient(90deg, #b45309, #d97706); }
+  .card-body { padding: 22px 24px 20px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-policy { background: #f59e0b; }
+  .num-compete { background: #3b82f6; }
+  .num-trend { background: #10b981; }
+  .num-oppo { background: #8b5cf6; }
+  .num-tech { background: #ec4899; }
+  .num-cost { background: #f97316; }
+  .num-design { background: #06b6d4; }
+  .num-labor { background: #b45309; }
+  .card-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tag-policy { background: #fef3c7; color: #92400e; }
+  .tag-compete { background: #dbeafe; color: #1e40af; }
+  .tag-trend { background: #d1fae5; color: #065f46; }
+  .tag-oppo { background: #ede9fe; color: #5b21b6; }
+  .tag-tech { background: #fce7f3; color: #9d174d; }
+  .tag-cost { background: #ffedd5; color: #9a3412; }
+  .tag-design { background: #cffafe; color: #155e75; }
+  .tag-labor { background: #fef3c7; color: #78350f; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 10px;
+  }
+  .card-text strong { color: #0f172a; font-weight: 700; }
+  .insight {
+    background: #f8fafc;
+    border-left: 3px solid #94a3b8;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin: 14px 0 10px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #475569;
+  }
+  .source {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+    word-break: break-all;
+  }
+  .source a { color: #64748b; text-decoration: none; }
+  .source a:hover { color: #3b82f6; }
+  .footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+  .footer .sources-list {
+    margin-bottom: 10px;
+    font-size: 11.5px;
+    color: #cbd5e1;
+  }
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .header { padding: 28px 22px; border-radius: 16px; }
+    .header h1 { font-size: 22px; }
+    .card-body { padding: 18px 18px 16px; }
+    .card-title { font-size: 16px; }
+    .card-text { font-size: 14px; }
+    .card-date { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>抓取日期：2026-09-14 星期一</span>
+    </div>
+  </div>
+
+  <!-- 卡片1：政策-装配式装修征求意见稿反馈截止 -->
+  <div class="card">
+    <div class="card-bar card-bar-policy"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-policy">1</span>
+        <span class="card-tag tag-policy">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-09-12</span>
+      </div>
+      <div class="card-title">住建部装配式装修指导意见征求意见明日截止：保租房/人才公寓全面采用，学校医院宾馆养老院鼓励采用，2030年应用比例显著提高</div>
+      <div class="card-text">住房城乡建设部办公厅此前就<strong>《关于促进装配式装修发展的指导意见（征求意见稿）》</strong>公开征求意见，社会各界反馈意见<strong>截止日期为2026年9月15日（明日）</strong>，正式文件出台进入倒计时。意见稿明确：到2030年装配式装修应用比例显著提高，形成完善的标准体系、技术体系、产业体系、监管体系和人才体系。</div>
+      <div class="card-text">推广重点分三类：一是<strong>政府投资的保障性租赁住房、人才公寓、宿舍等租赁型房屋全面采用装配式装修</strong>，鼓励学校、医院、办公楼、宾馆、养老院等公共建筑采用；二是结合"好房子"建设，遴选一批全装修交付商品住房开展装配式装修试点；三是引导在城镇老旧小区改造、老旧住房自主更新中应用，支持居民开展旧房装修、厨卫局部改造和适老化改造。同时将健全设计、生产、施工、验收、运维标准，编制医院病房、学校宿舍、宾馆、养老院、住宅厨卫改造等重点场景尺寸指南。深圳等地已先行：保障房户内装修不符合装配式监管协议要求每套罚款2万元，标杆项目装配式装修工期仅为传统装修约30%。</div>
+      <div class="insight">💡 明日（9/15）征求意见窗口关闭，正式稿大概率年内落地，这是装配式装修从"鼓励"走向"强制应用场景清单"的分水岭。对海骊的直接影响：①保租房、人才公寓、宿舍将全面要求干法装配式装修，批量精装业务的投标技术门槛实质抬高，需尽快补齐装配式部品供应链与干法施工业绩；②学校、医院、宾馆、养老院被点名鼓励，恰好与海骊转型的学校、酒店、康养、公建赛道高度重合，是政策确定性最强的切入口；③可利用最后一天通过行业协会渠道反馈意见（如部品标准化、造价定额、验收依据等诉求），争取正式稿有利表述。</div>
+      <div class="source">来源：搜狐《深圳又跑在全国前面！住建部拟推装配式装修，这三类房子全面采用》（<a href="https://m.sohu.com/a/1075285394_355768/">m.sohu.com</a>）；住房城乡建设部办公厅《关于促进装配式装修发展的指导意见（征求意见稿）》</div>
+    </div>
+  </div>
+
+  <!-- 卡片2：政策/劳务供应链-国办24号文回款治理 -->
+  <div class="card">
+    <div class="card-bar card-bar-labor"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-labor">2</span>
+        <span class="card-tag tag-labor">劳务供应链</span>
+        <span class="card-date">📅 来源发布 2026-09-11</span>
+      </div>
+      <div class="card-title">国办印发24号文铁腕治理回款难：大企业对中小企业60日内现金付款，电子凭证最长压至6个月，央企对中小企业全部现金支付；9月14日五部门联合吹风</div>
+      <div class="card-text">9月10日，<strong>国务院办公厅印发《关于加强中小企业回款难问题治理有关工作的通知》（国办发〔2026〕24号）</strong>；9月14日下午，工信部副部长会同央行、国务院国资委、市场监管总局、证监会负责人在国新办联合吹风，五部门为一个"回款"问题集体站台，规格罕见。</div>
+      <div class="card-text">核心硬措施包括：①引导大型企业将对中小企业最长付款期限限制在<strong>60日内</strong>，并带头承诺"自货物、工程、服务交付之日起60日内以现金方式支付"；②<strong>电子凭证最长付款期限压减至6个月</strong>，平台不得新开超期凭证，银行和商业保理公司不得为超期凭证融资，经营数据全量接入上海票交所跨机构监测；③<strong>中央企业对中小企业全部采用现金支付</strong>，政府采购项目全额现金支付，政府投资项目推动总包向分包及时支付不低于同等比例现金；④合同未约定支付方式的一律使用现金，禁止以商票、电子凭证替代；⑤对故意拉长账期的大型企业联合约谈，拒不改正的在"信用中国"公示并失信惩戒；同时要求政府投资项目加快已竣工未结算项目决算付款，<strong>带动总包向分包付款、促进农民工工资支付</strong>。</div>
+      <div class="insight">💡 这是装饰分包行业近年最直接的现金流利好——建筑装饰正是"背靠背条款+长账期+商票凭证"拖欠的重灾区。建议：①逐条对照24号文梳理在手合同，对约定"背靠背"付款、超60天账期、强制接收电子凭证的条款，在后续签约/补充协议中据法调整；②对央企、政府投资项目业主，可主动援引"央企全部现金支付、60日承诺"主张回款，并关注其应付账款披露与约谈名单形成的压力窗口；③对下游劳务班组和材料商也要同步做好现金支付安排，避免上游回款改善后仍被追溯为"故意拉长账期"的责任主体；④把结算资料、验收确认节点做扎实，防止业主以"未验收/未决算"拖延起算时间。</div>
+      <div class="source">来源：证券时报电子报《国务院办公厅印发〈关于加强中小企业回款难问题治理有关工作的通知〉》（<a href="http://epaper.stcn.com/con/202609/11/content_2974418.html">epaper.stcn.com</a>）；搜狐全文转载（<a href="https://m.sohu.com/a/1074871032_121106994/">m.sohu.com</a>）；国新办9月14日国务院政策例行吹风会</div>
+    </div>
+  </div>
+
+  <!-- 卡片3：竞品-金螳螂/德才/亚厦动态 -->
+  <div class="card">
+    <div class="card-bar card-bar-compete"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-compete">3</span>
+        <span class="card-tag tag-compete">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-09-12</span>
+      </div>
+      <div class="card-title">金螳螂连中南京金融城80层超高层等项目、上半年应收账款104.9亿同比降18.9%；德才以特别支持单位亮相中国民族建筑研究会年会，加码古建文旅城市更新</div>
+      <div class="card-text">本周三家重点竞品动作密集。<strong>金螳螂（002081）</strong>：9月12日新增中标<strong>南京金融城东区C1楼80层商务会议及配套用房装修工程二标段</strong>，同期进入中交地产上海城市公司2026-2027年度精装施工图设计战略、二十二冶襄湖文旅商融合改造EPC装饰二标段候选人序列，9月11日获"轻质化复合石材装配式吊顶"实用新型专利；公司在互动平台披露，<strong>上半年应收账款104.9亿元、同比下降18.86%</strong>（一季度同比降19.52%），并称已按风险等级足额计提坏账。股价方面，9月11日收报4.79元、跌4.58%，主力净流出5263万元，前期题材炒作持续降温，公司明确澄清<strong>无商业航天及数据中心核心业务</strong>。</div>
+      <div class="card-text"><strong>德才股份（605287）</strong>：9月12日作为特别支持单位参与在长春举办的<strong>第二十五届中国民族建筑研究会学术年会</strong>，董事长叶德才分享BIM、三维扫描、新材料加固在古建修缮中的应用，披露其在青岛参与92条历史文化街巷设计施工、主编历史建筑修缮技术规程，青岛四方路历史文化街区项目入选住建部第二批城市更新典型案例；公司同时推进2026年股票期权与限制性股票激励计划（拟授予140万股），新中标深铁公明车辆段幕墙工程等深圳项目。<strong>亚厦股份（002375）</strong>：本周股价微跌1.04%、主力资金净流入约439.5万元，进入金华信息经济产业园二期酒店精装厨房油烟系统中标候选人公示，但9月15-18日有多起买卖、劳务及分包合同纠纷开庭。</div>
+      <div class="insight">💡 竞品两条主线值得对标：①金螳螂在股价退潮期反而连续释放超高层、文旅EPC、设计战略中标信号，并主动披露应收账款下降近19%——行业龙头正把"订单质量+回款改善"作为穿越下行周期的核心叙事，与国办24号文方向一致；超高层精装修、装配式吊顶专利等动作也印证公建与装配式是其发力重点。②德才把古建文旅、历史街区数字化修缮做成差异化标签并绑定国家级行业平台，城市更新"专精化"打法清晰。海骊可对照：在公建/城市更新投标中强化BIM+三维扫描、历史建筑修缮等技术标签；同时把应收账款管控成效纳入经营披露与业主沟通，抓住回款政策窗口主动压降存量欠款。</div>
+      <div class="source">来源：企查查·苏州金螳螂建筑装饰股份有限公司招投标与知识产权动态（<a href="https://www.qcc.com/cassets/c4877d95e9a22f9b320a1934f3f576b1.html">qcc.com</a>）；东方财富财富号《金螳螂：截至上半年应收账款104.9亿元 同比下降18.86%》（<a href="https://caifuhao.eastmoney.com/news/20260913144717891333870">eastmoney.com</a>）；证券之星金螳螂9月11日资金流向；头条《德才股份出席2026第二十五届中国民族建筑研究会学术年会》（<a href="http://m.toutiao.com/group/7684576816954212883/">m.toutiao.com</a>）；证券之星·亚厦股份相关新闻（<a href="https://news.stockstar.com/info/dstock_002375_p1.shtml">stockstar.com</a>）</div>
+    </div>
+  </div>
+
+  <!-- 卡片4：机遇-广州萧岗城中村EPC -->
+  <div class="card">
+    <div class="card-bar card-bar-oppo"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-oppo">4</span>
+        <span class="card-tag tag-oppo">战略机遇</span>
+        <span class="card-date">📅 来源发布 2026-09-12</span>
+      </div>
+      <div class="card-title">中交四航局7.9亿中标广州白云萧岗村城中村改造EPC：5栋48层149.8米安置房、总建筑面积15.36万㎡，含河涌迁改与公共配套</div>
+      <div class="card-text">广州白云区重点民生工程——<strong>萧岗村城中村改造项目第一片区二期AB2803044安置地块勘察设计施工总承包（EPC）</strong>近日公布中标结果，由<strong>中交第四航务工程局</strong>以约<strong>7.9亿元</strong>中标。项目位于白云区云城街道核心地段（金岭南街以北、机场高速以东、齐富二横路以西），总用地面积28399.05㎡，可建设用地18166.44㎡，绿地4421.86㎡，河涌用地5810.75㎡，<strong>总建筑面积153563.4㎡</strong>。</div>
+      <div class="card-text">建设内容包括<strong>5栋安置房、3层地下车库，最高建筑48层、149.8米</strong>，配套物业用房、托儿所、公共厕所等设施，并同步实施萧岗北涌迁改（河道由400米延长至480米，堤防级别四级）及生态风貌升级。项目定位为集居住改善、公共配套、生态治理于一体的城中村更新标杆，将显著加快萧岗片区城市更新步伐。同期湖北、扬州等地也有多个老旧小区更新EPC/EPC+O项目开标，城中村改造安置+配套打包EPC模式持续放量。</div>
+      <div class="insight">💡 一线城市核心区城中村改造正在以"安置房+公共配套+河涌生态"大体量EPC包形式密集释放，超高层安置、精装交付、适老托幼配套都是装饰企业可切入的专业内容。建议：①EPC总包虽由央企（中交、中建等）拿走，但装饰、批量精装、装配式内装多以专业分包进入，应提前进入中交四航局等中标总包的合格分包库，跟踪其萧岗及广州城更项目的精装分包招采；②150米级安置房+3层地库意味着公区精装、批量住宅精装、托儿所/物业等配套装修需求集中，可形成"住宅批量精装+公建配套"组合报价；③同步关注广州、深圳模块化/装配式装修强制比例政策，争取以装配式内装方案嵌入城更项目，形成差异化进入路径。</div>
+      <div class="source">来源：今日头条《7.9亿！中交四航局中标广州城中村改造大项目》（<a href="http://m.toutiao.com/group/7684663876755685903/">m.toutiao.com</a>）；千里马招标网湖北工程总承包中标结果（<a href="https://wap.qianlima.com/gjxx/506755/index_12_3.html">qianlima.com</a>）</div>
+    </div>
+  </div>
+
+  <!-- 卡片5：趋势-AI+建筑经济日报 -->
+  <div class="card">
+    <div class="card-bar card-bar-trend"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-trend">5</span>
+        <span class="card-tag tag-trend">市场趋势</span>
+        <span class="card-date">📅 来源发布 2026-09-13</span>
+      </div>
+      <div class="card-title">经济日报聚焦"AI+建筑"：投标方案编制缩至60分钟、效率提升75%，行业从点状工具迈向多智能体协同全流程贯通</div>
+      <div class="card-text">经济日报9月13日报道，地产建筑业AI应用正进入规模化落地期。中国建筑国际集团信息化管理部介绍，从撰写工程投标方案、生成精准参数设计方案，到识别安全隐患、协助工程管理、查验合规细节，<strong>目前每份投标方案平均编制时间缩短至60分钟、整体效率提升75%</strong>，累计沉淀高质量方案数据库超4000份；贝壳旗下贝好家等企业也在前端开发环节深度应用AI。</div>
+      <div class="card-text">业内专家判断，行业AI应用正从图纸比对、安全巡检等<strong>点状工具化应用，迈向全流程数据贯通、多智能体协同联动的生态化阶段</strong>——打通设计、建造、供应链、营销、运维数据壁垒，实现降本增效并构建差异化优势。绿色低碳成为重要增量赛道：中国建筑兴业依托Volta AI能源大模型精准预测光伏发电量与建筑用电负荷、动态优化光储充运行，<strong>项目整体用电成本降低10%</strong>；专家预计传统耗时数月的建筑与城市规划设计工作，在AI赋能下有望缩短至数小时完成。上海易居研究院严跃进指出，地产新模式核心是投资决策精准化、工程管理智能化、客户服务个性化、营销渠道多元化、风险管控精细化。</div>
+      <div class="insight">💡 AI在装饰行业的竞争已从"尝鲜演示"进入"效率与数据资产"比拼：投标方案60分钟、4000份方案库意味着龙头企业的投标响应速度和知识复用能力正在拉开代差。对海骊的建议：①优先在投标方案生成、图纸深化、工程量算量、安全巡检四个投入产出最快的场景试点AI工具，先把方案编制与投标效率提上来；②关键不是买工具，而是沉淀企业自有的方案库、节点库、供应商与价格数据库——数据资产才是多智能体协同的壁垒；③关注AI在供应链比价、合同回款节点预警中的应用，与国办24号文回款治理结合，做一套"账期-合同-验收"智能预警；④光储充+AI节能可作为酒店、学校、康养类EPC项目的增值卖点。</div>
+      <div class="source">来源：经济日报《"AI+建筑"驱动房地产谋新求变》（<a href="http://m.toutiao.com/group/7684785268498399779/">m.toutiao.com</a>）</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="sources-list">
+      今日来源：住房城乡建设部 · 国务院办公厅/证券时报 · 国新办 · 企查查 · 东方财富 · 证券之星 · 经济日报 · 搜狐 · 今日头条 · 千里马招标网
+    </div>
+    <div>海骊住居 · 行业日报 | 每个工作日早间推送</div>
+    <div>数据由 AI 自动抓取整理，仅供参考</div>
+  </div>
+
+</div>
+</body>
+</html>
