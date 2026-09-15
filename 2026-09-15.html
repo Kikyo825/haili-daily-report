@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海骊住居 · 行业日报 2026-09-15</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    min-height: 100vh;
+    padding: 32px 20px;
+  }
+  .container { max-width: 760px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 60%, #8b5cf6 100%);
+    border-radius: 20px;
+    padding: 36px 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; right: -20%;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -10%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(4px);
+    border-radius: 6px;
+    padding: 4px 14px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .header .date-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+  }
+  .header .date-row .dot {
+    width: 7px; height: 7px;
+    background: #34d399;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(52, 211, 153, 0.6);
+  }
+  .card {
+    background: #ffffff;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.1);
+  }
+  .card-bar { height: 4px; width: 100%; }
+  .card-bar-policy { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+  .card-bar-compete { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+  .card-bar-trend { background: linear-gradient(90deg, #10b981, #34d399); }
+  .card-bar-oppo { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .card-bar-tech { background: linear-gradient(90deg, #ec4899, #f472b6); }
+  .card-bar-cost { background: linear-gradient(90deg, #f97316, #fb923c); }
+  .card-bar-design { background: linear-gradient(90deg, #06b6d4, #22d3ee); }
+  .card-bar-labor { background: linear-gradient(90deg, #b45309, #d97706); }
+  .card-body { padding: 22px 24px 20px; }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .card-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .num-policy { background: #f59e0b; }
+  .num-compete { background: #3b82f6; }
+  .num-trend { background: #10b981; }
+  .num-oppo { background: #8b5cf6; }
+  .num-tech { background: #ec4899; }
+  .num-cost { background: #f97316; }
+  .num-design { background: #06b6d4; }
+  .num-labor { background: #b45309; }
+  .card-tag {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tag-policy { background: #fef3c7; color: #92400e; }
+  .tag-compete { background: #dbeafe; color: #1e40af; }
+  .tag-trend { background: #d1fae5; color: #065f46; }
+  .tag-oppo { background: #ede9fe; color: #5b21b6; }
+  .tag-tech { background: #fce7f3; color: #9d174d; }
+  .tag-cost { background: #ffedd5; color: #9a3412; }
+  .tag-design { background: #cffafe; color: #155e75; }
+  .tag-labor { background: #fef3c7; color: #78350f; }
+  .card-date {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: auto;
+  }
+  .card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  .card-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 10px;
+  }
+  .card-text strong { color: #0f172a; font-weight: 700; }
+  .insight {
+    background: #f8fafc;
+    border-left: 3px solid #94a3b8;
+    border-radius: 0 10px 10px 0;
+    padding: 12px 16px;
+    margin: 14px 0 10px;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #475569;
+  }
+  .source {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+    word-break: break-all;
+  }
+  .source a { color: #64748b; text-decoration: none; }
+  .source a:hover { color: #3b82f6; }
+  .footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 12px;
+    color: #94a3b8;
+    line-height: 1.8;
+  }
+  .footer .sources-list {
+    margin-bottom: 10px;
+    font-size: 11.5px;
+    color: #cbd5e1;
+  }
+  @media (max-width: 600px) {
+    body { padding: 16px 12px; }
+    .header { padding: 28px 22px; border-radius: 16px; }
+    .header h1 { font-size: 22px; }
+    .card-body { padding: 18px 18px 16px; }
+    .card-title { font-size: 16px; }
+    .card-text { font-size: 14px; }
+    .card-date { margin-left: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-tag">DAILY BRIEFING</div>
+    <h1>海骊住居 · 行业日报</h1>
+    <div class="date-row">
+      <span class="dot"></span>
+      <span>抓取日期：2026-09-15 星期二</span>
+    </div>
+  </div>
+
+  <!-- 卡片1：政策-8部门促进智能家居消费行动方案 -->
+  <div class="card">
+    <div class="card-bar card-bar-policy"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-policy">1</span>
+        <span class="card-tag tag-policy">政策风向</span>
+        <span class="card-date">📅 来源发布 2026-09-15</span>
+      </div>
+      <div class="card-title">8部门印发《促进智能家居消费行动方案》：新建全装修住宅须明确户内基本智能产品要求、鼓励光纤到房间，统筹支持全屋智能购新，单列适老化智能家居</div>
+      <div class="card-text">近日，<strong>商务部、住房城乡建设部等8部门联合印发《促进智能家居消费行动方案》</strong>，从供给、标准、消费、适老、回收、社区、金融七方面发力。标准端最受装修端关注：<strong>对新建全装修住宅，明确户内设置基本智能产品要求，鼓励光纤到房间布设</strong>；加快制定智能家居互联互通强制性国家标准，推动全屋智能一体化融合，并持续开展智慧家庭、智慧社区标准研制。</div>
+      <div class="card-text">消费端按<strong>2026年消费品以旧换新政策</strong>部署，支持地方自主合理确定智能家居补贴品类和标准，<strong>统筹支持全屋智能家居购新</strong>，用好个人消费贷款财政贴息；供给端支持卖场设全屋智能、数字家庭样板间，加快培育大型家装企业、推出定制式/订单式装修套餐；并<strong>单列"发展适老化智能家居"</strong>，推广健康监测、智能照护、家庭服务机器人，推行适老化设计、开展银发产品认证；同时畅通废旧家居回收、依托一刻钟便民生活圈设家居焕新服务站。</div>
+      <div class="insight">💡 这份方案把"智能标配"直接写进了新建全装修住宅的要求，叠加以旧换新补贴和贴息，是批量精装业务的一次产品升级窗口：①海骊主营批量精装，应尽快把户内智能面板、智能门锁、传感网关、光纤到房间等做成标准化交付配置，形成"精装+全屋智能"一体化报价，抢占地产商全装修升级的采买单；②互联互通强制性国标临近，选型要优先兼容主流开源操作系统/跨品牌协议，避免被单一品牌生态绑定；③康养、适老化是公司转型方向且方案单列支持，健康监测、智能照护可作为康养/医养项目的差异化卖点并争取银发产品认证；④可关注地方全屋智能购新补贴细则，联合家居卖场样板间、焕新服务站承接存量局改与智能家居加装订单。</div>
+      <div class="source">来源：中国建设报《8部门印发〈促进智能家居消费行动方案〉》（<a href="http://m.toutiao.com/group/7685570019329147432/">m.toutiao.com</a>）；商务部、住房城乡建设部等8部门《促进智能家居消费行动方案》</div>
+    </div>
+  </div>
+
+  <!-- 卡片2：竞品-装饰百强破局之年深度盘点 -->
+  <div class="card">
+    <div class="card-bar card-bar-compete"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-compete">2</span>
+        <span class="card-tag tag-compete">竞品动向</span>
+        <span class="card-date">📅 来源发布 2026-09-14</span>
+      </div>
+      <div class="card-title">装饰行业"百强破局"路线图：金螳螂境外收入逆势增24%、德才城市更新占新签78%、亚厦营收降25%净利反增9%，出海/存量/现金流成分水岭</div>
+      <div class="card-text">9月14日行业深度盘点梳理了头部装饰企业近一年年报与中标记录，总结出寒冬第四年的几条求生主线。<strong>出海</strong>：江河集团2025年海外中标约98.7亿元、同比增30%，其中幕墙海外订单68.8亿元暴增84%，拿下吉达塔约20.12亿元幕墙合同，年末在手订单376亿元、海外占153亿元（41%）；<strong>金螳螂2025年营收173.06亿元、同比降5.58%，但境外营收14.99亿元逆势增长23.98%、海外产值增长约47%</strong>，形成以新加坡为中心辐射东南亚、中东、非洲的布局。</div>
+      <div class="card-text"><strong>向存量要饭吃</strong>：<strong>德才股份2025年营收35.07亿元、归母净利6994万元成功扭亏，城市更新类约16.25亿元+城市配套类约18亿元，合计占全年新签78.15%</strong>，并中标厦门轨交3号线机电实现省外轨交突破。<strong>练内功</strong>：<strong>亚厦股份2025年营收91.18亿元、同比降24.87%，净利却增长9%至3.30亿元</strong>——靠装配式装修让现场工序减少70%、施工提速50%，以及数字化管到每个劳务班组（派工、验收、绩效、工资日结全流程线上化）；江河集团宣示"杜绝垫资工程"，2025年经营现金流净额15.45亿元、分红比例92.8%。广田则靠深圳国资入场重整、切割恒大单一大客户，2025年前三季度营收同比激增255.97%。</div>
+      <div class="insight">💡 这组数据把"活得好"的标准说得很直白——海外产值、存量订单、正向现金流，三者占其一就能过冬，对海骊有三条直接对标：①金螳螂在总营收下滑时境外收入高增，说明出海（尤其东南亚、中东公建/酒店精装）已是龙头对冲国内下行的第二曲线，海骊可借EPC与酒店赛道资源评估跟随出海或借船出海的可能；②德才78%新签押注城市更新+城市配套并扭亏，验证了海骊向公建、城市更新、存量改造转型的方向正确，关键是做深本地资质与全产业链能力；③亚厦"营收降25%、净利反增9%"最值得学——装配式减工序70%+劳务班组数字化日清，是在订单收缩期靠工业化和管理提利润，而非靠规模，应作为公司降本增效与组织变革的重点参照。</div>
+      <div class="source">来源：搜狐·老毛论工道《看看装饰百强企业面对困境是如何破局的？》（<a href="https://m.sohu.com/a/1075741373_122951318/">m.sohu.com</a>）；数据引自江河集团、金螳螂、德才股份、亚厦股份2025年年报及公开中标记录</div>
+    </div>
+  </div>
+
+  <!-- 卡片3：趋势-洁净室赛道高景气（本周首条洁净室） -->
+  <div class="card">
+    <div class="card-bar card-bar-trend"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-trend">3</span>
+        <span class="card-tag tag-trend">市场趋势</span>
+        <span class="card-date">📅 来源发布 2026-09-14</span>
+      </div>
+      <div class="card-title">AI芯片资本开支引爆洁净室：韩国六大洁净室商上半年营收最高增52%、Exa E&C营业利润暴增469%；国内中电系半导体洁净厂房项目密集招标</div>
+      <div class="card-text">韩国媒体THE ELEC 9月14日对比六家半导体洁净室上市企业上半年业绩：AI驱动芯片资本开支，行业全面高景气。<strong>SEBO MEC上半年营收约5357.7亿韩元、同比大增51.88%</strong>，营业利润增70.15%；Shinsung E&G营收增38.72%、扭亏为盈，其FFU风机过滤单元占韩国约60%份额；<strong>Exa E&C营收增36.17%、营业利润约170.9亿韩元、同比暴增约469%</strong>；Hanyang ENG营收增24.51%、营业利润增59.10%。企业普遍表示半导体厂房建设自今年一季度起重回增长通道，P5等新项目将延续放量。</div>
+      <div class="card-text">国内同样项目密集。近一周中国电子系统工程第四建设、第二建设等洁净工程总包的招采密集落地：<strong>武汉奕斯伟洁净工程A标段、上海盛美半导体厂房B机电装修、包头国晶半导体厂房建设总承包、南昌兆驰扩产主系统及二次配、合肥T2洁净包、上海HS二阶段无尘室系统</strong>等相继发布不锈钢管件、空调通风、FFU龙骨、机电装修成交公告；马来西亚Kelington更在印度古吉拉特邦拿下约<strong>4.52亿美元（约18.3亿林吉特）晶圆厂设备Hook-up总包</strong>，覆盖最多886台设备、工期30个月。Shinsung同时指出，制程微缩下AMC分子污染控制与超精密湿度控制正推高单位面积洁净室造价。</div>
+      <div class="insight">💡 这是海骊重点转型的洁净室赛道最直接的景气验证，且本周此前未报洁净室内容：①需求端由AI芯片/先进制程驱动，具备多年持续性而非短期题材，国内中电系、晶圆厂洁净厂房机电装修与无尘室系统包正密集释放，应抓紧进入中电二/四公司等总包的专业分包与洁净板、风管、机电安装合格供方库；②价值量在升级——AMC防控、超精密湿控、超高纯管线等高技术环节推高单方造价，单纯做隔墙吊顶利润有限，应向洁净围护系统、机电安装、二次配等高附加值环节延伸；③可关注Exa E&C"钢石膏板（SGP）洁净墙板+内饰施工"一体化模式，与装配式装修能力结合，形成工厂预制洁净围护部品的差异化打法。</div>
+      <div class="source">来源：THE ELEC《Samsung, SK-Backed Cleanroom Firms See Earnings Boost From Chip Investment》（<a href="https://www.thelec.net/news/articleView.html?idxno=13902">thelec.net</a>）；Business Today《Kelington Secures RM1.8 Billion Turn-Key Contract For Semicon Wafer Fab In India》（<a href="https://www.businesstoday.com.my/2026/09/14/kelington-secures-rm1-8-billion-turn-key-contract-for-semicon-wafer-fab-in-india/">businesstoday.com.my</a>）；采招网中国电子系统工程第二/第四建设有限公司中标结果（<a href="https://www.bidcenter.com.cn/newssearchyz-37688252-4.html">bidcenter.com.cn</a>）</div>
+    </div>
+  </div>
+
+  <!-- 卡片4：机遇-县域医共体医院改造精装EPC -->
+  <div class="card">
+    <div class="card-bar card-bar-oppo"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-oppo">4</span>
+        <span class="card-tag tag-oppo">战略机遇</span>
+        <span class="card-date">📅 来源发布 2026-09-14</span>
+      </div>
+      <div class="card-title">县域医共体"医院+康养"改造精装EPC密集落地：日照岚山医共体共享中心精装EPC合同2558万元，十堰郧阳中医医院医养结合EPC总投资4294万元、改造9272㎡设199张床位</div>
+      <div class="card-text">医疗康养存量改造以精装修EPC形式持续放量。<strong>日照市岚山区人民医院紧密型县域医共体资源共享中心和中心药房改造装修项目EPC</strong>9月14日发布合同公告，由<strong>中建八局发展建设与日照市建筑设计研究院联合体</strong>中标，合同金额<strong>2557.95万元</strong>，承包范围明确包含<strong>精装修设计、设备材料采购、工程施工、竣工检测及保修</strong>及全过程总承包管理。</div>
+      <div class="card-text">湖北十堰<strong>郧阳区医共体中医医院医养结合能力建设项目（EPC）</strong>9月4日定标、本周进入实施，<strong>总投资4294.52万元</strong>，改建原敬业楼、原医养中心两处存量建筑，<strong>总改造面积9272.18㎡、规划养老床位199张</strong>，配套养老信息化系统、专业康复设备、新增医用电梯及室外康复场地，接入区级远程会诊、影像、AI辅助诊疗平台，实现"养老不离医"，直接服务郧阳50余万居民。同期吉林长白山温泉康养度假区、黄石医养结合养老示范项目怡康楼装饰装修等医养康养装饰项目也在密集招采。</div>
+      <div class="insight">💡 这正是海骊转型康养、EPC赛道里确定性高、可批量复制的切口：①县域医共体建设带来一波"既有医院/卫生院改造+共享中心+中心药房+医养床位"的精装修EPC订单，单体多在数千万、由央企/地方设计院联合体牵头，装饰专业可作为精装分包或参与联合体切入；②改造类项目重存量建筑适老化、医用电梯、康复场地、信息化系统集成，门槛比新建三甲医院低、回款依托财政与公立医院相对稳，适合快速积累医养结合业绩；③建议以"精装设计+医养部品+适老化施工"打包方案跟踪本地及山东、湖北、吉林等放量区域，绑定中建八局等中标总包和地方医养集团（如鄂东医养），并把健康监测、智能照护等适老智能配置结合最新智能家居政策做成增值包。</div>
+      <div class="source">来源：日照市公共资源交易中心《岚山区人民医院紧密型县域医共体资源共享中心和中心药房改造装修项目EPC合同公告》（<a href="http://ggzyjy.rizhao.gov.cn/rzwz/jyxx/004001/004001006/20260914/24f9f18e-53d8-4613-b646-e4c05dd357bf.html">ggzyjy.rizhao.gov.cn</a>）；今日头条·堰之凿凿《总投资4294万元，十堰这家公立医院将改造》（<a href="http://m.toutiao.com/group/7684171688708882987/">m.toutiao.com</a>）；千里马招标网吉林康养中标结果</div>
+    </div>
+  </div>
+
+  <!-- 卡片5：成本-海螺招采平台降本+水泥连涨 -->
+  <div class="card">
+    <div class="card-bar card-bar-cost"></div>
+    <div class="card-body">
+      <div class="card-head">
+        <span class="card-num num-cost">5</span>
+        <span class="card-tag tag-cost">成本动态</span>
+        <span class="card-date">📅 来源发布 2026-09-14</span>
+      </div>
+      <div class="card-title">海螺集团统一招采平台上线半年降本超亿元；全国水泥价格指数连续4日上涨、湖南启动第三轮推涨30-40元/吨，金九建材成本继续抬升</div>
+      <div class="card-text">管理降本端出现标杆样本：<strong>海螺集团统一招采平台上线半年，整合6套系统、实现全覆盖监管，累计降本超1亿元</strong>，被视为大型集团招采规范化、智能化、可复制的样本——通过统一入口、集中采购、全流程线上监管压缩中间环节与寻租空间，用数字化手段系统性降低采购成本。</div>
+      <div class="card-text">材料价格端延续"金九"上行。中国水泥网数据显示，<strong>全国水泥价格指数自9月8日起连续4个交易日上涨</strong>，截至9月11日报284.52点、4日累计上涨5.41点；<strong>湖南主导企业自9月11日启动第三轮推涨、幅度30-40元/吨</strong>，河南亦尝试第三轮推涨10-20元/吨，西南云南P.O42.5散装报价已达499-538元/吨。百年建筑网9月14日监测显示，成都混凝土受水泥涨价30元/吨带动上调10元/方（C30均价365元/方），襄阳、十堰等地水泥、混凝土同步上涨，嘉兴/金华粉煤灰涨10元/吨；但长三角、两湖两广受需求疲软制约，部分区域涨价落地乏力、推涨传导受阻。</div>
+      <div class="insight">💡 成本端"一升一降"给海骊两条动作线：①价格升——水泥、商混、粉煤灰在金九旺季与煤炭成本推动下区域普涨，虽传导不均，但对在建/待开工项目应抓紧锁定水泥、商混、砂浆等主材采购价与供应协议，投标报价充分预估材料上涨并约定调价条款，避免低价中标后被成本反噬；②成本降——海螺招采平台半年降本过亿证明"统一招采+数字化比价+全流程监管"是集团型企业最确定的降本来源，与国办24号文现金支付、阳光采购方向一致，海骊可对标升级自有招采平台，整合分散系统、统一供应商准入与比价、强化线上合同与付款监管，既降采购成本又防供应链合规风险。</div>
+      <div class="source">来源：中国水泥网/水泥搜《9.15水泥早报：水泥价格连续4日上涨；湖南水泥第三轮涨价；海螺集团招采平台降本超亿元》（<a href="https://www.ccement.com/news/search/keyword/%E5%9C%B0%E5%8C%BA%E5%B8%82%E5%9C%BA/">ccement.com</a>）；百年建筑网日报《金华粉煤灰上涨10元/吨》《成都混凝土成本波动10元/方》（<a href="https://www.100njz.com/article/p-5068-------------1.html">100njz.com</a>）</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="sources-list">
+      今日来源：商务部/住建部等8部门 · 中国建设报 · 搜狐财经 · THE ELEC · Business Today · 采招网 · 日照市公共资源交易中心 · 今日头条 · 千里马招标网 · 中国水泥网 · 百年建筑网
+    </div>
+    <div>海骊住居 · 行业日报 | 每个工作日早间推送</div>
+    <div>数据由 AI 自动抓取整理，仅供参考</div>
+  </div>
+
+</div>
+</body>
+</html>
